@@ -1,0 +1,2332 @@
+[
+  {
+    "id": "paddy",
+    "name_en": "Paddy (rice), 3.5 month",
+    "name_si": "වී (මාස 3 1/2)",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Poaceae",
+    "type": "cereal",
+    "n_fixing": 0,
+    "cycle_days": 110,
+    "sow_offset_days": 14,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          800,
+          1500
+        ],
+        "tolerable": [
+          600,
+          2000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 3,
+      "drainage": [
+        "moderate",
+        "poor"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 0,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "stem borer",
+      "blast",
+      "planthopper",
+      "gall midge"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [
+      "At 362, the most popular variety: 110 days. https://doa.gov.lk/rrdi_rice_at362/ (Department of Agriculture)"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V1",
+        "source": "At 362, the most popular variety: 110 days. https://doa.gov.lk/rrdi_rice_at362/ (Department of Agriculture)",
+        "note": "Reused from pipeline/crops_data.json. "
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Needs standing water; mostly tank or canal fed. Range is rain only, extra water comes from the tank. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "paddy_short",
+    "name_en": "Paddy (rice), 3 month",
+    "name_si": "වී (මාස 3)",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Poaceae",
+    "type": "cereal",
+    "n_fixing": 0,
+    "cycle_days": 93,
+    "sow_offset_days": 14,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          700,
+          1300
+        ],
+        "tolerable": [
+          500,
+          1800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 3,
+      "drainage": [
+        "moderate",
+        "poor"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 1,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "stem borer",
+      "blast",
+      "planthopper",
+      "gall midge"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [
+      "Bg 300: 93 days. https://doa.gov.lk/rrdi_rice_bg300/ (Department of Agriculture). Bg 360 is 103-106 days: https://doa.gov.lk/rrdi_rice_bg360/"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V1",
+        "source": "Bg 300: 93 days. https://doa.gov.lk/rrdi_rice_bg300/ (Department of Agriculture). Bg 360 is 103-106 days: https://doa.gov.lk/rrdi_rice_bg360/",
+        "note": "Reused from pipeline/crops_data.json. "
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Short-duration paddy for years with less tank water (see bethma advice elsewhere in the app). Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "mung_bean",
+    "name_en": "Mung bean",
+    "name_si": "මුං ඇට",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 60,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          350,
+          600
+        ],
+        "tolerable": [
+          250,
+          800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          25,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 2,
+      "income": 1,
+      "organic_matter": 2
+    },
+    "pests": [
+      "pod borer",
+      "yellow mosaic virus",
+      "aphids"
+    ],
+    "companions": [
+      "maize"
+    ],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture Sinhala mung bean page gives 55-60, 60-65 and 50-65 days in different places; 60 is the middle. https://doa.gov.lk/field-crops-mungbean-si/"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture Sinhala mung bean page gives 55-60, 60-65 and 50-65 days in different places; 60 is the middle. https://doa.gov.lk/field-crops-mungbean-si/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Short cycle, fits a gap between paddy seasons. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "cowpea",
+    "name_en": "Cowpea",
+    "name_si": "කව්පි",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 75,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          400,
+          700
+        ],
+        "tolerable": [
+          300,
+          900
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          25,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 2,
+      "drought": 2,
+      "income": 1,
+      "organic_matter": 2
+    },
+    "pests": [
+      "pod borer",
+      "aphids",
+      "leaf spot"
+    ],
+    "companions": [
+      "maize"
+    ],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture: 75-90 days after planting (Kilinochchi RARDC crops page https://doa.gov.lk/fcrdi-rardckilinochchi-crops/); 55-70 days for some varieties (https://doa.gov.lk/field-crops-cowpea-si/). 75 is a middle choice."
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture: 75-90 days after planting (Kilinochchi RARDC crops page https://doa.gov.lk/fcrdi-rardckilinochchi-crops/); 55-70 days for some varieties (https://doa.gov.lk/field-crops-cowpea-si/). 75 is a middle choice.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Spreads along the ground and covers the soil. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "black_gram",
+    "name_en": "Black gram",
+    "name_si": "උඳු",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 80,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          350,
+          600
+        ],
+        "tolerable": [
+          250,
+          800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          25,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 2,
+      "income": 1,
+      "organic_matter": 2
+    },
+    "pests": [
+      "pod borer",
+      "yellow mosaic virus",
+      "aphids"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture Sinhala black gram pages: 75-80 days in general, 85-90 days for MI 01 and MI BG 3. https://doa.gov.lk/field-crops-blackgram-si/"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture Sinhala black gram pages: 75-80 days in general, 85-90 days for MI 01 and MI BG 3. https://doa.gov.lk/field-crops-blackgram-si/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "maize",
+    "name_en": "Maize",
+    "name_si": "ඉරිඟු",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Poaceae",
+    "type": "cereal",
+    "n_fixing": 0,
+    "cycle_days": 105,
+    "sow_offset_days": 7,
+    "season": "maha",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          500,
+          800
+        ],
+        "tolerable": [
+          400,
+          1100
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.8,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 1,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "fall armyworm",
+      "stem borer",
+      "leaf blight"
+    ],
+    "companions": [
+      "cowpea",
+      "mung_bean"
+    ],
+    "conflicts": [
+      {
+        "with": "finger_millet",
+        "reason": "Both are grasses (Poaceae): share stem borers; avoid back-to-back.",
+        "evidence": "assumption"
+      }
+    ],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture Sinhala maize page: harvest at 105-110 days (MI Hybrid 03: 100-105). https://doa.gov.lk/field-crops-maize-si/"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture Sinhala maize page: harvest at 105-110 days (MI Hybrid 03: 100-105). https://doa.gov.lk/field-crops-maize-si/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Fall armyworm is a widespread pest in Sri Lanka maize; confirm local advice. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "groundnut",
+    "name_en": "Groundnut",
+    "name_si": "රට කජු",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 105,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          500,
+          700
+        ],
+        "tolerable": [
+          400,
+          1000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          30
+        ],
+        "tolerable": [
+          20,
+          35
+        ]
+      },
+      "slope_pct_max": 12,
+      "drainage": [
+        "well"
+      ],
+      "ph": {
+        "optimum": [
+          5.8,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          7.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 2,
+      "income": 2,
+      "organic_matter": 2
+    },
+    "pests": [
+      "leaf spot",
+      "aphids",
+      "termites"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture research notes: Tikiri 100-110 days, Walawa about 120 days, early lines 90-105 (dl-doa.nsf.gov.lk; https://erepo.lib.uwu.ac.lk/items/5395b9e4-a6cf-4e4d-aae2-daca9ec9fad0). The DoA crop page gives no day count."
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture research notes: Tikiri 100-110 days, Walawa about 120 days, early lines 90-105 (dl-doa.nsf.gov.lk; https://erepo.lib.uwu.ac.lk/items/5395b9e4-a6cf-4e4d-aae2-daca9ec9fad0). The DoA crop page gives no day count.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Needs loose, well-drained soil for pods. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "sweet_potato",
+    "name_en": "Sweet potato",
+    "name_si": "බතල",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Convolvulaceae",
+    "type": "root",
+    "n_fixing": 0,
+    "cycle_days": 105,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          500,
+          900
+        ],
+        "tolerable": [
+          400,
+          1200
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          6.5
+        ],
+        "tolerable": [
+          5.0,
+          7.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 2,
+      "drought": 2,
+      "income": 1,
+      "organic_matter": 1
+    },
+    "pests": [
+      "sweet potato weevil"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture HORDI page: recommended varieties can be harvested at 3 to 4 months. https://doa.gov.lk/hordi-crop-sweet-potato/"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture HORDI page: recommended varieties can be harvested at 3 to 4 months. https://doa.gov.lk/hordi-crop-sweet-potato/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Vines cover the soil. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "big_onion",
+    "name_en": "Big onion",
+    "name_si": "ලොකු ලූනු",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Amaryllidaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 85,
+    "sow_offset_days": 7,
+    "season": "yala",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          350,
+          550
+        ],
+        "tolerable": [
+          300,
+          700
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          20,
+          30
+        ],
+        "tolerable": [
+          15,
+          35
+        ]
+      },
+      "slope_pct_max": 8,
+      "drainage": [
+        "well"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.0
+        ],
+        "tolerable": [
+          5.5,
+          7.5
+        ]
+      },
+      "texture": [
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 0,
+      "income": 3,
+      "organic_matter": 0
+    },
+    "pests": [
+      "thrips",
+      "purple blotch",
+      "basal rot"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [
+      "Department of Agriculture RARDC Kilinochchi page: big onion can be harvested 75-90 days after planting. https://doa.gov.lk/fcrdi-rardckilinochchi-crops/ (FAO Table 11 gives 150 days for dry onion, so sources disagree)"
+    ],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "V2",
+        "source": "Department of Agriculture RARDC Kilinochchi page: big onion can be harvested 75-90 days after planting. https://doa.gov.lk/fcrdi-rardckilinochchi-crops/ (FAO Table 11 gives 150 days for dry onion, so sources disagree)",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Usually irrigated; rating shows rain only. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "brinjal",
+    "name_en": "Brinjal (eggplant)",
+    "name_si": "වම්බටු",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Solanaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 130,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          500,
+          800
+        ],
+        "tolerable": [
+          400,
+          1100
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          6.8
+        ],
+        "tolerable": [
+          5.0,
+          7.5
+        ]
+      },
+      "texture": [
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 1,
+      "income": 3,
+      "organic_matter": 1
+    },
+    "pests": [
+      "shoot and fruit borer",
+      "bacterial wilt",
+      "mites"
+    ],
+    "companions": [],
+    "conflicts": [
+      {
+        "with": "chilli",
+        "reason": "Same family (Solanaceae): shares diseases and pests such as bacterial wilt; do not grow one after the other.",
+        "evidence": "assumption"
+      }
+    ],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Department of Agriculture HORDI page: harvesting starts 10-12 weeks after transplanting and fruit is picked weekly for 10-12 picks. The 130 days is the FAO total because the page gives no season length. https://doa.gov.lk/hordi-crop-brinjal/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Usually irrigated; rating shows rain only. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "chilli",
+    "name_en": "Chilli",
+    "name_si": "මිරිස්",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Solanaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 125,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          500,
+          800
+        ],
+        "tolerable": [
+          400,
+          1100
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          7.5
+        ]
+      },
+      "texture": [
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 1,
+      "income": 3,
+      "organic_matter": 0
+    },
+    "pests": [
+      "leaf curl complex",
+      "anthracnose",
+      "thrips"
+    ],
+    "companions": [],
+    "conflicts": [
+      {
+        "with": "brinjal",
+        "reason": "Same family (Solanaceae): shares diseases and pests such as bacterial wilt; do not grow one after the other.",
+        "evidence": "assumption"
+      }
+    ],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "ASSUMPTION: FAO has no chilli entry; the sweet pepper (bell) total of 125 days is used. The Department of Agriculture RARDC page says pods can be harvested 75-90 days after planting, but that line looks copied from the cowpea entry. https://doa.gov.lk/fcrdi-rardckilinochchi-crops/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Usually irrigated; rating shows rain only. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "pumpkin",
+    "name_en": "Pumpkin",
+    "name_si": "වට්ටක්කා",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Cucurbitaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 100,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          400,
+          700
+        ],
+        "tolerable": [
+          300,
+          900
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          7.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 2,
+      "drought": 1,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "fruit fly",
+      "powdery mildew"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "ASSUMPTION: FAO Table 11 total of 100 days (Mediterranean). The Department of Agriculture HORDI page gives only days after flowering (40 or 60), not days from sowing. https://doa.gov.lk/hordi-crop-pumpkin/",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Wide leaves cover the soil. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "soybean",
+    "name_en": "Soybean",
+    "name_si": "සෝයා බෝංචි",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 85,
+    "sow_offset_days": 7,
+    "season": "maha",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          450,
+          700
+        ],
+        "tolerable": [
+          350,
+          900
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.0
+        ],
+        "tolerable": [
+          5.5,
+          7.5
+        ]
+      },
+      "texture": [
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 1,
+      "income": 2,
+      "organic_matter": 2
+    },
+    "pests": [
+      "pod borer",
+      "rust"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "ASSUMPTION: FAO Table 11, soybeans in the tropics (December), 85 days. No Sri Lankan day count was found on the Department of Agriculture pages we could read.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "finger_millet",
+    "name_en": "Finger millet (kurakkan)",
+    "name_si": "කුරක්කන්",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Poaceae",
+    "type": "cereal",
+    "n_fixing": 0,
+    "cycle_days": 105,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          600,
+          800
+        ],
+        "tolerable": [
+          500,
+          900
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 20,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.0,
+          7.0
+        ],
+        "tolerable": [
+          4.5,
+          8.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 3,
+      "income": 1,
+      "organic_matter": 1
+    },
+    "pests": [
+      "blast",
+      "stem borer"
+    ],
+    "companions": [
+      "cowpea"
+    ],
+    "conflicts": [
+      {
+        "with": "maize",
+        "reason": "Both are grasses (Poaceae): share stem borers; avoid back-to-back.",
+        "evidence": "assumption"
+      }
+    ],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "ASSUMPTION: FAO Table 11 'Millet' (Pakistan), 105 days. The Department of Agriculture page gives only a sign (harvest when 80% of ears are brown), no day count.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Dry-tolerant cereal. 500 to 900 mm is the range required by the project spec; 20 percent less rain than 650 mm is marginal. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "sesame",
+    "name_en": "Sesame (thala)",
+    "name_si": "තල",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Pedaliaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 100,
+    "sow_offset_days": 7,
+    "season": "yala",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          350,
+          600
+        ],
+        "tolerable": [
+          300,
+          800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          25,
+          32
+        ],
+        "tolerable": [
+          20,
+          36
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 3,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "leaf webber",
+      "phyllody",
+      "root rot"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "ASSUMPTION: FAO Table 11, sesame (June, China), total printed as 100 days (its stage lengths add to 110). The Department of Agriculture sesame entry has no content.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Oilseed. The spec crop-type list has no oilseed type, so type is vegetable. Does not tolerate waterlogging. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "gliricidia",
+    "name_en": "Gliricidia (mata-ratu / wetahiriya hedge)",
+    "name_si": "ග්ලිරිසීඩියා",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "hedge",
+    "n_fixing": 3,
+    "cycle_days": 365,
+    "sow_offset_days": 0,
+    "season": "perennial",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          300,
+          2000
+        ],
+        "tolerable": [
+          250,
+          2500
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          15,
+          36
+        ]
+      },
+      "slope_pct_max": 100,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 3,
+      "drought": 3,
+      "income": 1,
+      "organic_matter": 3
+    },
+    "pests": [
+      "scale insects"
+    ],
+    "companions": [
+      "maize",
+      "finger_millet"
+    ],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Nitrogen-fixing hedge tree planted on contours; leaves cut as green manure. Rain range is per season for an established hedge. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "vetiver",
+    "name_en": "Vetiver grass (hedge)",
+    "name_si": "වේටිවර්",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Poaceae",
+    "type": "hedge",
+    "n_fixing": 0,
+    "cycle_days": 365,
+    "sow_offset_days": 0,
+    "season": "perennial",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          250,
+          2500
+        ],
+        "tolerable": [
+          200,
+          3000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          20,
+          32
+        ],
+        "tolerable": [
+          10,
+          38
+        ]
+      },
+      "slope_pct_max": 100,
+      "drainage": [
+        "well",
+        "moderate",
+        "poor"
+      ],
+      "ph": {
+        "optimum": [
+          5.0,
+          8.0
+        ],
+        "tolerable": [
+          4.0,
+          9.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 3,
+      "drought": 2,
+      "income": 0,
+      "organic_matter": 1
+    },
+    "pests": [],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Dense contour hedge that slows runoff and holds soil. Rain range is per season for an established hedge. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "saffron",
+    "name_en": "Saffron",
+    "name_si": "කෙසර් (සැෆ්රන්)",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Iridaceae",
+    "type": "root",
+    "n_fixing": 0,
+    "cycle_days": 210,
+    "sow_offset_days": 0,
+    "season": "maha",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          300,
+          600
+        ],
+        "tolerable": [
+          200,
+          800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          8,
+          20
+        ],
+        "tolerable": [
+          0,
+          25
+        ]
+      },
+      "slope_pct_max": 8,
+      "drainage": [
+        "well"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          8.0
+        ],
+        "tolerable": [
+          5.5,
+          8.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": true,
+    "functions": {
+      "erosion": 0,
+      "drought": 0,
+      "income": 3,
+      "organic_matter": 0
+    },
+    "pests": [
+      "corm rot"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "high",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "needs_cold_season": {
+        "evidence": "assumption",
+        "source": "General horticultural knowledge; also required by the project spec as a test case.",
+        "note": "Saffron corms need a cool season; Dry Zone mean temperature is well above the tolerable range. Needs Agricultural Instructor review (expert confirmation)."
+      }
+    },
+    "notes": "Not suited to the Dry Zone: needs a cold season. Kept in the table so the planner can explain why it is excluded. Type root = corm. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it.",
+    "needs_cold_season_reason": "no cold season for corm development"
+  },
+  {
+    "id": "sunn_hemp",
+    "name_en": "Sunn hemp (green manure)",
+    "name_si": "හණ",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "cover",
+    "n_fixing": 3,
+    "cycle_days": 90,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          300,
+          700
+        ],
+        "tolerable": [
+          250,
+          1000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          32
+        ],
+        "tolerable": [
+          18,
+          36
+        ]
+      },
+      "slope_pct_max": 15,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.5
+        ],
+        "tolerable": [
+          5.0,
+          8.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy",
+        "clayey"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 2,
+      "drought": 2,
+      "income": 0,
+      "organic_matter": 3
+    },
+    "pests": [
+      "leaf-eating caterpillars"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Grown to be ploughed in as green manure before the next crop. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "cassava",
+    "name_en": "Cassava (manioc)",
+    "name_si": "මඤ්ඤොක්කා",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Euphorbiaceae",
+    "type": "root",
+    "n_fixing": 0,
+    "cycle_days": 270,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          600,
+          1200
+        ],
+        "tolerable": [
+          500,
+          1800
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 20,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          4.5,
+          7.5
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 1,
+      "drought": 3,
+      "income": 2,
+      "organic_matter": 1
+    },
+    "pests": [
+      "mealybug",
+      "mosaic virus"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Long cycle (about 9 months) covers more than one season. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "pigeon_pea",
+    "name_en": "Pigeon pea",
+    "name_si": "ඇටදෙල්",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Fabaceae",
+    "type": "legume",
+    "n_fixing": 2,
+    "cycle_days": 150,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          400,
+          700
+        ],
+        "tolerable": [
+          300,
+          1000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          22,
+          30
+        ],
+        "tolerable": [
+          18,
+          35
+        ]
+      },
+      "slope_pct_max": 30,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          5.5,
+          7.0
+        ],
+        "tolerable": [
+          5.0,
+          8.0
+        ]
+      },
+      "texture": [
+        "sandy",
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 2,
+      "drought": 3,
+      "income": 2,
+      "organic_matter": 2
+    },
+    "pests": [
+      "pod borer",
+      "wilt"
+    ],
+    "companions": [
+      "finger_millet"
+    ],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "low",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Deep-rooted, dry-tolerant legume. Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  {
+    "id": "okra",
+    "name_en": "Okra (ladies' fingers)",
+    "name_si": "බණ්ඩක්කා",
+    "name_si_status": "draft, needs native-speaker review",
+    "family": "Malvaceae",
+    "type": "vegetable",
+    "n_fixing": 0,
+    "cycle_days": 90,
+    "sow_offset_days": 7,
+    "season": "both",
+    "suitability": {
+      "rain_mm": {
+        "optimum": [
+          400,
+          700
+        ],
+        "tolerable": [
+          300,
+          1000
+        ]
+      },
+      "tmean_c": {
+        "optimum": [
+          24,
+          32
+        ],
+        "tolerable": [
+          20,
+          36
+        ]
+      },
+      "slope_pct_max": 10,
+      "drainage": [
+        "well",
+        "moderate"
+      ],
+      "ph": {
+        "optimum": [
+          6.0,
+          7.0
+        ],
+        "tolerable": [
+          5.5,
+          7.5
+        ]
+      },
+      "texture": [
+        "loamy"
+      ]
+    },
+    "needs_cold_season": false,
+    "functions": {
+      "erosion": 0,
+      "drought": 1,
+      "income": 2,
+      "organic_matter": 0
+    },
+    "pests": [
+      "yellow vein mosaic virus",
+      "fruit borer",
+      "aphids"
+    ],
+    "companions": [],
+    "conflicts": [],
+    "buyers_confirmed": false,
+    "labour": "medium",
+    "evidence": "assumption",
+    "sources": [],
+    "reviewed": false,
+    "to_verify": [
+      "FAO EcoCrop database (suitability ranges)",
+      "Department of Agriculture Sri Lanka crop recommendations (cycle, season, pH, drainage)"
+    ],
+    "field_evidence": {
+      "cycle_days": {
+        "evidence": "assumption",
+        "source": "Drafted by the team; no source read yet.",
+        "note": "Reused from pipeline/crops_data.json. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "suitability": {
+        "evidence": "assumption",
+        "source": "Drafted by the team from general agronomic knowledge, not copied from a source.",
+        "note": "ASSUMPTION: ranges are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it. To check against: FAO EcoCrop database and Department of Agriculture Sri Lanka crop recommendations."
+      },
+      "functions": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "ASSUMPTION: 0 to 3 ratings are the team's qualitative judgement of how much the crop helps. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "season_sow_offset": {
+        "evidence": "assumption",
+        "source": "Team judgement",
+        "note": "Season and days after rain onset are rough drafts. Draft. Needs Agricultural Instructor review before farmers rely on it."
+      },
+      "pests_companions_conflicts": {
+        "evidence": "assumption",
+        "source": "General agronomic knowledge",
+        "note": "Pest groups, companions and conflicts are general; Draft. Needs Agricultural Instructor review before farmers rely on it."
+      }
+    },
+    "notes": "Sinhala name is a draft and needs native-speaker review. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  }
+]

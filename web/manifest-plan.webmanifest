@@ -1,0 +1,19 @@
+{
+  "name": "Monsoon Compass: Trips and events",
+  "short_name": "Plan",
+  "description": "Will it rain? Rain, heat and the best days for a trip or an event at any place in Sri Lanka.",
+  "lang": "si",
+  "start_url": "plan.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#B7791F",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

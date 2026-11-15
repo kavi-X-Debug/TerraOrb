@@ -1,0 +1,52 @@
+# Publish the website to GitHub Pages.
+#
+# Runs when someone pushes changes to the site on main, when started by hand
+# (Actions tab → "Publish site" → Run workflow), and from refresh.yml after new data
+# is committed. Only web/, data/ and the root index.html (a redirect to web/) are
+# published; the pipeline code and caches are not.
+#
+# One-time setup: repo Settings → Pages → Build and deployment → Source: "GitHub Actions".
+# See docs/deploy.md.
+
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+    paths: ["web/**", "data/**", "index.html", ".github/workflows/pages.yml"]
+  workflow_dispatch:
+  workflow_call:          # used by refresh.yml
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Get the latest main (including a data commit made just before)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Collect the site files
+        run: |
+          mkdir _site
+          cp -r web data index.html _site/
+          touch _site/.nojekyll          # serve files as they are, no Jekyll processing
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

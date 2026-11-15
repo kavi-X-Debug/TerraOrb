@@ -1,0 +1,84 @@
+/* Little Farmers' Games. Big, bright, friendly. Motion only if the device has not asked for less. */
+.kd-guide { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 24px; background: #fff; border: 3px solid #BFE0EE; position: relative; }
+.kd-bindu { width: 64px; height: 80px; flex: none; }
+.kd-guide p { font-size: 1.2rem; font-weight: 800; color: #1F5E85; line-height: 1.35; }
+.kd-speak { margin-left: auto; width: 46px; height: 46px; flex: none; display: grid; place-items: center; border: 0; border-radius: 50%; background: #5BA3C7; color: #fff; cursor: pointer; }
+.kd-speak svg { width: 24px; height: 24px; }
+.kd-speak:hover { background: #2477B0; }
+
+.kd-tiles { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); margin-top: 6px; }
+.kd-tile { display: grid; justify-items: center; gap: 6px; padding: 18px 12px; text-align: center; border-radius: 26px; border: 4px solid #C9E5C2; background: linear-gradient(180deg, #F4FBF1, #E3F3DD); cursor: pointer; font: inherit; }
+.kd-tile:nth-child(2) { border-color: #F2D58A; background: linear-gradient(180deg, #FFFBEA, #FBEFC4); }
+.kd-tile:nth-child(3) { border-color: #BFE0EE; background: linear-gradient(180deg, #F2FAFE, #DDF0FA); }
+.kd-tile:nth-child(4) { border-color: #E2C9E8; background: linear-gradient(180deg, #FBF4FD, #F1E1F6); }
+.kd-tile strong { font-size: 1.2rem; }
+.kd-tile span:last-child { color: var(--muted); font-weight: 600; }
+.kd-tile-art { display: flex; gap: 6px; justify-content: center; }
+.kd-tile-icon { width: 76px; height: 76px; }
+.kd-tile:hover { transform: translateY(-5px) rotate(-1deg); box-shadow: var(--shadow); }
+.kd-tile:active { transform: scale(.97); }
+.kd-tile, .kd-card, .kd-bin { transition: transform .18s ease, box-shadow .18s ease; }
+
+/* memory */
+.kd-memory { display: grid; grid-template-columns: repeat(var(--cols, 3), minmax(0, 1fr)); gap: 12px; max-width: 640px; margin-inline: auto; width: 100%; }
+.kd-card { position: relative; aspect-ratio: 1; min-height: 110px; border: 0; padding: 0; background: none; cursor: pointer; perspective: 600px; font: inherit; }
+.kd-card-back, .kd-card-face { position: absolute; inset: 0; display: grid; place-items: center; border-radius: 22px; backface-visibility: hidden; transition: transform .45s ease; text-align: center; padding: 6px; }
+.kd-card-back { background: linear-gradient(135deg, #5BA3C7, #2F7FB3); color: #fff; font-size: 2.6rem; font-weight: 800; border: 4px solid #fff; box-shadow: var(--shadow-sm); }
+.kd-card-face { background: #FFFDF7; border: 4px solid #F2C94C; transform: rotateY(180deg); font-size: 1.15rem; }
+.kd-card.up .kd-card-back, .kd-card.done .kd-card-back { transform: rotateY(180deg); }
+.kd-card.up .kd-card-face, .kd-card.done .kd-card-face { transform: rotateY(0); }
+.kd-card.done .kd-card-face { border-color: #3F8A46; background: #E9F8E4; }
+.kd-card-icon { width: 78%; height: 78%; }
+.kd-card-face b { font-size: clamp(1rem, 3vw, 1.4rem); }
+.kd-caption { min-height: 4.2em; display: flex; align-items: center; justify-content: center; gap: 14px; font-size: 1.2rem; font-weight: 800; color: #245A41; text-align: center; }
+.kd-photo { width: 96px; height: 72px; object-fit: cover; border-radius: 16px; border: 3px solid #fff; box-shadow: var(--shadow-sm); }
+
+/* sort games */
+.kd-sortstage { min-height: 190px; display: grid; place-items: center; }
+.kd-bigcrop { display: grid; justify-items: center; gap: 6px; font-size: 1.5rem; font-weight: 800; text-align: center; }
+.kd-bigcrop-icon, .kd-season-art svg { width: 130px; height: 130px; }
+.kd-season-art { display: block; width: 130px; height: 130px; }
+.kd-count { color: var(--muted); font-weight: 700; text-align: center; }
+.kd-bins { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.kd-bin { display: grid; justify-items: center; align-content: center; gap: 6px; min-height: 150px; padding: 12px; border-radius: 26px; border: 5px solid #5BA3C7; background: #EAF5FB; cursor: pointer; font: inherit; }
+.kd-bin strong { font-size: 1.25rem; color: #1F5E85; }
+.kd-bin small { font-weight: 700; color: var(--muted); }
+.kd-bin.little { border-color: #8FC98A; background: #EFF9EC; }
+.kd-bin.maha { border-color: #5BA3C7; background: #E6F3FA; }
+.kd-bin.yala { border-color: #F2C94C; background: #FFF6D8; }
+.kd-bin-art { width: 70px; height: 70px; display: block; }
+.kd-drops { display: flex; flex-wrap: wrap; justify-content: center; gap: 2px; max-width: 150px; }
+.kd-drops svg { width: 26px; height: 34px; }
+.kd-bin:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.kd-bin:active { transform: scale(.96); }
+.kd-bin.shake { animation: kd-shake .4s ease; }
+@keyframes kd-shake { 20%, 60% { transform: translateX(-8px); } 40%, 80% { transform: translateX(8px); } }
+
+/* grow */
+.kd-grow { display: grid; grid-template-columns: minmax(0, 1fr) 150px; gap: 16px; align-items: end; }
+.kd-plantbox { display: grid; justify-items: center; align-items: end; height: 260px; position: relative; border-radius: 24px; background: linear-gradient(180deg, #CDEBFA, #EAF7EC); overflow: hidden; }
+.kd-plant { position: absolute; bottom: 44px; transform: scale(var(--s, .7)); transform-origin: bottom center; transition: transform .5s ease, filter .4s; }
+.kd-plant-icon { width: 170px; height: 170px; }
+.kd-plant.droop { filter: saturate(.35) brightness(.9); transform: scale(var(--s, .7)) rotate(14deg); }
+.kd-plant.soggy { filter: hue-rotate(35deg) saturate(.5) brightness(.85); }
+.kd-plant.done { animation: calp-pop .6s cubic-bezier(.3, 1.6, .5, 1); }
+.kd-soil { position: absolute; left: 0; right: 0; bottom: 0; height: 56px; background: linear-gradient(180deg, #8C5A2B, #6B4220); border-radius: 30px 30px 0 0; }
+.kd-meterbox { display: grid; gap: 8px; justify-items: center; }
+.kd-meter { position: relative; width: 70px; height: 190px; border-radius: 20px; overflow: hidden; border: 4px solid #fff; box-shadow: var(--shadow-sm); display: flex; flex-direction: column-reverse; }
+.kd-zone.dry { flex: 35; background: #E7C48A; } .kd-zone.ok { flex: 35; background: #7BC77B; } .kd-zone.wet { flex: 30; background: #7DB9E0; }
+.kd-level { position: absolute; left: -6px; right: -6px; height: 8px; border-radius: 6px; background: #1B3A52; transition: bottom .1s linear; }
+.kd-mood { font-weight: 800; font-size: 1.1rem; text-align: center; min-height: 1.6em; }
+.kd-mood.ok { color: #1F7A3A; } .kd-mood.dry { color: #A86200; } .kd-mood.wet { color: #2477B0; }
+.kd-progress { height: 18px; border-radius: 999px; background: #D9ECF5; overflow: hidden; }
+.kd-progress span { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #5BC47A, #F2C94C); border-radius: 999px; transition: width .15s linear; }
+.kd-water { justify-self: center; }
+
+.kd-learned { padding: 12px 16px; border-radius: 18px; background: #fff; border: 3px solid #BFE0EE; max-width: 36em; display: grid; gap: 4px; }
+.kd-learned strong { color: #1F5E85; }
+.kd-learned p { font-size: 1.15rem; font-weight: 700; }
+@media (max-width: 520px) { .kd-grow { grid-template-columns: minmax(0, 1fr) 110px; } .kd-bins { gap: 8px; } .kd-bin { min-height: 130px; } }
+@media (prefers-reduced-motion: no-preference) {
+  .kd-bindu { animation: kd-bob 2.4s ease-in-out infinite; }
+  @keyframes kd-bob { 50% { transform: translateY(-5px) rotate(3deg); } }
+  .kd-bigcrop { animation: calp-rise .35s ease both; }
+}

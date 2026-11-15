@@ -1,0 +1,55 @@
+{
+ "schema": "trip-config-1",
+ "generated": "2026-11-15T10:39:55+05:30",
+ "source": "pipeline/config.toml [trip] (draft thresholds of the team, not reviewed by a meteorologist)",
+ "demo": false,
+ "intensity": {
+  "unit": "mm/hour",
+  "light_min": 0.1,
+  "moderate_min": 2.5,
+  "heavy_min": 10,
+  "very_heavy_min": 50
+ },
+ "no_rain_day_mm": 0.1,
+ "wet_day_mm": 1.0,
+ "forecast_horizon_days": 16,
+ "cache_minutes": 30,
+ "verdict": {
+  "wet_mm": 3,
+  "wet_chance": 70,
+  "maybe_mm": 0.5,
+  "maybe_chance": 35
+ },
+ "comfort": {
+  "temp_ideal_min": 22,
+  "temp_ideal_max": 32,
+  "hot_c": 34,
+  "cold_c": 16,
+  "windy_kmh": 40,
+  "strong_kmh": 60
+ },
+ "weights": {
+  "weather": 0.4,
+  "activity": 0.25,
+  "preference": 0.2,
+  "environment": 0.15
+ },
+ "day_periods": {
+  "night": [
+   0,
+   5
+  ],
+  "morning": [
+   6,
+   11
+  ],
+  "afternoon": [
+   12,
+   17
+  ],
+  "evening": [
+   18,
+   23
+  ]
+ }
+}

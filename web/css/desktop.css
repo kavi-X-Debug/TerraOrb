@@ -1,0 +1,62 @@
+/* Desktop layer: makes better use of wide screens (laptops 1280 px, desktops 1440 px, large monitors 1920 px).
+   Loaded last. Below 1100 px nothing here applies, so phones and tablets look exactly as before.
+   The page container grows with the screen, the header never breaks into a ragged second row, and pages that were
+   one long column use two or more columns. */
+
+/* ---------- The page gets wider on big screens ---------- */
+@media (min-width: 1280px) { :root { --container: 1280px; } }
+@media (min-width: 1500px) { :root { --container: 1440px; } }
+@media (min-width: 1800px) { :root { --container: 1600px; font-size: 18px; } }
+
+/* ---------- Header: one tidy row on wide screens; on mid-size desktops brand + tools on top, menu underneath ---------- */
+@media (min-width: 900px) {
+  .site-nav { gap: 2px; }
+  .site-nav a { padding: 8px 12px; font-size: .96rem; }
+}
+@media (min-width: 761px) and (max-width: 1499px) {
+  .header-inner { row-gap: 4px; }
+  .brand { order: 1; }
+  .header-tools { order: 2; margin-left: auto; }
+  .site-nav { order: 3; width: 100%; margin: 0; padding-bottom: 6px; flex-wrap: wrap; }
+}
+
+/* ---------- Home page: a taller map and list ---------- */
+@media (min-width: 1280px) {
+  .map { height: min(74vh, 780px); }
+  .tank-list { max-height: 74vh; }
+  .hero { padding: 72px 0 60px; }
+}
+
+/* ---------- A tank's pages ---------- */
+@media (min-width: 1100px) {
+  .tank-head { padding: 26px 36px; }
+  .cal-strip, .cal-months { max-width: 900px; }
+  .cal-cell { aspect-ratio: 1.7; }                       /* shorter cells: 15 crops no longer need a very tall page */
+  .cal-cell .sig-icon { width: auto; height: 76%; }
+  .cal-best { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 28px; }
+  /* Water page and weather page: two columns instead of one long column */
+  .panel-body:has(> .block .gauge) { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .panel-body:has(> .wx-now) { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+  .panel-body:has(> .wx-now) > :nth-child(n + 3) { grid-column: 1 / -1; }
+}
+@media (min-width: 1280px) {
+  .simple-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .crop-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* ---------- Data sources and How it works ---------- */
+@media (min-width: 1280px) {
+  .dsp-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* ---------- Learn Mode ---------- */
+@media (min-width: 1100px) {
+  .lh-hero { min-height: 440px; }
+  .lh-hero-text { padding: 48px; }
+  /* the games and lessons are played in the middle of the page, not stretched over the whole width */
+  .panel-body.mg { max-width: 1000px; width: 100%; margin-inline: auto; }
+  .ls-cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 1500px) {
+  .lh-grid { gap: 26px; }
+  .lh-hero { min-height: 500px; }
+}

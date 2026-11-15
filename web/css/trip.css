@@ -1,0 +1,32 @@
+/* Trip planner: base theme and shared classes (plan end only). Screens add their own css files (trip-a..d.css). */
+body[data-end="plan"] {
+  --tp-navy: #101C2C; --tp-ocean: #1677C8; --tp-sky: #56B4E9; --tp-bg: #F5F8FC; --tp-card: #FFFFFF;
+  --tp-warn: #F59E0B; --tp-rain: #3182CE; --tp-ok: #16A34A; --tp-bad: #C0392B; --tp-line: #D5DFEC; --tp-muted: #4A5B72;
+  background: var(--tp-bg); color: var(--tp-navy);
+}
+body[data-end="plan"] .tp-screen { display: grid; gap: 20px; padding: 0 16px 32px; max-width: 1100px; margin: 0 auto; }
+body[data-end="plan"] .tp-menu { display: flex; gap: 8px; overflow-x: auto; padding: 12px 16px; margin: 0 auto; max-width: 1100px; scrollbar-width: thin; }
+body[data-end="plan"] .tp-menu a { flex: none; padding: 9px 16px; border-radius: 999px; border: 2px solid var(--tp-line); background: var(--tp-card); color: var(--tp-navy); font-weight: 700; text-decoration: none; white-space: nowrap; }
+body[data-end="plan"] .tp-menu a.on, body[data-end="plan"] .tp-menu a:hover { background: var(--tp-ocean); border-color: var(--tp-ocean); color: #fff; }
+body[data-end="plan"] .tp-card { background: var(--tp-card); border: 1px solid var(--tp-line); border-radius: 16px; padding: 18px; box-shadow: 0 2px 8px rgba(16, 28, 44, .06); }
+body[data-end="plan"] .tp-grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+body[data-end="plan"] .tp-btn { min-height: 44px; padding: 0 18px; border: 2px solid var(--tp-ocean); border-radius: 12px; background: #fff; color: var(--tp-ocean); font: inherit; font-weight: 700; cursor: pointer; }
+body[data-end="plan"] .tp-btn.primary { background: var(--tp-ocean); color: #fff; }
+body[data-end="plan"] .tp-btn:disabled { opacity: .5; cursor: not-allowed; }
+body[data-end="plan"] .tp-field { display: grid; gap: 4px; font-weight: 700; }
+body[data-end="plan"] .tp-field input, body[data-end="plan"] .tp-field select { min-height: 44px; padding: 0 12px; border: 2px solid var(--tp-line); border-radius: 12px; font: inherit; background: #fff; color: inherit; }
+body[data-end="plan"] .tp-state { padding: 24px; text-align: center; color: var(--tp-muted); }
+body[data-end="plan"] .tp-state.error { color: var(--tp-bad); }
+body[data-end="plan"] .tp-badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: .78rem; font-weight: 700; border: 1px solid currentColor; }
+body[data-end="plan"] .tp-badge.forecast { color: var(--tp-rain); }
+body[data-end="plan"] .tp-badge.tendency, body[data-end="plan"] .tp-badge.nasa { color: #1E6B52; }
+body[data-end="plan"] .tp-badge.seasonal, body[data-end="plan"] .tp-badge.notnasa { color: #8A5A00; }
+body[data-end="plan"] .tp-badge.ml { color: #6B3FA0; }
+body[data-end="plan"] .tp-toasts { position: fixed; z-index: 90; left: 16px; right: 16px; bottom: 16px; display: grid; gap: 8px; pointer-events: none; }
+body[data-end="plan"] .tp-toast { padding: 12px 16px; border-radius: 12px; background: var(--tp-navy); color: #fff; font-weight: 600; max-width: 520px; margin: 0 auto; }
+body[data-end="plan"] .tp-toast.ok { background: #14532D; } body[data-end="plan"] .tp-toast.warn { background: #92400E; } body[data-end="plan"] .tp-toast.error { background: #7F1D1D; }
+body[data-end="plan"] .tp-modal { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; background: rgba(16, 28, 44, .55); padding: 16px; }
+body[data-end="plan"] .tp-modal-card { background: #fff; border-radius: 16px; padding: 20px; max-width: 560px; width: 100%; max-height: 90vh; overflow: auto; }
+body[data-end="plan"] .tp-modal-actions { display: flex; gap: 10px; justify-content: flex-end; flex-wrap: wrap; margin-top: 16px; }
+body[data-end="plan"] .tp-chart { position: relative; height: 280px; }
+@media (max-width: 480px) { body[data-end="plan"] .tp-card { padding: 14px; } }

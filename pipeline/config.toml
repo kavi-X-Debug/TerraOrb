@@ -1,0 +1,450 @@
+# Monsoon Compass — pipeline settings.
+# Change numbers here, not in the code. After changing anything, re-run:
+#   .venv\Scripts\python pipeline\rain.py
+# Dates are written "MM-DD".
+
+[tanks]
+# pipeline/tanks_from_osm.py: which real tanks to list, from OpenStreetMap (© OpenStreetMap
+# contributors, ODbL licence: credit OpenStreetMap wherever the names or outlines are shown).
+overpass_url = "https://overpass-api.de/api/interpreter"
+district = "Anuradhapura District"     # OSM boundary name:en
+max_tanks = 100                         # the largest tanks that pass the filters below
+min_area_ha = 2.0                       # smaller than this is too few 30 m satellite pixels
+# A water body counts as a tank if its name matches tank_words or it is tagged water=reservoir,
+# unless its name matches not_tank_words or it is tagged water=pond.
+tank_words = "wewa|wewe|weva|wawa|tank|kulam|kulama|reservoir|වැව"
+not_tank_words = "pokuna|pond|පොකුණ|villu|vila"
+keep_demo_tanks = true                  # keep the 3 demo tanks so the app still shows a full example
+
+[power]
+url = "https://power.larc.nasa.gov/api/temporal/daily/point"
+community = "AG"                      # agroclimatology: mm/day, °C
+parameters = ["PRECTOTCORR", "T2M_MAX", "T2M_MIN"]
+first_year = 1981                     # first year of POWER daily data
+# POWER's daily data comes from the MERRA-2 grid: 0.5° latitude × 0.625° longitude cells.
+# Every point in a cell gets identical values (checked 25 Oct 2026), so rain.py downloads
+# once per cell, at the cell centre, and shares it between all tanks in that cell.
+grid_lat_deg = 0.5
+grid_lon_deg = 0.625
+timeout_seconds = 120
+
+# Data sources we refuse to use. On 25 Oct 2026, every POWER daily request that
+# included near-real-time GEOSIT days (from 1 Oct 2026) came back with ALL its
+# rainfall values 24x too large (POWER's own monthly endpoint disagreed by exactly 24x).
+# Months whose response lists one of these sources are skipped, along with every month
+# after them. Remove "GEOSIT" from this list only after checking that NASA has fixed it.
+skip_sources = ["GEOSIT"]
+
+# Safety stop: if any single day's rainfall is above this, the script stops and writes
+# nothing. A whole POWER grid cell (~50 km) getting more than this in one day is
+# almost certainly a data error, not weather.
+max_daily_rain_mm = 400.0
+
+[rain]
+# Years used for every "normal" and "long-term mean" value.
+normal_first_year = 1991
+normal_last_year = 2020
+
+# ---------------------------------------------------------------------------
+# Onset of the rainy season
+# Onset = the first day D, on or after the season's onset window start, where
+#   (1) rain on D, D+1, D+2 adds up to at least wet_spell_mm, AND
+#   (2) in the days after that wet spell, up to D + check_days, there is no
+#       run of dry_spell_days days whose rain adds up to less than dry_spell_mm.
+# If no day in the first search_days days qualifies, onset = null (not found).
+# ---------------------------------------------------------------------------
+[rain.onset]
+wet_spell_days = 3
+wet_spell_mm = 25.0
+dry_spell_days = 7
+dry_spell_mm = 10.0
+check_days = 30
+search_days = 120
+
+# Heat and dry spells, counted over each season's total period (Maha Oct–Jan, Yala Apr–Aug).
+# Reference evapotranspiration (ET0, mm/day: how much water the air can take from a well-watered crop)
+# is estimated from NASA POWER's daily maximum and minimum temperature with the Hargreaves-Samani (1985)
+# equation, which needs no humidity, wind or sunshine data. extraterrestrial radiation Ra comes from
+# FAO Irrigation and Drainage Paper 56 (Allen et al. 1998), Eq. 21. It tends to read a little high in
+# humid air; compare with FAO-56 Penman-Monteith if humidity, wind and sunshine are added later.
+[rain.et0]
+hargreaves_coefficient = 0.0023
+min_et0 = 0.0                      # an estimate can't be negative
+max_et0 = 12.0                     # safety stop: above this mm/day it is a data error
+
+[rain.extremes]
+dry_day_mm = 1.0          # a day with less rain than this is a dry day
+hot_day_c = 35.0          # a day whose maximum temperature (T2M_MAX) reaches this is a hot day
+max_daily_temp_c = 50.0   # safety stop: hotter than this at a POWER grid cell = data error
+
+# Season calendar.
+# onset_window_start: where the onset search begins.
+# total_start / total_end: the months counted in total_mm.
+# Maha crosses the new year: Oct–Jan means 1 October to 31 January the next year.
+[rain.seasons.Maha]
+onset_window_start = "09-15"
+total_start = "10-01"
+total_end = "01-31"
+
+[rain.seasons.Yala]
+onset_window_start = "03-15"
+total_start = "04-01"
+total_end = "08-31"
+
+[water]
+# Tank water surface area from satellites (pipeline/water.py).
+start_date = "2017-01-01"
+buffer_m = 600                        # circle around the tank point if there's no polygon file
+polygons_dir = "data/polygons"        # optional <tank id>.geojson with the real tank outline
+# Cloud is judged OVER THE TANK: a scene is skipped if this share (or more) of the pixels
+# inside the polygon are cloud, cloud shadow or missing. Water hidden under cloud isn't
+# counted, so a scene that is 25 % cloudy over the tank can read up to 25 % low;
+# the monthly median damps this. Lower it (e.g. 0.10) for stricter, fewer scenes.
+max_polygon_cloud_fraction = 0.30
+# Before reading any pixels, skip scenes whose whole ~110 km tile is reported this cloudy
+# or more. 100 = only skip completely cloudy tiles (a 95 % cloudy tile can still be clear
+# over the tank). Lower it to download less.
+max_tile_cloud_percent = 100
+# Use DSWx only if it gives at least this many months with a measurement; otherwise use HLS NDWI.
+# One tank never mixes the two methods, so its "normal" is comparable with "now".
+min_months_for_dswx = 24
+# Environment variables holding Earthdata login (never write them in a file in the repo):
+#   EARTHDATA_TOKEN, or EARTHDATA_USERNAME + EARTHDATA_PASSWORD
+
+[water.dswx]
+# NASA OPERA Dynamic Surface Water Extent from HLS, 30 m. Layer WTR values:
+#   0 not water, 1 open water, 2 partial surface water, 252 snow/ice,
+#   253 cloud / cloud shadow, 254 ocean masked, 255 no data.
+short_name = "OPERA_L3_DSWX-HLS_V1"
+label = "NASA OPERA DSWx-HLS"
+water_values = [1, 2]                 # count open AND partial water (tanks are shallow and weedy)
+bad_values = [253, 255]               # count as cloud / missing
+
+[water.hls]
+# Fallback: HLS surface reflectance, NDWI = (Green - NIR) / (Green + NIR).
+label = "NASA HLS (NDWI)"
+ndwi_threshold = 0.0                  # water where NDWI > this
+fill_value = -9999
+fmask_bad_bits = [1, 2, 3]            # Fmask bits: 1 cloud, 2 next to cloud/shadow, 3 cloud shadow
+[water.hls.products.HLSL30]           # Landsat 8/9
+green = "B03"
+nir = "B05"
+[water.hls.products.HLSS30]           # Sentinel-2
+green = "B03"
+nir = "B8A"
+
+[forecast]
+# pipeline/forecast.py: 16-day rain forecast from global weather models via Open-Meteo
+# (free for non-commercial use; credit "Weather data by Open-Meteo.com", CC BY 4.0).
+# This is NOT NASA data and NOT our own model: it is the weather services' forecast.
+url = "https://api.open-meteo.com/v1/forecast"
+forecast_days = 16
+rain_day_mm = 1.0                 # a forecast day with at least this much rain counts as a rain day
+batch_size = 50                   # tanks per request (Open-Meteo accepts many points at once)
+timezone = "Asia/Colombo"
+source = "Open-Meteo (ECMWF, GFS and other weather models)"
+
+[seasonal]
+# pipeline/seasonal.py: the rain outlook for the coming months from the ECMWF long-range ensemble
+# (50 members), through the free Open-Meteo seasonal API. NOT NASA data and NOT our own model.
+# Seasonal forecasts have low skill: the app shows the spread of the members next to the usual rain
+# and never says "wetter" or "drier" for you. Only whole calendar months are used.
+url = "https://seasonal-api.open-meteo.com/v1/seasonal"
+forecast_days = 210
+batch_size = 20                   # tanks per request (each answer holds 50 members x 210 days)
+timezone = "Asia/Colombo"
+low_percentile = 10               # the range shown is the 10th to the 90th percentile of the members
+high_percentile = 90
+normal_first_year = 1991          # the usual monthly rain, from NASA POWER, over these years
+normal_last_year = 2020
+source = "Open-Meteo seasonal forecast (ECMWF long-range ensemble)"
+credit = "Weather data by Open-Meteo.com (CC BY 4.0)"
+
+[ndvi]
+# pipeline/ndvi.py: how green the land around each tank is, from NASA MODIS (Terra, product MOD13Q1,
+# 250 m, one value per 16 days), through NASA's ORNL DAAC MODIS web service (no login needed).
+url = "https://modis.ornl.gov/rst/api/v1"
+product = "MOD13Q1"
+band = "250m_16_days_NDVI"
+first_year = 2019                 # years downloaded; "usual" greenness uses the years before the current one
+km_radius = 1                     # pixels within this many km of the tank centre (a 9 x 9 block of 250 m pixels)
+chunk_dates = 10                  # the service allows at most 10 dates per request
+land_min_ndvi = 0.1               # pixels below this are water, bare ground or cloud and are left out
+min_land_pixels = 12              # fewer land pixels than this in the block -> no value (null), never a guess
+fill_value = -3000                # MODIS "no data" marker
+scale = 0.0001
+workers = 3                       # parallel requests (be polite to the free service)
+retries = 3
+timeout_seconds = 120
+min_normal_years = 3              # at least this many earlier years are needed for a "usual" value
+near_usual = 0.05                 # within this of the usual value counts as "about usual"
+series_years = 2                  # years of values saved in each tank file (keeps the files small)
+source = "NASA MODIS Terra NDVI (MOD13Q1), via ORNL DAAC"
+credit = "MODIS data from NASA LP DAAC, served by the ORNL DAAC MODIS web service"
+
+[advisory]
+# pipeline/advisory.py: the weekly advice message. All DRAFT thresholds, to be reviewed by an
+# Agricultural Instructor. The message is built only from data already in the tank file.
+days = 7                          # the week looked at, starting today
+heavy_rain_mm = 50.0              # one forecast day with at least this much rain -> "heavy rain, drain the fields"
+dry_week_mm = 5.0                 # a week with less rain than this (and hot days) -> "save water"
+hot_day_c = 35.0                  # a forecast day this hot counts as a hot day
+hot_days_alert = 3                # this many hot days in the week -> heat advice
+spray_max_mm = 1.0                # a good day for spraying has less rain than this ...
+spray_max_chance = 30             # ... and a rain chance below this (percent)
+
+[crops]
+# pipeline/crops.py: "which crops suit sowing now, given the rain they need?"  All DRAFT thresholds:
+# our choices to be reviewed by an Agricultural Instructor; the crop facts are in crops_data.json.
+adequate_ratio = 0.8        # rain is "enough" for a rain-fed crop if useful rain >= this share of its water need
+good_ratio = 0.8            # GOOD: expected useful rain / need is at least this ...
+good_reliability = 0.6      # ... AND rain was enough in at least this share of past years
+possible_ratio = 0.5        # POSSIBLE (needs some irrigation): expected useful rain / need is at least this
+normal_first_year = 1991    # "usual" daily rain and ET0 (for the days beyond the 16-day forecast)
+normal_last_year = 2020
+smooth_days = 7             # usual daily values are averaged over +/- this many days around the date
+calendar_weeks = 12         # "when to sow" strip: this many weeks from today
+min_years = 20              # fewer past years than this: no reliability figure is shown
+
+[validate]
+# pipeline/validate.py. Fixed BEFORE looking at test results; never tune these on the test years.
+train_first_year = 2017
+train_last_year = 2022
+test_first_year = 2023
+test_last_year = 2025
+rain_lags_months = [1, 2, 3]          # model inputs: rain in each of the 1, 2 and 3 months before
+min_train_months = 12                 # fewer usable months than this → no model for that tank
+min_test_months = 6
+# Crop advice backtest: learn "how often the rain was enough" on the train years, mark it on the test years.
+crops_train_first_year = 1981
+crops_train_last_year = 2010
+crops_test_first_year = 2011
+crops_test_last_year = 2025
+crops_sow_days = [1, 15]            # sowing dates tested: the 1st and 15th of every month
+
+[elnino]
+# Yala seasons that followed past strong El Niño years.
+analog_seasons = ["Yala 1983", "Yala 1998", "Yala 2016"]
+
+[farm]
+# pipeline/farm_profile.py: pre-computed tables for the farm planner (data/farm/).
+# EVERY number in this section is a DRAFT PLACEHOLDER taken from the product owner's "Steps" document.
+# None of them has been reviewed by an Agricultural Instructor. The output files say so ("thresholds_are_placeholders").
+pilot_bbox = [7.8, 79.9, 9.1, 81.1]   # Anuradhapura pilot district: lat_min, lon_min, lat_max, lon_max (docs/farm-spec.md)
+first_year = 1981                     # first year of POWER data used
+last_year = 2025                      # last COMPLETE year (rain data ends 30 Sep 2026; GEOSIT days after that are skipped)
+min_years = 10                        # fewer years than this: the statistic is null
+# Onset (draft): the first day on or after the window start whose rain over the trailing onset_days days is at least onset_mm.
+# This is the simple "Steps" rule; it is NOT the same as the stricter onset in [rain.onset] used for the tank pages.
+onset_days = 7
+onset_mm = 40.0
+onset_search_days = 120               # no qualifying day within this many days of the window start: onset is null
+# Dry spell: a day with less rain than this is dry (same as [rain.extremes] dry_day_mm).
+dry_day_mm = 1.0
+# Dry-month flags on the monthly water balance (rain minus ET0): z-score against that month's mean and standard deviation.
+dry_z_moderate = -1.0
+dry_z_severe = -2.0
+# Bare ground: MODIS NDVI below this counts as bare / stressed (the "Steps" give 0.2 to 0.3; the middle is used).
+bare_ndvi = 0.25
+bare_ndvi_range = [0.2, 0.3]
+
+[trip]
+# pipeline/trip/: data for the trip planner ("plan" end). The web app reads data/trip/trip_config.json, which is written from the
+# values of [trip] (top level), [trip.intensity], [trip.verdict], [trip.comfort], [trip.weights] and [trip.day_periods].
+# The other sub-sections (download, osm, place_kinds, kind_activities, cost_level, forecast, environment, ml) are for the pipeline only.
+# Thresholds are DRAFT choices of the team (rain intensity classes follow the common hourly-rate scale used by weather
+# services: light / moderate / heavy / very heavy). They have not been reviewed by a meteorologist.
+wet_day_mm = 1.0                  # a day with at least this much rain is a wet day
+no_rain_day_mm = 0.1              # below this a day counts as no rain
+forecast_horizon_days = 16        # beyond this only historical tendencies are shown, never a daily forecast
+cache_minutes = 30                # how long the browser keeps a fetched forecast before asking again
+first_year = 1981                 # NASA POWER daily history used for rainfall_history.json
+last_year = 2025                  # last COMPLETE year (rain data ends 30 Sep 2026; GEOSIT days from 1 Oct 2026 are skipped)
+window_days = 7                   # history statistics use the days within +/- (window_days - 1) / 2 of each calendar day
+
+[trip.intensity]
+unit = "mm/hour"
+light_min = 0.1
+moderate_min = 2.5
+heavy_min = 10
+very_heavy_min = 50
+
+[trip.verdict]
+wet_mm = 3                        # a day with at least this much rain, OR a chance of at least wet_chance, is a wet day
+wet_chance = 70
+maybe_mm = 0.5                    # between maybe_* and wet_* the verdict is "maybe"
+maybe_chance = 35
+
+[trip.comfort]
+temp_ideal_min = 22
+temp_ideal_max = 32
+hot_c = 34
+cold_c = 16
+windy_kmh = 40
+strong_kmh = 60
+
+[trip.weights]
+# Suitability score S = weather*W + activity*A + preference*P + environment*E (must add up to 1). Not a scientific index.
+weather = 0.40
+activity = 0.25
+preference = 0.20
+environment = 0.15
+
+[trip.day_periods]
+night = [0, 5]
+morning = [6, 11]
+afternoon = [12, 17]
+evening = [18, 23]
+
+[trip.download]
+# NASA POWER daily history for each square that covers a destination (pipeline/trip/download/nasa_power.py).
+# POWER resets connections that come too fast: pause between requests, retry with a longer wait, keep every answer in
+# pipeline/cache/trip/ so a run that is cut short continues where it stopped.
+parameters = ["PRECTOTCORR", "T2M_MAX"]
+pause_seconds = 12
+retries = 3
+retry_wait_seconds = 20
+timeout_seconds = 180
+reuse_cells_dir = "data/cells"    # squares already downloaded by pipeline/rain.py (rain only; T2M_MAX is read from pipeline/cache)
+
+[trip.osm]
+# pipeline/trip/download/osm.py: tourist places from OpenStreetMap (c) OpenStreetMap contributors, ODbL: credit them wherever shown.
+overpass_url = "https://overpass-api.de/api/interpreter"
+overpass_fallback_url = "https://overpass.kumi.systems/api/interpreter"
+country_iso = "LK"
+# How many places to keep from each OSM category (those with a Wikipedia or Wikidata link come first), and the kind each category gets.
+# A place closer than min_separation_km to a place already kept is left out (duplicate).
+min_separation_km = 2.0
+exclude_name_regex = "(?i)\\bblock\\b|\\bzone\\b"      # parts of a park (e.g. "Yala National Park - Block 3") are not destinations
+
+[trip.osm.categories.waterfall]
+kind = "waterfall"
+keep = 14
+
+[trip.osm.categories.viewpoint]
+kind = "hill"
+keep = 8
+
+[trip.osm.categories.national_park]
+kind = "wildlife"
+keep = 12
+
+[trip.osm.categories.beach]
+kind = "beach"
+keep = 10
+
+[trip.osm.categories.historic]
+kind = "culture"
+keep = 14
+
+[trip.osm.categories.temple]
+kind = "culture"
+keep = 6
+
+[trip.place_kinds]
+# DRAFT classification (team's judgement, not data) of the 30 places in data/places.json. Valid kinds:
+# beach hill waterfall wildlife culture city lake forest coast.
+colombo = ["city", "coast"]
+negombo = ["beach", "city", "coast"]
+kandy = ["culture", "city", "hill"]
+pinnawala = ["wildlife"]
+kurunegala = ["city", "culture"]
+galle = ["culture", "city", "coast"]
+unawatuna = ["beach", "coast"]
+hikkaduwa = ["beach", "coast"]
+bentota = ["beach", "coast"]
+mirissa = ["beach", "coast"]
+matara = ["city", "coast"]
+hambantota = ["coast", "wildlife"]
+tissamaharama = ["wildlife", "lake", "culture"]
+ratnapura = ["city", "forest"]
+sripada = ["hill", "culture", "forest"]
+nuwaraeliya = ["hill", "city", "lake"]
+hortonplains = ["hill", "forest", "wildlife"]
+haputale = ["hill"]
+ella = ["hill", "waterfall"]
+badulla = ["city", "hill"]
+dambulla = ["culture"]
+sigiriya = ["culture", "hill"]
+polonnaruwa = ["culture", "lake"]
+anuradhapura = ["culture", "city"]
+kalpitiya = ["beach", "coast", "wildlife"]
+mannar = ["coast", "culture"]
+jaffna = ["culture", "city", "coast"]
+trincomalee = ["beach", "coast", "culture"]
+batticaloa = ["lake", "coast", "city"]
+arugambay = ["beach", "coast"]
+
+[trip.kind_activities]
+# DRAFT mapping (assumption) from the kinds of a destination to the activities it offers. Activity ids are listed in
+# docs/trip-spec.md section 3. A destination gets the union over its kinds. Opening hours and prices are NOT known.
+beach = ["beach", "photography", "sightseeing", "restaurants"]
+hill = ["hiking", "photography", "sightseeing", "camping", "cycling"]
+waterfall = ["waterfalls", "hiking", "photography"]
+wildlife = ["wildlife", "photography", "camping"]
+culture = ["culture", "sightseeing", "museums", "photography"]
+city = ["sightseeing", "museums", "restaurants", "shopping", "entertainment", "workshops"]
+lake = ["sightseeing", "photography", "cycling"]
+forest = ["hiking", "wildlife", "camping", "photography"]
+coast = ["beach", "photography", "sightseeing", "restaurants"]
+
+[trip.cost_level]
+# DRAFT assumption, NOT data: a destination's cost level (1 low .. 3 high) is the highest level of its kinds below.
+# Every destination is flagged "cost_level_evidence": "assumption". Replace with real price data when available.
+beach = 2
+hill = 2
+waterfall = 1
+wildlife = 3
+culture = 2
+city = 2
+lake = 1
+forest = 2
+coast = 2
+
+[trip.forecast]
+# pipeline/trip/download/open_meteo.py: 16-day hourly + daily forecast per destination. NOT NASA data.
+url = "https://api.open-meteo.com/v1/forecast"
+timezone = "Asia/Colombo"
+batch_size = 10
+pause_seconds = 3
+retries = 3
+timeout_seconds = 90
+hourly = ["precipitation", "precipitation_probability", "temperature_2m", "relative_humidity_2m", "wind_speed_10m", "wind_gusts_10m", "weather_code"]
+daily = ["precipitation_sum", "precipitation_probability_max", "temperature_2m_max", "temperature_2m_min", "wind_speed_10m_max", "sunrise", "sunset"]
+source = "Open-Meteo (ECMWF, GFS and other weather models)"
+credit = "Weather data by Open-Meteo.com (CC BY 4.0)"
+
+[trip.environment]
+# Elevation and slope come from the AWS "terrarium" terrain tiles (global DEM mosaic, includes SRTM). NDVI only from real NASA MODIS values.
+terrain_url = "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
+zoom = 12
+ndvi_recent_dates = 3             # NDVI = median over the newest MODIS composites available (uses the [ndvi] settings above)
+
+[trip.ml]
+# pipeline/trip/models/: rain-occurrence and rain-amount models for day t+1. Chronological splits, fixed BEFORE looking at test results.
+occurrence_mm = 1.0               # Task A: rain >= this on day t+1
+train_first = "1981-01-01"
+train_last = "2012-12-31"
+valid_first = "2013-01-01"
+valid_last = "2018-12-31"
+test_first = "2019-01-01"
+test_last = "2025-12-31"
+lags = [1, 2, 3]
+rolling_days = [3, 7, 14, 30]
+seed = 42
+min_cells = 2                     # fewer complete squares than this: no model is trained
+max_data_age_days = 3             # ml_estimates.json is only written if the newest rain value is at most this old
+min_test_years_better = 0.5       # a model "beats the baseline" only if it also has a lower Brier score than climatology in more than this share of test years
+
+[trip.ml.xgb]
+n_estimators = 400
+max_depth = 4
+learning_rate = 0.05
+subsample = 0.8
+colsample_bytree = 0.8
+early_stopping_rounds = 30
+
+[trip.ml.rf]
+n_estimators = 200
+max_depth = 12
+min_samples_leaf = 30

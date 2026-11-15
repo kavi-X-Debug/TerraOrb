@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+*.db
+backend/data/
+
+# Raw downloads (large satellite files, raw API dumps) — only processed JSON goes in data/
+pipeline/raw/
+pipeline/cache/
+pipeline/output/
+*.tif
+*.nc
+*.h5
+
+# Earthdata credentials — never commit
+.netrc
+_netrc
+.env
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+_site/

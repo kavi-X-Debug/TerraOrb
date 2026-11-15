@@ -1,0 +1,779 @@
+/* Monsoon Compass — styles
+   Mobile-first: everything is designed for a 360 px phone, then widened at 900 px.
+   Colours come from the Dry Zone: tank water, bund earth, monsoon sky. */
+
+:root {
+  --bg: #F2F5F3;          /* wewa mist */
+  --surface: #FFFFFF;
+  --ink: #16302E;         /* deep tank water, used for text */
+  --muted: #4E6662;
+  --line: #D5DFDC;
+  --water: #13707C;       /* tank water: brand + water data */
+  --water-soft: #CFE6E8;
+  --earth: #8C6A43;       /* bund earth: Yala */
+  --monsoon: #2F5D9E;     /* monsoon sky: Maha */
+
+  /* Signals: each dark enough for white text, and always shown with an icon and a word */
+  --green: #1F7A3A;  --green-soft: #E3F1E6;
+  --amber: #A86200;  --amber-soft: #FBEFD9;
+  --red:   #B42318;  --red-soft:   #FBE4E1;
+  --none:  #5F6B6A;  --none-soft:  #E7ECEB;
+
+  --radius: 10px;
+  --topbar: 56px;
+  --footer: 52px;         /* the disclaimer: two short lines on a phone */
+  /* Noto Sans has no Sinhala letters, so the browser takes those from Noto Sans Sinhala */
+  font-family: "Noto Sans", "Noto Sans Sinhala", system-ui, sans-serif;
+  font-size: 18px;              /* large base type for outdoor reading */
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { background: var(--bg); }
+h1, h2, h3 { line-height: 1.25; margin: 0; }
+h1 { font-size: 1.55rem; font-weight: 800; }
+h2 { font-size: 1.2rem; font-weight: 800; }
+h3 { font-size: 1rem; font-weight: 600; }
+p { margin: 0; }
+button { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+
+:focus-visible { outline: 3px solid var(--water); outline-offset: 2px; }
+
+/* ---------- Top bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 1100;
+  height: var(--topbar); padding: 0 16px;
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  background: var(--water); color: #fff;
+}
+.brand { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.05rem; }
+.lang { display: flex; border: 2px solid #fff; border-radius: 999px; overflow: hidden; }
+.lang button {
+  border: 0; background: transparent; color: #fff;
+  padding: 4px 12px; min-height: 40px; font-size: 0.9rem; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: #fff; color: var(--water); font-weight: 600; }
+
+/* ---------- Layout ---------- */
+.layout { padding-bottom: var(--footer); }
+.map-view { padding: 16px 16px 0; }
+.map-intro { margin-bottom: 12px; }
+.hint { color: var(--muted); }
+.map {
+  height: clamp(220px, 38vh, 560px);     /* leaves room for the tank list on a phone */
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+}
+.status { margin: 8px 0; color: var(--muted); font-size: 0.9rem; }
+.status.error { color: var(--red); font-weight: 600; }
+
+/* Wide screens: map on the left, tank panel on the right */
+@media (min-width: 900px) {
+  :root { --footer: 40px; }
+  .layout { display: grid; grid-template-columns: 1fr 460px; height: calc(100vh - var(--topbar)); }
+  .map-view { overflow: auto; }
+  .map { height: calc(100vh - var(--topbar) - var(--footer) - 200px); }
+  .tank-view { position: static !important; overflow: auto; border-left: 1px solid var(--line); }
+  .layout.no-tank { grid-template-columns: 1fr; }
+}
+
+/* ---------- Tank list (under the map) ---------- */
+.list-title { margin: 18px 0 8px; }
+.tank-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.tank-row {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center;
+  min-height: 64px; padding: 10px 14px; border-radius: var(--radius);
+  background: var(--surface); border: 2px solid var(--line); color: var(--ink); text-decoration: none;
+}
+.tank-row:hover { border-color: var(--water); }
+.tank-row .sig-icon { width: 36px; height: 36px; }
+.tank-row-text { display: grid; }
+.tank-row-text strong { font-size: 1.1rem; }
+.tank-row-text span { color: var(--muted); font-size: 0.92rem; }
+.tank-row .chevron { width: 22px; height: 22px; color: var(--muted); }
+
+/* Signal-coloured edge on each tank card (the icon and word carry the meaning too) */
+.tank-row { border-left-width: 8px; }
+.tank-row.green { border-left-color: var(--green); }
+.tank-row.amber { border-left-color: var(--amber); }
+.tank-row.red   { border-left-color: var(--red); }
+.tank-row.none  { border-left-color: var(--none); }
+
+/* ---------- Advice page ---------- */
+.answer { display: grid; gap: 8px; }
+.signal .advice { font-size: 1.15rem; font-weight: 600; line-height: 1.4; }
+.facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.fact {
+  display: grid; gap: 2px; align-content: start; padding: 12px;
+  border-radius: var(--radius); background: var(--surface); border: 2px solid var(--line);
+}
+.fact.main { border: 3px solid var(--ink); }
+.fact-main {
+  justify-self: start; font-size: 0.75rem; font-weight: 800; padding: 1px 8px;
+  border-radius: 999px; background: var(--ink); color: #fff;
+}
+.fact-label { font-size: 0.85rem; color: var(--muted); line-height: 1.3; }
+.fact-value { font-size: 1.3rem; font-weight: 800; line-height: 1.2; }
+.fact .badge.source { margin-top: 4px; font-size: 0.72rem; }
+.plan-actions { display: grid; gap: 10px; }
+.plan-actions .action { min-height: 56px; font-size: 1rem; }
+.other-options { background: var(--surface); border-radius: var(--radius); border: 2px solid var(--line); }
+.other-options summary { cursor: pointer; padding: 14px 16px; font-weight: 800; min-height: 52px; }
+.other-options ul { list-style: none; margin: 0; padding: 0 16px 14px; display: grid; gap: 12px; }
+.other-options li { display: grid; gap: 2px; }
+
+/* One clear banner instead of a "Demo data" badge on every block */
+.demo-banner {
+  margin: 8px 0 0; padding: 8px 12px; border-radius: 6px; font-size: 0.88rem; font-weight: 600;
+  border: 1.5px dashed var(--ink);
+  background: repeating-linear-gradient(-45deg, #FFF3C4 0 8px, #FFFFFF 8px 16px);
+}
+
+/* ---------- Legend and markers ---------- */
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 10px; font-size: 0.9rem; }
+.legend-title { width: 100%; font-weight: 600; }
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.sig-icon { width: 26px; height: 26px; flex: none; }
+
+.tank-marker { background: none; border: 0; }
+.tank-marker .sig-icon { width: 34px; height: 34px; filter: drop-shadow(0 1px 1px rgba(0, 0, 0, .45)); }
+.leaflet-tooltip.tank-label {
+  font-family: inherit; font-size: 0.85rem; font-weight: 600;
+  padding: 2px 6px; border-radius: 6px; border: 0; box-shadow: none;
+}
+
+/* ---------- Tank view (full screen on phones) ---------- */
+.tank-view {
+  /* Above Leaflet's own controls (z-index 1000), below the top bar and disclaimer */
+  position: fixed; inset: var(--topbar) 0 var(--footer) 0; z-index: 1050;
+  overflow-y: auto; background: var(--bg);
+}
+.tank-head { padding: 12px 16px 0; background: var(--surface); border-bottom: 1px solid var(--line); }
+.back {
+  display: inline-flex; align-items: center; gap: 6px; min-height: 44px;
+  border: 0; background: none; color: var(--water); font-weight: 600; cursor: pointer; padding: 0;
+}
+.tank-head h1 { margin: 2px 0 4px; }
+.meta { color: var(--muted); font-size: 0.88rem; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: center; }
+
+.tank-head { padding-bottom: 14px; }
+
+.panel-body { padding: 16px; display: grid; gap: 28px; }
+.block { display: grid; gap: 10px; }
+.block + .block { border-top: 1px solid var(--line); padding-top: 24px; }
+.figure { font-size: 1.05rem; }
+.figure strong { font-size: 1.6rem; font-weight: 800; }
+.note { color: var(--muted); font-size: 0.9rem; }
+.chart-box { position: relative; height: 230px; }
+.toggle { display: flex; gap: 8px; }
+.toggle button {
+  min-height: 40px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+  border: 2px solid var(--line); background: var(--surface);
+}
+.toggle button[aria-pressed="true"] { border-color: var(--ink); font-weight: 600; }
+
+/* ---------- Badges ---------- */
+.badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.badge {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: 0.78rem; line-height: 1.3; padding: 3px 9px; border-radius: 999px;
+}
+.badge svg { width: 14px; height: 14px; flex: none; }
+/* Source labels stay next to every value, but quietly: small grey text, not a coloured pill */
+.badge.source { background: none; color: var(--muted); padding: 0; font-size: 0.78rem; }
+/* Demo data: hatched like a surveyor's placeholder, so it can't pass for real data */
+.badge.demo {
+  color: var(--ink); font-weight: 600; border: 1.5px dashed var(--ink);
+  background: repeating-linear-gradient(-45deg, #FFF3C4 0 6px, #FFFFFF 6px 12px);
+}
+
+/* ---------- The wewa gauge (water now vs normal) ---------- */
+.gauge { width: 100%; max-width: 420px; height: auto; display: block; }
+.gauge .basin { fill: #E6EDEB; }
+.gauge .bund { fill: none; stroke: var(--earth); stroke-width: 6; stroke-linejoin: round; }
+.gauge .water { fill: var(--water); }
+.gauge .normal { stroke: var(--ink); stroke-width: 2; stroke-dasharray: 6 5; }
+.gauge text { font-family: inherit; font-size: 13px; fill: var(--ink); }
+.gauge .pct { font-size: 26px; font-weight: 800; fill: #fff; }
+
+/* ---------- Planner ---------- */
+.signal {
+  display: grid; grid-template-columns: auto 1fr; gap: 4px 14px; align-items: center;
+  padding: 18px 16px; border-radius: var(--radius); color: #fff;
+}
+.signal .sig-icon { width: 64px; height: 64px; grid-row: span 2; }
+.signal .sig-word { font-size: 2.1rem; font-weight: 800; line-height: 1.1; }
+.signal p { grid-column: 2; }
+.signal.green { background: var(--green); }
+.signal.amber { background: var(--amber); }
+.signal.red { background: var(--red); }
+.signal.none { background: var(--none); }
+.for-season { font-weight: 600; color: var(--muted); }
+
+.scenarios { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.scenario {
+  padding: 14px 16px; border-radius: var(--radius);
+  background: var(--surface); border: 2px solid var(--line);
+}
+.scenario.recommended { border-width: 3px; }
+.scenario.recommended.green { border-color: var(--green); background: var(--green-soft); }
+.scenario.recommended.amber { border-color: var(--amber); background: var(--amber-soft); }
+.scenario.recommended.red { border-color: var(--red); background: var(--red-soft); }
+.scenario .tag { font-size: 0.85rem; font-weight: 600; display: inline-flex; gap: 6px; align-items: center; }
+.scenario .tag svg { width: 20px; height: 20px; }
+.scenario h3 { font-size: 1.1rem; margin: 4px 0; }
+.scenario .crops { font-weight: 600; }
+
+.why-button {
+  min-height: 52px; width: 100%; border-radius: var(--radius); cursor: pointer;
+  border: 2px solid var(--ink); background: var(--surface); font-weight: 800; font-size: 1.05rem;
+}
+.reasons { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.reasons li { display: grid; gap: 4px; padding-left: 14px; border-left: 4px solid var(--line); }
+.elnino { padding: 14px 16px; border-radius: var(--radius); background: var(--surface); border: 1px solid var(--line); }
+.elnino .count { font-size: 1.6rem; font-weight: 800; }
+
+/* ---------- Learn Mode ---------- */
+.learn-entry {
+  display: grid; gap: 4px; margin: 12px 0 16px; padding: 14px 16px;
+  border-radius: var(--radius); background: var(--ink); color: #fff; text-decoration: none;
+}
+.learn-entry strong { font-size: 1.15rem; }
+.learn-entry-go { justify-self: start; margin-top: 6px; padding: 6px 14px; border-radius: 999px; background: #fff; color: var(--ink); font-weight: 800; }
+.learn-head { padding-bottom: 12px; }
+.learn-step { font-weight: 600; color: var(--muted); font-size: 0.9rem; }
+.learn-progress { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 6px; }
+.learn-progress span { height: 6px; border-radius: 3px; background: var(--line); }
+.learn-progress span.on { background: var(--water); }
+.learn-intro h1 { font-size: 1.5rem; }
+.field { display: grid; gap: 6px; font-weight: 600; }
+.field select {
+  font: inherit; min-height: 48px; padding: 0 12px; border-radius: var(--radius);
+  border: 2px solid var(--ink); background: var(--surface);
+}
+.season-list, .plan-choices { display: grid; gap: 10px; }
+.season-pick, .plan-choice {
+  display: grid; gap: 2px; text-align: left; cursor: pointer; padding: 14px 16px; min-height: 56px;
+  border-radius: var(--radius); border: 2px solid var(--line); background: var(--surface);
+}
+.season-pick strong, .plan-choice strong { font-size: 1.1rem; }
+.season-pick span, .plan-choice span { color: var(--muted); font-size: 0.9rem; }
+.season-pick:hover, .plan-choice:hover { border-color: var(--water); }
+.learn-verdict { grid-column: 2; font-size: 1.15rem; font-weight: 800; }
+.signal .learn-verdict { grid-row: span 2; }
+.learn-compass { display: flex; gap: 12px; align-items: center; }
+.learn-compass .sig-icon { width: 40px; height: 40px; }
+.tip { padding: 16px; border-radius: var(--radius); background: var(--surface); border-left: 6px solid var(--water); display: grid; gap: 6px; }
+
+/* ---------- Summary card (one page, to print or share) ---------- */
+.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.action {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 52px; border-radius: var(--radius); cursor: pointer; font-weight: 800;
+  border: 2px solid var(--water); background: var(--water); color: #fff;
+}
+.action + .action { background: var(--surface); color: var(--water); }
+.action svg { width: 22px; height: 22px; }
+
+/* The card is drawn like a printed sheet: black text, real borders, no colour needed to read it. */
+.summary-card {
+  background: #fff; color: #000; max-width: 560px; width: 100%;
+  border: 2px solid #000; border-radius: 4px; padding: 20px 18px;
+  display: grid; gap: 16px; font-size: 1rem; line-height: 1.45;
+}
+.summary-card p { margin: 0; }
+.card-top { display: grid; gap: 2px; border-bottom: 2px solid #000; padding-bottom: 12px; }
+.card-brand { font-weight: 600; }
+.summary-card h2 { font-size: 1.6rem; }
+.card-sub { font-size: 0.88rem; }
+.card-top .badge.demo { justify-self: start; margin-top: 6px; }
+.card-label { font-size: 0.85rem; font-weight: 800; }
+.card-signal { border: 3px solid currentColor; border-radius: 6px; padding: 12px; display: grid; gap: 6px; }
+.card-signal.green { color: var(--green); background: var(--green-soft); }
+.card-signal.amber { color: var(--amber); background: var(--amber-soft); }
+.card-signal.red   { color: var(--red);   background: var(--red-soft); }
+.card-signal.none  { color: var(--none);  background: var(--none-soft); }
+.card-signal .card-label, .card-signal p:not(.card-signal-word) { color: #000; }
+.card-signal-row { display: grid; grid-template-columns: auto 1fr; gap: 12px; align-items: center; }
+.card-signal .sig-icon { width: 56px; height: 56px; }
+.card-signal-word { font-size: 1.9rem; font-weight: 800; line-height: 1.1; }
+.card-section { display: grid; gap: 4px; }
+.card-section h3 { font-size: 1.15rem; font-weight: 800; }
+.card-reasons { margin: 4px 0 0; padding-left: 1.3em; display: grid; gap: 8px; }
+.card-source { display: block; font-size: 0.8rem; font-style: italic; }
+.card-disclaimer { border-top: 2px solid #000; padding-top: 10px; font-size: 0.9rem; display: grid; gap: 2px; }
+
+/* ---------- Print: only the card, black on white ---------- */
+@media print {
+  @page { size: A4; margin: 14mm; }
+  .topbar, .site-header, .site-footer, .hero, .disclaimer, .map-view, .tank-head, .card-actions, #card-status { display: none !important; }
+  html, body, .layout { background: #fff !important; height: auto; padding: 0; display: block; }
+  .tank-view { position: static !important; overflow: visible !important; border: 0 !important; }
+  .panel-body { padding: 0; display: block; }
+  .summary-card {
+    max-width: none; border: 0; padding: 0; font-size: 12pt; gap: 14pt;
+    /* every colour becomes black: the signal is read from its word and its icon's shape */
+    --green: #000; --amber: #000; --red: #000; --none: #000;
+  }
+  .summary-card h2 { font-size: 22pt; }
+  .card-signal { background: #fff !important; border-width: 3pt; break-inside: avoid; }
+  .card-signal-word { font-size: 24pt; }
+  .card-section, .card-reasons li { break-inside: avoid; }
+  .badge.demo { background: #fff; border: 1.5pt dashed #000; }
+}
+
+/* ---------- Always-visible disclaimer ---------- */
+.disclaimer {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 1200;
+  min-height: var(--footer); padding: 6px 16px;
+  display: flex; align-items: center; gap: 10px;
+  background: var(--ink); color: #fff; font-size: 0.8rem; line-height: 1.3;
+}
+.disclaimer svg { width: 22px; height: 22px; flex: none; fill: none; stroke: #fff; stroke-width: 2; stroke-linecap: round; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* ======================================================================
+   Clean & bright theme (screen only — the print card keeps its own style)
+   Soft shadows instead of hard borders, rounder shapes, a gradient header,
+   gentle motion that answers a tap. Meaning never depends on colour alone.
+   ====================================================================== */
+@media screen {
+  :root {
+    --bg: #F4F8F7;
+    --line: #E1E9E7;
+    --radius: 16px;
+    --shadow-sm: 0 1px 2px rgba(22, 48, 46, .06), 0 2px 8px rgba(22, 48, 46, .05);
+    --shadow: 0 2px 4px rgba(22, 48, 46, .06), 0 8px 24px rgba(22, 48, 46, .08);
+  }
+  body { background: linear-gradient(180deg, #E6F1EF 0, var(--bg) 320px) no-repeat, var(--bg); }
+
+  /* Header */
+  .topbar {
+    background: linear-gradient(120deg, #0E5560 0%, #13707C 55%, #1B8A7F 100%);
+    box-shadow: 0 2px 12px rgba(14, 85, 96, .25);
+  }
+  .lang { border-color: rgba(255, 255, 255, .7); background: rgba(255, 255, 255, .12); }
+
+  /* Find my tank */
+  .finder { display: grid; grid-template-columns: 1fr auto; gap: 8px; margin: 4px 0 6px; }
+  .search {
+    min-width: 0;                                    /* let the box shrink on narrow phones */
+    display: flex; align-items: center; gap: 8px; padding: 0 14px; min-height: 52px;
+    background: var(--surface); border-radius: 14px; box-shadow: var(--shadow-sm);
+    border: 2px solid transparent; transition: border-color .15s;
+  }
+  .search:focus-within { border-color: var(--water); }
+  .search svg { width: 20px; height: 20px; flex: none; fill: none; stroke: var(--muted); stroke-width: 2.2; stroke-linecap: round; }
+  .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: none; font: inherit; color: var(--ink); }
+  .near-me {
+    display: inline-flex; align-items: center; gap: 6px; padding: 0 14px; min-height: 52px;
+    border: 0; border-radius: 14px; cursor: pointer; font-weight: 800; white-space: nowrap;
+    background: var(--water); color: #fff; box-shadow: var(--shadow-sm);
+  }
+  .near-me svg { width: 20px; height: 20px; fill: none; stroke: #fff; stroke-width: 2.2; }
+  .finder-status { min-height: 1.2em; margin-bottom: 6px; font-size: 0.88rem; color: var(--muted); }
+  .finder-status.error { color: var(--red); font-weight: 600; }
+  .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .tank-list .empty { padding: 18px; text-align: center; color: var(--muted); background: var(--surface); border-radius: var(--radius); }
+
+  /* Cards: shadows, no hard outlines */
+  .tank-row {
+    border: 0; border-left: 8px solid var(--none); box-shadow: var(--shadow-sm);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .tank-row:hover, .tank-row:focus-visible { transform: translateY(-2px); box-shadow: var(--shadow); }
+  .map { border: 0; box-shadow: var(--shadow-sm); }
+  .tank-head { box-shadow: var(--shadow-sm); border-bottom: 0; }
+  .fact { border: 0; box-shadow: var(--shadow-sm); }
+  .fact.main { box-shadow: inset 0 0 0 3px var(--ink), var(--shadow-sm); }
+  .signal { border-radius: 20px; box-shadow: var(--shadow); }
+  .signal.green { background: linear-gradient(135deg, #1F7A3A, #2A8F4A); }
+  .signal.amber { background: linear-gradient(135deg, #A86200, #BD7206); }
+  .signal.red   { background: linear-gradient(135deg, #B42318, #C93A2C); }
+  .other-options, .elnino, .tip, .scenario, .season-pick, .plan-choice, .summary-card { border-radius: var(--radius); }
+  .other-options, .elnino, .season-pick, .plan-choice { border: 0; box-shadow: var(--shadow-sm); }
+  .block + .block { border-top: 0; }
+  .block { background: var(--surface); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow-sm); }
+  .answer, .plan-actions { padding: 0; }
+
+  /* Buttons */
+  .action { border-radius: 14px; transition: transform .1s ease, filter .15s; }
+  .action:first-child { background: linear-gradient(120deg, #0E5560, #13707C); border-color: transparent; }
+  .action:active, .near-me:active, .tank-row:active { transform: scale(.98); }
+  .toggle button { border: 0; background: var(--bg); }
+  .toggle button[aria-pressed="true"] { background: var(--ink); color: #fff; }
+  .learn-entry { border-radius: 20px; background: linear-gradient(120deg, #16302E, #24504C); box-shadow: var(--shadow); }
+  .figure-line { font-weight: 600; }
+  .fact-small { font-size: 0.82rem; color: var(--muted); line-height: 1.3; }
+  .chart-help { font-size: 0.9rem; color: var(--muted); }
+  .glossary li { line-height: 1.45; }
+
+  /* A tank's page slides in when opened (skipped if the phone asks for less motion) */
+  /* Movement only, never a fade: the page is readable even if the animation is paused */
+  .tank-view:not([hidden]) { animation: slide-in .2s ease-out; }
+  @keyframes slide-in { from { transform: translateY(12px); } to { transform: none; } }
+}
+
+/* ---------- Simple / Advanced view ---------- */
+@media screen {
+  .mode-bar {
+    position: sticky; top: var(--topbar); z-index: 1090;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+    padding: 6px 16px; background: rgba(244, 248, 247, .94); backdrop-filter: blur(6px);
+    box-shadow: 0 1px 0 var(--line); font-size: 0.88rem; font-weight: 600;
+  }
+  .mode-bar button {
+    min-height: 36px; padding: 0 16px; border-radius: 999px; cursor: pointer; font-weight: 700;
+    border: 2px solid var(--water); background: var(--surface); color: var(--water);
+  }
+  .mode-bar button[aria-pressed="true"] { background: var(--water); color: #fff; }
+  .tank-view { top: calc(var(--topbar) + 48px); }
+
+  /* Simple view: three big picture cards, one plain sentence each */
+  .simple-cards { display: grid; gap: 12px; }
+  .simple-card {
+    display: grid; grid-template-columns: 88px 1fr; grid-template-rows: auto 1fr; column-gap: 14px;
+    align-items: center; padding: 14px 16px; background: var(--surface);
+    border-radius: var(--radius); box-shadow: var(--shadow-sm);
+  }
+  .simple-pic { grid-row: span 2; display: grid; place-items: center; }
+  .simple-pic .gauge { width: 88px; }
+  .simple-pic .gauge text { display: none; }          /* the picture alone; the sentence says it */
+  .simple-pic.icon svg { width: 56px; height: 56px; }
+  .simple-card h2 { font-size: 1rem; color: var(--muted); align-self: end; }
+  .simple-card p { font-size: 1.12rem; font-weight: 700; line-height: 1.35; align-self: start; }
+  .simple-source { font-size: 0.85rem; color: var(--muted); text-align: center; }
+}
+@media screen and (min-width: 900px) {
+  .layout { height: calc(100vh - var(--topbar) - 48px); }
+}
+
+/* ---------- Rain forecast (live or saved) ---------- */
+@media screen {
+  .simple-fc { display: grid; gap: 4px; align-self: start; }
+  .simple-card .simple-fc .fact-small, .simple-card .simple-fc .badge { font-weight: 400; font-size: 0.8rem; }
+  .forecast-block .fc-sentence { font-size: 1.08rem; font-weight: 700; line-height: 1.4; }
+  .forecast-block .fc-status { color: var(--water); font-weight: 600; }
+  .forecast-block .badge.source { display: block; }
+}
+@media screen {
+  .simple-card.forecast-block { grid-template-columns: 52px 1fr; }
+  .simple-card.forecast-block .simple-pic.icon svg { width: 44px; height: 44px; }
+}
+
+/* ---------- Weather page ---------- */
+@media screen {
+  .wx-today {
+    padding: 18px 16px; border-radius: 20px; color: #fff; box-shadow: var(--shadow);
+    background: linear-gradient(150deg, #1F5E8C 0%, #2F7FB3 55%, #4C9CC9 100%);
+  }
+  .wx-big { display: flex; align-items: center; gap: 14px; }
+  .wx-today .wx-icon { flex: none; background: rgba(255, 255, 255, .92); border-radius: 22px; padding: 8px; box-sizing: content-box; }
+  .wx-when { font-weight: 600; opacity: .95; }
+  .wx-temp { font-size: 3rem; font-weight: 800; line-height: 1.05; }
+  .wx-sky { font-size: 1.25rem; font-weight: 700; }
+  .wx-line { margin-top: 10px; font-size: 1.1rem; font-weight: 700; }
+  .wx-today .fact-small { color: rgba(255, 255, 255, .9); }
+  .wx-today .fc-sentence { font-size: 1.1rem; font-weight: 700; }
+
+  .wx-strip { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 10px; scroll-snap-type: x proximity; }
+  .wx-day {
+    flex: none; width: 76px; display: grid; justify-items: center; gap: 2px; padding: 8px 4px;
+    border: 2px solid transparent; border-radius: 16px; background: var(--bg); cursor: pointer;
+    scroll-snap-align: start; font: inherit; color: var(--ink);
+  }
+  .wx-day[aria-pressed="true"] { border-color: var(--ink); background: #fff; box-shadow: var(--shadow-sm); }
+  .wx-wd { font-size: 0.82rem; font-weight: 700; }
+  .wx-dn { font-size: 0.78rem; color: var(--muted); }
+  .wx-day strong { font-size: 1.05rem; }
+  .wx-mm { font-size: 0.78rem; color: var(--monsoon); font-weight: 700; min-height: 1.1em; }
+
+  .wx-map { height: 300px; border-radius: var(--radius); box-shadow: var(--shadow-sm); margin-top: 8px; }
+  .wx-legend { margin-top: 8px; }
+  .wx-bar { height: 14px; border-radius: 7px; border: 1px solid var(--line); }
+  .wx-ticks { position: relative; display: block; height: 1.1em; font-size: 0.72rem; color: var(--muted); }
+  .wx-ticks span { position: absolute; transform: translateX(-50%); }
+  .wx-ticks span:first-child { transform: none; }
+  .wx-ticks span:last-child { transform: translateX(-100%); }
+  .wx-legend-labels { display: flex; justify-content: space-between; font-size: 0.82rem; font-weight: 700; margin-top: 2px; }
+}
+
+/* ---------- Live weather: chips on tank cards, "right now" card ---------- */
+@media screen {
+  .tank-row { grid-template-columns: auto 1fr auto; }
+  .tank-row-end { display: inline-flex; align-items: center; gap: 6px; }
+  .wx-chip {
+    display: inline-flex; flex-direction: column; align-items: center; min-width: 44px;
+    padding: 2px 6px; border-radius: 12px; background: var(--bg); line-height: 1.1;
+  }
+  .wx-chip strong { font-size: 0.95rem; }
+  .live-status { margin: 8px 2px 0; }
+
+  .wx-now {
+    padding: 14px 16px; border-radius: 20px; background: var(--surface); box-shadow: var(--shadow-sm);
+    display: grid; gap: 4px;
+  }
+  .wx-now-title { font-weight: 800; color: var(--water); }
+  .wx-now .wx-big { color: var(--ink); }
+  .wx-now .wx-icon { background: var(--bg); border-radius: 18px; padding: 6px; box-sizing: content-box; }
+  .wx-temp-now { font-size: 2.4rem; }
+  .wx-now .wx-line { color: var(--ink); margin-top: 4px; }
+}
+@media screen {
+  /* let the name column shrink instead of pushing the weather chip and arrow off the card */
+  .tank-row { grid-template-columns: auto minmax(0, 1fr) auto; }
+  .tank-row-text { min-width: 0; }
+  .tank-row-text strong { overflow-wrap: anywhere; }
+}
+
+/* ---------- What to sow now ---------- */
+.crops-headline { font-size: 1.2rem; font-weight: 800; line-height: 1.35; }
+.crop-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.crop-card { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; align-items: start;
+  padding: 14px; border-radius: var(--radius); background: var(--surface); border: 2px solid var(--line); }
+.crop-card.rating-good { border-color: var(--green); }
+.crop-card.rating-possible { border-color: var(--amber); }
+.crop-card.rating-not_now { border-color: var(--red); }
+.crop-card .sig-icon { width: 36px; height: 36px; }
+.crop-text h3 { margin: 0 0 4px; font-size: 1.1rem; display: flex; flex-wrap: wrap; gap: 4px 10px; align-items: baseline; }
+.crop-rating { font-size: .95rem; font-weight: 700; }
+.crop-text p { margin: 0; line-height: 1.45; }
+.table-scroll { overflow-x: auto; }
+.crop-table { border-collapse: collapse; width: 100%; font-size: .92rem; }
+.crop-table th, .crop-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); text-align: right; white-space: nowrap; }
+.crop-table th:first-child, .crop-table td:first-child, .crop-table thead th { text-align: left; }
+
+/* ---------- Motion and hover polish ----------
+   Hover effects only where a real pointer exists (phones have none, so nothing sticks after a tap).
+   Animations only when the phone has not asked for less motion. They move things, never fade them,
+   so the page is fully readable even if an animation is stopped. */
+@media screen {
+  .tank-row, .fact, .scenario, .simple-card, .crop-card, .wx-day, .action, .near-me, .learn-entry,
+  .mode-bar button, .lang button, .block, .badge {
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease, background-color .18s ease, filter .18s ease;
+  }
+  :focus-visible { outline: 3px solid var(--monsoon); outline-offset: 2px; border-radius: 6px; }
+  .tank-row .chevron { transition: transform .18s ease, color .18s ease; }
+}
+
+@media screen and (hover: hover) {
+  .tank-row:hover { transform: translateX(4px); box-shadow: var(--shadow); }
+  .tank-row:hover .chevron { transform: translateX(4px); color: var(--water); }
+  .fact:hover, .scenario:hover, .crop-card:hover, .simple-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .block:hover { box-shadow: var(--shadow); }
+  .action:hover, .near-me:hover { transform: translateY(-2px); filter: brightness(1.08); box-shadow: var(--shadow); }
+  .action:active, .near-me:active { transform: translateY(0) scale(.98); }
+  .learn-entry:hover { transform: translateY(-3px) scale(1.01); box-shadow: 0 14px 30px rgba(22, 48, 46, .3); }
+  .mode-bar button:hover, .lang button:hover { filter: brightness(.95); transform: translateY(-1px); }
+  .wx-day:hover { transform: translateY(-3px); box-shadow: var(--shadow-sm); }
+  .badge.source:hover { color: var(--water); }
+  .crop-card:hover .sig-icon, .tank-row:hover .sig-icon, .signal:hover .sig-icon { transform: scale(1.12) rotate(-4deg); }
+  .sig-icon { transition: transform .2s ease; }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* Lists build up one by one when a page opens */
+  .scenarios > *, .crop-list > *, .facts > *, .simple-cards > * {
+    animation: rise .45s cubic-bezier(.2, .7, .2, 1) both;
+  }
+  .scenarios > :nth-child(2), .crop-list > :nth-child(2), .facts > :nth-child(2), .simple-cards > :nth-child(2) { animation-delay: .07s; }
+  .scenarios > :nth-child(3), .crop-list > :nth-child(3), .facts > :nth-child(3), .simple-cards > :nth-child(3) { animation-delay: .14s; }
+  .crop-list > :nth-child(4), .facts > :nth-child(4) { animation-delay: .21s; }
+  .crop-list > :nth-child(5), .facts > :nth-child(5) { animation-delay: .28s; }
+  @keyframes rise { from { transform: translateY(18px) scale(.97); } to { transform: none; } }
+
+  /* The signal card and its icon pop in */
+  .signal { animation: pop-in .5s cubic-bezier(.2, .8, .3, 1.2) both; }
+  .signal .sig-icon { animation: icon-pop .7s cubic-bezier(.3, 1.6, .5, 1) .15s both; }
+  @keyframes pop-in { from { transform: scale(.94); } to { transform: none; } }
+  @keyframes icon-pop { from { transform: scale(.3) rotate(-25deg); } to { transform: none; } }
+
+  /* The tank fills up to its level */
+  .gauge .water { transform-box: fill-box; transform-origin: 50% 100%; animation: fill-up 1.1s cubic-bezier(.2, .7, .2, 1) .1s both; }
+  @keyframes fill-up { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+  /* The weather card drifts gently, the sun icon turns slowly */
+  .wx-today { animation: pop-in .5s ease both; background-size: 200% 200%; }
+  .wx-today .wx-icon { animation: float 5s ease-in-out infinite; }
+  @keyframes float { 50% { transform: translateY(-5px); } }
+
+  /* Soft shimmer while the live forecast is loading */
+  .fc-sentence:empty, .fc-status:empty { display: block; min-height: 1.2em; border-radius: 6px;
+    background: linear-gradient(90deg, var(--line) 25%, #fff 50%, var(--line) 75%); background-size: 200% 100%;
+    animation: shimmer 1.2s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+
+  /* Live badge pulse and the map's "near me" ring */
+  .badge.demo { animation: nudge 3s ease-in-out infinite; }
+  @keyframes nudge { 50% { transform: scale(1.04); } }
+
+  /* Pressing a button gives a quick shine across it */
+  .action { position: relative; overflow: hidden; }
+  .action::after { content: ""; position: absolute; inset: 0; transform: translateX(-120%) skewX(-20deg);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent); }
+  .action:hover::after { transform: translateX(120%) skewX(-20deg); transition: transform .6s ease; }
+
+  /* Charts and tables slide up as the page opens */
+  .chart-box, .table-scroll { animation: rise .5s ease .1s both; }
+}
+
+/* ---------- Hover colours (mouse only) ---------- */
+@media screen and (hover: hover) {
+  /* Tank rows tint with their own signal colour */
+  .tank-row.green:hover { background: var(--green-soft); border-color: var(--green); }
+  .tank-row.amber:hover { background: var(--amber-soft); border-color: var(--amber); }
+  .tank-row.red:hover   { background: var(--red-soft);   border-color: var(--red); }
+  .tank-row.none:hover  { background: var(--none-soft);  border-color: var(--none); }
+  .tank-row:hover strong { color: var(--water); }
+
+  /* Cards turn a soft water-blue, crop cards their rating colour */
+  .fact:hover, .simple-card:hover, .block:hover { background-color: #F3FAFA; }
+  .fact:hover { border-color: var(--water); }
+  .scenario:hover { background: var(--water-soft); border-color: var(--water); }
+  .crop-card.rating-good:hover { background: var(--green-soft); }
+  .crop-card.rating-possible:hover { background: var(--amber-soft); }
+  .crop-card.rating-not_now:hover { background: var(--red-soft); }
+  .crop-card.rating-unknown:hover { background: var(--none-soft); }
+  .wx-day:hover { background: var(--water-soft); border-color: var(--water); }
+
+  /* Buttons change colour: main buttons go deeper, the light ones fill with water colour */
+  .action:first-child:hover { background: linear-gradient(120deg, #13707C, #1D8E9B); filter: none; }
+  .action + .action:hover { background: var(--water); color: #fff; border-color: var(--water); filter: none; }
+  .near-me:hover { background: #0E5560; filter: none; }
+  .mode-bar button:hover:not([aria-pressed="true"]) { background: var(--water-soft); filter: none; }
+  .lang button:hover:not([aria-pressed="true"]) { background: rgba(255, 255, 255, .25); filter: none; }
+  .back:hover { color: var(--monsoon); }
+  .learn-entry:hover { background: linear-gradient(120deg, #1F6F6A, #2F8F86); }
+  .badge.demo:hover { filter: brightness(1.1); }
+}
+
+/* ---------- Icons on headings, buttons and toggles ----------
+   Line drawings (Lucide style, ISC licence) used as a mask, so each takes the colour of its text. */
+:root {
+  --i-sprout: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M7 20h10'/%3E%3Cpath d='M10 20c5.5-2.5.8-6.4 3-10'/%3E%3Cpath d='M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z'/%3E%3Cpath d='M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z'/%3E%3C/svg%3E");
+  --i-cloud-sun: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2v2M4.9 4.9l1.4 1.4M20 12h2M19.1 4.9l-1.4 1.4M15.9 13a4 4 0 0 0-7.7-1.2'/%3E%3Cpath d='M7 20a4 4 0 0 1-.5-8 5.5 5.5 0 0 1 10.5 1.5A3.5 3.5 0 0 1 17 20z'/%3E%3C/svg%3E");
+  --i-chart: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3v18h18'/%3E%3Cpath d='M7 16V10M12 16V6M17 16v-4'/%3E%3C/svg%3E");
+  --i-share: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='18' cy='5' r='3'/%3E%3Ccircle cx='6' cy='12' r='3'/%3E%3Ccircle cx='18' cy='19' r='3'/%3E%3Cpath d='M8.6 13.5l6.8 4M15.4 6.5l-6.8 4'/%3E%3C/svg%3E");
+  --i-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E");
+  --i-rain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 16.6A4.5 4.5 0 0 0 18 8h-1.3A7 7 0 1 0 4 14.9'/%3E%3Cpath d='M8 19v2M12 18v3M16 19v2'/%3E%3C/svg%3E");
+  --i-gauge: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 14l4-4'/%3E%3Cpath d='M3.3 19a10 10 0 1 1 17.4 0'/%3E%3C/svg%3E");
+  --i-drop: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 22a7 7 0 0 0 7-7c0-4-7-13-7-13S5 11 5 15a7 7 0 0 0 7 7z'/%3E%3C/svg%3E");
+  --i-thermo: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 14.8V4a2 2 0 0 0-4 0v10.8a4 4 0 1 0 4 0z'/%3E%3C/svg%3E");
+  --i-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2'/%3E%3Cpath d='M16 2v4M8 2v4M3 10h18'/%3E%3C/svg%3E");
+  --i-map: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 4L3 6v14l6-2 6 2 6-2V4l-6 2z'/%3E%3Cpath d='M9 4v14M15 6v14'/%3E%3C/svg%3E");
+  --i-leaf: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10z'/%3E%3Cpath d='M2 21c0-3 1.9-5.6 5-7'/%3E%3C/svg%3E");
+  --i-sliders: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6'/%3E%3C/svg%3E");
+  --i-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 4l14 8-14 8z'/%3E%3C/svg%3E");
+  --i-book: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z'/%3E%3Cpath d='M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5'/%3E%3C/svg%3E");
+}
+@media screen {
+  .action[data-tab='crops']::before,
+  .action[data-tab='weather']::before,
+  .action[data-tab='tank']::before,
+  .action[data-tab='card']::before,
+  .action[data-more]::before,
+  .action[data-go='#/learn']::before,
+  .action[data-go='#/']::before,
+  .mode-bar [data-mode='simple']::before,
+  .mode-bar [data-mode='advanced']::before,
+  #fc-title::before,
+  .forecast-block > h2::before,
+  #facts-title::before,
+  #water-title::before,
+  #rain-title::before,
+  #extremes-title::before,
+  #wx-next-title::before,
+  #wx-map-title::before,
+  #crops-title::before,
+  .list-title::before,
+  .learn-entry strong::before,
+  .learn-entry-go::before {
+    content: ''; display: inline-block; flex: none; width: 1.15em; height: 1.15em; margin-inline-end: .45em;
+    vertical-align: -0.2em; background-color: currentColor;
+    -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat;
+  }
+  .action[data-tab='crops']::before { --ic: var(--i-sprout); }
+  .action[data-tab='weather']::before { --ic: var(--i-cloud-sun); }
+  .action[data-tab='tank']::before { --ic: var(--i-chart); }
+  .action[data-tab='card']::before { --ic: var(--i-share); }
+  .action[data-more]::before { --ic: var(--i-arrow); }
+  .action[data-go='#/learn']::before { --ic: var(--i-play); }
+  .action[data-go='#/']::before { --ic: var(--i-map); }
+  .mode-bar [data-mode='simple']::before { --ic: var(--i-leaf); }
+  .mode-bar [data-mode='advanced']::before { --ic: var(--i-sliders); }
+  #fc-title::before { --ic: var(--i-rain); }
+  .forecast-block > h2::before { --ic: var(--i-rain); }
+  #facts-title::before { --ic: var(--i-gauge); }
+  #water-title::before { --ic: var(--i-drop); }
+  #rain-title::before { --ic: var(--i-rain); }
+  #extremes-title::before { --ic: var(--i-thermo); }
+  #wx-next-title::before { --ic: var(--i-calendar); }
+  #wx-map-title::before { --ic: var(--i-map); }
+  #crops-title::before { --ic: var(--i-sprout); }
+  .list-title::before { --ic: var(--i-map); }
+  .learn-entry strong::before { --ic: var(--i-book); }
+  .learn-entry-go::before { --ic: var(--i-play); }
+  .action::before { margin-inline-end: 0; width: 1.3em; height: 1.3em; }
+  .mode-bar button::before { margin-inline-end: .3em; }
+  .block > h2::before, .forecast-block > h2::before { color: var(--water); }
+}
+
+/* ---------- Transparent header and view bar ---------- */
+@media screen {
+  .topbar { background: rgba(14, 85, 96, .82); -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .25), 0 4px 18px rgba(14, 85, 96, .18); }
+  .mode-bar { background: rgba(244, 248, 247, .7); -webkit-backdrop-filter: blur(12px) saturate(1.3); backdrop-filter: blur(12px) saturate(1.3); }
+}
+
+/* ---------- Small rain animations (weather icons everywhere: cards, forecast strip, "right now") ---------- */
+@media screen and (prefers-reduced-motion: no-preference) {
+  /* Rain falls: the drops slide down and fade as they reach the bottom, then start again at the cloud */
+  .drops { stroke-dasharray: 5 4; animation: rain-fall 0.9s linear infinite; }
+  .drops.fast { animation-duration: .55s; }
+  @keyframes rain-fall { to { stroke-dashoffset: -18; } }
+  /* Heavy rain also shakes its cloud a little */
+  .drops.fast ~ path, svg:has(.drops.fast) path:first-child { animation: cloud-shake .5s ease-in-out infinite; }
+  @keyframes cloud-shake { 50% { transform: translateX(.8px); } }
+  /* Thunderstorm: the bolt flashes */
+  .bolt { animation: bolt-flash 2.4s steps(1) infinite; }
+  @keyframes bolt-flash { 0%, 55%, 62%, 100% { stroke: #F2C200; } 58%, 70% { stroke: #fff; filter: drop-shadow(0 0 4px #F2C200); } }
+  /* Sunny: the rays turn slowly */
+  .rays { transform-box: fill-box; transform-origin: center; animation: sun-turn 14s linear infinite; }
+  @keyframes sun-turn { to { transform: rotate(360deg); } }
+  /* A raindrop badge on rain days in the 16-day strip bobs */
+  .wx-day:has(.drops) .wx-icon { animation: float 3s ease-in-out infinite; }
+}
+
+/* ---------- When to sow: 12-week strip ---------- */
+.cal-best { margin: 0; padding: 0; list-style: none; display: grid; gap: 4px; font-weight: 700; }
+.cal-months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); font-size: .75rem; font-weight: 700; color: var(--muted); margin-top: 6px; }
+.cal-month { white-space: nowrap; }
+.cal-row { display: grid; gap: 4px; }
+.cal-row h4 { margin: 4px 0 0; font-size: .95rem; }
+.cal-strip { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; }
+.cal-cell { display: grid; place-items: center; aspect-ratio: 1; border-radius: 6px; min-width: 0; }
+.cal-cell .sig-icon { width: 80%; height: 80%; }
+.cal-cell.rating-good { background: var(--green-soft); }
+.cal-cell.rating-possible { background: var(--amber-soft); }
+.cal-cell.rating-not_now { background: var(--red-soft); }
+.cal-legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; font-weight: 600; }
+.cal-key { display: inline-flex; align-items: center; gap: 5px; }
+.cal-key .sig-icon { width: 18px; height: 18px; }
+@media screen and (hover: hover) { .cal-cell:hover { transform: scale(1.18); position: relative; z-index: 1; box-shadow: var(--shadow-sm); } }
+
+/* ---------- Crop advice up front on the Simple page ---------- */
+.crop-teaser { width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) 24px; gap: 10px; align-items: center; text-align: left;
+  padding: 16px; border-radius: var(--radius); border: 2px solid var(--green); background: var(--green-soft); cursor: pointer; }
+.crop-teaser strong { display: flex; align-items: center; gap: 8px; font-size: 1.1rem; }
+.crop-teaser strong::before { content: ''; width: 1.3em; height: 1.3em; background: currentColor; flex: none;
+  -webkit-mask: var(--i-sprout) center / contain no-repeat; mask: var(--i-sprout) center / contain no-repeat; color: var(--green); }
+.crop-teaser-text { display: grid; gap: 4px; }
+.crop-teaser-headline { font-size: 1.12rem; font-weight: 700; line-height: 1.35; }
+.crop-teaser .chevron { width: 22px; height: 22px; color: var(--green); }
+@media (hover: hover) { .crop-teaser:hover { background: #D3EAD9; transform: translateY(-2px); box-shadow: var(--shadow); } }

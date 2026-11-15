@@ -1,0 +1,143 @@
+[
+  {
+    "id": "legume_before_cereal",
+    "kind": "practice",
+    "crops": [
+      "mung_bean",
+      "cowpea",
+      "black_gram",
+      "groundnut",
+      "maize"
+    ],
+    "effect": "Growing a legume before a cereal leaves some nitrogen for the cereal and breaks pest cycles.",
+    "status": "scientifically supported",
+    "evidence": "V2",
+    "sources": [
+      "General extension agronomy; a specific Department of Agriculture reference still has to be added by the reviewer."
+    ]
+  },
+  {
+    "id": "vetiver_contour_hedge",
+    "kind": "practice",
+    "crops": [
+      "vetiver"
+    ],
+    "effect": "Vetiver hedges planted along contours slow runoff and trap soil, reducing erosion on slopes.",
+    "status": "scientifically supported",
+    "evidence": "V2",
+    "sources": [
+      "World Bank Technical Paper 273, Vetiver Grass for Soil and Water Conservation (1995): citation to be double-checked by the reviewer."
+    ]
+  },
+  {
+    "id": "gliricidia_green_manure",
+    "kind": "practice",
+    "crops": [
+      "gliricidia"
+    ],
+    "effect": "Cutting gliricidia leaves as green manure adds nitrogen and organic matter to the soil.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "Widely used by farmers; no specific source checked yet."
+    ]
+  },
+  {
+    "id": "gliricidia_maize_alley",
+    "kind": "pairing",
+    "crops": [
+      "gliricidia",
+      "maize"
+    ],
+    "effect": "Maize grown between gliricidia hedges may gain from the leaf manure and shade less erosion.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "No source checked yet; to be reviewed."
+    ]
+  },
+  {
+    "id": "maize_cowpea_intercrop",
+    "kind": "pairing",
+    "crops": [
+      "maize",
+      "cowpea"
+    ],
+    "effect": "Cowpea between maize rows covers the soil and adds nitrogen.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "No source checked yet; to be reviewed."
+    ]
+  },
+  {
+    "id": "pigeon_pea_millet",
+    "kind": "pairing",
+    "crops": [
+      "pigeon_pea",
+      "finger_millet"
+    ],
+    "effect": "Deep-rooted pigeon pea with finger millet uses water from different soil depths.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "No source checked yet; to be reviewed."
+    ]
+  },
+  {
+    "id": "solanaceae_not_in_sequence",
+    "kind": "practice",
+    "crops": [
+      "brinjal",
+      "chilli"
+    ],
+    "effect": "Do not follow one Solanaceae crop (brinjal, chilli) with another: diseases such as bacterial wilt carry over.",
+    "status": "scientifically supported",
+    "evidence": "V2",
+    "sources": [
+      "General plant-protection advice; specific reference to be added by the reviewer."
+    ]
+  },
+  {
+    "id": "sunn_hemp_green_manure",
+    "kind": "practice",
+    "crops": [
+      "sunn_hemp"
+    ],
+    "effect": "Sunn hemp ploughed in before flowering adds nitrogen and organic matter.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "No source checked yet; to be reviewed."
+    ]
+  },
+  {
+    "id": "saffron_cold_requirement",
+    "kind": "practice",
+    "crops": [
+      "saffron"
+    ],
+    "effect": "Saffron needs a cold season for corm development, so it does not suit the Dry Zone.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "General horticultural knowledge; needs expert confirmation."
+    ]
+  },
+  {
+    "id": "cover_crop_bare_soil",
+    "kind": "practice",
+    "crops": [
+      "sweet_potato",
+      "cowpea",
+      "pumpkin",
+      "sunn_hemp"
+    ],
+    "effect": "Keeping the soil covered between main crops lowers erosion and soil heating.",
+    "status": "traditional, not yet validated",
+    "evidence": "V3",
+    "sources": [
+      "No source checked yet; to be reviewed."
+    ]
+  }
+]

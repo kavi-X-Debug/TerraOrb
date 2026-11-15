@@ -1,0 +1,84 @@
+/* Trip planner: "My trips" and "Packing assistant" screens (agent SCREENS-C). Scoped to the plan end; palette comes from trip.css. */
+body[data-end="plan"] .tpc-muted { color: var(--tp-muted); }
+body[data-end="plan"] .tpc-small { font-size: .88rem; }
+body[data-end="plan"] .tpc-error { color: var(--tp-bad); margin: 0; font-weight: 600; min-height: 0; }
+body[data-end="plan"] .tpc-ok { color: #14532D; font-weight: 700; }
+body[data-end="plan"] .tpc-note { background: #EAF4FD; border-left: 4px solid var(--tp-ocean); padding: 10px 12px; border-radius: 8px; margin: 0 0 12px; }
+body[data-end="plan"] .tpc-form { display: grid; gap: 14px; }
+body[data-end="plan"] .tpc-form h2, body[data-end="plan"] .tpc-review h2 { margin: 0; font-size: 1.15rem; }
+body[data-end="plan"] .tpc-row { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+body[data-end="plan"] .tpc-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+body[data-end="plan"] .tpc-linkbtn { display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+body[data-end="plan"] .tpc-danger { border-color: var(--tp-bad); color: var(--tp-bad); }
+body[data-end="plan"] .tp-btn.tpc-danger.primary { background: var(--tp-bad); color: #fff; }
+body[data-end="plan"] .tpc-small-btn { min-height: 36px; padding: 0 12px; font-size: .88rem; }
+body[data-end="plan"] .tpc-link { background: none; border: 0; padding: 4px; color: var(--tp-ocean); font: inherit; font-weight: 700; text-decoration: underline; cursor: pointer; }
+body[data-end="plan"] .tpc-trip h3 { margin: 0 0 4px; }
+body[data-end="plan"] .tpc-trip p { margin: 2px 0 8px; }
+body[data-end="plan"] .tpc-back { color: var(--tp-ocean); font-weight: 700; text-decoration: none; }
+body[data-end="plan"] .tpc-titlerow { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; margin: 6px 0 10px; }
+body[data-end="plan"] .tpc-titlerow h1 { margin: 0; font-size: 1.5rem; overflow-wrap: anywhere; }
+body[data-end="plan"] .tpc-head { display: grid; gap: 10px; }
+body[data-end="plan"] .tpc-print-only { display: none; margin: 0; }
+body[data-end="plan"] .tpc-status { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+body[data-end="plan"] .tpc-status.warn { color: #92400E; font-weight: 600; }
+body[data-end="plan"] .tpc-check { display: flex; gap: 10px; align-items: flex-start; font-weight: 600; cursor: pointer; min-height: 32px; }
+body[data-end="plan"] .tpc-check input { width: 22px; height: 22px; flex: none; margin-top: 1px; accent-color: var(--tp-ocean); }
+body[data-end="plan"] input:focus-visible, body[data-end="plan"] select:focus-visible, body[data-end="plan"] button:focus-visible, body[data-end="plan"] a:focus-visible { outline: 3px solid var(--tp-warn); outline-offset: 2px; }
+body[data-end="plan"] .tpc-days { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+body[data-end="plan"] .tpc-day h3 { margin: 0 0 8px; font-size: 1.05rem; }
+body[data-end="plan"] .tpc-slot { border-top: 1px solid var(--tp-line); padding: 8px 0; }
+body[data-end="plan"] .tpc-slot h4 { margin: 0 0 6px; font-size: .95rem; color: var(--tp-ocean); }
+body[data-end="plan"] .tpc-slot p { margin: 0; }
+body[data-end="plan"] .tpc-item { display: grid; gap: 6px; background: #F5F8FC; border: 1px solid var(--tp-line); border-radius: 12px; padding: 10px; margin-bottom: 8px; }
+body[data-end="plan"] .tpc-item.locked { border-color: var(--tp-warn); background: #FFF8E8; }
+body[data-end="plan"] .tpc-lock { font-weight: 700; color: #92400E; }
+body[data-end="plan"] .tpc-item-main { overflow-wrap: anywhere; }
+body[data-end="plan"] .tpc-item-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between; }
+body[data-end="plan"] .tpc-chip { display: inline-block; justify-self: start; padding: 3px 10px; border-radius: 999px; font-size: .84rem; font-weight: 700; border: 1px solid var(--tp-line); background: #fff; color: var(--tp-navy); }
+body[data-end="plan"] .tpc-chip.none { color: var(--tp-muted); font-weight: 600; }
+body[data-end="plan"] .tpc-chip.c-none { background: #E8F7EE; border-color: var(--tp-ok); color: #14532D; }
+body[data-end="plan"] .tpc-chip.c-light { background: #E6F1FB; border-color: var(--tp-sky); color: #0F4C81; }
+body[data-end="plan"] .tpc-chip.c-moderate { background: #D7E8F8; border-color: var(--tp-rain); color: #0B3C6B; }
+body[data-end="plan"] .tpc-chip.c-heavy, body[data-end="plan"] .tpc-chip.c-very_heavy { background: #FDEBD0; border-color: var(--tp-warn); color: #7A4100; }
+body[data-end="plan"] .tpc-chip.windy { box-shadow: inset 0 0 0 1px var(--tp-warn); }
+body[data-end="plan"] .tpc-prop { border: 2px solid var(--tp-line); border-radius: 12px; padding: 12px; margin: 0 0 12px; min-width: 0; }
+body[data-end="plan"] .tpc-prop legend { font-weight: 800; padding: 0 6px; }
+body[data-end="plan"] .tpc-problem { margin: 0 0 8px; font-weight: 600; }
+body[data-end="plan"] .tpc-opt { margin: 6px 0; }
+body[data-end="plan"] .tpc-warnbox { background: #FFF8E8; border: 2px solid var(--tp-warn); border-radius: 12px; padding: 12px; margin-bottom: 12px; }
+body[data-end="plan"] .tpc-warnbox p { margin: 4px 0 0; }
+body[data-end="plan"] .tpc-changes ul { padding-left: 18px; display: grid; gap: 10px; }
+
+/* packing */
+body[data-end="plan"] .tpc-progress { display: grid; gap: 6px; }
+body[data-end="plan"] .tpc-bar { height: 14px; border-radius: 999px; background: #E3ECF6; overflow: hidden; }
+body[data-end="plan"] .tpc-bar > span { display: block; height: 100%; background: var(--tp-ok); transition: width .2s; }
+body[data-end="plan"] .tpc-cat { border: 1px solid var(--tp-line); border-radius: 16px; background: #fff; padding: 14px 16px 16px; margin: 0; min-width: 0; }
+body[data-end="plan"] .tpc-cat legend { font-weight: 800; font-size: 1.05rem; padding: 0 8px; color: var(--tp-ocean); }
+body[data-end="plan"] .tpc-pack-item { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed var(--tp-line); }
+body[data-end="plan"] .tpc-pack-item .tpc-check { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+body[data-end="plan"] .tpc-pack-item.done .tpc-label { text-decoration: line-through; color: var(--tp-muted); }
+body[data-end="plan"] .tpc-reason { display: block; font-weight: 400; font-size: .86rem; color: var(--tp-muted); }
+body[data-end="plan"] .tpc-manual { display: inline-block; font-size: .72rem; font-weight: 700; border: 1px solid var(--tp-muted); color: var(--tp-muted); border-radius: 999px; padding: 0 8px; margin-left: 6px; }
+body[data-end="plan"] .tpc-addrow { display: flex; gap: 8px; margin-top: 10px; }
+body[data-end="plan"] .tpc-addrow input { flex: 1; min-width: 0; min-height: 44px; padding: 0 12px; border: 2px solid var(--tp-line); border-radius: 12px; font: inherit; }
+
+@media (max-width: 480px) {
+  body[data-end="plan"] .tpc-days { grid-template-columns: 1fr; }
+  body[data-end="plan"] .tpc-actions .tp-btn { flex: 1 1 140px; }
+}
+/* printable view: only the itinerary / checklist, no menus, forms or buttons */
+@media print {
+  body[data-end="plan"] .tpc-noprint, body[data-end="plan"] .tp-menu, body[data-end="plan"] header, body[data-end="plan"] footer, body[data-end="plan"] nav, body[data-end="plan"] #assistant-fab { display: none !important; }
+  body[data-end="plan"] .tpc-print-only { display: block; }
+  body[data-end="plan"] .tp-card { box-shadow: none; break-inside: avoid; }
+  body[data-end="plan"] .tpc-days { grid-template-columns: 1fr 1fr; }
+}
+
+/* layout: sections stacked with a gap; every child may shrink so nothing forces a horizontal scroll at 360 px */
+body[data-end="plan"] .tpc-detail { display: grid; gap: 16px; min-width: 0; }
+body[data-end="plan"] .tpc-detail > *, body[data-end="plan"] .tpc-cat > *, body[data-end="plan"] .tpc-form > * { min-width: 0; }
+body[data-end="plan"] .tpc-addrow input { width: 100%; }
+body[data-end="plan"] .tpc-form select, body[data-end="plan"] .tpc-form input[type="text"], body[data-end="plan"] .tpc-form input[type="date"] { min-width: 0; width: 100%; box-sizing: border-box; }
+body[data-end="plan"] .tpc-row > * { min-width: 0; }

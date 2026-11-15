@@ -1,0 +1,14 @@
+{
+  "name": "Monsoon Compass",
+  "short_name": "Monsoon Compass",
+  "description": "Village tank water, rainfall and a season plan from NASA data, for Dry Zone farmer organisations.",
+  "lang": "si",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#2B5430",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

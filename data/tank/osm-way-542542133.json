@@ -1,0 +1,5510 @@
+{
+  "schema_version": "1.7",
+  "id": "osm-way-542542133",
+  "generated": "2026-10-25T18:56:07+05:30",
+  "demo": false,
+  "water": null,
+  "rain": {
+    "seasons": [
+      {
+        "season": "Yala 1981",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 338.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 14,
+        "hot_days": 2,
+        "max_temp_c": 35.5
+      },
+      {
+        "season": "Maha 1981/82",
+        "onset_date": "1981-10-28",
+        "onset_delay_days": 16,
+        "total_mm": 501.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 42,
+        "hot_days": 0,
+        "max_temp_c": 31.6
+      },
+      {
+        "season": "Yala 1982",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 376.1,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 18,
+        "hot_days": 3,
+        "max_temp_c": 36.5
+      },
+      {
+        "season": "Maha 1982/83",
+        "onset_date": "1982-10-05",
+        "onset_delay_days": -7,
+        "total_mm": 480.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 35,
+        "hot_days": 0,
+        "max_temp_c": 31.2
+      },
+      {
+        "season": "Yala 1983",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 176.4,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 30,
+        "hot_days": 19,
+        "max_temp_c": 37.1
+      },
+      {
+        "season": "Maha 1983/84",
+        "onset_date": "1983-10-11",
+        "onset_delay_days": -1,
+        "total_mm": 967.2,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 32.4
+      },
+      {
+        "season": "Yala 1984",
+        "onset_date": "1984-03-27",
+        "onset_delay_days": -11,
+        "total_mm": 486.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 32,
+        "hot_days": 0,
+        "max_temp_c": 31.0
+      },
+      {
+        "season": "Maha 1984/85",
+        "onset_date": "1984-10-27",
+        "onset_delay_days": 15,
+        "total_mm": 578.2,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 29.7
+      },
+      {
+        "season": "Yala 1985",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 280.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 15,
+        "hot_days": 0,
+        "max_temp_c": 34.5
+      },
+      {
+        "season": "Maha 1985/86",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 632.3,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 25,
+        "hot_days": 0,
+        "max_temp_c": 31.7
+      },
+      {
+        "season": "Yala 1986",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 226.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 15,
+        "hot_days": 0,
+        "max_temp_c": 34.0
+      },
+      {
+        "season": "Maha 1986/87",
+        "onset_date": "1986-10-10",
+        "onset_delay_days": -2,
+        "total_mm": 386.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 12,
+        "hot_days": 0,
+        "max_temp_c": 32.3
+      },
+      {
+        "season": "Yala 1987",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 231.4,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 24,
+        "hot_days": 1,
+        "max_temp_c": 35.3
+      },
+      {
+        "season": "Maha 1987/88",
+        "onset_date": "1987-09-16",
+        "onset_delay_days": -26,
+        "total_mm": 571.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 18,
+        "hot_days": 0,
+        "max_temp_c": 30.8
+      },
+      {
+        "season": "Yala 1988",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 438.1,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 2,
+        "max_temp_c": 36.0
+      },
+      {
+        "season": "Maha 1988/89",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 284.0,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 13,
+        "hot_days": 0,
+        "max_temp_c": 33.1
+      },
+      {
+        "season": "Yala 1989",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 302.8,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 5,
+        "max_temp_c": 37.2
+      },
+      {
+        "season": "Maha 1989/90",
+        "onset_date": "1989-10-13",
+        "onset_delay_days": 1,
+        "total_mm": 653.2,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 20,
+        "hot_days": 0,
+        "max_temp_c": 30.4
+      },
+      {
+        "season": "Yala 1990",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 293.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 25,
+        "hot_days": 6,
+        "max_temp_c": 36.5
+      },
+      {
+        "season": "Maha 1990/91",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 430.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 33.5
+      },
+      {
+        "season": "Yala 1991",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 305.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 18,
+        "hot_days": 0,
+        "max_temp_c": 34.7
+      },
+      {
+        "season": "Maha 1991/92",
+        "onset_date": "1991-10-16",
+        "onset_delay_days": 4,
+        "total_mm": 648.4,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 0,
+        "max_temp_c": 32.0
+      },
+      {
+        "season": "Yala 1992",
+        "onset_date": "1992-04-24",
+        "onset_delay_days": 17,
+        "total_mm": 314.9,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 15,
+        "hot_days": 5,
+        "max_temp_c": 36.2
+      },
+      {
+        "season": "Maha 1992/93",
+        "onset_date": "1992-09-17",
+        "onset_delay_days": -25,
+        "total_mm": 570.3,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 35,
+        "hot_days": 0,
+        "max_temp_c": 30.5
+      },
+      {
+        "season": "Yala 1993",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 262.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 35,
+        "hot_days": 3,
+        "max_temp_c": 35.5
+      },
+      {
+        "season": "Maha 1993/94",
+        "onset_date": "1993-10-06",
+        "onset_delay_days": -6,
+        "total_mm": 1072.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 7,
+        "hot_days": 0,
+        "max_temp_c": 30.0
+      },
+      {
+        "season": "Yala 1994",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 270.9,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 31,
+        "hot_days": 0,
+        "max_temp_c": 32.8
+      },
+      {
+        "season": "Maha 1994/95",
+        "onset_date": "1994-10-02",
+        "onset_delay_days": -10,
+        "total_mm": 375.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 19,
+        "hot_days": 0,
+        "max_temp_c": 32.5
+      },
+      {
+        "season": "Yala 1995",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 99.8,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 48,
+        "hot_days": 4,
+        "max_temp_c": 37.1
+      },
+      {
+        "season": "Maha 1995/96",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 150.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 24,
+        "hot_days": 0,
+        "max_temp_c": 33.3
+      },
+      {
+        "season": "Yala 1996",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 139.1,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 37,
+        "hot_days": 1,
+        "max_temp_c": 35.3
+      },
+      {
+        "season": "Maha 1996/97",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 203.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 30,
+        "hot_days": 0,
+        "max_temp_c": 34.3
+      },
+      {
+        "season": "Yala 1997",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 183.6,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 26,
+        "hot_days": 4,
+        "max_temp_c": 36.6
+      },
+      {
+        "season": "Maha 1997/98",
+        "onset_date": "1997-10-19",
+        "onset_delay_days": 7,
+        "total_mm": 591.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 22,
+        "hot_days": 0,
+        "max_temp_c": 33.2
+      },
+      {
+        "season": "Yala 1998",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 336.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 23,
+        "hot_days": 23,
+        "max_temp_c": 37.4
+      },
+      {
+        "season": "Maha 1998/99",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 761.0,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 31.9
+      },
+      {
+        "season": "Yala 1999",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 237.0,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 34,
+        "hot_days": 0,
+        "max_temp_c": 33.4
+      },
+      {
+        "season": "Maha 1999/00",
+        "onset_date": "1999-09-26",
+        "onset_delay_days": -16,
+        "total_mm": 396.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 20,
+        "hot_days": 0,
+        "max_temp_c": 31.7
+      },
+      {
+        "season": "Yala 2000",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 270.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 21,
+        "hot_days": 1,
+        "max_temp_c": 35.2
+      },
+      {
+        "season": "Maha 2000/01",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 480.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 14,
+        "hot_days": 0,
+        "max_temp_c": 32.8
+      },
+      {
+        "season": "Yala 2001",
+        "onset_date": "2001-04-05",
+        "onset_delay_days": -2,
+        "total_mm": 401.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 30,
+        "hot_days": 4,
+        "max_temp_c": 36.0
+      },
+      {
+        "season": "Maha 2001/02",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 485.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 10,
+        "hot_days": 0,
+        "max_temp_c": 32.0
+      },
+      {
+        "season": "Yala 2002",
+        "onset_date": "2002-04-11",
+        "onset_delay_days": 4,
+        "total_mm": 271.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 52,
+        "hot_days": 1,
+        "max_temp_c": 35.4
+      },
+      {
+        "season": "Maha 2002/03",
+        "onset_date": "2002-09-30",
+        "onset_delay_days": -12,
+        "total_mm": 688.9,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 0,
+        "max_temp_c": 32.2
+      },
+      {
+        "season": "Yala 2003",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 281.2,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 3,
+        "max_temp_c": 36.6
+      },
+      {
+        "season": "Maha 2003/04",
+        "onset_date": "2003-10-11",
+        "onset_delay_days": -1,
+        "total_mm": 414.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 21,
+        "hot_days": 0,
+        "max_temp_c": 33.2
+      },
+      {
+        "season": "Yala 2004",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 271.4,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 16,
+        "hot_days": 3,
+        "max_temp_c": 36.0
+      },
+      {
+        "season": "Maha 2004/05",
+        "onset_date": "2004-10-16",
+        "onset_delay_days": 4,
+        "total_mm": 674.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 17,
+        "hot_days": 0,
+        "max_temp_c": 30.8
+      },
+      {
+        "season": "Yala 2005",
+        "onset_date": "2005-04-01",
+        "onset_delay_days": -6,
+        "total_mm": 274.8,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 20,
+        "hot_days": 0,
+        "max_temp_c": 33.5
+      },
+      {
+        "season": "Maha 2005/06",
+        "onset_date": "2005-10-08",
+        "onset_delay_days": -4,
+        "total_mm": 698.6,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 10,
+        "hot_days": 0,
+        "max_temp_c": 32.6
+      },
+      {
+        "season": "Yala 2006",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 203.0,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 34,
+        "hot_days": 0,
+        "max_temp_c": 33.6
+      },
+      {
+        "season": "Maha 2006/07",
+        "onset_date": "2006-10-11",
+        "onset_delay_days": -1,
+        "total_mm": 731.1,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 15,
+        "hot_days": 0,
+        "max_temp_c": 31.4
+      },
+      {
+        "season": "Yala 2007",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 227.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 20,
+        "hot_days": 2,
+        "max_temp_c": 36.7
+      },
+      {
+        "season": "Maha 2007/08",
+        "onset_date": "2007-10-09",
+        "onset_delay_days": -3,
+        "total_mm": 633.9,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 13,
+        "hot_days": 0,
+        "max_temp_c": 31.8
+      },
+      {
+        "season": "Yala 2008",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 230.4,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 34,
+        "hot_days": 0,
+        "max_temp_c": 31.9
+      },
+      {
+        "season": "Maha 2008/09",
+        "onset_date": "2008-11-21",
+        "onset_delay_days": 40,
+        "total_mm": 576.9,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 12,
+        "hot_days": 0,
+        "max_temp_c": 33.5
+      },
+      {
+        "season": "Yala 2009",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 235.2,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 25,
+        "hot_days": 3,
+        "max_temp_c": 35.5
+      },
+      {
+        "season": "Maha 2009/10",
+        "onset_date": "2009-10-28",
+        "onset_delay_days": 16,
+        "total_mm": 686.1,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 33.5
+      },
+      {
+        "season": "Yala 2010",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 307.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 26,
+        "hot_days": 1,
+        "max_temp_c": 35.2
+      },
+      {
+        "season": "Maha 2010/11",
+        "onset_date": "2010-10-28",
+        "onset_delay_days": 16,
+        "total_mm": 1009.7,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 9,
+        "hot_days": 0,
+        "max_temp_c": 30.6
+      },
+      {
+        "season": "Yala 2011",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 315.4,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 36,
+        "hot_days": 0,
+        "max_temp_c": 31.9
+      },
+      {
+        "season": "Maha 2011/12",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 729.2,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 22,
+        "hot_days": 0,
+        "max_temp_c": 32.3
+      },
+      {
+        "season": "Yala 2012",
+        "onset_date": "2012-03-28",
+        "onset_delay_days": -10,
+        "total_mm": 161.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 42,
+        "hot_days": 0,
+        "max_temp_c": 33.3
+      },
+      {
+        "season": "Maha 2012/13",
+        "onset_date": "2012-10-07",
+        "onset_delay_days": -5,
+        "total_mm": 1125.7,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 12,
+        "hot_days": 0,
+        "max_temp_c": 32.4
+      },
+      {
+        "season": "Yala 2013",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 206.2,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 27,
+        "hot_days": 0,
+        "max_temp_c": 32.4
+      },
+      {
+        "season": "Maha 2013/14",
+        "onset_date": "2013-10-30",
+        "onset_delay_days": 18,
+        "total_mm": 517.3,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 18,
+        "hot_days": 0,
+        "max_temp_c": 32.1
+      },
+      {
+        "season": "Yala 2014",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 339.6,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 37,
+        "hot_days": 4,
+        "max_temp_c": 36.5
+      },
+      {
+        "season": "Maha 2014/15",
+        "onset_date": "2014-09-24",
+        "onset_delay_days": -18,
+        "total_mm": 1015.0,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 30,
+        "hot_days": 0,
+        "max_temp_c": 30.8
+      },
+      {
+        "season": "Yala 2015",
+        "onset_date": "2015-03-27",
+        "onset_delay_days": -11,
+        "total_mm": 449.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 70,
+        "hot_days": 0,
+        "max_temp_c": 32.3
+      },
+      {
+        "season": "Maha 2015/16",
+        "onset_date": "2015-09-27",
+        "onset_delay_days": -15,
+        "total_mm": 983.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 15,
+        "hot_days": 0,
+        "max_temp_c": 31.0
+      },
+      {
+        "season": "Yala 2016",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 434.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 45,
+        "hot_days": 4,
+        "max_temp_c": 35.9
+      },
+      {
+        "season": "Maha 2016/17",
+        "onset_date": "2016-10-29",
+        "onset_delay_days": 17,
+        "total_mm": 408.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 21,
+        "hot_days": 0,
+        "max_temp_c": 33.2
+      },
+      {
+        "season": "Yala 2017",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 235.7,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 19,
+        "hot_days": 1,
+        "max_temp_c": 35.5
+      },
+      {
+        "season": "Maha 2017/18",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 380.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 18,
+        "hot_days": 0,
+        "max_temp_c": 31.5
+      },
+      {
+        "season": "Yala 2018",
+        "onset_date": "2018-04-12",
+        "onset_delay_days": 5,
+        "total_mm": 359.8,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 28,
+        "hot_days": 2,
+        "max_temp_c": 35.6
+      },
+      {
+        "season": "Maha 2018/19",
+        "onset_date": "2018-10-02",
+        "onset_delay_days": -10,
+        "total_mm": 531.0,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 36,
+        "hot_days": 0,
+        "max_temp_c": 32.8
+      },
+      {
+        "season": "Yala 2019",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 162.2,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 50,
+        "hot_days": 14,
+        "max_temp_c": 36.7
+      },
+      {
+        "season": "Maha 2019/20",
+        "onset_date": "2019-09-22",
+        "onset_delay_days": -20,
+        "total_mm": 900.4,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 9,
+        "hot_days": 0,
+        "max_temp_c": 31.5
+      },
+      {
+        "season": "Yala 2020",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 345.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 21,
+        "hot_days": 14,
+        "max_temp_c": 36.7
+      },
+      {
+        "season": "Maha 2020/21",
+        "onset_date": "2020-11-06",
+        "onset_delay_days": 25,
+        "total_mm": 911.4,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 7,
+        "hot_days": 0,
+        "max_temp_c": 32.0
+      },
+      {
+        "season": "Yala 2021",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 356.1,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 21,
+        "hot_days": 0,
+        "max_temp_c": 34.1
+      },
+      {
+        "season": "Maha 2021/22",
+        "onset_date": "2021-09-22",
+        "onset_delay_days": -20,
+        "total_mm": 935.1,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 12,
+        "hot_days": 0,
+        "max_temp_c": 30.5
+      },
+      {
+        "season": "Yala 2022",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 484.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 22,
+        "hot_days": 0,
+        "max_temp_c": 32.7
+      },
+      {
+        "season": "Maha 2022/23",
+        "onset_date": "2022-10-08",
+        "onset_delay_days": -4,
+        "total_mm": 712.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 11,
+        "hot_days": 0,
+        "max_temp_c": 31.4
+      },
+      {
+        "season": "Yala 2023",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 277.8,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 28,
+        "hot_days": 0,
+        "max_temp_c": 34.7
+      },
+      {
+        "season": "Maha 2023/24",
+        "onset_date": "2023-10-07",
+        "onset_delay_days": -5,
+        "total_mm": 1158.9,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 9,
+        "hot_days": 0,
+        "max_temp_c": 31.5
+      },
+      {
+        "season": "Yala 2024",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 356.0,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 39,
+        "hot_days": 17,
+        "max_temp_c": 37.9
+      },
+      {
+        "season": "Maha 2024/25",
+        "onset_date": "2024-10-23",
+        "onset_delay_days": 11,
+        "total_mm": 789.8,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 8,
+        "hot_days": 0,
+        "max_temp_c": 33.4
+      },
+      {
+        "season": "Yala 2025",
+        "onset_date": "2025-04-01",
+        "onset_delay_days": -6,
+        "total_mm": 297.5,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 34,
+        "hot_days": 0,
+        "max_temp_c": 32.8
+      },
+      {
+        "season": "Maha 2025/26",
+        "onset_date": "2025-11-15",
+        "onset_delay_days": 34,
+        "total_mm": 942.5,
+        "normal_mm": 645.1,
+        "longest_dry_spell_days": 10,
+        "hot_days": 0,
+        "max_temp_c": 33.5
+      },
+      {
+        "season": "Yala 2026",
+        "onset_date": null,
+        "onset_delay_days": null,
+        "total_mm": 312.3,
+        "normal_mm": 271.1,
+        "longest_dry_spell_days": 28,
+        "hot_days": 4,
+        "max_temp_c": 36.1
+      }
+    ],
+    "normal_period": "1991–2020",
+    "current": null,
+    "monthly": [
+      {
+        "month": "1981-01",
+        "total_mm": 85.0
+      },
+      {
+        "month": "1981-02",
+        "total_mm": 47.7
+      },
+      {
+        "month": "1981-03",
+        "total_mm": 42.2
+      },
+      {
+        "month": "1981-04",
+        "total_mm": 88.2
+      },
+      {
+        "month": "1981-05",
+        "total_mm": 93.8
+      },
+      {
+        "month": "1981-06",
+        "total_mm": 72.5
+      },
+      {
+        "month": "1981-07",
+        "total_mm": 52.7
+      },
+      {
+        "month": "1981-08",
+        "total_mm": 31.5
+      },
+      {
+        "month": "1981-09",
+        "total_mm": 100.2
+      },
+      {
+        "month": "1981-10",
+        "total_mm": 179.9
+      },
+      {
+        "month": "1981-11",
+        "total_mm": 262.1
+      },
+      {
+        "month": "1981-12",
+        "total_mm": 56.6
+      },
+      {
+        "month": "1982-01",
+        "total_mm": 2.9
+      },
+      {
+        "month": "1982-02",
+        "total_mm": 0.0
+      },
+      {
+        "month": "1982-03",
+        "total_mm": 42.9
+      },
+      {
+        "month": "1982-04",
+        "total_mm": 89.7
+      },
+      {
+        "month": "1982-05",
+        "total_mm": 96.9
+      },
+      {
+        "month": "1982-06",
+        "total_mm": 150.5
+      },
+      {
+        "month": "1982-07",
+        "total_mm": 21.8
+      },
+      {
+        "month": "1982-08",
+        "total_mm": 17.2
+      },
+      {
+        "month": "1982-09",
+        "total_mm": 52.8
+      },
+      {
+        "month": "1982-10",
+        "total_mm": 196.2
+      },
+      {
+        "month": "1982-11",
+        "total_mm": 172.1
+      },
+      {
+        "month": "1982-12",
+        "total_mm": 109.5
+      },
+      {
+        "month": "1983-01",
+        "total_mm": 2.8
+      },
+      {
+        "month": "1983-02",
+        "total_mm": 0.0
+      },
+      {
+        "month": "1983-03",
+        "total_mm": 0.1
+      },
+      {
+        "month": "1983-04",
+        "total_mm": 30.4
+      },
+      {
+        "month": "1983-05",
+        "total_mm": 66.4
+      },
+      {
+        "month": "1983-06",
+        "total_mm": 22.8
+      },
+      {
+        "month": "1983-07",
+        "total_mm": 18.5
+      },
+      {
+        "month": "1983-08",
+        "total_mm": 38.3
+      },
+      {
+        "month": "1983-09",
+        "total_mm": 69.2
+      },
+      {
+        "month": "1983-10",
+        "total_mm": 64.7
+      },
+      {
+        "month": "1983-11",
+        "total_mm": 134.5
+      },
+      {
+        "month": "1983-12",
+        "total_mm": 459.1
+      },
+      {
+        "month": "1984-01",
+        "total_mm": 308.9
+      },
+      {
+        "month": "1984-02",
+        "total_mm": 291.0
+      },
+      {
+        "month": "1984-03",
+        "total_mm": 175.3
+      },
+      {
+        "month": "1984-04",
+        "total_mm": 280.8
+      },
+      {
+        "month": "1984-05",
+        "total_mm": 41.9
+      },
+      {
+        "month": "1984-06",
+        "total_mm": 22.4
+      },
+      {
+        "month": "1984-07",
+        "total_mm": 131.3
+      },
+      {
+        "month": "1984-08",
+        "total_mm": 10.3
+      },
+      {
+        "month": "1984-09",
+        "total_mm": 232.7
+      },
+      {
+        "month": "1984-10",
+        "total_mm": 113.8
+      },
+      {
+        "month": "1984-11",
+        "total_mm": 270.4
+      },
+      {
+        "month": "1984-12",
+        "total_mm": 66.1
+      },
+      {
+        "month": "1985-01",
+        "total_mm": 127.9
+      },
+      {
+        "month": "1985-02",
+        "total_mm": 116.8
+      },
+      {
+        "month": "1985-03",
+        "total_mm": 60.9
+      },
+      {
+        "month": "1985-04",
+        "total_mm": 67.0
+      },
+      {
+        "month": "1985-05",
+        "total_mm": 100.1
+      },
+      {
+        "month": "1985-06",
+        "total_mm": 35.0
+      },
+      {
+        "month": "1985-07",
+        "total_mm": 25.6
+      },
+      {
+        "month": "1985-08",
+        "total_mm": 52.8
+      },
+      {
+        "month": "1985-09",
+        "total_mm": 101.0
+      },
+      {
+        "month": "1985-10",
+        "total_mm": 82.1
+      },
+      {
+        "month": "1985-11",
+        "total_mm": 289.9
+      },
+      {
+        "month": "1985-12",
+        "total_mm": 132.8
+      },
+      {
+        "month": "1986-01",
+        "total_mm": 127.4
+      },
+      {
+        "month": "1986-02",
+        "total_mm": 33.7
+      },
+      {
+        "month": "1986-03",
+        "total_mm": 97.5
+      },
+      {
+        "month": "1986-04",
+        "total_mm": 103.1
+      },
+      {
+        "month": "1986-05",
+        "total_mm": 79.7
+      },
+      {
+        "month": "1986-06",
+        "total_mm": 9.4
+      },
+      {
+        "month": "1986-07",
+        "total_mm": 11.1
+      },
+      {
+        "month": "1986-08",
+        "total_mm": 23.2
+      },
+      {
+        "month": "1986-09",
+        "total_mm": 42.2
+      },
+      {
+        "month": "1986-10",
+        "total_mm": 161.1
+      },
+      {
+        "month": "1986-11",
+        "total_mm": 102.0
+      },
+      {
+        "month": "1986-12",
+        "total_mm": 84.1
+      },
+      {
+        "month": "1987-01",
+        "total_mm": 39.6
+      },
+      {
+        "month": "1987-02",
+        "total_mm": 2.4
+      },
+      {
+        "month": "1987-03",
+        "total_mm": 23.2
+      },
+      {
+        "month": "1987-04",
+        "total_mm": 123.5
+      },
+      {
+        "month": "1987-05",
+        "total_mm": 51.6
+      },
+      {
+        "month": "1987-06",
+        "total_mm": 14.9
+      },
+      {
+        "month": "1987-07",
+        "total_mm": 6.4
+      },
+      {
+        "month": "1987-08",
+        "total_mm": 35.0
+      },
+      {
+        "month": "1987-09",
+        "total_mm": 100.0
+      },
+      {
+        "month": "1987-10",
+        "total_mm": 255.6
+      },
+      {
+        "month": "1987-11",
+        "total_mm": 190.2
+      },
+      {
+        "month": "1987-12",
+        "total_mm": 116.1
+      },
+      {
+        "month": "1988-01",
+        "total_mm": 9.6
+      },
+      {
+        "month": "1988-02",
+        "total_mm": 44.9
+      },
+      {
+        "month": "1988-03",
+        "total_mm": 37.5
+      },
+      {
+        "month": "1988-04",
+        "total_mm": 242.9
+      },
+      {
+        "month": "1988-05",
+        "total_mm": 23.1
+      },
+      {
+        "month": "1988-06",
+        "total_mm": 48.5
+      },
+      {
+        "month": "1988-07",
+        "total_mm": 38.8
+      },
+      {
+        "month": "1988-08",
+        "total_mm": 84.7
+      },
+      {
+        "month": "1988-09",
+        "total_mm": 107.9
+      },
+      {
+        "month": "1988-10",
+        "total_mm": 61.0
+      },
+      {
+        "month": "1988-11",
+        "total_mm": 140.0
+      },
+      {
+        "month": "1988-12",
+        "total_mm": 55.3
+      },
+      {
+        "month": "1989-01",
+        "total_mm": 27.6
+      },
+      {
+        "month": "1989-02",
+        "total_mm": 2.4
+      },
+      {
+        "month": "1989-03",
+        "total_mm": 29.0
+      },
+      {
+        "month": "1989-04",
+        "total_mm": 46.9
+      },
+      {
+        "month": "1989-05",
+        "total_mm": 53.2
+      },
+      {
+        "month": "1989-06",
+        "total_mm": 59.2
+      },
+      {
+        "month": "1989-07",
+        "total_mm": 126.7
+      },
+      {
+        "month": "1989-08",
+        "total_mm": 16.8
+      },
+      {
+        "month": "1989-09",
+        "total_mm": 135.1
+      },
+      {
+        "month": "1989-10",
+        "total_mm": 220.0
+      },
+      {
+        "month": "1989-11",
+        "total_mm": 207.2
+      },
+      {
+        "month": "1989-12",
+        "total_mm": 59.5
+      },
+      {
+        "month": "1990-01",
+        "total_mm": 166.5
+      },
+      {
+        "month": "1990-02",
+        "total_mm": 4.4
+      },
+      {
+        "month": "1990-03",
+        "total_mm": 53.9
+      },
+      {
+        "month": "1990-04",
+        "total_mm": 52.7
+      },
+      {
+        "month": "1990-05",
+        "total_mm": 149.9
+      },
+      {
+        "month": "1990-06",
+        "total_mm": 9.0
+      },
+      {
+        "month": "1990-07",
+        "total_mm": 14.3
+      },
+      {
+        "month": "1990-08",
+        "total_mm": 67.7
+      },
+      {
+        "month": "1990-09",
+        "total_mm": 40.2
+      },
+      {
+        "month": "1990-10",
+        "total_mm": 232.1
+      },
+      {
+        "month": "1990-11",
+        "total_mm": 102.9
+      },
+      {
+        "month": "1990-12",
+        "total_mm": 62.5
+      },
+      {
+        "month": "1991-01",
+        "total_mm": 33.3
+      },
+      {
+        "month": "1991-02",
+        "total_mm": 3.4
+      },
+      {
+        "month": "1991-03",
+        "total_mm": 46.7
+      },
+      {
+        "month": "1991-04",
+        "total_mm": 89.0
+      },
+      {
+        "month": "1991-05",
+        "total_mm": 94.7
+      },
+      {
+        "month": "1991-06",
+        "total_mm": 80.1
+      },
+      {
+        "month": "1991-07",
+        "total_mm": 25.7
+      },
+      {
+        "month": "1991-08",
+        "total_mm": 16.1
+      },
+      {
+        "month": "1991-09",
+        "total_mm": 28.1
+      },
+      {
+        "month": "1991-10",
+        "total_mm": 254.0
+      },
+      {
+        "month": "1991-11",
+        "total_mm": 281.1
+      },
+      {
+        "month": "1991-12",
+        "total_mm": 106.4
+      },
+      {
+        "month": "1992-01",
+        "total_mm": 6.9
+      },
+      {
+        "month": "1992-02",
+        "total_mm": 0.2
+      },
+      {
+        "month": "1992-03",
+        "total_mm": 0.0
+      },
+      {
+        "month": "1992-04",
+        "total_mm": 104.7
+      },
+      {
+        "month": "1992-05",
+        "total_mm": 93.8
+      },
+      {
+        "month": "1992-06",
+        "total_mm": 44.6
+      },
+      {
+        "month": "1992-07",
+        "total_mm": 46.4
+      },
+      {
+        "month": "1992-08",
+        "total_mm": 25.5
+      },
+      {
+        "month": "1992-09",
+        "total_mm": 73.8
+      },
+      {
+        "month": "1992-10",
+        "total_mm": 190.4
+      },
+      {
+        "month": "1992-11",
+        "total_mm": 228.3
+      },
+      {
+        "month": "1992-12",
+        "total_mm": 149.2
+      },
+      {
+        "month": "1993-01",
+        "total_mm": 2.4
+      },
+      {
+        "month": "1993-02",
+        "total_mm": 2.3
+      },
+      {
+        "month": "1993-03",
+        "total_mm": 49.0
+      },
+      {
+        "month": "1993-04",
+        "total_mm": 113.7
+      },
+      {
+        "month": "1993-05",
+        "total_mm": 78.6
+      },
+      {
+        "month": "1993-06",
+        "total_mm": 27.3
+      },
+      {
+        "month": "1993-07",
+        "total_mm": 31.8
+      },
+      {
+        "month": "1993-08",
+        "total_mm": 11.1
+      },
+      {
+        "month": "1993-09",
+        "total_mm": 20.9
+      },
+      {
+        "month": "1993-10",
+        "total_mm": 324.8
+      },
+      {
+        "month": "1993-11",
+        "total_mm": 340.6
+      },
+      {
+        "month": "1993-12",
+        "total_mm": 347.4
+      },
+      {
+        "month": "1994-01",
+        "total_mm": 59.7
+      },
+      {
+        "month": "1994-02",
+        "total_mm": 152.1
+      },
+      {
+        "month": "1994-03",
+        "total_mm": 30.1
+      },
+      {
+        "month": "1994-04",
+        "total_mm": 121.6
+      },
+      {
+        "month": "1994-05",
+        "total_mm": 100.8
+      },
+      {
+        "month": "1994-06",
+        "total_mm": 12.4
+      },
+      {
+        "month": "1994-07",
+        "total_mm": 29.9
+      },
+      {
+        "month": "1994-08",
+        "total_mm": 6.1
+      },
+      {
+        "month": "1994-09",
+        "total_mm": 49.3
+      },
+      {
+        "month": "1994-10",
+        "total_mm": 265.9
+      },
+      {
+        "month": "1994-11",
+        "total_mm": 75.6
+      },
+      {
+        "month": "1994-12",
+        "total_mm": 15.1
+      },
+      {
+        "month": "1995-01",
+        "total_mm": 18.9
+      },
+      {
+        "month": "1995-02",
+        "total_mm": 7.2
+      },
+      {
+        "month": "1995-03",
+        "total_mm": 6.1
+      },
+      {
+        "month": "1995-04",
+        "total_mm": 36.8
+      },
+      {
+        "month": "1995-05",
+        "total_mm": 40.7
+      },
+      {
+        "month": "1995-06",
+        "total_mm": 9.0
+      },
+      {
+        "month": "1995-07",
+        "total_mm": 6.2
+      },
+      {
+        "month": "1995-08",
+        "total_mm": 7.1
+      },
+      {
+        "month": "1995-09",
+        "total_mm": 11.5
+      },
+      {
+        "month": "1995-10",
+        "total_mm": 69.0
+      },
+      {
+        "month": "1995-11",
+        "total_mm": 63.3
+      },
+      {
+        "month": "1995-12",
+        "total_mm": 8.3
+      },
+      {
+        "month": "1996-01",
+        "total_mm": 9.8
+      },
+      {
+        "month": "1996-02",
+        "total_mm": 14.1
+      },
+      {
+        "month": "1996-03",
+        "total_mm": 0.8
+      },
+      {
+        "month": "1996-04",
+        "total_mm": 45.4
+      },
+      {
+        "month": "1996-05",
+        "total_mm": 6.9
+      },
+      {
+        "month": "1996-06",
+        "total_mm": 50.1
+      },
+      {
+        "month": "1996-07",
+        "total_mm": 10.8
+      },
+      {
+        "month": "1996-08",
+        "total_mm": 25.8
+      },
+      {
+        "month": "1996-09",
+        "total_mm": 26.4
+      },
+      {
+        "month": "1996-10",
+        "total_mm": 83.1
+      },
+      {
+        "month": "1996-11",
+        "total_mm": 66.8
+      },
+      {
+        "month": "1996-12",
+        "total_mm": 50.2
+      },
+      {
+        "month": "1997-01",
+        "total_mm": 3.5
+      },
+      {
+        "month": "1997-02",
+        "total_mm": 1.9
+      },
+      {
+        "month": "1997-03",
+        "total_mm": 3.8
+      },
+      {
+        "month": "1997-04",
+        "total_mm": 40.0
+      },
+      {
+        "month": "1997-05",
+        "total_mm": 67.0
+      },
+      {
+        "month": "1997-06",
+        "total_mm": 19.9
+      },
+      {
+        "month": "1997-07",
+        "total_mm": 41.2
+      },
+      {
+        "month": "1997-08",
+        "total_mm": 15.5
+      },
+      {
+        "month": "1997-09",
+        "total_mm": 66.3
+      },
+      {
+        "month": "1997-10",
+        "total_mm": 165.9
+      },
+      {
+        "month": "1997-11",
+        "total_mm": 259.3
+      },
+      {
+        "month": "1997-12",
+        "total_mm": 138.7
+      },
+      {
+        "month": "1998-01",
+        "total_mm": 27.8
+      },
+      {
+        "month": "1998-02",
+        "total_mm": 1.8
+      },
+      {
+        "month": "1998-03",
+        "total_mm": 11.3
+      },
+      {
+        "month": "1998-04",
+        "total_mm": 42.7
+      },
+      {
+        "month": "1998-05",
+        "total_mm": 172.7
+      },
+      {
+        "month": "1998-06",
+        "total_mm": 16.1
+      },
+      {
+        "month": "1998-07",
+        "total_mm": 56.3
+      },
+      {
+        "month": "1998-08",
+        "total_mm": 48.8
+      },
+      {
+        "month": "1998-09",
+        "total_mm": 45.1
+      },
+      {
+        "month": "1998-10",
+        "total_mm": 108.9
+      },
+      {
+        "month": "1998-11",
+        "total_mm": 238.7
+      },
+      {
+        "month": "1998-12",
+        "total_mm": 300.6
+      },
+      {
+        "month": "1999-01",
+        "total_mm": 112.8
+      },
+      {
+        "month": "1999-02",
+        "total_mm": 76.6
+      },
+      {
+        "month": "1999-03",
+        "total_mm": 13.4
+      },
+      {
+        "month": "1999-04",
+        "total_mm": 132.4
+      },
+      {
+        "month": "1999-05",
+        "total_mm": 43.6
+      },
+      {
+        "month": "1999-06",
+        "total_mm": 24.4
+      },
+      {
+        "month": "1999-07",
+        "total_mm": 15.2
+      },
+      {
+        "month": "1999-08",
+        "total_mm": 21.4
+      },
+      {
+        "month": "1999-09",
+        "total_mm": 61.8
+      },
+      {
+        "month": "1999-10",
+        "total_mm": 165.1
+      },
+      {
+        "month": "1999-11",
+        "total_mm": 142.2
+      },
+      {
+        "month": "1999-12",
+        "total_mm": 64.5
+      },
+      {
+        "month": "2000-01",
+        "total_mm": 25.0
+      },
+      {
+        "month": "2000-02",
+        "total_mm": 56.8
+      },
+      {
+        "month": "2000-03",
+        "total_mm": 10.8
+      },
+      {
+        "month": "2000-04",
+        "total_mm": 57.2
+      },
+      {
+        "month": "2000-05",
+        "total_mm": 50.1
+      },
+      {
+        "month": "2000-06",
+        "total_mm": 38.2
+      },
+      {
+        "month": "2000-07",
+        "total_mm": 75.0
+      },
+      {
+        "month": "2000-08",
+        "total_mm": 50.1
+      },
+      {
+        "month": "2000-09",
+        "total_mm": 84.8
+      },
+      {
+        "month": "2000-10",
+        "total_mm": 57.4
+      },
+      {
+        "month": "2000-11",
+        "total_mm": 241.8
+      },
+      {
+        "month": "2000-12",
+        "total_mm": 115.6
+      },
+      {
+        "month": "2001-01",
+        "total_mm": 65.9
+      },
+      {
+        "month": "2001-02",
+        "total_mm": 49.2
+      },
+      {
+        "month": "2001-03",
+        "total_mm": 0.3
+      },
+      {
+        "month": "2001-04",
+        "total_mm": 191.1
+      },
+      {
+        "month": "2001-05",
+        "total_mm": 32.1
+      },
+      {
+        "month": "2001-06",
+        "total_mm": 107.8
+      },
+      {
+        "month": "2001-07",
+        "total_mm": 62.8
+      },
+      {
+        "month": "2001-08",
+        "total_mm": 7.6
+      },
+      {
+        "month": "2001-09",
+        "total_mm": 54.5
+      },
+      {
+        "month": "2001-10",
+        "total_mm": 117.7
+      },
+      {
+        "month": "2001-11",
+        "total_mm": 191.1
+      },
+      {
+        "month": "2001-12",
+        "total_mm": 147.5
+      },
+      {
+        "month": "2002-01",
+        "total_mm": 29.3
+      },
+      {
+        "month": "2002-02",
+        "total_mm": 65.7
+      },
+      {
+        "month": "2002-03",
+        "total_mm": 31.5
+      },
+      {
+        "month": "2002-04",
+        "total_mm": 153.9
+      },
+      {
+        "month": "2002-05",
+        "total_mm": 67.2
+      },
+      {
+        "month": "2002-06",
+        "total_mm": 23.7
+      },
+      {
+        "month": "2002-07",
+        "total_mm": 4.9
+      },
+      {
+        "month": "2002-08",
+        "total_mm": 21.5
+      },
+      {
+        "month": "2002-09",
+        "total_mm": 10.7
+      },
+      {
+        "month": "2002-10",
+        "total_mm": 289.3
+      },
+      {
+        "month": "2002-11",
+        "total_mm": 163.2
+      },
+      {
+        "month": "2002-12",
+        "total_mm": 159.4
+      },
+      {
+        "month": "2003-01",
+        "total_mm": 76.9
+      },
+      {
+        "month": "2003-02",
+        "total_mm": 43.2
+      },
+      {
+        "month": "2003-03",
+        "total_mm": 62.5
+      },
+      {
+        "month": "2003-04",
+        "total_mm": 83.4
+      },
+      {
+        "month": "2003-05",
+        "total_mm": 102.3
+      },
+      {
+        "month": "2003-06",
+        "total_mm": 34.0
+      },
+      {
+        "month": "2003-07",
+        "total_mm": 24.5
+      },
+      {
+        "month": "2003-08",
+        "total_mm": 36.9
+      },
+      {
+        "month": "2003-09",
+        "total_mm": 28.9
+      },
+      {
+        "month": "2003-10",
+        "total_mm": 140.3
+      },
+      {
+        "month": "2003-11",
+        "total_mm": 230.1
+      },
+      {
+        "month": "2003-12",
+        "total_mm": 34.9
+      },
+      {
+        "month": "2004-01",
+        "total_mm": 9.4
+      },
+      {
+        "month": "2004-02",
+        "total_mm": 11.3
+      },
+      {
+        "month": "2004-03",
+        "total_mm": 35.5
+      },
+      {
+        "month": "2004-04",
+        "total_mm": 67.3
+      },
+      {
+        "month": "2004-05",
+        "total_mm": 140.0
+      },
+      {
+        "month": "2004-06",
+        "total_mm": 26.3
+      },
+      {
+        "month": "2004-07",
+        "total_mm": 18.2
+      },
+      {
+        "month": "2004-08",
+        "total_mm": 19.6
+      },
+      {
+        "month": "2004-09",
+        "total_mm": 96.8
+      },
+      {
+        "month": "2004-10",
+        "total_mm": 225.5
+      },
+      {
+        "month": "2004-11",
+        "total_mm": 203.7
+      },
+      {
+        "month": "2004-12",
+        "total_mm": 169.3
+      },
+      {
+        "month": "2005-01",
+        "total_mm": 76.3
+      },
+      {
+        "month": "2005-02",
+        "total_mm": 12.1
+      },
+      {
+        "month": "2005-03",
+        "total_mm": 53.5
+      },
+      {
+        "month": "2005-04",
+        "total_mm": 162.8
+      },
+      {
+        "month": "2005-05",
+        "total_mm": 41.0
+      },
+      {
+        "month": "2005-06",
+        "total_mm": 19.2
+      },
+      {
+        "month": "2005-07",
+        "total_mm": 28.2
+      },
+      {
+        "month": "2005-08",
+        "total_mm": 23.7
+      },
+      {
+        "month": "2005-09",
+        "total_mm": 17.2
+      },
+      {
+        "month": "2005-10",
+        "total_mm": 196.3
+      },
+      {
+        "month": "2005-11",
+        "total_mm": 318.8
+      },
+      {
+        "month": "2005-12",
+        "total_mm": 93.7
+      },
+      {
+        "month": "2006-01",
+        "total_mm": 89.8
+      },
+      {
+        "month": "2006-02",
+        "total_mm": 21.4
+      },
+      {
+        "month": "2006-03",
+        "total_mm": 135.4
+      },
+      {
+        "month": "2006-04",
+        "total_mm": 66.8
+      },
+      {
+        "month": "2006-05",
+        "total_mm": 56.6
+      },
+      {
+        "month": "2006-06",
+        "total_mm": 10.4
+      },
+      {
+        "month": "2006-07",
+        "total_mm": 13.2
+      },
+      {
+        "month": "2006-08",
+        "total_mm": 56.1
+      },
+      {
+        "month": "2006-09",
+        "total_mm": 90.8
+      },
+      {
+        "month": "2006-10",
+        "total_mm": 350.9
+      },
+      {
+        "month": "2006-11",
+        "total_mm": 267.1
+      },
+      {
+        "month": "2006-12",
+        "total_mm": 75.4
+      },
+      {
+        "month": "2007-01",
+        "total_mm": 37.7
+      },
+      {
+        "month": "2007-02",
+        "total_mm": 31.4
+      },
+      {
+        "month": "2007-03",
+        "total_mm": 6.6
+      },
+      {
+        "month": "2007-04",
+        "total_mm": 122.2
+      },
+      {
+        "month": "2007-05",
+        "total_mm": 16.9
+      },
+      {
+        "month": "2007-06",
+        "total_mm": 39.4
+      },
+      {
+        "month": "2007-07",
+        "total_mm": 23.2
+      },
+      {
+        "month": "2007-08",
+        "total_mm": 25.8
+      },
+      {
+        "month": "2007-09",
+        "total_mm": 76.1
+      },
+      {
+        "month": "2007-10",
+        "total_mm": 278.6
+      },
+      {
+        "month": "2007-11",
+        "total_mm": 145.1
+      },
+      {
+        "month": "2007-12",
+        "total_mm": 190.6
+      },
+      {
+        "month": "2008-01",
+        "total_mm": 19.5
+      },
+      {
+        "month": "2008-02",
+        "total_mm": 78.7
+      },
+      {
+        "month": "2008-03",
+        "total_mm": 222.0
+      },
+      {
+        "month": "2008-04",
+        "total_mm": 140.2
+      },
+      {
+        "month": "2008-05",
+        "total_mm": 9.4
+      },
+      {
+        "month": "2008-06",
+        "total_mm": 12.9
+      },
+      {
+        "month": "2008-07",
+        "total_mm": 28.3
+      },
+      {
+        "month": "2008-08",
+        "total_mm": 39.6
+      },
+      {
+        "month": "2008-09",
+        "total_mm": 20.0
+      },
+      {
+        "month": "2008-10",
+        "total_mm": 188.1
+      },
+      {
+        "month": "2008-11",
+        "total_mm": 218.9
+      },
+      {
+        "month": "2008-12",
+        "total_mm": 135.9
+      },
+      {
+        "month": "2009-01",
+        "total_mm": 34.0
+      },
+      {
+        "month": "2009-02",
+        "total_mm": 0.1
+      },
+      {
+        "month": "2009-03",
+        "total_mm": 108.6
+      },
+      {
+        "month": "2009-04",
+        "total_mm": 106.9
+      },
+      {
+        "month": "2009-05",
+        "total_mm": 18.5
+      },
+      {
+        "month": "2009-06",
+        "total_mm": 17.8
+      },
+      {
+        "month": "2009-07",
+        "total_mm": 13.8
+      },
+      {
+        "month": "2009-08",
+        "total_mm": 78.3
+      },
+      {
+        "month": "2009-09",
+        "total_mm": 19.1
+      },
+      {
+        "month": "2009-10",
+        "total_mm": 89.0
+      },
+      {
+        "month": "2009-11",
+        "total_mm": 324.2
+      },
+      {
+        "month": "2009-12",
+        "total_mm": 226.4
+      },
+      {
+        "month": "2010-01",
+        "total_mm": 46.6
+      },
+      {
+        "month": "2010-02",
+        "total_mm": 5.3
+      },
+      {
+        "month": "2010-03",
+        "total_mm": 25.7
+      },
+      {
+        "month": "2010-04",
+        "total_mm": 122.5
+      },
+      {
+        "month": "2010-05",
+        "total_mm": 67.5
+      },
+      {
+        "month": "2010-06",
+        "total_mm": 13.7
+      },
+      {
+        "month": "2010-07",
+        "total_mm": 30.2
+      },
+      {
+        "month": "2010-08",
+        "total_mm": 73.5
+      },
+      {
+        "month": "2010-09",
+        "total_mm": 175.6
+      },
+      {
+        "month": "2010-10",
+        "total_mm": 135.8
+      },
+      {
+        "month": "2010-11",
+        "total_mm": 369.3
+      },
+      {
+        "month": "2010-12",
+        "total_mm": 315.7
+      },
+      {
+        "month": "2011-01",
+        "total_mm": 189.0
+      },
+      {
+        "month": "2011-02",
+        "total_mm": 160.6
+      },
+      {
+        "month": "2011-03",
+        "total_mm": 21.1
+      },
+      {
+        "month": "2011-04",
+        "total_mm": 210.3
+      },
+      {
+        "month": "2011-05",
+        "total_mm": 17.2
+      },
+      {
+        "month": "2011-06",
+        "total_mm": 8.2
+      },
+      {
+        "month": "2011-07",
+        "total_mm": 19.2
+      },
+      {
+        "month": "2011-08",
+        "total_mm": 60.5
+      },
+      {
+        "month": "2011-09",
+        "total_mm": 17.2
+      },
+      {
+        "month": "2011-10",
+        "total_mm": 235.0
+      },
+      {
+        "month": "2011-11",
+        "total_mm": 325.3
+      },
+      {
+        "month": "2011-12",
+        "total_mm": 136.9
+      },
+      {
+        "month": "2012-01",
+        "total_mm": 32.0
+      },
+      {
+        "month": "2012-02",
+        "total_mm": 27.8
+      },
+      {
+        "month": "2012-03",
+        "total_mm": 48.3
+      },
+      {
+        "month": "2012-04",
+        "total_mm": 110.2
+      },
+      {
+        "month": "2012-05",
+        "total_mm": 6.7
+      },
+      {
+        "month": "2012-06",
+        "total_mm": 8.4
+      },
+      {
+        "month": "2012-07",
+        "total_mm": 19.3
+      },
+      {
+        "month": "2012-08",
+        "total_mm": 16.8
+      },
+      {
+        "month": "2012-09",
+        "total_mm": 44.8
+      },
+      {
+        "month": "2012-10",
+        "total_mm": 424.6
+      },
+      {
+        "month": "2012-11",
+        "total_mm": 165.2
+      },
+      {
+        "month": "2012-12",
+        "total_mm": 401.8
+      },
+      {
+        "month": "2013-01",
+        "total_mm": 134.1
+      },
+      {
+        "month": "2013-02",
+        "total_mm": 117.7
+      },
+      {
+        "month": "2013-03",
+        "total_mm": 158.5
+      },
+      {
+        "month": "2013-04",
+        "total_mm": 55.0
+      },
+      {
+        "month": "2013-05",
+        "total_mm": 69.4
+      },
+      {
+        "month": "2013-06",
+        "total_mm": 14.2
+      },
+      {
+        "month": "2013-07",
+        "total_mm": 18.6
+      },
+      {
+        "month": "2013-08",
+        "total_mm": 49.1
+      },
+      {
+        "month": "2013-09",
+        "total_mm": 69.7
+      },
+      {
+        "month": "2013-10",
+        "total_mm": 107.1
+      },
+      {
+        "month": "2013-11",
+        "total_mm": 188.5
+      },
+      {
+        "month": "2013-12",
+        "total_mm": 104.7
+      },
+      {
+        "month": "2014-01",
+        "total_mm": 117.0
+      },
+      {
+        "month": "2014-02",
+        "total_mm": 16.4
+      },
+      {
+        "month": "2014-03",
+        "total_mm": 8.0
+      },
+      {
+        "month": "2014-04",
+        "total_mm": 126.4
+      },
+      {
+        "month": "2014-05",
+        "total_mm": 136.1
+      },
+      {
+        "month": "2014-06",
+        "total_mm": 5.0
+      },
+      {
+        "month": "2014-07",
+        "total_mm": 5.4
+      },
+      {
+        "month": "2014-08",
+        "total_mm": 66.7
+      },
+      {
+        "month": "2014-09",
+        "total_mm": 118.3
+      },
+      {
+        "month": "2014-10",
+        "total_mm": 262.9
+      },
+      {
+        "month": "2014-11",
+        "total_mm": 325.4
+      },
+      {
+        "month": "2014-12",
+        "total_mm": 420.7
+      },
+      {
+        "month": "2015-01",
+        "total_mm": 6.1
+      },
+      {
+        "month": "2015-02",
+        "total_mm": 87.9
+      },
+      {
+        "month": "2015-03",
+        "total_mm": 64.0
+      },
+      {
+        "month": "2015-04",
+        "total_mm": 204.3
+      },
+      {
+        "month": "2015-05",
+        "total_mm": 172.6
+      },
+      {
+        "month": "2015-06",
+        "total_mm": 17.0
+      },
+      {
+        "month": "2015-07",
+        "total_mm": 5.0
+      },
+      {
+        "month": "2015-08",
+        "total_mm": 50.5
+      },
+      {
+        "month": "2015-09",
+        "total_mm": 126.6
+      },
+      {
+        "month": "2015-10",
+        "total_mm": 246.8
+      },
+      {
+        "month": "2015-11",
+        "total_mm": 448.5
+      },
+      {
+        "month": "2015-12",
+        "total_mm": 245.6
+      },
+      {
+        "month": "2016-01",
+        "total_mm": 42.9
+      },
+      {
+        "month": "2016-02",
+        "total_mm": 28.5
+      },
+      {
+        "month": "2016-03",
+        "total_mm": 17.5
+      },
+      {
+        "month": "2016-04",
+        "total_mm": 42.8
+      },
+      {
+        "month": "2016-05",
+        "total_mm": 344.5
+      },
+      {
+        "month": "2016-06",
+        "total_mm": 20.1
+      },
+      {
+        "month": "2016-07",
+        "total_mm": 19.2
+      },
+      {
+        "month": "2016-08",
+        "total_mm": 7.7
+      },
+      {
+        "month": "2016-09",
+        "total_mm": 3.2
+      },
+      {
+        "month": "2016-10",
+        "total_mm": 68.6
+      },
+      {
+        "month": "2016-11",
+        "total_mm": 193.5
+      },
+      {
+        "month": "2016-12",
+        "total_mm": 59.5
+      },
+      {
+        "month": "2017-01",
+        "total_mm": 86.9
+      },
+      {
+        "month": "2017-02",
+        "total_mm": 24.2
+      },
+      {
+        "month": "2017-03",
+        "total_mm": 105.9
+      },
+      {
+        "month": "2017-04",
+        "total_mm": 45.8
+      },
+      {
+        "month": "2017-05",
+        "total_mm": 97.3
+      },
+      {
+        "month": "2017-06",
+        "total_mm": 13.9
+      },
+      {
+        "month": "2017-07",
+        "total_mm": 12.9
+      },
+      {
+        "month": "2017-08",
+        "total_mm": 65.8
+      },
+      {
+        "month": "2017-09",
+        "total_mm": 65.2
+      },
+      {
+        "month": "2017-10",
+        "total_mm": 98.7
+      },
+      {
+        "month": "2017-11",
+        "total_mm": 183.6
+      },
+      {
+        "month": "2017-12",
+        "total_mm": 75.2
+      },
+      {
+        "month": "2018-01",
+        "total_mm": 23.3
+      },
+      {
+        "month": "2018-02",
+        "total_mm": 26.4
+      },
+      {
+        "month": "2018-03",
+        "total_mm": 43.8
+      },
+      {
+        "month": "2018-04",
+        "total_mm": 93.9
+      },
+      {
+        "month": "2018-05",
+        "total_mm": 215.7
+      },
+      {
+        "month": "2018-06",
+        "total_mm": 17.0
+      },
+      {
+        "month": "2018-07",
+        "total_mm": 9.4
+      },
+      {
+        "month": "2018-08",
+        "total_mm": 23.8
+      },
+      {
+        "month": "2018-09",
+        "total_mm": 38.1
+      },
+      {
+        "month": "2018-10",
+        "total_mm": 250.9
+      },
+      {
+        "month": "2018-11",
+        "total_mm": 195.4
+      },
+      {
+        "month": "2018-12",
+        "total_mm": 83.4
+      },
+      {
+        "month": "2019-01",
+        "total_mm": 1.3
+      },
+      {
+        "month": "2019-02",
+        "total_mm": 65.5
+      },
+      {
+        "month": "2019-03",
+        "total_mm": 6.0
+      },
+      {
+        "month": "2019-04",
+        "total_mm": 62.9
+      },
+      {
+        "month": "2019-05",
+        "total_mm": 5.0
+      },
+      {
+        "month": "2019-06",
+        "total_mm": 12.3
+      },
+      {
+        "month": "2019-07",
+        "total_mm": 6.5
+      },
+      {
+        "month": "2019-08",
+        "total_mm": 75.5
+      },
+      {
+        "month": "2019-09",
+        "total_mm": 137.7
+      },
+      {
+        "month": "2019-10",
+        "total_mm": 392.7
+      },
+      {
+        "month": "2019-11",
+        "total_mm": 210.5
+      },
+      {
+        "month": "2019-12",
+        "total_mm": 280.1
+      },
+      {
+        "month": "2020-01",
+        "total_mm": 17.1
+      },
+      {
+        "month": "2020-02",
+        "total_mm": 12.6
+      },
+      {
+        "month": "2020-03",
+        "total_mm": 8.7
+      },
+      {
+        "month": "2020-04",
+        "total_mm": 76.6
+      },
+      {
+        "month": "2020-05",
+        "total_mm": 125.8
+      },
+      {
+        "month": "2020-06",
+        "total_mm": 42.2
+      },
+      {
+        "month": "2020-07",
+        "total_mm": 74.2
+      },
+      {
+        "month": "2020-08",
+        "total_mm": 26.4
+      },
+      {
+        "month": "2020-09",
+        "total_mm": 145.4
+      },
+      {
+        "month": "2020-10",
+        "total_mm": 65.7
+      },
+      {
+        "month": "2020-11",
+        "total_mm": 288.3
+      },
+      {
+        "month": "2020-12",
+        "total_mm": 296.8
+      },
+      {
+        "month": "2021-01",
+        "total_mm": 260.6
+      },
+      {
+        "month": "2021-02",
+        "total_mm": 21.7
+      },
+      {
+        "month": "2021-03",
+        "total_mm": 38.4
+      },
+      {
+        "month": "2021-04",
+        "total_mm": 99.7
+      },
+      {
+        "month": "2021-05",
+        "total_mm": 125.0
+      },
+      {
+        "month": "2021-06",
+        "total_mm": 44.0
+      },
+      {
+        "month": "2021-07",
+        "total_mm": 59.6
+      },
+      {
+        "month": "2021-08",
+        "total_mm": 27.7
+      },
+      {
+        "month": "2021-09",
+        "total_mm": 96.5
+      },
+      {
+        "month": "2021-10",
+        "total_mm": 304.5
+      },
+      {
+        "month": "2021-11",
+        "total_mm": 484.0
+      },
+      {
+        "month": "2021-12",
+        "total_mm": 83.3
+      },
+      {
+        "month": "2022-01",
+        "total_mm": 63.4
+      },
+      {
+        "month": "2022-02",
+        "total_mm": 66.3
+      },
+      {
+        "month": "2022-03",
+        "total_mm": 37.2
+      },
+      {
+        "month": "2022-04",
+        "total_mm": 246.2
+      },
+      {
+        "month": "2022-05",
+        "total_mm": 56.2
+      },
+      {
+        "month": "2022-06",
+        "total_mm": 30.6
+      },
+      {
+        "month": "2022-07",
+        "total_mm": 81.0
+      },
+      {
+        "month": "2022-08",
+        "total_mm": 70.3
+      },
+      {
+        "month": "2022-09",
+        "total_mm": 32.6
+      },
+      {
+        "month": "2022-10",
+        "total_mm": 178.0
+      },
+      {
+        "month": "2022-11",
+        "total_mm": 200.9
+      },
+      {
+        "month": "2022-12",
+        "total_mm": 258.1
+      },
+      {
+        "month": "2023-01",
+        "total_mm": 75.5
+      },
+      {
+        "month": "2023-02",
+        "total_mm": 108.0
+      },
+      {
+        "month": "2023-03",
+        "total_mm": 57.6
+      },
+      {
+        "month": "2023-04",
+        "total_mm": 91.1
+      },
+      {
+        "month": "2023-05",
+        "total_mm": 147.1
+      },
+      {
+        "month": "2023-06",
+        "total_mm": 11.6
+      },
+      {
+        "month": "2023-07",
+        "total_mm": 7.8
+      },
+      {
+        "month": "2023-08",
+        "total_mm": 20.3
+      },
+      {
+        "month": "2023-09",
+        "total_mm": 67.4
+      },
+      {
+        "month": "2023-10",
+        "total_mm": 256.3
+      },
+      {
+        "month": "2023-11",
+        "total_mm": 416.5
+      },
+      {
+        "month": "2023-12",
+        "total_mm": 383.4
+      },
+      {
+        "month": "2024-01",
+        "total_mm": 102.7
+      },
+      {
+        "month": "2024-02",
+        "total_mm": 8.2
+      },
+      {
+        "month": "2024-03",
+        "total_mm": 16.9
+      },
+      {
+        "month": "2024-04",
+        "total_mm": 39.3
+      },
+      {
+        "month": "2024-05",
+        "total_mm": 174.7
+      },
+      {
+        "month": "2024-06",
+        "total_mm": 28.0
+      },
+      {
+        "month": "2024-07",
+        "total_mm": 7.0
+      },
+      {
+        "month": "2024-08",
+        "total_mm": 107.0
+      },
+      {
+        "month": "2024-09",
+        "total_mm": 18.4
+      },
+      {
+        "month": "2024-10",
+        "total_mm": 199.5
+      },
+      {
+        "month": "2024-11",
+        "total_mm": 313.7
+      },
+      {
+        "month": "2024-12",
+        "total_mm": 114.3
+      },
+      {
+        "month": "2025-01",
+        "total_mm": 162.4
+      },
+      {
+        "month": "2025-02",
+        "total_mm": 44.8
+      },
+      {
+        "month": "2025-03",
+        "total_mm": 79.1
+      },
+      {
+        "month": "2025-04",
+        "total_mm": 137.9
+      },
+      {
+        "month": "2025-05",
+        "total_mm": 112.1
+      },
+      {
+        "month": "2025-06",
+        "total_mm": 20.3
+      },
+      {
+        "month": "2025-07",
+        "total_mm": 4.5
+      },
+      {
+        "month": "2025-08",
+        "total_mm": 22.8
+      },
+      {
+        "month": "2025-09",
+        "total_mm": 42.3
+      },
+      {
+        "month": "2025-10",
+        "total_mm": 248.5
+      },
+      {
+        "month": "2025-11",
+        "total_mm": 521.8
+      },
+      {
+        "month": "2025-12",
+        "total_mm": 107.3
+      },
+      {
+        "month": "2026-01",
+        "total_mm": 64.9
+      },
+      {
+        "month": "2026-02",
+        "total_mm": 35.7
+      },
+      {
+        "month": "2026-03",
+        "total_mm": 16.3
+      },
+      {
+        "month": "2026-04",
+        "total_mm": 88.5
+      },
+      {
+        "month": "2026-05",
+        "total_mm": 171.5
+      },
+      {
+        "month": "2026-06",
+        "total_mm": 28.2
+      },
+      {
+        "month": "2026-07",
+        "total_mm": 7.1
+      },
+      {
+        "month": "2026-08",
+        "total_mm": 17.1
+      },
+      {
+        "month": "2026-09",
+        "total_mm": 41.8
+      }
+    ],
+    "extremes": {
+      "dry_day_mm": 1.0,
+      "hot_day_c": 35.0,
+      "normals": {
+        "Yala": {
+          "longest_dry_spell_days": 31.2,
+          "hot_days": 3.2
+        },
+        "Maha": {
+          "longest_dry_spell_days": 17.4,
+          "hot_days": 0.0
+        }
+      },
+      "temp_source": "NASA POWER (T2M_MAX)"
+    },
+    "source": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+    "demo": false,
+    "power_cell": [
+      8.5,
+      80.0
+    ]
+  },
+  "soil": null,
+  "elnino": {
+    "analog_seasons": [
+      "Yala 1983",
+      "Yala 1998",
+      "Yala 2016"
+    ],
+    "below_normal_count": 1,
+    "total": 3,
+    "source": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+    "demo": false
+  },
+  "result": {
+    "signal": null,
+    "recommended_scenario": null,
+    "scenarios": [
+      {
+        "id": "full_paddy",
+        "title_key": "scenario.full_paddy.title",
+        "crops": [
+          "paddy"
+        ],
+        "share_of_command_area": 1.0,
+        "recommended": false
+      },
+      {
+        "id": "short_paddy_bethma",
+        "title_key": "scenario.short_paddy_bethma.title",
+        "crops": [
+          "paddy_short"
+        ],
+        "share_of_command_area": null,
+        "recommended": false
+      },
+      {
+        "id": "ofc",
+        "title_key": "scenario.ofc.title",
+        "crops": [
+          "mung_bean",
+          "cowpea",
+          "black_gram"
+        ],
+        "share_of_command_area": 1.0,
+        "recommended": false
+      }
+    ],
+    "reasons": [
+      {
+        "text_key": "reason.no_tank_data",
+        "value": null,
+        "unit": null,
+        "source": null,
+        "kind": "rule"
+      },
+      {
+        "text_key": "reason.elnino",
+        "value": 1,
+        "total": 3,
+        "unit": "count",
+        "source": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "kind": "outlook"
+      }
+    ],
+    "inputs": {
+      "T": null,
+      "R": null,
+      "S": null,
+      "onset_delay_days": null,
+      "onset_season": "Yala 2026"
+    },
+    "rules_version": "draft-1",
+    "updated": "2026-10-25T21:15:29+05:30",
+    "demo": false
+  },
+  "learn": {
+    "cases": [],
+    "rules_version": "draft-1",
+    "updated": "2026-10-25T21:15:29+05:30",
+    "demo": false
+  },
+  "forecast": {
+    "issued": "2026-11-06T00:18:40+05:30",
+    "days": [
+      {
+        "date": "2026-11-05",
+        "rain_mm": 7.7,
+        "rain_chance": 92,
+        "tmax_c": 32.1
+      },
+      {
+        "date": "2026-11-06",
+        "rain_mm": 6.6,
+        "rain_chance": 100,
+        "tmax_c": 31.2
+      },
+      {
+        "date": "2026-11-07",
+        "rain_mm": 11.8,
+        "rain_chance": 100,
+        "tmax_c": 31.2
+      },
+      {
+        "date": "2026-11-08",
+        "rain_mm": 13.9,
+        "rain_chance": 100,
+        "tmax_c": 30.6
+      },
+      {
+        "date": "2026-11-09",
+        "rain_mm": 12.4,
+        "rain_chance": 100,
+        "tmax_c": 30.5
+      },
+      {
+        "date": "2026-11-10",
+        "rain_mm": 9.6,
+        "rain_chance": 100,
+        "tmax_c": 30.8
+      },
+      {
+        "date": "2026-11-11",
+        "rain_mm": 8.4,
+        "rain_chance": 98,
+        "tmax_c": 30.6
+      },
+      {
+        "date": "2026-11-12",
+        "rain_mm": 7.2,
+        "rain_chance": 96,
+        "tmax_c": 29.6
+      },
+      {
+        "date": "2026-11-13",
+        "rain_mm": 2.4,
+        "rain_chance": 88,
+        "tmax_c": 30.0
+      },
+      {
+        "date": "2026-11-14",
+        "rain_mm": 5.4,
+        "rain_chance": 84,
+        "tmax_c": 32.1
+      },
+      {
+        "date": "2026-11-15",
+        "rain_mm": 3.6,
+        "rain_chance": 92,
+        "tmax_c": 31.4
+      },
+      {
+        "date": "2026-11-16",
+        "rain_mm": 7.8,
+        "rain_chance": 75,
+        "tmax_c": 31.8
+      },
+      {
+        "date": "2026-11-17",
+        "rain_mm": 18.6,
+        "rain_chance": 71,
+        "tmax_c": 28.8
+      },
+      {
+        "date": "2026-11-18",
+        "rain_mm": 7.2,
+        "rain_chance": 73,
+        "tmax_c": 29.2
+      },
+      {
+        "date": "2026-11-19",
+        "rain_mm": 10.2,
+        "rain_chance": 78,
+        "tmax_c": 30.0
+      },
+      {
+        "date": "2026-11-20",
+        "rain_mm": 0.0,
+        "rain_chance": 52,
+        "tmax_c": 32.5
+      }
+    ],
+    "rain_days": 15,
+    "total_mm": 132.8,
+    "wettest_day": "2026-11-17",
+    "wettest_mm": 18.6,
+    "rain_day_mm": 1.0,
+    "source": "Open-Meteo (ECMWF, GFS and other weather models)",
+    "credit": "Weather data by Open-Meteo.com (CC BY 4.0)",
+    "demo": false
+  },
+  "crops": {
+    "as_of": "2026-11-06",
+    "sow_date": "2026-11-06",
+    "items": [
+      {
+        "id": "mung_bean",
+        "kind": "ofc",
+        "duration_days": 60,
+        "need_mm": 126.0,
+        "rain_mm": 248.0,
+        "ratio": 1.96,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 38,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "cowpea",
+        "kind": "ofc",
+        "duration_days": 75,
+        "need_mm": 162.0,
+        "rain_mm": 258.0,
+        "ratio": 1.6,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 35,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "black_gram",
+        "kind": "ofc",
+        "duration_days": 80,
+        "need_mm": 176.0,
+        "rain_mm": 260.0,
+        "ratio": 1.48,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 35,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "soybean",
+        "kind": "ofc",
+        "duration_days": 85,
+        "need_mm": 225.0,
+        "rain_mm": 262.0,
+        "ratio": 1.16,
+        "usually_irrigated": false,
+        "confidence": "assumption",
+        "past_years_ok": 33,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "finger_millet",
+        "kind": "ofc",
+        "duration_days": 105,
+        "need_mm": 240.0,
+        "rain_mm": 275.0,
+        "ratio": 1.14,
+        "usually_irrigated": false,
+        "confidence": "assumption",
+        "past_years_ok": 31,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "sesame",
+        "kind": "ofc",
+        "duration_days": 100,
+        "need_mm": 242.0,
+        "rain_mm": 273.0,
+        "ratio": 1.13,
+        "usually_irrigated": false,
+        "confidence": "assumption",
+        "past_years_ok": 31,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "big_onion",
+        "kind": "ofc",
+        "duration_days": 85,
+        "need_mm": 238.0,
+        "rain_mm": 262.0,
+        "ratio": 1.1,
+        "usually_irrigated": true,
+        "confidence": "medium",
+        "past_years_ok": 31,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "pumpkin",
+        "kind": "ofc",
+        "duration_days": 100,
+        "need_mm": 253.0,
+        "rain_mm": 273.0,
+        "ratio": 1.08,
+        "usually_irrigated": true,
+        "confidence": "assumption",
+        "past_years_ok": 30,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "maize",
+        "kind": "ofc",
+        "duration_days": 105,
+        "need_mm": 273.0,
+        "rain_mm": 275.0,
+        "ratio": 1.0,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 28,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "groundnut",
+        "kind": "ofc",
+        "duration_days": 105,
+        "need_mm": 284.0,
+        "rain_mm": 275.0,
+        "ratio": 0.97,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 27,
+        "past_years": 45,
+        "rating": "good"
+      },
+      {
+        "id": "sweet_potato",
+        "kind": "ofc",
+        "duration_days": 105,
+        "need_mm": 308.0,
+        "rain_mm": 275.0,
+        "ratio": 0.89,
+        "usually_irrigated": false,
+        "confidence": "medium",
+        "past_years_ok": 24,
+        "past_years": 45,
+        "rating": "possible"
+      },
+      {
+        "id": "chilli",
+        "kind": "ofc",
+        "duration_days": 125,
+        "need_mm": 374.0,
+        "rain_mm": 282.0,
+        "ratio": 0.75,
+        "usually_irrigated": true,
+        "confidence": "assumption",
+        "past_years_ok": 19,
+        "past_years": 45,
+        "rating": "possible"
+      },
+      {
+        "id": "brinjal",
+        "kind": "ofc",
+        "duration_days": 130,
+        "need_mm": 395.0,
+        "rain_mm": 285.0,
+        "ratio": 0.72,
+        "usually_irrigated": true,
+        "confidence": "assumption",
+        "past_years_ok": 19,
+        "past_years": 45,
+        "rating": "possible"
+      },
+      {
+        "id": "paddy_short",
+        "kind": "paddy",
+        "duration_days": 93,
+        "need_mm": 1076.0,
+        "rain_mm": 268.0,
+        "ratio": 0.25,
+        "usually_irrigated": false,
+        "confidence": "high",
+        "rating": "unknown",
+        "tank_mm": 808.0,
+        "tank_m3_per_ha": 8081.0
+      },
+      {
+        "id": "paddy",
+        "kind": "paddy",
+        "duration_days": 110,
+        "need_mm": 1237.0,
+        "rain_mm": 275.0,
+        "ratio": 0.22,
+        "usually_irrigated": false,
+        "confidence": "high",
+        "rating": "unknown",
+        "tank_mm": 962.0,
+        "tank_m3_per_ha": 9617.0
+      }
+    ],
+    "recommended": [
+      "mung_bean",
+      "cowpea",
+      "black_gram"
+    ],
+    "calendar": [
+      {
+        "start": "2026-11-06",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.22,
+            "tank_mm": 962.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.25,
+            "tank_mm": 808.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.96,
+            "past_years_ok": 39,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.6,
+            "past_years_ok": 38,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.48,
+            "past_years_ok": 37,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.0,
+            "past_years_ok": 30,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.97,
+            "past_years_ok": 28,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.89,
+            "past_years_ok": 27,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.1,
+            "past_years_ok": 33,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.72,
+            "past_years_ok": 24,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.75,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.08,
+            "past_years_ok": 31,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.16,
+            "past_years_ok": 33,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.14,
+            "past_years_ok": 34,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.13,
+            "past_years_ok": 33,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-11-13",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.18,
+            "tank_mm": 1022.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.21,
+            "tank_mm": 861.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.59,
+            "past_years_ok": 37,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.27,
+            "past_years_ok": 34,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.18,
+            "past_years_ok": 34,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.8,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.76,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.71,
+            "past_years_ok": 24,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.89,
+            "past_years_ok": 27,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.58,
+            "past_years_ok": 22,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.61,
+            "past_years_ok": 23,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.86,
+            "past_years_ok": 27,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.94,
+            "past_years_ok": 28,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.91,
+            "past_years_ok": 27,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.9,
+            "past_years_ok": 27,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-11-20",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.15,
+            "tank_mm": 1071.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.17,
+            "tank_mm": 908.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.3,
+            "past_years_ok": 34,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.03,
+            "past_years_ok": 30,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.97,
+            "past_years_ok": 29,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.64,
+            "past_years_ok": 24,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.62,
+            "past_years_ok": 22,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.57,
+            "past_years_ok": 19,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.73,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 15,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.5,
+            "past_years_ok": 17,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.69,
+            "past_years_ok": 24,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.77,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.73,
+            "past_years_ok": 25,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.72,
+            "past_years_ok": 25,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-11-27",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.13,
+            "tank_mm": 1112.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.14,
+            "tank_mm": 949.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 1.05,
+            "past_years_ok": 30,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "good",
+            "ratio": 0.86,
+            "past_years_ok": 27,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.8,
+            "past_years_ok": 24,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.53,
+            "past_years_ok": 18,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.51,
+            "past_years_ok": 17,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 15,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.6,
+            "past_years_ok": 18,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.42,
+            "past_years_ok": 12,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.42,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.57,
+            "past_years_ok": 18,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.63,
+            "past_years_ok": 20,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.61,
+            "past_years_ok": 19,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.59,
+            "past_years_ok": 19,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-12-04",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.11,
+            "tank_mm": 1157.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.12,
+            "tank_mm": 992.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.81,
+            "past_years_ok": 26,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.67,
+            "past_years_ok": 22,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.62,
+            "past_years_ok": 21,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.42,
+            "past_years_ok": 14,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.41,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.38,
+            "past_years_ok": 12,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.46,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.37,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.36,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.45,
+            "past_years_ok": 14,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 14,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.47,
+            "past_years_ok": 14,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-12-11",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.09,
+            "tank_mm": 1194.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.1,
+            "tank_mm": 1028.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.65,
+            "past_years_ok": 22,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "possible",
+            "ratio": 0.52,
+            "past_years_ok": 17,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 14,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.34,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.33,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.31,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.37,
+            "past_years_ok": 12,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.34,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.33,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.36,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.38,
+            "past_years_ok": 12,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.39,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.38,
+            "past_years_ok": 13,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-12-18",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.08,
+            "tank_mm": 1225.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.08,
+            "tank_mm": 1065.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.48,
+            "past_years_ok": 14,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.38,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.36,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.26,
+            "past_years_ok": 8,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.24,
+            "past_years_ok": 8,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.28,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.31,
+            "past_years_ok": 8,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.3,
+            "past_years_ok": 9,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.28,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.29,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.31,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.29,
+            "past_years_ok": 10,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2026-12-25",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.07,
+            "tank_mm": 1249.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.06,
+            "tank_mm": 1103.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.31,
+            "past_years_ok": 13,
+            "past_years": 45
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.26,
+            "past_years_ok": 11,
+            "past_years": 45
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.25,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 7,
+            "past_years": 45
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 6,
+            "past_years": 45
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 5,
+            "past_years": 45
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 8,
+            "past_years": 45
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.28,
+            "past_years_ok": 5,
+            "past_years": 45
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 7,
+            "past_years": 45
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 9,
+            "past_years": 45
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 9,
+            "past_years": 45
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.25,
+            "past_years_ok": 10,
+            "past_years": 45
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 9,
+            "past_years": 45
+          }
+        ]
+      },
+      {
+        "start": "2027-01-01",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.06,
+            "tank_mm": 1260.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.05,
+            "tank_mm": 1127.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 9,
+            "past_years": 46
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 9,
+            "past_years": 46
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.19,
+            "past_years_ok": 8,
+            "past_years": 46
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.19,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.26,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.16,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.24,
+            "past_years_ok": 7,
+            "past_years": 46
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 6,
+            "past_years": 46
+          }
+        ]
+      },
+      {
+        "start": "2027-01-08",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.07,
+            "tank_mm": 1263.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.05,
+            "tank_mm": 1135.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.17,
+            "past_years_ok": 8,
+            "past_years": 46
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.17,
+            "past_years_ok": 7,
+            "past_years": 46
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.16,
+            "past_years_ok": 7,
+            "past_years": 46
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.14,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.28,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.14,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.25,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.22,
+            "past_years_ok": 5,
+            "past_years": 46
+          }
+        ]
+      },
+      {
+        "start": "2027-01-15",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.07,
+            "tank_mm": 1259.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.06,
+            "tank_mm": 1134.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 7,
+            "past_years": 46
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.16,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.24,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.23,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.21,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.29,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.28,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.23,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.24,
+            "past_years_ok": 6,
+            "past_years": 46
+          }
+        ]
+      },
+      {
+        "start": "2027-01-22",
+        "items": [
+          {
+            "id": "paddy",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.08,
+            "tank_mm": 1249.0
+          },
+          {
+            "id": "paddy_short",
+            "kind": "paddy",
+            "rating": "unknown",
+            "ratio": 0.06,
+            "tank_mm": 1128.0
+          },
+          {
+            "id": "mung_bean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.15,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "cowpea",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.17,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "black_gram",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.2,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "maize",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "groundnut",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.26,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "sweet_potato",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.24,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "big_onion",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.18,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "brinjal",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.29,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "chilli",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.3,
+            "past_years_ok": 3,
+            "past_years": 46
+          },
+          {
+            "id": "pumpkin",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.26,
+            "past_years_ok": 5,
+            "past_years": 46
+          },
+          {
+            "id": "soybean",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.19,
+            "past_years_ok": 4,
+            "past_years": 46
+          },
+          {
+            "id": "finger_millet",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.3,
+            "past_years_ok": 6,
+            "past_years": 46
+          },
+          {
+            "id": "sesame",
+            "kind": "ofc",
+            "rating": "not_now",
+            "ratio": 0.27,
+            "past_years_ok": 6,
+            "past_years": 46
+          }
+        ]
+      }
+    ],
+    "forecast_16_mm": null,
+    "usual_16_mm": 122.0,
+    "signal": null,
+    "settings": {
+      "adequate_ratio": 0.8,
+      "good_ratio": 0.8,
+      "good_reliability": 0.6,
+      "possible_ratio": 0.5
+    },
+    "past_period": "1981–2026",
+    "sources": [
+      "NASA POWER (rain and temperature)",
+      "FAO-56 (crop coefficients)",
+      "FAO irrigation manual (effective rain, paddy water)",
+      "Sri Lanka Department of Agriculture (durations)",
+      "Open-Meteo (16-day forecast; not NASA)"
+    ],
+    "updated": "2026-11-06T00:19:09+05:30",
+    "demo": false
+  },
+  "seasonal": {
+    "issued": "2026-11-06T00:17:31+05:30",
+    "months": [
+      {
+        "month": "2026-12",
+        "low_mm": 55,
+        "middle_mm": 112,
+        "high_mm": 229,
+        "usual_mm": 165.0,
+        "members": 51
+      },
+      {
+        "month": "2027-01",
+        "low_mm": 12,
+        "middle_mm": 36,
+        "high_mm": 102,
+        "usual_mm": 47.8,
+        "members": 51
+      },
+      {
+        "month": "2027-02",
+        "low_mm": 6,
+        "middle_mm": 16,
+        "high_mm": 44,
+        "usual_mm": 40.1,
+        "members": 51
+      },
+      {
+        "month": "2027-03",
+        "low_mm": 5,
+        "middle_mm": 13,
+        "high_mm": 40,
+        "usual_mm": 44.5,
+        "members": 51
+      },
+      {
+        "month": "2027-04",
+        "low_mm": 25,
+        "middle_mm": 62,
+        "high_mm": 138,
+        "usual_mm": 101.0,
+        "members": 51
+      },
+      {
+        "month": "2027-05",
+        "low_mm": 19,
+        "middle_mm": 58,
+        "high_mm": 158,
+        "usual_mm": 83.0,
+        "members": 51
+      }
+    ],
+    "range_percent": [
+      10,
+      90
+    ],
+    "normal_period": "1991–2020",
+    "source": "Open-Meteo seasonal forecast (ECMWF long-range ensemble)",
+    "usual_source": "NASA POWER (PRECTOTCORR)",
+    "credit": "Weather data by Open-Meteo.com (CC BY 4.0)",
+    "demo": false
+  },
+  "advisory": {
+    "issued": "2026-11-09T10:08:28+05:30",
+    "week_start": "2026-11-09",
+    "week_end": "2026-11-15",
+    "items": [
+      {
+        "id": "water",
+        "kind": "info",
+        "key": "advisory.water.none",
+        "values": {}
+      },
+      {
+        "id": "rain",
+        "kind": "info",
+        "key": "advisory.rain.some",
+        "values": {
+          "mm": 49,
+          "days": 7
+        }
+      },
+      {
+        "id": "spray",
+        "kind": "info",
+        "key": "advisory.spray.none",
+        "values": {},
+        "dates": []
+      },
+      {
+        "id": "green",
+        "kind": "info",
+        "key": "advisory.green.below",
+        "values": {
+          "date": "2026-10-16"
+        }
+      },
+      {
+        "id": "crops",
+        "kind": "do",
+        "key": "advisory.crops",
+        "values": {},
+        "crops": [
+          "mung_bean",
+          "cowpea",
+          "black_gram",
+          "soybean"
+        ]
+      }
+    ],
+    "settings": {
+      "days": 7,
+      "heavy_rain_mm": 50.0,
+      "dry_week_mm": 5.0,
+      "hot_day_c": 35.0,
+      "hot_days_alert": 3,
+      "spray_max_mm": 1.0,
+      "spray_max_chance": 30,
+      "min_forecast_days": 4
+    },
+    "sources": [
+      "rules (NASA POWER, NASA water data)",
+      "Open-Meteo forecast (not NASA data)",
+      "NASA MODIS NDVI",
+      "crop rules"
+    ],
+    "demo": false
+  },
+  "ndvi": {
+    "issued": "2026-11-09T09:16:26+05:30",
+    "series": [
+      {
+        "date": "2025-01-01",
+        "ndvi": 0.739
+      },
+      {
+        "date": "2025-01-17",
+        "ndvi": 0.514
+      },
+      {
+        "date": "2025-02-02",
+        "ndvi": 0.72
+      },
+      {
+        "date": "2025-02-18",
+        "ndvi": 0.725
+      },
+      {
+        "date": "2025-03-06",
+        "ndvi": 0.743
+      },
+      {
+        "date": "2025-03-22",
+        "ndvi": 0.654
+      },
+      {
+        "date": "2025-04-07",
+        "ndvi": 0.716
+      },
+      {
+        "date": "2025-04-23",
+        "ndvi": 0.737
+      },
+      {
+        "date": "2025-05-09",
+        "ndvi": 0.773
+      },
+      {
+        "date": "2025-05-25",
+        "ndvi": 0.738
+      },
+      {
+        "date": "2025-06-10",
+        "ndvi": 0.677
+      },
+      {
+        "date": "2025-06-26",
+        "ndvi": 0.628
+      },
+      {
+        "date": "2025-07-12",
+        "ndvi": 0.667
+      },
+      {
+        "date": "2025-07-28",
+        "ndvi": 0.619
+      },
+      {
+        "date": "2025-08-13",
+        "ndvi": 0.71
+      },
+      {
+        "date": "2025-08-29",
+        "ndvi": 0.685
+      },
+      {
+        "date": "2025-09-14",
+        "ndvi": 0.591
+      },
+      {
+        "date": "2025-09-30",
+        "ndvi": 0.674
+      },
+      {
+        "date": "2025-10-16",
+        "ndvi": 0.778
+      },
+      {
+        "date": "2025-11-01",
+        "ndvi": 0.757
+      },
+      {
+        "date": "2025-11-17",
+        "ndvi": 0.63
+      },
+      {
+        "date": "2025-12-03",
+        "ndvi": 0.668
+      },
+      {
+        "date": "2025-12-19",
+        "ndvi": 0.708
+      },
+      {
+        "date": "2026-01-01",
+        "ndvi": 0.803
+      },
+      {
+        "date": "2026-01-17",
+        "ndvi": 0.791
+      },
+      {
+        "date": "2026-02-02",
+        "ndvi": 0.759
+      },
+      {
+        "date": "2026-02-18",
+        "ndvi": 0.748
+      },
+      {
+        "date": "2026-03-06",
+        "ndvi": 0.735
+      },
+      {
+        "date": "2026-03-22",
+        "ndvi": 0.694
+      },
+      {
+        "date": "2026-04-07",
+        "ndvi": 0.771
+      },
+      {
+        "date": "2026-04-23",
+        "ndvi": 0.748
+      },
+      {
+        "date": "2026-05-09",
+        "ndvi": 0.814
+      },
+      {
+        "date": "2026-05-25",
+        "ndvi": 0.773
+      },
+      {
+        "date": "2026-06-10",
+        "ndvi": 0.492
+      },
+      {
+        "date": "2026-06-26",
+        "ndvi": 0.743
+      },
+      {
+        "date": "2026-07-12",
+        "ndvi": 0.619
+      },
+      {
+        "date": "2026-07-28",
+        "ndvi": 0.538
+      },
+      {
+        "date": "2026-08-13",
+        "ndvi": 0.631
+      },
+      {
+        "date": "2026-08-29",
+        "ndvi": 0.56
+      },
+      {
+        "date": "2026-09-14",
+        "ndvi": 0.683
+      },
+      {
+        "date": "2026-09-30",
+        "ndvi": 0.751
+      },
+      {
+        "date": "2026-10-16",
+        "ndvi": 0.631
+      }
+    ],
+    "normal": [
+      {
+        "doy": 1,
+        "mean": 0.749,
+        "min": 0.587,
+        "max": 0.825,
+        "years": 7
+      },
+      {
+        "doy": 17,
+        "mean": 0.737,
+        "min": 0.514,
+        "max": 0.813,
+        "years": 7
+      },
+      {
+        "doy": 33,
+        "mean": 0.746,
+        "min": 0.697,
+        "max": 0.798,
+        "years": 7
+      },
+      {
+        "doy": 49,
+        "mean": 0.718,
+        "min": 0.638,
+        "max": 0.773,
+        "years": 7
+      },
+      {
+        "doy": 65,
+        "mean": 0.657,
+        "min": 0.612,
+        "max": 0.743,
+        "years": 7
+      },
+      {
+        "doy": 81,
+        "mean": 0.645,
+        "min": 0.61,
+        "max": 0.694,
+        "years": 7
+      },
+      {
+        "doy": 97,
+        "mean": 0.659,
+        "min": 0.608,
+        "max": 0.716,
+        "years": 7
+      },
+      {
+        "doy": 113,
+        "mean": 0.71,
+        "min": 0.563,
+        "max": 0.79,
+        "years": 7
+      },
+      {
+        "doy": 129,
+        "mean": 0.72,
+        "min": 0.601,
+        "max": 0.812,
+        "years": 7
+      },
+      {
+        "doy": 145,
+        "mean": 0.735,
+        "min": 0.594,
+        "max": 0.816,
+        "years": 7
+      },
+      {
+        "doy": 161,
+        "mean": 0.685,
+        "min": 0.461,
+        "max": 0.761,
+        "years": 7
+      },
+      {
+        "doy": 177,
+        "mean": 0.664,
+        "min": 0.596,
+        "max": 0.74,
+        "years": 7
+      },
+      {
+        "doy": 193,
+        "mean": 0.655,
+        "min": 0.593,
+        "max": 0.722,
+        "years": 7
+      },
+      {
+        "doy": 209,
+        "mean": 0.63,
+        "min": 0.548,
+        "max": 0.705,
+        "years": 7
+      },
+      {
+        "doy": 225,
+        "mean": 0.626,
+        "min": 0.525,
+        "max": 0.71,
+        "years": 7
+      },
+      {
+        "doy": 241,
+        "mean": 0.614,
+        "min": 0.476,
+        "max": 0.719,
+        "years": 7
+      },
+      {
+        "doy": 257,
+        "mean": 0.62,
+        "min": 0.569,
+        "max": 0.683,
+        "years": 7
+      },
+      {
+        "doy": 273,
+        "mean": 0.653,
+        "min": 0.521,
+        "max": 0.766,
+        "years": 7
+      },
+      {
+        "doy": 289,
+        "mean": 0.692,
+        "min": 0.57,
+        "max": 0.778,
+        "years": 7
+      },
+      {
+        "doy": 305,
+        "mean": 0.596,
+        "min": 0.401,
+        "max": 0.757,
+        "years": 7
+      },
+      {
+        "doy": 321,
+        "mean": 0.69,
+        "min": 0.619,
+        "max": 0.757,
+        "years": 7
+      },
+      {
+        "doy": 337,
+        "mean": 0.686,
+        "min": 0.534,
+        "max": 0.763,
+        "years": 7
+      },
+      {
+        "doy": 353,
+        "mean": 0.725,
+        "min": 0.406,
+        "max": 0.84,
+        "years": 7
+      }
+    ],
+    "normal_years": "2019–2025",
+    "current": {
+      "date": "2026-10-16",
+      "ndvi": 0.631,
+      "usual": 0.692,
+      "diff": -0.061,
+      "state": "below"
+    },
+    "radius_km": 1,
+    "source": "NASA MODIS Terra NDVI (MOD13Q1), via ORNL DAAC",
+    "credit": "MODIS data from NASA LP DAAC, served by the ORNL DAAC MODIS web service",
+    "demo": false
+  }
+}

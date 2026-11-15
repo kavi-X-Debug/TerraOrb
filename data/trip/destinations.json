@@ -1,0 +1,2561 @@
+{
+ "schema": "trip-destinations-1",
+ "generated": "2026-11-15T10:53:28+05:30",
+ "source": "data/places.json (team's list of well-known places) + OpenStreetMap (c) OpenStreetMap contributors, ODbL; elevation: AWS terrain tiles (terrarium). kinds, activities and cost_level are DRAFT assumptions (config.toml).",
+ "demo": false,
+ "country": "LK",
+ "osm_credit": "(c) OpenStreetMap contributors, ODbL",
+ "destinations": [
+  {
+   "id": "colombo",
+   "name_en": "Colombo",
+   "name_si": "කොළඹ",
+   "lat": 6.93,
+   "lon": 79.85,
+   "region": null,
+   "kinds": [
+    "city",
+    "coast"
+   ],
+   "activities": [
+    "sightseeing",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "beach",
+    "photography"
+   ],
+   "cell": "7.0_80.0",
+   "elevation_m": 7,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "negombo",
+   "name_en": "Negombo",
+   "name_si": "මීගමුව",
+   "lat": 7.21,
+   "lon": 79.84,
+   "region": null,
+   "kinds": [
+    "beach",
+    "city",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants",
+    "museums",
+    "shopping",
+    "entertainment",
+    "workshops"
+   ],
+   "cell": "7.0_80.0",
+   "elevation_m": 7,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kandy",
+   "name_en": "Kandy",
+   "name_si": "මහනුවර",
+   "lat": 7.29,
+   "lon": 80.63,
+   "region": null,
+   "kinds": [
+    "culture",
+    "city",
+    "hill"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "hiking",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.5_80.625",
+   "elevation_m": 505,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "pinnawala",
+   "name_en": "Pinnawala",
+   "name_si": "පින්නවල",
+   "lat": 7.3,
+   "lon": 80.39,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "7.5_80.625",
+   "elevation_m": 88,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kurunegala",
+   "name_en": "Kurunegala",
+   "name_si": "කුරුණෑගල",
+   "lat": 7.49,
+   "lon": 80.36,
+   "region": null,
+   "kinds": [
+    "city",
+    "culture"
+   ],
+   "activities": [
+    "sightseeing",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "culture",
+    "photography"
+   ],
+   "cell": "7.5_80.625",
+   "elevation_m": 123,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "galle",
+   "name_en": "Galle",
+   "name_si": "ගාල්ල",
+   "lat": 6.03,
+   "lon": 80.22,
+   "region": null,
+   "kinds": [
+    "culture",
+    "city",
+    "coast"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "beach"
+   ],
+   "cell": "6.0_80.0",
+   "elevation_m": 0,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "unawatuna",
+   "name_en": "Unawatuna",
+   "name_si": "උණවටුන",
+   "lat": 6.01,
+   "lon": 80.25,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.0",
+   "elevation_m": 9,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "hikkaduwa",
+   "name_en": "Hikkaduwa",
+   "name_si": "හික්කඩුව",
+   "lat": 6.14,
+   "lon": 80.1,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.0",
+   "elevation_m": 8,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bentota",
+   "name_en": "Bentota",
+   "name_si": "බෙන්තොට",
+   "lat": 6.43,
+   "lon": 79.99,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 0,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "mirissa",
+   "name_en": "Mirissa",
+   "name_si": "මිරිස්ස",
+   "lat": 5.95,
+   "lon": 80.46,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": 13,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "matara",
+   "name_en": "Matara",
+   "name_si": "මාතර",
+   "lat": 5.95,
+   "lon": 80.55,
+   "region": null,
+   "kinds": [
+    "city",
+    "coast"
+   ],
+   "activities": [
+    "sightseeing",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "beach",
+    "photography"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": 12,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "hambantota",
+   "name_en": "Hambantota",
+   "name_si": "හම්බන්තොට",
+   "lat": 6.12,
+   "lon": 81.12,
+   "region": null,
+   "kinds": [
+    "coast",
+    "wildlife"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants",
+    "wildlife",
+    "camping"
+   ],
+   "cell": "6.0_81.25",
+   "elevation_m": 0,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "tissamaharama",
+   "name_en": "Tissamaharama (Yala)",
+   "name_si": "තිස්සමහාරාමය (යාල)",
+   "lat": 6.28,
+   "lon": 81.29,
+   "region": null,
+   "kinds": [
+    "wildlife",
+    "lake",
+    "culture"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping",
+    "sightseeing",
+    "cycling",
+    "culture",
+    "museums"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 20,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "ratnapura",
+   "name_en": "Ratnapura",
+   "name_si": "රත්නපුරය",
+   "lat": 6.68,
+   "lon": 80.4,
+   "region": null,
+   "kinds": [
+    "city",
+    "forest"
+   ],
+   "activities": [
+    "sightseeing",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "hiking",
+    "wildlife",
+    "camping",
+    "photography"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 26,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "sripada",
+   "name_en": "Sri Pada (Adam's Peak)",
+   "name_si": "ශ්‍රී පාදය",
+   "lat": 6.81,
+   "lon": 80.5,
+   "region": null,
+   "kinds": [
+    "hill",
+    "culture",
+    "forest"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling",
+    "culture",
+    "museums",
+    "wildlife"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 2114,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "nuwaraeliya",
+   "name_en": "Nuwara Eliya",
+   "name_si": "නුවරඑළිය",
+   "lat": 6.97,
+   "lon": 80.77,
+   "region": null,
+   "kinds": [
+    "hill",
+    "city",
+    "lake"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 1901,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "hortonplains",
+   "name_en": "Horton Plains",
+   "name_si": "හෝටන් තැන්න",
+   "lat": 6.8,
+   "lon": 80.8,
+   "region": null,
+   "kinds": [
+    "hill",
+    "forest",
+    "wildlife"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling",
+    "wildlife"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 2112,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "haputale",
+   "name_en": "Haputale",
+   "name_si": "හපුතලේ",
+   "lat": 6.77,
+   "lon": 80.96,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 1414,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "ella",
+   "name_en": "Ella",
+   "name_si": "ඇල්ල",
+   "lat": 6.87,
+   "lon": 81.05,
+   "region": null,
+   "kinds": [
+    "hill",
+    "waterfall"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling",
+    "waterfalls"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 943,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "badulla",
+   "name_en": "Badulla",
+   "name_si": "බදුල්ල",
+   "lat": 6.99,
+   "lon": 81.06,
+   "region": null,
+   "kinds": [
+    "city",
+    "hill"
+   ],
+   "activities": [
+    "sightseeing",
+    "museums",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "hiking",
+    "photography",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 670,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dambulla",
+   "name_en": "Dambulla",
+   "name_si": "දඹුල්ල",
+   "lat": 7.86,
+   "lon": 80.65,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.0_80.625",
+   "elevation_m": 172,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "sigiriya",
+   "name_en": "Sigiriya",
+   "name_si": "සීගිරිය",
+   "lat": 7.96,
+   "lon": 80.76,
+   "region": null,
+   "kinds": [
+    "culture",
+    "hill"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "hiking",
+    "camping",
+    "cycling"
+   ],
+   "cell": "8.0_80.625",
+   "elevation_m": 210,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "polonnaruwa",
+   "name_en": "Polonnaruwa",
+   "name_si": "පොළොන්නරුව",
+   "lat": 7.94,
+   "lon": 81.0,
+   "region": null,
+   "kinds": [
+    "culture",
+    "lake"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "cycling"
+   ],
+   "cell": "8.0_81.25",
+   "elevation_m": 63,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "anuradhapura",
+   "name_en": "Anuradhapura",
+   "name_si": "අනුරාධපුරය",
+   "lat": 8.31,
+   "lon": 80.4,
+   "region": null,
+   "kinds": [
+    "culture",
+    "city"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops"
+   ],
+   "cell": "8.5_80.625",
+   "elevation_m": 94,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kalpitiya",
+   "name_en": "Kalpitiya",
+   "name_si": "කල්පිටිය",
+   "lat": 8.23,
+   "lon": 79.76,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast",
+    "wildlife"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants",
+    "wildlife",
+    "camping"
+   ],
+   "cell": "8.0_80.0",
+   "elevation_m": 8,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "mannar",
+   "name_en": "Mannar",
+   "name_si": "මන්නාරම",
+   "lat": 8.98,
+   "lon": 79.91,
+   "region": null,
+   "kinds": [
+    "coast",
+    "culture"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants",
+    "culture",
+    "museums"
+   ],
+   "cell": "9.0_80.0",
+   "elevation_m": 5,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "jaffna",
+   "name_en": "Jaffna",
+   "name_si": "යාපනය",
+   "lat": 9.67,
+   "lon": 80.01,
+   "region": null,
+   "kinds": [
+    "culture",
+    "city",
+    "coast"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography",
+    "restaurants",
+    "shopping",
+    "entertainment",
+    "workshops",
+    "beach"
+   ],
+   "cell": "9.5_80.0",
+   "elevation_m": 10,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "trincomalee",
+   "name_en": "Trincomalee",
+   "name_si": "ත්‍රිකුණාමලය",
+   "lat": 8.57,
+   "lon": 81.23,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast",
+    "culture"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants",
+    "culture",
+    "museums"
+   ],
+   "cell": "8.5_81.25",
+   "elevation_m": 8,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "batticaloa",
+   "name_en": "Batticaloa",
+   "name_si": "මඩකලපුව",
+   "lat": 7.71,
+   "lon": 81.69,
+   "region": null,
+   "kinds": [
+    "lake",
+    "coast",
+    "city"
+   ],
+   "activities": [
+    "sightseeing",
+    "photography",
+    "cycling",
+    "beach",
+    "restaurants",
+    "museums",
+    "shopping",
+    "entertainment",
+    "workshops"
+   ],
+   "cell": "7.5_81.875",
+   "elevation_m": 12,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "arugambay",
+   "name_en": "Arugam Bay",
+   "name_si": "අරුගම් බේ",
+   "lat": 6.84,
+   "lon": 81.84,
+   "region": null,
+   "kinds": [
+    "beach",
+    "coast"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "7.0_81.875",
+   "elevation_m": 1,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": null,
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "aberdeen-waterfall",
+   "name_en": "Aberdeen Waterfall",
+   "name_si": null,
+   "lat": 6.94858,
+   "lon": 80.50173,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 565,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 5413804743
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bambarakanda-waterfall",
+   "name_en": "Bambarakanda Waterfall",
+   "name_si": null,
+   "lat": 6.77338,
+   "lon": 80.83127,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 1251,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 6533610497
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "diyaluma-falls",
+   "name_en": "Diyaluma Falls",
+   "name_si": null,
+   "lat": 6.73307,
+   "lon": 81.03145,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 643,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 9606186707
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dunhinda-falls",
+   "name_en": "Dunhinda Falls",
+   "name_si": null,
+   "lat": 7.01694,
+   "lon": 81.06349,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 589,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3301935943
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "laxapana-falls",
+   "name_en": "Laxapana Falls",
+   "name_si": null,
+   "lat": 6.89911,
+   "lon": 80.5009,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 745,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3207148721
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "andahelena-ella",
+   "name_en": "Andahelena Ella",
+   "name_si": "අඬාහැලෙන ඇල්ල",
+   "lat": 6.25861,
+   "lon": 80.19734,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 40,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 9125422618
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "deyyagala-dola",
+   "name_en": "Deyyagala Dola",
+   "name_si": "දෙයියාගල දොළ",
+   "lat": 6.37131,
+   "lon": 80.18425,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 47,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 9139743528
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dooli-ella-waterfall",
+   "name_en": "Dooli Ella Waterfall",
+   "name_si": "දූලි ඇල්ල",
+   "lat": 6.39197,
+   "lon": 80.39272,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 106,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3563664791
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "duli-ella",
+   "name_en": "Duli ella",
+   "name_si": "දූලි ඇල්ල",
+   "lat": 6.40058,
+   "lon": 80.71421,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 261,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3726925126
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dumbara-ella",
+   "name_en": "Dumbara Ella",
+   "name_si": "දුම්බර ඇල්ල",
+   "lat": 7.46981,
+   "lon": 80.79186,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.5_80.625",
+   "elevation_m": 611,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 13098242412
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "handapan-ella-falls",
+   "name_en": "Handapan Ella Falls",
+   "name_si": "හඳපාන් ඇල්ල",
+   "lat": 6.44456,
+   "lon": 80.58358,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 1195,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 7373309394
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kiridola",
+   "name_en": "Kiridola",
+   "name_si": "කිරිදොල",
+   "lat": 6.29164,
+   "lon": 80.21547,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 29,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 9125555013
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "makeliya-water-fall",
+   "name_en": "Makeliya Water Fall",
+   "name_si": "මාකෙලි ඇල්ල",
+   "lat": 6.6058,
+   "lon": 80.28169,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 89,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3578062111
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "na-ella",
+   "name_en": "Na Ella",
+   "name_si": "නා ඇල්ල",
+   "lat": 7.411,
+   "lon": 80.86798,
+   "region": null,
+   "kinds": [
+    "waterfall"
+   ],
+   "activities": [
+    "waterfalls",
+    "hiking",
+    "photography"
+   ],
+   "cell": "7.5_80.625",
+   "elevation_m": 587,
+   "cost_level": 1,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 12554991001
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bible-rock",
+   "name_en": "Bible Rock",
+   "name_si": "බතලේගල",
+   "lat": 7.18957,
+   "lon": 80.43428,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 788,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 2361172725
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "sorabora-wewa",
+   "name_en": "Sorabora Wewa",
+   "name_si": null,
+   "lat": 7.36142,
+   "lon": 81.00582,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.5_81.25",
+   "elevation_m": 101,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3880551572
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bogoda-wooden-bridge",
+   "name_en": "Bogoda Wooden Bridge",
+   "name_si": "බෝගොඩ ලී පාළම",
+   "lat": 7.00791,
+   "lon": 80.99631,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 723,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3880457728
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "katusu-konda",
+   "name_en": "Katusu Konda",
+   "name_si": "කටුසු කොන්ද",
+   "lat": 7.22631,
+   "lon": 80.64004,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 1215,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 8627891112
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kurullangala",
+   "name_en": "Kurullangala",
+   "name_si": "කුරුල්ලන්ගල",
+   "lat": 6.81076,
+   "lon": 81.06402,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 1163,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 8506615205
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "monaragala",
+   "name_en": "Monaragala",
+   "name_si": "මොණරගල",
+   "lat": 7.0849,
+   "lon": 80.63238,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 1492,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 8506615209
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "paraviyangala",
+   "name_en": "Paraviyangala",
+   "name_si": "පරවියන්ගල",
+   "lat": 6.7413,
+   "lon": 80.79535,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 1407,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 8506615208
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "sakkotei-cape",
+   "name_en": "Sakkotei Cape",
+   "name_si": null,
+   "lat": 9.83561,
+   "lon": 80.21219,
+   "region": null,
+   "kinds": [
+    "hill"
+   ],
+   "activities": [
+    "hiking",
+    "photography",
+    "sightseeing",
+    "camping",
+    "cycling"
+   ],
+   "cell": "10.0_80.0",
+   "elevation_m": 4,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 1642989153
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "lunugamvehera-national-park",
+   "name_en": "Lunugamvehera National Park",
+   "name_si": null,
+   "lat": 6.48034,
+   "lon": 81.20654,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 105,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 3419730
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "minneriya-national-park",
+   "name_en": "Minneriya National Park",
+   "name_si": null,
+   "lat": 8.01624,
+   "lon": 80.84229,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.0_80.625",
+   "elevation_m": 119,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 5683596
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "pigeon-island-national-park",
+   "name_en": "Pigeon Island National Park",
+   "name_si": null,
+   "lat": 8.71829,
+   "lon": 81.20591,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.5_81.25",
+   "elevation_m": 0,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 439357706
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "wasgamuwa-national-park",
+   "name_en": "Wasgamuwa National Park",
+   "name_si": "වස්ගමුව ජාතික උද්‍යානය",
+   "lat": 7.74361,
+   "lon": 80.95318,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "7.5_81.25",
+   "elevation_m": 80,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 6315786
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "wilpattu-national-park",
+   "name_en": "Wilpattu National Park",
+   "name_si": "විල්පත්තු ජාතික උද්‍යානය",
+   "lat": 8.44971,
+   "lon": 80.04268,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.5_80.0",
+   "elevation_m": 111,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 15434166
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kaudulla-national-park",
+   "name_en": "Kaudulla National Park",
+   "name_si": null,
+   "lat": 8.17558,
+   "lon": 80.91336,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.0_80.625",
+   "elevation_m": 75,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 9134268
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "udawalawe-national-park",
+   "name_en": "Udawalawe National Park",
+   "name_si": null,
+   "lat": 6.51217,
+   "lon": 80.86926,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 107,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 10550498
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "yala-national-park",
+   "name_en": "Yala National Park",
+   "name_si": null,
+   "lat": 6.57101,
+   "lon": 81.5316,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 76,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 16908453
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "flood-plains-national-park",
+   "name_en": "Flood Plains National Park",
+   "name_si": null,
+   "lat": 7.95814,
+   "lon": 81.11338,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.0_81.25",
+   "elevation_m": 41,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 8104388
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kumana-national-park",
+   "name_en": "Kumana National Park",
+   "name_si": null,
+   "lat": 6.61889,
+   "lon": 81.66432,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "6.5_81.875",
+   "elevation_m": 72,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 18136442
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "maduru-oya-national-park",
+   "name_en": "Maduru Oya National Park",
+   "name_si": null,
+   "lat": 7.53772,
+   "lon": 81.19522,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "7.5_81.25",
+   "elevation_m": 99,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 8041112
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "somawatiya-chaithya-national-park",
+   "name_en": "Somawatiya Chaithya National Park",
+   "name_si": null,
+   "lat": 8.18523,
+   "lon": 81.09783,
+   "region": null,
+   "kinds": [
+    "wildlife"
+   ],
+   "activities": [
+    "wildlife",
+    "photography",
+    "camping"
+   ],
+   "cell": "8.0_81.25",
+   "elevation_m": 42,
+   "cost_level": 3,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 10608778
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "casuarina-beach",
+   "name_en": "Casuarina Beach",
+   "name_si": "කැසුවාරිනා මුහුදු වෙරල",
+   "lat": 9.76307,
+   "lon": 79.8866,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "10.0_80.0",
+   "elevation_m": 2,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 364998120
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "arisimale-beach",
+   "name_en": "Arisimale Beach",
+   "name_si": "අරිසිමලේ මුහුදු වෙරල",
+   "lat": 8.93667,
+   "lon": 81.00748,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "9.0_81.25",
+   "elevation_m": 4,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 405819378
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "devinuwara-beach",
+   "name_en": "Devinuwara Beach",
+   "name_si": null,
+   "lat": 5.9256,
+   "lon": 80.59464,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": 5,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 179655473
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dickwella-beach",
+   "name_en": "Dickwella Beach",
+   "name_si": null,
+   "lat": 5.96127,
+   "lon": 80.68896,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": -1,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 317928248
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "nunna-wella",
+   "name_en": "Nunna wella",
+   "name_si": "නුන්නවැල්ල",
+   "lat": 5.93275,
+   "lon": 80.61318,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": 20,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 384150115
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "ahangama-beach",
+   "name_en": "Ahangama Beach",
+   "name_si": null,
+   "lat": 5.96693,
+   "lon": 80.37462,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.625",
+   "elevation_m": 11,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 1564820321
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "akurala-beach",
+   "name_en": "Akurala Beach",
+   "name_si": null,
+   "lat": 6.19063,
+   "lon": 80.06392,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.0",
+   "elevation_m": 10,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 371312338
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "amaduwa-beach",
+   "name_en": "Amaduwa Beach",
+   "name_si": null,
+   "lat": 6.27768,
+   "lon": 81.42383,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 5,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 18226823
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "ambalangoda-beach",
+   "name_en": "Ambalangoda Beach",
+   "name_si": null,
+   "lat": 6.24999,
+   "lon": 80.04318,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.0_80.0",
+   "elevation_m": 8,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 288582815
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "andarakala-north-beach",
+   "name_en": "Andarakala North Beach",
+   "name_si": null,
+   "lat": 6.56758,
+   "lon": 81.73849,
+   "region": null,
+   "kinds": [
+    "beach"
+   ],
+   "activities": [
+    "beach",
+    "photography",
+    "sightseeing",
+    "restaurants"
+   ],
+   "cell": "6.5_81.875",
+   "elevation_m": 2,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "relation",
+    "id": 18165819
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "fort-hammenhiel",
+   "name_en": "Fort Hammenhiel",
+   "name_si": "හැමන්හිල් බලකොටුව",
+   "lat": 9.71172,
+   "lon": 79.84792,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "9.5_80.0",
+   "elevation_m": 0,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 404078214
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "sacred-city-of-anuradhapura",
+   "name_en": "Sacred City of Anuradhapura",
+   "name_si": "අනුරාධපුර පෞරාණික නගරය",
+   "lat": 8.35243,
+   "lon": 80.39991,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.5_80.625",
+   "elevation_m": 89,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 8096283075
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "buduruwagala-rock-carvings",
+   "name_en": "Buduruwagala Rock Carvings",
+   "name_si": null,
+   "lat": 6.68701,
+   "lon": 81.07836,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "6.5_81.25",
+   "elevation_m": 210,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 1720902214
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "ibbankatuwa-megalithic-burial-site",
+   "name_en": "Ibbankatuwa Megalithic Burial Site",
+   "name_si": "ඉබ්බන්කටුව මෙෙගලිතික සුසාන",
+   "lat": 7.83723,
+   "lon": 80.62987,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.0_80.625",
+   "elevation_m": 175,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 5589539521
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "independence-memorial-hall",
+   "name_en": "Independence Memorial Hall",
+   "name_si": null,
+   "lat": 6.90412,
+   "lon": 79.86756,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "7.0_80.0",
+   "elevation_m": 12,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 1078848223
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "kadurugoda-viharaya-archaeological-site-kantharodai",
+   "name_en": "Kadurugoda Viharaya Archaeological Site - Kantharodai",
+   "name_si": null,
+   "lat": 9.74689,
+   "lon": 80.00661,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "9.5_80.0",
+   "elevation_m": 10,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 161471513
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "richmond-castle",
+   "name_en": "Richmond Castle",
+   "name_si": null,
+   "lat": 6.60169,
+   "lon": 79.97512,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "6.5_80.0",
+   "elevation_m": 34,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 496336180
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "velgam-vehera",
+   "name_en": "Velgam Vehera",
+   "name_si": null,
+   "lat": 8.64578,
+   "lon": 81.17086,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.5_81.25",
+   "elevation_m": 17,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 4001647876
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "batadombalena",
+   "name_en": "Batadombalena",
+   "name_si": "බටදොඹ ලෙන",
+   "lat": 6.77655,
+   "lon": 80.39617,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 399,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 561752812
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dorric-fort",
+   "name_en": "Dorric Fort",
+   "name_si": null,
+   "lat": 8.78094,
+   "lon": 79.93437,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "9.0_80.0",
+   "elevation_m": 2,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 6183477765
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "rankoth-viharaya",
+   "name_en": "Rankoth Viharaya",
+   "name_si": null,
+   "lat": 7.95818,
+   "lon": 81.0034,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.0_81.25",
+   "elevation_m": 79,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 275745834
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "assembly-hall",
+   "name_en": "Assembly Hall",
+   "name_si": null,
+   "lat": 8.35128,
+   "lon": 80.51523,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.5_80.625",
+   "elevation_m": 183,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 581144471
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bambaragasthalawa-naga-pabbatha-monastery",
+   "name_en": "Bambaragasthalawa Naga Pabbatha Monastery",
+   "name_si": "බඹරගස්තලාව නාග පබ්බත විහාරය",
+   "lat": 6.6443,
+   "lon": 81.72212,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "6.5_81.875",
+   "elevation_m": 67,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 10537478691
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bowaththegala",
+   "name_en": "Bowaththegala",
+   "name_si": "බෝවත්තේගල",
+   "lat": 6.55717,
+   "lon": 81.68727,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "6.5_81.875",
+   "elevation_m": 29,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 12484250850
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "abhayagiriya-dagoba",
+   "name_en": "Abhayagiriya Dagoba",
+   "name_si": "අභයගිරි දාගැබ",
+   "lat": 8.37099,
+   "lon": 80.39528,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.5_80.625",
+   "elevation_m": 107,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 278865152
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "bhaddekavihari-hermitage",
+   "name_en": "Bhaddekavihārī Hermitage",
+   "name_si": "භද්දේකවිහාරී ආරණ්‍ය",
+   "lat": 6.62688,
+   "lon": 80.8492,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "6.5_80.625",
+   "elevation_m": 404,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 1044814187
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "somawathiya-temple",
+   "name_en": "Somawathiya Temple",
+   "name_si": null,
+   "lat": 8.12089,
+   "lon": 81.16891,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "8.0_81.25",
+   "elevation_m": 29,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 2278210862
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dematamal-viharaya",
+   "name_en": "Dematamal Viharaya",
+   "name_si": null,
+   "lat": 6.7541,
+   "lon": 81.28833,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 134,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 1727612257
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "dhowa-rajamaha-viharaya",
+   "name_en": "Dhowa Rajamaha Viharaya",
+   "name_si": null,
+   "lat": 6.85622,
+   "lon": 81.02197,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "7.0_81.25",
+   "elevation_m": 1018,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "way",
+    "id": 185848137
+   },
+   "image": null,
+   "note": null
+  },
+  {
+   "id": "japan-peace-pagoda",
+   "name_en": "Japan Peace Pagoda",
+   "name_si": null,
+   "lat": 7.08947,
+   "lon": 80.8612,
+   "region": null,
+   "kinds": [
+    "culture"
+   ],
+   "activities": [
+    "culture",
+    "sightseeing",
+    "museums",
+    "photography"
+   ],
+   "cell": "7.0_80.625",
+   "elevation_m": 1059,
+   "cost_level": 2,
+   "cost_level_evidence": "assumption",
+   "osm": {
+    "type": "node",
+    "id": 3839318412
+   },
+   "image": null,
+   "note": null
+  }
+ ]
+}

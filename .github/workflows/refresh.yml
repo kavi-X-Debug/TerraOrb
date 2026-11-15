@@ -1,0 +1,109 @@
+# Daily data refresh.
+#
+# Every day (and whenever started by hand from the Actions tab) this:
+#   1. installs the pipeline and runs its tests,
+#   2. runs rain.py → forecast.py → water.py → rules.py → crops.py → finish.py (checks every file, stamps the date),
+#   3. commits the changed files in data/ to main,
+#   4. publishes the site (pages.yml).
+#
+# Safety: GitHub stops at the first step that fails. Then nothing is committed, the
+# repo keeps yesterday's data, and the run shows as failed (red ✗) in the Actions tab.
+# Files changed on the runner before the failure are thrown away with the runner.
+#
+# Earthdata login comes from repo secrets EARTHDATA_USERNAME and EARTHDATA_PASSWORD
+# (Settings → Secrets and variables → Actions). They are never written to any file.
+
+name: Refresh data
+
+on:
+  schedule:
+    - cron: "30 0 * * *"      # every day at 00:30 UTC = 06:00 in Sri Lanka
+  workflow_dispatch:
+
+permissions:
+  contents: write             # to commit data/ back to the repo
+
+concurrency:
+  group: refresh-data         # never run two refreshes at once
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180      # the first water run reads many satellite scenes
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+          cache-dependency-path: pipeline/requirements.txt
+
+      - name: Install pipeline requirements
+        run: pip install -r pipeline/requirements.txt
+
+      # Keep downloaded POWER years and measured satellite scenes between runs,
+      # so each day only fetches what is new.
+      - name: Restore download cache
+        uses: actions/cache@v4
+        with:
+          path: pipeline/cache
+          key: pipeline-cache-${{ github.run_id }}
+          restore-keys: pipeline-cache-
+
+      - name: Run tests
+        run: python -m pytest pipeline/tests -q
+
+      - name: Rainfall (NASA POWER)
+        run: python pipeline/rain.py
+
+      - name: 16-day rain forecast (Open-Meteo weather models)
+        run: python pipeline/forecast.py
+
+      - name: Tank water (OPERA DSWx-HLS / HLS)
+        env:
+          EARTHDATA_USERNAME: ${{ secrets.EARTHDATA_USERNAME }}
+          EARTHDATA_PASSWORD: ${{ secrets.EARTHDATA_PASSWORD }}
+        run: python pipeline/water.py
+
+      - name: Rules (signal, scenarios, Learn Mode)
+        run: python pipeline/rules.py
+
+      - name: Crop advice (what to sow now)
+        run: python pipeline/crops.py
+
+      - name: Rain outlook for the coming months (Open-Meteo seasonal forecast)
+        run: python pipeline/seasonal.py
+
+      # Greenness from NASA MODIS. The values already downloaded are kept in data/ndvi_cache/,
+      # so a daily run only asks for the new 16-day dates.
+      - name: Greenness (NASA MODIS NDVI)
+        run: python pipeline/ndvi.py
+
+      - name: Weekly advice (built from the sections above)
+        run: python pipeline/advisory.py
+
+      - name: Check all data files and stamp the update date
+        run: python pipeline/finish.py
+
+      - name: Commit changed data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "No data changed today."
+          else
+            git commit -m "Data refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
+
+  # Pushes made by this workflow don't start pages.yml on their own, so publish here.
+  publish:
+    needs: refresh
+    uses: ./.github/workflows/pages.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

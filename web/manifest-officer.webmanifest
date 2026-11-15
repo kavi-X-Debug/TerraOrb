@@ -1,0 +1,19 @@
+{
+  "name": "Monsoon Compass: Officers",
+  "short_name": "Officers",
+  "description": "A dashboard of every tank for agricultural officers and instructors, with downloads and printable reports.",
+  "lang": "si",
+  "start_url": "officer.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#1F5E85",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

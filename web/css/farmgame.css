@@ -1,0 +1,114 @@
+/* Tank Farmer (#/learn/play): the new look. Shared pieces (cards, guide steps, music button, stage) come from minigame.css and cloudgame.css. */
+.tf-hero { width: 190px; height: auto; }
+.tf-bounce { animation: tf-bounce 1s ease-in-out infinite; }
+@keyframes tf-bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+.tf-arrow { font-size: 1.8rem; color: #E0623A; }
+.tf-card { background: linear-gradient(180deg, #D8EEF9 0%, #FFFDF7 70%); }
+.tf-card .cg-stage { background: #9ED8F5; }
+.tf-card .cg-stage canvas { cursor: pointer; }
+
+/* level 2 */
+.tf-speech { display: flex; align-items: center; gap: 12px; }
+.tf-farmer { height: auto; flex: none; animation: cg-float 3.2s ease-in-out infinite; }
+.tf-bubble { position: relative; margin: 0; padding: 12px 16px; background: #fff; border: 3px solid #BFE0EE; border-radius: 22px; font-weight: 700; }
+.tf-bubble::before { content: ""; position: absolute; left: -12px; top: 50%; margin-top: -9px; border: 9px solid transparent; border-right-color: #BFE0EE; border-left: 0; }
+.tf-supply { display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; padding: 10px 14px; border-radius: 24px; background: #EAF7FD; border: 3px solid #BFE0EE; }
+.tf-supply img { height: auto; }
+.tf-cuprow, .tf-need { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
+.tf-left { font-weight: 800; color: #1F5E85; }
+.tf-need-drop { width: 22px; height: 28px; fill: #E1EDF4; stroke: #9CC3D8; stroke-width: 2.4; transition: fill .3s, transform .3s; }
+.tf-need-drop.on { fill: #4DB0E8; stroke: #2477B0; transform: scale(1.1); }
+
+.tf-crops { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 16px; }
+.tf-crop { display: grid; justify-items: center; gap: 6px; padding: 14px 10px 14px; border: 4px solid #fff; border-radius: 28px; background: linear-gradient(180deg, #FFF8E0, #FFE9A8); box-shadow: 0 8px 0 rgba(0, 0, 0, .12), 0 14px 22px rgba(31, 94, 133, .2); font: inherit; color: inherit; cursor: pointer; transition: transform .15s, background .4s; }
+.tf-crop:hover:not(:disabled) { transform: translateY(-4px) rotate(-1deg); }
+.tf-crop:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0, 0, 0, .12); }
+.tf-crop:disabled { cursor: default; opacity: 1; }
+.tf-crop .mg-crop-name { font-weight: 800; color: #1F5E85; font-size: 1.1rem; }
+.tf-crop .mg-mood { font-weight: 700; font-size: .92rem; }
+.tf-crop-art img { width: 112px; height: auto; display: block; transform-origin: 50% 100%; }
+.tf-crop.thirsty .tf-crop-art img { filter: saturate(.5) brightness(.96); animation: tf-wilt 2.2s ease-in-out infinite alternate; }
+.tf-crop.sad .tf-crop-art img { filter: saturate(.3) brightness(.9); }
+.tf-crop.fed { background: linear-gradient(180deg, #EAFBDD, #BFEFA2); }
+.tf-crop.fed .tf-crop-art img { animation: tf-happy .9s ease-out; filter: saturate(1.15); }
+.tf-crop.gulp .tf-crop-art img { animation: tf-gulp .5s ease-out; }
+@keyframes tf-wilt { from { transform: rotate(-4deg) scaleY(.96); } to { transform: rotate(3deg) scaleY(.98); } }
+@keyframes tf-happy { 0% { transform: scale(.9); } 40% { transform: scale(1.18) rotate(4deg); } 70% { transform: scale(.97) rotate(-3deg); } 100% { transform: none; } }
+@keyframes tf-gulp { 0% { transform: scale(1); } 35% { transform: scale(1.12, .9); } 100% { transform: scale(1); } }
+.tf-fly { position: fixed; width: 40px; height: auto; z-index: 60; pointer-events: none; transition: transform .48s cubic-bezier(.25, .8, .4, 1); filter: drop-shadow(0 4px 4px rgba(31, 94, 133, .3)); }
+@media (prefers-reduced-motion: reduce) { .tf-bounce, .tf-farmer, .tf-crop.thirsty .tf-crop-art img { animation: none; } }
+
+/* ---- My Farm (plantation) ---- */
+.pl-card { background: linear-gradient(180deg, #D8EEF9 0%, #FFF8E4 60%, #F6E8C4 100%); }
+.pl-open { justify-self: center; }
+.pl-top { display: grid; grid-template-columns: 1fr auto auto; gap: 12px 18px; align-items: center; }
+.pl-rank { display: flex; align-items: center; gap: 10px; }
+.pl-rank > div { display: grid; }
+.pl-rank strong { font-size: 1.15rem; color: #1F5E85; }
+.pl-rank span#pl-points { font-size: .85rem; font-weight: 700; color: #6B5A2E; }
+.pl-rank-badge { display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #FFE27A, #F0A91E); color: #7A4A00; font-weight: 800; font-size: 1.3rem; border: 3px solid #fff; box-shadow: 0 3px 0 #C8860E; }
+.pl-store { display: flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: 22px; background: #fff; border: 3px solid #BFE0EE; }
+.pl-store img { height: auto; }
+.pl-store #pl-cups { font-weight: 800; color: #1F5E85; }
+.pl-bar { height: 10px; width: 120px; margin-top: 4px; border-radius: 99px; background: #D9ECF5; overflow: hidden; }
+.pl-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #5BB6E6, #1F7FC4); border-radius: 99px; transition: width .4s; }
+.pl-store.shake { animation: pl-shake .45s; }
+@keyframes pl-shake { 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+.pl-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+.pl-rain { min-height: 52px; padding: 0 22px; font-size: 1.1rem; animation: none; }
+
+.pl-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; }
+.pl-plot { display: grid; justify-items: center; gap: 6px; padding: 12px 10px 14px; border-radius: 26px; background: linear-gradient(180deg, #FFFDF2, #FBEFC6); border: 4px solid #fff; box-shadow: 0 8px 0 rgba(0, 0, 0, .1), 0 14px 22px rgba(120, 90, 30, .18); }
+.pl-plot.max { background: linear-gradient(180deg, #FFF9D6, #FFE48A); box-shadow: 0 8px 0 rgba(180, 120, 0, .25), 0 0 26px rgba(255, 200, 60, .55); }
+.pl-field { position: relative; width: 100%; height: 150px; display: grid; place-items: end center; }
+.pl-soil { position: absolute; bottom: 4px; left: 12%; right: 12%; height: 34px; border-radius: 50%; background: radial-gradient(ellipse at 50% 30%, #9A6B3C, #6B4423); box-shadow: inset 0 4px 6px rgba(255, 255, 255, .15); }
+.pl-seed { position: relative; width: 22px; height: 30px; margin-bottom: 18px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; background: radial-gradient(circle at 35% 30%, #E9C98A, #B4894A); opacity: .85; animation: pl-bob 2.4s ease-in-out infinite; }
+@keyframes pl-bob { 50% { transform: translateY(-4px); } }
+.pl-sprite { position: relative; width: 120px; height: auto; max-height: 150px; object-fit: contain; transform: scale(var(--s)); transform-origin: 50% 100%; margin-bottom: 8px; transition: transform .6s cubic-bezier(.3, 1.6, .5, 1); animation: tf-sway 3.4s ease-in-out infinite; }
+@keyframes tf-sway { 0%, 100% { rotate: -1.5deg; } 50% { rotate: 1.5deg; } }
+.pl-plot.lv1 .pl-sprite { filter: saturate(.8) brightness(1.04); }
+.pl-plot.lv5 .pl-sprite { filter: drop-shadow(0 0 10px rgba(255, 210, 80, .95)) saturate(1.2); }
+.pl-plot.grew .pl-sprite, .pl-plot.grew .pl-seed { animation: pl-grow .9s ease-out; }
+@keyframes pl-grow { 0% { filter: brightness(2) saturate(.2); } 50% { filter: brightness(1.3); } 100% { filter: none; } }
+.pl-crown { position: absolute; top: -2px; right: 14px; animation: pl-bob 1.8s ease-in-out infinite; }
+.pl-crown svg { width: 34px; height: 34px; filter: drop-shadow(0 2px 3px rgba(150, 90, 0, .4)); }
+.pl-sparkle { position: absolute; width: 8px; height: 8px; border-radius: 50%; background: #fff; box-shadow: 0 0 8px 3px rgba(255, 220, 90, .9); animation: pl-twinkle 1.6s ease-in-out infinite; }
+.pl-sparkle.s1 { top: 18px; left: 18%; } .pl-sparkle.s2 { top: 52px; right: 12%; animation-delay: .5s; } .pl-sparkle.s3 { top: 90px; left: 8%; animation-delay: 1s; }
+@keyframes pl-twinkle { 0%, 100% { opacity: 0; transform: scale(.4); } 50% { opacity: 1; transform: scale(1.2); } }
+.pl-name { font-size: 1.1rem; color: #1F5E85; }
+.pl-stars { display: flex; gap: 1px; }
+.pl-stage { font-weight: 700; font-size: .9rem; color: #6B5A2E; }
+.pl-maxtag { padding: 6px 16px; border-radius: 999px; background: #FFC83D; color: #7A4A00; font-weight: 800; box-shadow: 0 3px 0 #C8860E; }
+.pl-water { display: inline-flex; align-items: center; gap: 10px; min-height: 46px; padding: 0 12px 0 18px; border: 0; border-radius: 999px; background: linear-gradient(120deg, #34B3E8, #1F7FC4); color: #fff; font: inherit; font-weight: 800; cursor: pointer; box-shadow: 0 5px 0 #14588C; transition: transform .12s; }
+.pl-water b { display: inline-flex; align-items: center; gap: 3px; padding: 4px 10px; border-radius: 999px; background: #fff; color: #14588C; }
+.pl-water:hover { filter: brightness(1.08); }
+.pl-water:active { transform: translateY(4px); box-shadow: 0 1px 0 #14588C; }
+.pl-water.poor { background: linear-gradient(120deg, #AEBFCB, #8C9DAA); box-shadow: 0 5px 0 #6B7B87; }
+.pl-need { font-size: .78rem; color: #7A6A44; text-align: center; }
+.pl-reset { justify-self: center; opacity: .8; }
+@media (max-width: 560px) { .pl-top { grid-template-columns: 1fr; } .pl-actions { justify-content: flex-start; } }
+@media (prefers-reduced-motion: reduce) { .pl-seed, .pl-sprite, .pl-crown, .pl-sparkle { animation: none; } .pl-sparkle { opacity: .7; } }
+
+/* ---- the farm map ---- */
+.pl-map { border-radius: 26px; overflow: hidden; border: 5px solid #fff; outline: 3px solid #8CC7E4; box-shadow: 0 14px 30px rgba(31, 94, 133, .28); background: #BFE6F7; touch-action: manipulation; }
+.pl-map canvas { display: block; width: 100%; height: auto; aspect-ratio: 920 / 620; }
+.pl-keys { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; margin: 0; padding: 0; list-style: none; }
+.pl-panel { position: relative; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding: 14px 44px 14px 16px; border-radius: 26px; background: linear-gradient(180deg, #FFFDF2, #FBEFC6); border: 4px solid #fff; box-shadow: 0 8px 0 rgba(0, 0, 0, .1), 0 14px 22px rgba(120, 90, 30, .18); animation: cg-rise .35s ease-out; }
+.pl-panel[hidden] { display: none; }
+.pl-panel-img { width: 96px; height: 96px; object-fit: contain; flex: none; }
+.pl-panel-main { display: grid; gap: 4px; flex: 1 1 200px; }
+.pl-panel-main strong { font-size: 1.25rem; color: #1F5E85; }
+.pl-panel-main small { color: #7A6A44; }
+.pl-lvbar { height: 10px; border-radius: 99px; background: #E6DDB8; overflow: hidden; }
+.pl-lvbar i { display: block; height: 100%; background: linear-gradient(90deg, #6FCF97, #FFC83D); border-radius: 99px; transition: width .5s; }
+.pl-x { position: absolute; top: 8px; right: 10px; width: 32px; height: 32px; border: 0; border-radius: 50%; background: #fff; color: #7A6A44; font-size: 1.3rem; line-height: 1; cursor: pointer; box-shadow: 0 2px 4px rgba(0, 0, 0, .15); }
+
+/* ---- special drops in the guide ---- */
+.tf-pw { position: relative; display: inline-block; }
+.tf-pw img { height: auto; display: block; }
+.tf-pw svg { position: absolute; right: -10px; top: -12px; }
+.tf-pw.gold img { filter: sepia(1) saturate(5) hue-rotate(-8deg) drop-shadow(0 0 5px #FFC83D); }
+.tf-pw.magnet img { filter: sepia(1) saturate(6) hue-rotate(-55deg) drop-shadow(0 0 5px #E0623A); }
+.tf-pw.clock img { filter: sepia(1) saturate(4) hue-rotate(75deg) drop-shadow(0 0 5px #3FB765); }
+.tf-pw.storm img { filter: sepia(1) saturate(4) hue-rotate(252deg) drop-shadow(0 0 5px #8A5BD8); }
+.cg-step-art:has(.tf-pw) { gap: 18px; padding-right: 8px; }

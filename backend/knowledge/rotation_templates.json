@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "evidence": "assumption",
+    "reviewed": false,
+    "sources": [
+      "Rotation ideas follow the product owner's 'Steps' document."
+    ],
+    "notes": "Roles are filled by the engine with the best-scoring crop that passes the filter. Draft. Needs Agricultural Instructor review before farmers rely on it."
+  },
+  "role_rules": {
+    "cereal": {
+      "types": [
+        "cereal"
+      ]
+    },
+    "legume": {
+      "types": [
+        "legume"
+      ],
+      "n_fixing_min": 1
+    },
+    "green_manure": {
+      "types": [
+        "cover"
+      ],
+      "n_fixing_min": 1
+    },
+    "deep_rooted_or_cover": {
+      "types": [
+        "root",
+        "cover",
+        "legume"
+      ],
+      "functions_min": {
+        "erosion": 2
+      }
+    },
+    "drought_tolerant_millet_or_pulse": {
+      "types": [
+        "cereal",
+        "legume"
+      ],
+      "functions_min": {
+        "drought": 2
+      }
+    }
+  },
+  "templates": [
+    {
+      "id": "soil_building",
+      "name_en": "Soil-building rotation",
+      "name_si": "පස පෝෂණය කරන මාරුවීම (කෙටුම්පත)",
+      "goal": "organic_matter",
+      "description_en": "A bean or pulse first, then a cereal that uses the nitrogen, then a green manure.",
+      "seasons": [
+        {
+          "label": "Maha",
+          "role": "legume"
+        },
+        {
+          "label": "Yala",
+          "role": "cereal"
+        },
+        {
+          "label": "Maha",
+          "role": "green_manure"
+        }
+      ]
+    },
+    {
+      "id": "water_saving",
+      "name_en": "Water-saving rotation",
+      "name_si": "ජලය ඉතිරි කරන මාරුවීම (කෙටුම්පත)",
+      "goal": "drought",
+      "description_en": "Dry-tolerant crops that need less water, with a deep-rooted or soil-covering crop in between.",
+      "seasons": [
+        {
+          "label": "Maha",
+          "role": "drought_tolerant_millet_or_pulse"
+        },
+        {
+          "label": "Yala",
+          "role": "deep_rooted_or_cover"
+        },
+        {
+          "label": "Maha",
+          "role": "drought_tolerant_millet_or_pulse"
+        }
+      ]
+    }
+  ]
+}

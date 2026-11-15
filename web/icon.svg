@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Monsoon Compass icon: a village tank (wewa) seen in cross-section, half full -->
+  <rect width="512" height="512" fill="#2B5430"/>
+  <polygon points="72,170 440,170 366,372 146,372" fill="#E6EDEB"/>
+  <clipPath id="b"><polygon points="72,170 440,170 366,372 146,372"/></clipPath>
+  <rect x="0" y="262" width="512" height="120" fill="#16302E" clip-path="url(#b)"/>
+  <polyline points="72,170 146,372 366,372 440,170" fill="none" stroke="#8C6A43" stroke-width="22" stroke-linejoin="round"/>
+  <line x1="56" y1="220" x2="456" y2="220" stroke="#FFFFFF" stroke-width="10" stroke-dasharray="26 18"/>
+</svg>

@@ -1,0 +1,18 @@
+/* Loading screen (simple): just a smiling rain cloud with three raindrops (no words). Shown straight away (plain HTML + CSS);
+   main.js adds "done" when the data is ready. */
+.loader { position: fixed; inset: 0; z-index: 9999; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 24px; text-align: center;
+  background: radial-gradient(circle at 50% 30%, #FFF6D6 0%, #CFEAF7 50%, #9ED2EE 100%); color: #1F5E85;
+  transition: opacity .55s ease, visibility .55s; animation: loader-failsafe .01s 25s forwards; }
+.loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+@keyframes loader-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+
+.loader-scene { position: relative; width: 220px; height: 210px; margin-bottom: 6px; }
+.loader-cloud { position: absolute; left: 50%; top: 0; width: 170px; height: auto; margin-left: -85px; animation: loader-float 3s ease-in-out infinite; filter: drop-shadow(0 10px 8px rgba(31, 94, 133, .22)); }
+@keyframes loader-float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+
+.loader-drop { position: absolute; top: 106px; height: auto; opacity: 0; animation: loader-fall 1.5s ease-in infinite; filter: drop-shadow(0 2px 3px rgba(31, 94, 133, .25)); }
+.loader-drop.d1 { left: calc(50% - 50px); } .loader-drop.d2 { left: calc(50% - 13px); animation-delay: .5s; } .loader-drop.d3 { left: calc(50% + 24px); animation-delay: 1s; }
+@keyframes loader-fall { 0% { transform: translateY(0) scale(.5); opacity: 0; } 20% { opacity: 1; transform: translateY(10px) scale(1); } 85% { opacity: 1; } 100% { transform: translateY(95px) scale(.9); opacity: 0; } }
+
+
+@media (prefers-reduced-motion: reduce) { .loader-cloud, .loader-drop { animation: none; } .loader-drop { opacity: .85; } }

@@ -1,0 +1,19 @@
+{
+  "name": "Monsoon Compass: Method and data",
+  "short_name": "Method",
+  "description": "How Monsoon Compass works: NASA data sources, accuracy tests, crop numbers with their sources, and data downloads.",
+  "lang": "si",
+  "start_url": "research.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#5B3F8C",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+/* Monsoon Compass — "Earthy & warm" design
+   Loaded last. It only changes the LOOK (colours, shapes, the hero picture); layout is in site.css.
+   Palette from the Dry Zone: paddy green, harvest gold, bund clay, cream paper, deep olive for text.
+   The signal colours (green / amber / red) are NOT changed: they keep their meaning and contrast. */
+
+:root {
+  --bg: #FBF6EA;            /* cream paper */
+  --surface: #FFFDF7;
+  --ink: #2B2A1E;           /* deep olive-brown text */
+  --muted: #6A6550;
+  --line: #E8DEC4;
+  --water: #2E6B4F;         /* paddy green: brand colour, buttons, links */
+  --water-soft: #DDEBD3;
+  --earth: #8C5A2B;         /* bund clay */
+  --monsoon: #2F6A8F;       /* monsoon sky */
+  --gold: #E0A526;          /* harvest gold: accents */
+  --gold-soft: #FBEBC4;
+  --radius: 18px;
+  --shadow-sm: 0 2px 10px rgba(92, 70, 30, .10);
+  --shadow: 0 8px 26px rgba(92, 70, 30, .16);
+}
+body {
+  background-color: var(--bg);
+  background-image: radial-gradient(rgba(140, 90, 43, .07) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+h1, h2 { letter-spacing: -.01em; }
+
+/* ---------- Header ---------- */
+.topbar, .site-header { background: rgba(43, 84, 48, .9); box-shadow: 0 1px 0 rgba(255, 255, 255, .2), 0 6px 20px rgba(43, 84, 48, .22); }
+.brand img { background: var(--gold-soft); }
+.site-nav a:hover { background: rgba(255, 244, 205, .2); }
+.site-header .mode-bar, .lang { border-color: rgba(255, 244, 205, .75); background: rgba(255, 244, 205, .12); }
+.site-header .mode-bar button[aria-pressed="true"], .lang button[aria-pressed="true"] { background: var(--gold-soft); color: #3B4A1F; }
+
+/* ---------- Hero: a morning sky over a tank and paddy fields ---------- */
+.hero { color: var(--ink); padding: 54px 0 150px; background: linear-gradient(180deg, #F6D98C 0%, #FBE9B9 38%, #FBF6EA 100%); }
+.hero::before, .hero::after { display: none; }
+.hero-kicker { color: #8C5A2B; opacity: 1; }
+.hero h1 { color: #2B3A24; }
+.hero .hint { color: #5A5640; }
+.hero .finder-status { color: #5A5640; }
+.hero .finder-status.error { color: var(--red); }
+.hero .search { box-shadow: var(--shadow); border: 2px solid #fff; }
+.hero .near-me { background: var(--water); color: #fff; box-shadow: var(--shadow); }
+.hero .near-me svg { stroke: #fff; }
+.hero .near-me:hover { background: #245A41; color: #fff; }
+.hero-art { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: 150px; z-index: 0; pointer-events: none; }
+.hero-sun { position: absolute; right: 8%; top: 28px; width: 110px; height: 110px; border-radius: 50%; z-index: 0;
+  background: radial-gradient(circle, #FFE9A0 0%, #F4B93B 55%, rgba(244, 185, 59, 0) 72%); }
+@media (max-width: 600px) { .hero { padding: 34px 0 110px; } .hero-art { height: 110px; } .hero-sun { width: 70px; height: 70px; right: 6%; top: 16px; } }
+
+/* ---------- Cards, buttons ---------- */
+.block, .tank-head, .simple-card, .fact, .scenario, .other-options, .elnino, .season-pick, .plan-choice { border: 1px solid var(--line); }
+.tank-row { border-radius: 16px; background: var(--surface); border-color: var(--line); border-left-width: 8px; }
+.tank-row.green { border-left-color: var(--green); }
+.tank-row.amber { border-left-color: var(--amber); }
+.tank-row.red { border-left-color: var(--red); }
+.tank-row.none { border-left-color: #B7AD8F; }
+.action { border-radius: 999px; }
+.action:first-child { background: linear-gradient(120deg, #2B5430, #3F7D3A); }
+.action + .action { background: var(--surface); color: var(--water); border-color: var(--water); }
+.action:first-child:hover { background: linear-gradient(120deg, #3F7D3A, #55933F); }
+.action + .action:hover { background: var(--water); color: #fff; }
+.near-me:hover { background: #245A41; }
+.mode-bar button { border-color: var(--water); }
+.learn-entry { background: linear-gradient(120deg, #3B4A1F, #5B7A34); border-radius: 24px; }
+.learn-entry:hover { background: linear-gradient(120deg, #4A5C26, #6F9040); }
+.learn-entry-go { color: #3B4A1F; background: var(--gold-soft); }
+.crop-teaser { border-color: var(--gold); background: var(--gold-soft); }
+.crop-teaser .chevron, .crop-teaser strong::before { color: #8C5A2B; }
+.crop-teaser:hover { background: #F8E1A6; }
+@media (hover: hover) {
+  .fact:hover, .simple-card:hover, .block:hover { background-color: #FFFAEB; }
+  .fact:hover, .scenario:hover, .wx-day:hover { border-color: var(--gold); }
+  .scenario:hover, .wx-day:hover { background: var(--gold-soft); }
+  .mode-bar button:hover:not([aria-pressed="true"]) { background: var(--gold-soft); }
+}
+.badge.source { color: var(--muted); }
+.block > h2::before, .forecast-block > h2::before { color: var(--earth); }
+.cal-cell.rating-good { background: #E3F1E6; }
+
+/* ---------- Water gauge: a tank with clay bunds and blue-green water ---------- */
+.gauge .basin { fill: #F2E7CB; }
+.gauge .water { fill: #3E8FA0; }
+.gauge .bund { stroke: #8C5A2B; }
+
+/* ---------- Footer ---------- */
+
+/* ---------- Pictures made in Canva (img/*.jpg) ---------- */
+.hero { min-height: 440px; padding-bottom: 120px;
+  background: linear-gradient(180deg, rgba(251, 233, 185, .35) 0%, rgba(251, 246, 234, 0) 55%), url("../img/hero.jpg") center bottom / cover no-repeat, #F6D98C; }
+.hero-art, .hero-sun { display: none; }
+@media (max-width: 600px) { .hero { min-height: 360px; padding-bottom: 90px; } }
+.hero h1 { text-shadow: 0 1px 0 rgba(255, 255, 255, .35); }
+.page-art { display: block; width: 100%; height: clamp(110px, 18vw, 190px); object-fit: cover; border-radius: 20px; box-shadow: var(--shadow-sm); border: 1px solid var(--line); margin-bottom: 4px; }
+
+/* Keep the headline readable: a pale sky wash behind the text, picture shows from the horizon down */
+.hero { min-height: 500px; padding-bottom: 150px;
+  background: linear-gradient(180deg, rgba(251, 237, 190, .96) 0%, rgba(251, 237, 190, .88) 40%, rgba(251, 237, 190, 0) 72%), url("../img/hero.jpg") center bottom / cover no-repeat, #F6D98C; }
+@media (max-width: 600px) { .hero { min-height: 430px; padding-bottom: 120px; } }
+.hero { background: linear-gradient(180deg, rgba(251, 237, 190, .92) 0%, rgba(251, 237, 190, .66) 32%, rgba(251, 237, 190, 0) 60%), url("../img/hero.jpg") center bottom / cover no-repeat, #F6D98C; }
+.page-art { object-fit: contain; background: #FDF3DD; }

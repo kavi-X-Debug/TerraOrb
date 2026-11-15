@@ -1,0 +1,19 @@
+{
+  "name": "Monsoon Compass: Farmers",
+  "short_name": "Farmers",
+  "description": "Tank water, rain and crop advice for Sri Lanka's Dry Zone farmers, from NASA data.",
+  "lang": "si",
+  "start_url": "farmer.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#2B5430",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

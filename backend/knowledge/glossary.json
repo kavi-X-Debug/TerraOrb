@@ -1,0 +1,178 @@
+[
+  {
+    "term": "water_balance",
+    "title_en": "Water balance",
+    "title_si": "ජල සමතුලිතතාව",
+    "en": "Rain minus the water the air can take from a crop (evapotranspiration). Above zero means water to spare, below zero means a shortage.",
+    "si": "වැසි ජලය සහ බිමෙන්/ශාකයෙන් වාෂ්ප වී යන ජලය අතර වෙනස. ශුන්‍යයට වඩා වැඩි නම් ජලය ඇත, අඩු නම් හිඟයකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "ndvi",
+    "title_en": "NDVI (greenness)",
+    "title_si": "NDVI (හරිත බව)",
+    "en": "A satellite measure of how green the plants are. Low values mean bare or dry ground.",
+    "si": "ශාක කොතරම් කොළ පැහැදැයි පෙන්වන චන්ද්‍රිකා මිනුමකි. අඩු අගයන් නිරාවරණ හෝ වියළි බිම පෙන්වයි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "erosion_risk",
+    "title_en": "Erosion risk",
+    "title_si": "පස සේදීමේ අවදානම",
+    "en": "A relative ranking (low, medium, high) of how easily soil is washed away on this land. Not a measured soil loss.",
+    "si": "මේ ඉඩමේ පස කොතරම් පහසුවෙන් ගසාගෙන යයිද යන සාපේක්ෂ ශ්‍රේණිගත කිරීමකි (අඩු, මධ්‍යම, ඉහළ). මනින ලද පස හානියක් නොවේ.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "onset",
+    "title_en": "Rain onset",
+    "title_si": "වැසි ආරම්භය",
+    "en": "The day the rainy season properly starts, worked out from rain records with a rule. A draft rule.",
+    "si": "වැසි කාලය සැබවින්ම ආරම්භ වන දිනය; වැසි වාර්තා වලින් නීතියක් මගින් ගණනය කෙරේ. කෙටුම්පත් නීතියකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "dry_spell",
+    "title_en": "Dry spell",
+    "title_si": "වියළි කාලය",
+    "en": "A run of days with almost no rain (under 1 mm a day).",
+    "si": "පාහේ වැසි නැති දින පෙළක් (දිනකට මි.මී. 1 ට අඩු).",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "soil_moisture_anomaly",
+    "title_en": "Soil moisture anomaly",
+    "title_si": "පසේ තෙතමන අසාමාන්‍යතාව",
+    "en": "How much wetter or drier the soil is than usual for this time of year.",
+    "si": "මෙම කාලයට සාමාන්‍යයට වඩා පස කොතරම් තෙත් හෝ වියළි ද යන්න.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "area_level",
+    "title_en": "Area-level data",
+    "title_si": "ප්‍රදේශ මට්ටමේ දත්ත",
+    "en": "A value for a wide area (for example about 50 km), not measured on your own field.",
+    "si": "ඔබේ කෙතෙහි මනින ලද අගයක් නොව, පුළුල් ප්‍රදේශයක (උදා: කි.මී. 50ක් පමණ) අගයකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "confidence",
+    "title_en": "Confidence",
+    "title_si": "විශ්වාසය",
+    "en": "How much we trust a suggestion: high, medium or low, from data quality, evidence and local checking.",
+    "si": "යෝජනාවක් කෙතරම් විශ්වාස කළ හැකිද: දත්ත ගුණාත්මකභාවය, සාක්ෂි සහ ප්‍රදේශීය පරීක්ෂාව අනුව ඉහළ, මධ්‍යම හෝ අඩු.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "v1",
+    "title_en": "Evidence V1",
+    "title_si": "සාක්ෂි V1",
+    "en": "Published research or official guidance.",
+    "si": "ප්‍රකාශිත පර්යේෂණ හෝ නිල මගපෙන්වීම.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "v2",
+    "title_en": "Evidence V2",
+    "title_si": "සාක්ෂි V2",
+    "en": "Extension handbook or expert statement.",
+    "si": "ව්‍යාප්ති අත්පොතක් හෝ විශේෂඥ ප්‍රකාශයක්.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "v3",
+    "title_en": "Evidence V3",
+    "title_si": "සාක්ෂි V3",
+    "en": "Traditional farmer knowledge, not yet tested.",
+    "si": "සාම්ප්‍රදායික ගොවි දැනුම; තවමත් පරීක්ෂා කර නැත.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "v4",
+    "title_en": "Evidence V4",
+    "title_si": "සාක්ෂි V4",
+    "en": "Checked against data from this platform. None yet.",
+    "si": "මෙම වේදිකාවේ දත්ත සමඟ තහවුරු කර ඇත. තවම නැත.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "assumption",
+    "title_en": "Assumption",
+    "title_si": "උපකල්පනය",
+    "en": "Our own draft value with no source yet. It needs an expert to review it.",
+    "si": "තවම මූලාශ්‍රයක් නැති අපගේම කෙටුම්පත් අගයකි. විශේෂඥයෙකු විසින් සමාලෝචනය කළ යුතුය.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "modelled",
+    "title_en": "Modelled value",
+    "title_si": "ආකෘතිගත අගය",
+    "en": "Computed by a model from satellite or map data, not measured on the ground.",
+    "si": "බිම මැන ගත් එකක් නොව, චන්ද්‍රිකා හෝ සිතියම් දත්ත වලින් ආකෘතියක් මගින් ගණනය කළ අගයකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "measured",
+    "title_en": "Measured by the farmer",
+    "title_si": "ගොවියා මැනූ අගය",
+    "en": "A value the farmer measured or observed in the field. Used before modelled values.",
+    "si": "ගොවියා කෙතේදී මැනූ හෝ නිරීක්ෂණය කළ අගයකි. ආකෘතිගත අගයට පෙර භාවිත වේ.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "zone",
+    "title_en": "Zone",
+    "title_si": "කලාපය",
+    "en": "A part of the farm with similar slope and wetness.",
+    "si": "බෑවුම සහ තෙතමනය සමාන ගොවිපළේ කොටසකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "rotation",
+    "title_en": "Rotation",
+    "title_si": "බෝග මාරුව",
+    "en": "A plan for which crop follows which, season by season.",
+    "si": "සෑම කන්නයකම පසුව වගා කරන බෝගය පිළිබඳ සැලැස්මකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "n_fixing",
+    "title_en": "Nitrogen fixing",
+    "title_si": "නයිට්‍රජන් තැන්පත් කිරීම",
+    "en": "Plants such as beans and gliricidia that take nitrogen from the air and leave it in the soil.",
+    "si": "බෝංචි සහ ග්ලිරිසීඩියා වැනි ශාක වාතයෙන් නයිට්‍රජන් ගෙන පසට එක් කරයි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "green_manure",
+    "title_en": "Green manure",
+    "title_si": "කොළ පොහොර",
+    "en": "A crop grown to be cut or ploughed into the soil to feed it.",
+    "si": "පසට පෝෂණය සඳහා කපා හෝ සී සා මිශ්‍ර කිරීමට වගා කරන බෝගයකි.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "contour_hedge",
+    "title_en": "Contour hedge",
+    "title_si": "සමෝච්ඡ වැටිය",
+    "en": "A row of dense plants (for example vetiver) planted across the slope to slow runoff.",
+    "si": "දිය ගලා යාම මන්දගාමී කිරීමට බෑවුමට හරහා සිටවන ඝන ශාක පේළියකි (උදා: වේටිවර්).",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "scenario",
+    "title_en": "What-if test",
+    "title_si": "කුමක් වුවහොත් පරීක්ෂාව",
+    "en": "A stress test using how variable rain was in the past. It is not a forecast.",
+    "si": "අතීතයේ වැසි විචලනය භාවිතයෙන් කරන පීඩන පරීක්ෂණයකි. එය අනාවැකියක් නොවේ.",
+    "si_status": "draft, needs native-speaker review"
+  },
+  {
+    "term": "bare_period",
+    "title_en": "Bare period",
+    "title_si": "හිස් කාලය",
+    "en": "Months when the land usually has little green cover.",
+    "si": "සාමාන්‍යයෙන් ඉඩමේ හරිත ආවරණය අඩු මාස.",
+    "si_status": "draft, needs native-speaker review"
+  }
+]

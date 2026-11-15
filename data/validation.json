@@ -1,0 +1,6386 @@
+{
+  "generated": "2026-10-26T02:01:36+05:30",
+  "demo": true,
+  "settings": {
+    "train_first_year": 2017,
+    "train_last_year": 2022,
+    "test_first_year": 2023,
+    "test_last_year": 2025,
+    "rain_lags_months": [
+      1,
+      2,
+      3
+    ],
+    "min_train_months": 12,
+    "min_test_months": 6,
+    "crops_train_first_year": 1981,
+    "crops_train_last_year": 2010,
+    "crops_test_first_year": 2011,
+    "crops_test_last_year": 2025,
+    "crops_sow_days": [
+      1,
+      15
+    ]
+  },
+  "tanks": [
+    {
+      "id": "demo-tank-1",
+      "demo": true,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": "Demo data — not real"
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "ok",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025",
+        "n_train": 68,
+        "n_test": 34,
+        "capacity_ha": 34.9,
+        "coefficients": {
+          "intercept": 26.258,
+          "rain_lag1_per_mm": 0.06,
+          "rain_lag2_per_mm": 0.0685,
+          "rain_lag3_per_mm": 0.0999
+        },
+        "mae_model_pp": 18.0,
+        "mae_baseline_pp": 7.3,
+        "beats_baseline": false,
+        "verdict": "The model does NOT beat the climatology baseline, so it should not be used."
+      }
+    },
+    {
+      "id": "demo-tank-2",
+      "demo": true,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": "Demo data — not real"
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "ok",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025",
+        "n_train": 69,
+        "n_test": 33,
+        "capacity_ha": 22.7,
+        "coefficients": {
+          "intercept": 23.922,
+          "rain_lag1_per_mm": 0.0617,
+          "rain_lag2_per_mm": 0.0837,
+          "rain_lag3_per_mm": 0.0958
+        },
+        "mae_model_pp": 17.7,
+        "mae_baseline_pp": 5.9,
+        "beats_baseline": false,
+        "verdict": "The model does NOT beat the climatology baseline, so it should not be used."
+      }
+    },
+    {
+      "id": "demo-tank-3",
+      "demo": true,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": "Demo data — not real"
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "ok",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025",
+        "n_train": 69,
+        "n_test": 36,
+        "capacity_ha": 54.3,
+        "coefficients": {
+          "intercept": 24.931,
+          "rain_lag1_per_mm": 0.0599,
+          "rain_lag2_per_mm": 0.0821,
+          "rain_lag3_per_mm": 0.0905
+        },
+        "mae_model_pp": 16.6,
+        "mae_baseline_pp": 6.2,
+        "beats_baseline": false,
+        "verdict": "The model does NOT beat the climatology baseline, so it should not be used."
+      }
+    },
+    {
+      "id": "osm-way-1158566947",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1570406865",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30378745",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": "NASA OPERA DSWx-HLS"
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "ok",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025",
+        "n_train": 22,
+        "n_test": 8,
+        "capacity_ha": 1016.0,
+        "coefficients": {
+          "intercept": 41.303,
+          "rain_lag1_per_mm": 0.1301,
+          "rain_lag2_per_mm": 0.0183,
+          "rain_lag3_per_mm": -0.0066
+        },
+        "mae_model_pp": 24.0,
+        "mae_baseline_pp": 28.4,
+        "beats_baseline": true,
+        "verdict": "The model beats the climatology baseline."
+      }
+    },
+    {
+      "id": "osm-way-30621035",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30378525",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 365.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 254.9,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 361.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 470.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 359.3,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 532.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-139190687",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-48786956",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30738007",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-286527441",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-139190058",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-538586249",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-361123575",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-195819717",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-411682007",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-496733471",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30738031",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-386933726",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30738010",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1023700789",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30000818",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 278.3,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 173.6,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 277.2,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 309.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 270.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 507.5,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-196176330",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-378167956",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-442062765",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-569649315",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30737989",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-533799988",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-375111351",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-364606380",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1416186088",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-437539039",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-638989968",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-411695330",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-30378580",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-533799986",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-661807820",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-402100153",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-542542133",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-177782668",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-353385694",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-661809444",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-195256689",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038123",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-489004740",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-368465202",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-287006419",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-375111357",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-287013618",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1220377739",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-562463765",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-279111473",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-673283731",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-538586247",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-102371598",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-562473378",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038126",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1476715861",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-545019344",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-585033512",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-287012160",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-533799987",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-899397585",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-673292193",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-583756529",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1349105215",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413079510",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717019484",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-407637980",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038127",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413287177",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-647587516",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-673282519",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-562463763",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-568616288",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-279140413",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038140",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038134",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-649642010",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1349105214",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-102371572",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-279478893",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-442083134",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-353385688",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-717038130",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-661816330",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413079507",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413336376",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1315330682",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-287219265",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-406923759",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 365.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 254.9,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 361.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 470.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 359.3,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 532.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1416809417",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-539163157",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-158821478",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-499863593",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-733519293",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 365.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 254.9,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 361.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 470.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 359.3,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 532.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-647994091",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-493694987",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 365.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 254.9,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 361.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 470.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 359.3,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 532.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-375115919",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 290.6,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 221.0,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 288.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 353.5,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 282.1,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 538.2,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413079503",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 365.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 254.9,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 361.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 470.9,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 359.3,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 532.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-632461451",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 361.0,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 288.2,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 357.8,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 454.6,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 354.4,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 554.0,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    },
+    {
+      "id": "osm-way-1413340105",
+      "demo": false,
+      "sources": {
+        "rain": "NASA POWER (PRECTOTCORR; MERRA2, POWER)",
+        "water": null
+      },
+      "elnino": {
+        "rows": [
+          {
+            "season": "Yala 1983",
+            "normal_mm_without_this_year": 271.1,
+            "others_below": 0,
+            "others_total": 2,
+            "call": "not_below",
+            "actual": "below",
+            "total_mm": 176.4,
+            "hit": false
+          },
+          {
+            "season": "Yala 1998",
+            "normal_mm_without_this_year": 268.9,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 336.7,
+            "hit": null
+          },
+          {
+            "season": "Yala 2016",
+            "normal_mm_without_this_year": 265.5,
+            "others_below": 1,
+            "others_total": 2,
+            "call": null,
+            "actual": "not_below",
+            "total_mm": 434.3,
+            "hit": null
+          }
+        ],
+        "hits": 0,
+        "calls": 1,
+        "no_calls": 2
+      },
+      "tank_model": {
+        "status": "not_enough_data",
+        "reason": "no water data in the training years",
+        "train_period": "2017–2022",
+        "test_period": "2023–2025"
+      }
+    }
+  ],
+  "summary": {
+    "elnino": {
+      "hits": 0,
+      "calls": 103,
+      "no_calls": 206
+    },
+    "tank_model": {
+      "tanks_tested": 4,
+      "tanks_beating_baseline": 1,
+      "mean_mae_model_pp": 19.1,
+      "mean_mae_baseline_pp": 11.9,
+      "verdict": "The model beats the baseline for only 1 of 4 tested tanks. It is not reliable enough to use."
+    }
+  },
+  "crops": {
+    "cells": [
+      {
+        "cell": [
+          8.5,
+          80.625
+        ],
+        "per_crop": {
+          "mung_bean": {
+            "tp": 70,
+            "fp": 5,
+            "fn": 68,
+            "tn": 217,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.8,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "cowpea": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 62,
+            "tn": 208,
+            "n": 360,
+            "base_rate": 0.41,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.59,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.23,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "black_gram": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 61,
+            "tn": 209,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.23,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "maize": {
+            "tp": 69,
+            "fp": 6,
+            "fn": 65,
+            "tn": 220,
+            "n": 360,
+            "base_rate": 0.37,
+            "accuracy": 0.8,
+            "accuracy_guessing": 0.63,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.23,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "groundnut": {
+            "tp": 67,
+            "fp": 8,
+            "fn": 64,
+            "tn": 221,
+            "n": 360,
+            "base_rate": 0.36,
+            "accuracy": 0.8,
+            "accuracy_guessing": 0.64,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.22,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sweet_potato": {
+            "tp": 65,
+            "fp": 10,
+            "fn": 51,
+            "tn": 234,
+            "n": 360,
+            "base_rate": 0.32,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.68,
+            "good_was_right": 0.87,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "big_onion": {
+            "tp": 54,
+            "fp": 6,
+            "fn": 64,
+            "tn": 236,
+            "n": 360,
+            "base_rate": 0.33,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.67,
+            "good_was_right": 0.9,
+            "not_good_but_enough": 0.21,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "brinjal": {
+            "tp": 64,
+            "fp": 11,
+            "fn": 68,
+            "tn": 217,
+            "n": 360,
+            "base_rate": 0.37,
+            "accuracy": 0.78,
+            "accuracy_guessing": 0.63,
+            "good_was_right": 0.85,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "chilli": {
+            "tp": 63,
+            "fp": 12,
+            "fn": 64,
+            "tn": 221,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.84,
+            "not_good_but_enough": 0.22,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "pumpkin": {
+            "tp": 71,
+            "fp": 4,
+            "fn": 70,
+            "tn": 215,
+            "n": 360,
+            "base_rate": 0.39,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.61,
+            "good_was_right": 0.95,
+            "not_good_but_enough": 0.25,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "soybean": {
+            "tp": 68,
+            "fp": 7,
+            "fn": 54,
+            "tn": 231,
+            "n": 360,
+            "base_rate": 0.34,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.66,
+            "good_was_right": 0.91,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "finger_millet": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 68,
+            "tn": 202,
+            "n": 360,
+            "base_rate": 0.42,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.58,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.25,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sesame": {
+            "tp": 72,
+            "fp": 3,
+            "fn": 73,
+            "tn": 212,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.26,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          }
+        },
+        "tp": 915,
+        "fp": 90,
+        "fn": 832,
+        "tn": 2843,
+        "n": 4680,
+        "base_rate": 0.37,
+        "accuracy": 0.8,
+        "accuracy_guessing": 0.63,
+        "good_was_right": 0.91,
+        "not_good_but_enough": 0.23,
+        "beats_guessing": true,
+        "verdict": "The advice beats simply guessing.",
+        "train_period": "1981–2010",
+        "test_period": "2011–2025"
+      },
+      {
+        "cell": [
+          8.0,
+          80.625
+        ],
+        "per_crop": {
+          "mung_bean": {
+            "tp": 72,
+            "fp": 3,
+            "fn": 94,
+            "tn": 191,
+            "n": 360,
+            "base_rate": 0.46,
+            "accuracy": 0.73,
+            "accuracy_guessing": 0.54,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.33,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "cowpea": {
+            "tp": 86,
+            "fp": 4,
+            "fn": 92,
+            "tn": 178,
+            "n": 360,
+            "base_rate": 0.49,
+            "accuracy": 0.73,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.34,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "black_gram": {
+            "tp": 86,
+            "fp": 4,
+            "fn": 91,
+            "tn": 179,
+            "n": 360,
+            "base_rate": 0.49,
+            "accuracy": 0.74,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.34,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "maize": {
+            "tp": 83,
+            "fp": 7,
+            "fn": 80,
+            "tn": 190,
+            "n": 360,
+            "base_rate": 0.45,
+            "accuracy": 0.76,
+            "accuracy_guessing": 0.55,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.3,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "groundnut": {
+            "tp": 82,
+            "fp": 8,
+            "fn": 76,
+            "tn": 194,
+            "n": 360,
+            "base_rate": 0.44,
+            "accuracy": 0.77,
+            "accuracy_guessing": 0.56,
+            "good_was_right": 0.91,
+            "not_good_but_enough": 0.28,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sweet_potato": {
+            "tp": 54,
+            "fp": 6,
+            "fn": 84,
+            "tn": 216,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.75,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.9,
+            "not_good_but_enough": 0.28,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "big_onion": {
+            "tp": 67,
+            "fp": 8,
+            "fn": 68,
+            "tn": 217,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "brinjal": {
+            "tp": 55,
+            "fp": 5,
+            "fn": 96,
+            "tn": 204,
+            "n": 360,
+            "base_rate": 0.42,
+            "accuracy": 0.72,
+            "accuracy_guessing": 0.58,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.32,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "chilli": {
+            "tp": 54,
+            "fp": 6,
+            "fn": 99,
+            "tn": 201,
+            "n": 360,
+            "base_rate": 0.42,
+            "accuracy": 0.71,
+            "accuracy_guessing": 0.57,
+            "good_was_right": 0.9,
+            "not_good_but_enough": 0.33,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "pumpkin": {
+            "tp": 70,
+            "fp": 5,
+            "fn": 99,
+            "tn": 186,
+            "n": 360,
+            "base_rate": 0.47,
+            "accuracy": 0.71,
+            "accuracy_guessing": 0.53,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.35,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "soybean": {
+            "tp": 69,
+            "fp": 6,
+            "fn": 79,
+            "tn": 206,
+            "n": 360,
+            "base_rate": 0.41,
+            "accuracy": 0.76,
+            "accuracy_guessing": 0.59,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.28,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "finger_millet": {
+            "tp": 85,
+            "fp": 5,
+            "fn": 98,
+            "tn": 172,
+            "n": 360,
+            "base_rate": 0.51,
+            "accuracy": 0.71,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.94,
+            "not_good_but_enough": 0.36,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sesame": {
+            "tp": 72,
+            "fp": 3,
+            "fn": 102,
+            "tn": 183,
+            "n": 360,
+            "base_rate": 0.48,
+            "accuracy": 0.71,
+            "accuracy_guessing": 0.52,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.36,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          }
+        },
+        "tp": 935,
+        "fp": 70,
+        "fn": 1158,
+        "tn": 2517,
+        "n": 4680,
+        "base_rate": 0.45,
+        "accuracy": 0.74,
+        "accuracy_guessing": 0.55,
+        "good_was_right": 0.93,
+        "not_good_but_enough": 0.32,
+        "beats_guessing": true,
+        "verdict": "The advice beats simply guessing.",
+        "train_period": "1981–2010",
+        "test_period": "2011–2025"
+      },
+      {
+        "cell": [
+          8.0,
+          80.0
+        ],
+        "per_crop": {
+          "mung_bean": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 79,
+            "tn": 191,
+            "n": 360,
+            "base_rate": 0.45,
+            "accuracy": 0.76,
+            "accuracy_guessing": 0.55,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.29,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "cowpea": {
+            "tp": 97,
+            "fp": 8,
+            "fn": 79,
+            "tn": 176,
+            "n": 360,
+            "base_rate": 0.49,
+            "accuracy": 0.76,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.31,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "black_gram": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 94,
+            "tn": 176,
+            "n": 360,
+            "base_rate": 0.49,
+            "accuracy": 0.72,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.35,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "maize": {
+            "tp": 79,
+            "fp": 11,
+            "fn": 81,
+            "tn": 189,
+            "n": 360,
+            "base_rate": 0.44,
+            "accuracy": 0.74,
+            "accuracy_guessing": 0.56,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.3,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "groundnut": {
+            "tp": 79,
+            "fp": 11,
+            "fn": 75,
+            "tn": 195,
+            "n": 360,
+            "base_rate": 0.43,
+            "accuracy": 0.76,
+            "accuracy_guessing": 0.57,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.28,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sweet_potato": {
+            "tp": 67,
+            "fp": 8,
+            "fn": 76,
+            "tn": 209,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.77,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.27,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "big_onion": {
+            "tp": 67,
+            "fp": 8,
+            "fn": 69,
+            "tn": 216,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "brinjal": {
+            "tp": 76,
+            "fp": 14,
+            "fn": 82,
+            "tn": 188,
+            "n": 360,
+            "base_rate": 0.44,
+            "accuracy": 0.73,
+            "accuracy_guessing": 0.56,
+            "good_was_right": 0.84,
+            "not_good_but_enough": 0.3,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "chilli": {
+            "tp": 79,
+            "fp": 11,
+            "fn": 81,
+            "tn": 189,
+            "n": 360,
+            "base_rate": 0.44,
+            "accuracy": 0.74,
+            "accuracy_guessing": 0.56,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.3,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "pumpkin": {
+            "tp": 80,
+            "fp": 10,
+            "fn": 87,
+            "tn": 183,
+            "n": 360,
+            "base_rate": 0.46,
+            "accuracy": 0.73,
+            "accuracy_guessing": 0.54,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.32,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "soybean": {
+            "tp": 78,
+            "fp": 12,
+            "fn": 65,
+            "tn": 205,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.79,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.87,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "finger_millet": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 103,
+            "tn": 167,
+            "n": 360,
+            "base_rate": 0.52,
+            "accuracy": 0.7,
+            "accuracy_guessing": 0.52,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.38,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sesame": {
+            "tp": 80,
+            "fp": 10,
+            "fn": 96,
+            "tn": 174,
+            "n": 360,
+            "base_rate": 0.49,
+            "accuracy": 0.71,
+            "accuracy_guessing": 0.51,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.36,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          }
+        },
+        "tp": 1034,
+        "fp": 121,
+        "fn": 1067,
+        "tn": 2458,
+        "n": 4680,
+        "base_rate": 0.45,
+        "accuracy": 0.75,
+        "accuracy_guessing": 0.55,
+        "good_was_right": 0.9,
+        "not_good_but_enough": 0.3,
+        "beats_guessing": true,
+        "verdict": "The advice beats simply guessing.",
+        "train_period": "1981–2010",
+        "test_period": "2011–2025"
+      },
+      {
+        "cell": [
+          8.5,
+          80.0
+        ],
+        "per_crop": {
+          "mung_bean": {
+            "tp": 83,
+            "fp": 7,
+            "fn": 57,
+            "tn": 213,
+            "n": 360,
+            "base_rate": 0.39,
+            "accuracy": 0.82,
+            "accuracy_guessing": 0.61,
+            "good_was_right": 0.92,
+            "not_good_but_enough": 0.21,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "cowpea": {
+            "tp": 85,
+            "fp": 5,
+            "fn": 61,
+            "tn": 209,
+            "n": 360,
+            "base_rate": 0.41,
+            "accuracy": 0.82,
+            "accuracy_guessing": 0.59,
+            "good_was_right": 0.94,
+            "not_good_but_enough": 0.23,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "black_gram": {
+            "tp": 73,
+            "fp": 2,
+            "fn": 67,
+            "tn": 218,
+            "n": 360,
+            "base_rate": 0.39,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.61,
+            "good_was_right": 0.97,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "maize": {
+            "tp": 92,
+            "fp": 13,
+            "fn": 39,
+            "tn": 216,
+            "n": 360,
+            "base_rate": 0.36,
+            "accuracy": 0.86,
+            "accuracy_guessing": 0.64,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.15,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "groundnut": {
+            "tp": 91,
+            "fp": 14,
+            "fn": 36,
+            "tn": 219,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.86,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.87,
+            "not_good_but_enough": 0.14,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sweet_potato": {
+            "tp": 64,
+            "fp": 11,
+            "fn": 51,
+            "tn": 234,
+            "n": 360,
+            "base_rate": 0.32,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.68,
+            "good_was_right": 0.85,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "big_onion": {
+            "tp": 66,
+            "fp": 9,
+            "fn": 48,
+            "tn": 237,
+            "n": 360,
+            "base_rate": 0.32,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.68,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.17,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "brinjal": {
+            "tp": 77,
+            "fp": 13,
+            "fn": 49,
+            "tn": 221,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.86,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "chilli": {
+            "tp": 77,
+            "fp": 13,
+            "fn": 49,
+            "tn": 221,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.86,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "pumpkin": {
+            "tp": 80,
+            "fp": 10,
+            "fn": 52,
+            "tn": 218,
+            "n": 360,
+            "base_rate": 0.37,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.63,
+            "good_was_right": 0.89,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "soybean": {
+            "tp": 68,
+            "fp": 7,
+            "fn": 51,
+            "tn": 234,
+            "n": 360,
+            "base_rate": 0.33,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.67,
+            "good_was_right": 0.91,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "finger_millet": {
+            "tp": 95,
+            "fp": 10,
+            "fn": 50,
+            "tn": 205,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.9,
+            "not_good_but_enough": 0.2,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sesame": {
+            "tp": 92,
+            "fp": 13,
+            "fn": 44,
+            "tn": 211,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.17,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          }
+        },
+        "tp": 1043,
+        "fp": 127,
+        "fn": 654,
+        "tn": 2856,
+        "n": 4680,
+        "base_rate": 0.36,
+        "accuracy": 0.83,
+        "accuracy_guessing": 0.64,
+        "good_was_right": 0.89,
+        "not_good_but_enough": 0.19,
+        "beats_guessing": true,
+        "verdict": "The advice beats simply guessing.",
+        "train_period": "1981–2010",
+        "test_period": "2011–2025"
+      },
+      {
+        "cell": [
+          9.0,
+          80.625
+        ],
+        "per_crop": {
+          "mung_bean": {
+            "tp": 74,
+            "fp": 1,
+            "fn": 69,
+            "tn": 216,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.99,
+            "not_good_but_enough": 0.24,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "cowpea": {
+            "tp": 87,
+            "fp": 3,
+            "fn": 51,
+            "tn": 219,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.85,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.97,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "black_gram": {
+            "tp": 86,
+            "fp": 4,
+            "fn": 51,
+            "tn": 219,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.85,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "maize": {
+            "tp": 85,
+            "fp": 5,
+            "fn": 52,
+            "tn": 218,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.94,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "groundnut": {
+            "tp": 84,
+            "fp": 6,
+            "fn": 48,
+            "tn": 222,
+            "n": 360,
+            "base_rate": 0.37,
+            "accuracy": 0.85,
+            "accuracy_guessing": 0.63,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.18,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sweet_potato": {
+            "tp": 70,
+            "fp": 5,
+            "fn": 53,
+            "tn": 232,
+            "n": 360,
+            "base_rate": 0.34,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.66,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "big_onion": {
+            "tp": 70,
+            "fp": 5,
+            "fn": 55,
+            "tn": 230,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "brinjal": {
+            "tp": 79,
+            "fp": 11,
+            "fn": 57,
+            "tn": 213,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.88,
+            "not_good_but_enough": 0.21,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "chilli": {
+            "tp": 70,
+            "fp": 5,
+            "fn": 65,
+            "tn": 220,
+            "n": 360,
+            "base_rate": 0.38,
+            "accuracy": 0.81,
+            "accuracy_guessing": 0.62,
+            "good_was_right": 0.93,
+            "not_good_but_enough": 0.23,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "pumpkin": {
+            "tp": 85,
+            "fp": 5,
+            "fn": 56,
+            "tn": 214,
+            "n": 360,
+            "base_rate": 0.39,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.61,
+            "good_was_right": 0.94,
+            "not_good_but_enough": 0.21,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "soybean": {
+            "tp": 71,
+            "fp": 4,
+            "fn": 55,
+            "tn": 230,
+            "n": 360,
+            "base_rate": 0.35,
+            "accuracy": 0.84,
+            "accuracy_guessing": 0.65,
+            "good_was_right": 0.95,
+            "not_good_but_enough": 0.19,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "finger_millet": {
+            "tp": 100,
+            "fp": 5,
+            "fn": 55,
+            "tn": 200,
+            "n": 360,
+            "base_rate": 0.43,
+            "accuracy": 0.83,
+            "accuracy_guessing": 0.57,
+            "good_was_right": 0.95,
+            "not_good_but_enough": 0.22,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          },
+          "sesame": {
+            "tp": 86,
+            "fp": 4,
+            "fn": 59,
+            "tn": 211,
+            "n": 360,
+            "base_rate": 0.4,
+            "accuracy": 0.82,
+            "accuracy_guessing": 0.6,
+            "good_was_right": 0.96,
+            "not_good_but_enough": 0.22,
+            "beats_guessing": true,
+            "verdict": "The advice beats simply guessing."
+          }
+        },
+        "tp": 1047,
+        "fp": 63,
+        "fn": 726,
+        "tn": 2844,
+        "n": 4680,
+        "base_rate": 0.38,
+        "accuracy": 0.83,
+        "accuracy_guessing": 0.62,
+        "good_was_right": 0.94,
+        "not_good_but_enough": 0.2,
+        "beats_guessing": true,
+        "verdict": "The advice beats simply guessing.",
+        "train_period": "1981–2010",
+        "test_period": "2011–2025"
+      }
+    ],
+    "summary": {
+      "tp": 4974,
+      "fp": 471,
+      "fn": 4437,
+      "tn": 13518,
+      "n": 23400,
+      "base_rate": 0.4,
+      "accuracy": 0.79,
+      "accuracy_guessing": 0.6,
+      "good_was_right": 0.91,
+      "not_good_but_enough": 0.25,
+      "beats_guessing": true,
+      "verdict": "The advice beats simply guessing."
+    }
+  },
+  "notes": [
+    "demo-tank-1, demo-tank-2, demo-tank-3, osm-way-1570406865, osm-way-30378745, osm-way-30621035, osm-way-30738007, osm-way-139190058, osm-way-411682007, osm-way-30738031, osm-way-386933726, osm-way-30738010, osm-way-378167956, osm-way-569649315, osm-way-533799988, osm-way-375111351, osm-way-638989968, osm-way-533799986, osm-way-661807820, osm-way-402100153, osm-way-177782668, osm-way-661809444, osm-way-195256689, osm-way-375111357, osm-way-1220377739, osm-way-279111473, osm-way-673283731, osm-way-102371598, osm-way-1476715861, osm-way-585033512, osm-way-533799987, osm-way-899397585, osm-way-673292193, osm-way-583756529, osm-way-407637980, osm-way-647587516, osm-way-673282519, osm-way-279140413, osm-way-649642010, osm-way-102371572, osm-way-279478893, osm-way-661816330, osm-way-499863593, osm-way-375115919 have identical rainfall (same NASA POWER grid cell), so their El Niño results are the same test counted more than once.",
+    "osm-way-1158566947, osm-way-139190687, osm-way-48786956, osm-way-286527441, osm-way-361123575, osm-way-195819717, osm-way-496733471, osm-way-1023700789, osm-way-196176330, osm-way-442062765, osm-way-30737989, osm-way-364606380, osm-way-30378580, osm-way-489004740, osm-way-368465202, osm-way-287006419, osm-way-287013618, osm-way-287012160, osm-way-568616288, osm-way-442083134, osm-way-287219265, osm-way-539163157, osm-way-158821478, osm-way-647994091, osm-way-632461451 have identical rainfall (same NASA POWER grid cell), so their El Niño results are the same test counted more than once.",
+    "osm-way-30378525, osm-way-406923759, osm-way-733519293, osm-way-493694987, osm-way-1413079503 have identical rainfall (same NASA POWER grid cell), so their El Niño results are the same test counted more than once.",
+    "osm-way-538586249, osm-way-1416186088, osm-way-437539039, osm-way-411695330, osm-way-542542133, osm-way-353385694, osm-way-717038123, osm-way-562463765, osm-way-538586247, osm-way-562473378, osm-way-717038126, osm-way-545019344, osm-way-1349105215, osm-way-1413079510, osm-way-717019484, osm-way-717038127, osm-way-1413287177, osm-way-562463763, osm-way-717038140, osm-way-717038134, osm-way-1349105214, osm-way-353385688, osm-way-717038130, osm-way-1413079507, osm-way-1413336376, osm-way-1315330682, osm-way-1416809417, osm-way-1413340105 have identical rainfall (same NASA POWER grid cell), so their El Niño results are the same test counted more than once."
+  ]
+}

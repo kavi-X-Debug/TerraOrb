@@ -1,0 +1,98 @@
+/* Farm planner screens (#/farm/...): login, my farms, registration, location card.
+   Uses the site's colour variables (--green, --line, --surface, --ink, --radius ...) with fallbacks. Works from 360 px wide. */
+
+.fm-page { display: grid; gap: 18px; max-width: 760px; margin: 0 auto; padding: 8px 0 40px; }
+.fm-page h1 { margin: 0; font-size: clamp(1.5rem, 5vw, 2.1rem); }
+.fm-lead { margin: 0; font-size: 1.1rem; color: var(--ink, #16302E); }
+.fm-narrow { max-width: 460px; }
+.fm-stack { display: grid; gap: 18px; }
+.fm-back { font-weight: 700; text-decoration: none; color: var(--green, #2B5430); min-height: 44px; display: inline-flex; align-items: center; }
+
+.fm-card { background: var(--surface, #fff); border: 2px solid var(--line, #D9D2C0); border-radius: var(--radius, 18px); padding: 18px; display: grid; gap: 12px; }
+.fm-h2 { margin: 0; font-size: 1.2rem; display: flex; align-items: center; gap: 10px; }
+.fm-h3 { margin: 6px 0 0; font-size: 1rem; }
+.fm-step { display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--green, #2B5430); color: #fff; font-weight: 800; flex: none; }
+
+/* inputs and buttons: big touch targets */
+.fm-form { display: grid; gap: 12px; }
+.fm-label { font-weight: 700; margin: 0; }
+.fm-input { min-height: 48px; padding: 0 12px; border: 3px solid var(--line, #D9D2C0); border-radius: 14px; font: inherit; background: #fff; width: 100%; box-sizing: border-box; }
+.fm-input:focus-visible, .fm-btn:focus-visible, .fm-range:focus-visible { outline: 3px solid #E0A100; outline-offset: 2px; }
+.fm-big { min-height: 56px; font-size: 1.15rem; }
+.fm-code { letter-spacing: .3em; text-align: center; font-size: 1.5rem; }
+
+.fm-btn { min-height: 52px; padding: 0 20px; border-radius: 14px; border: 3px solid var(--green, #2B5430); background: #fff; color: var(--green, #2B5430);
+  font: inherit; font-weight: 800; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; text-align: center; box-sizing: border-box; }
+.fm-btn:disabled { opacity: .55; cursor: wait; }
+.fm-primary { background: var(--green, #2B5430); color: #fff; }
+.fm-secondary { background: #fff; }
+.fm-quiet { border-color: transparent; background: transparent; text-decoration: underline; }
+.fm-btn[hidden] { display: none; }
+.fm-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.fm-actions { display: grid; gap: 12px; }
+.fm-account { justify-content: space-between; }
+
+/* choice buttons (radio look) */
+.fm-q { display: grid; gap: 8px; }
+.fm-choices { display: flex; flex-wrap: wrap; gap: 10px; }
+.fm-choice { min-height: 52px; min-width: 90px; padding: 0 18px; border: 3px solid var(--line, #D9D2C0); border-radius: 14px; background: #fff; font: inherit; font-weight: 700; cursor: pointer; flex: 1 1 100px; color: var(--ink, #16302E); }
+.fm-choice[aria-checked="true"] { border-color: var(--green, #2B5430); background: var(--green-soft, #E3EEDC); box-shadow: inset 0 0 0 2px var(--green, #2B5430); }
+.fm-choice:disabled { opacity: .6; }
+
+/* two columns that stack on a phone */
+.fm-pair { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+
+/* map */
+.fm-map { height: 320px; border-radius: var(--radius, 18px); overflow: hidden; border: 2px solid var(--line, #D9D2C0); }
+.fm-details { border: 2px dashed var(--line, #D9D2C0); border-radius: 14px; padding: 10px 14px; }
+.fm-details summary { font-weight: 700; min-height: 44px; display: flex; align-items: center; cursor: pointer; }
+
+/* priorities */
+.fm-prio { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; align-items: center; }
+.fm-prio .fm-label { grid-column: 1 / -1; }
+.fm-range { width: 100%; min-height: 44px; accent-color: var(--green, #2B5430); }
+.fm-share { font-weight: 800; min-width: 3.2em; text-align: end; }
+
+/* crop history */
+.fm-hist { display: grid; gap: 10px; }
+.fm-hist-row { display: grid; gap: 4px; }
+
+/* messages */
+.fm-status { margin: 0; min-height: 1.4em; font-weight: 600; }
+.fm-error { color: #A12C1B; }
+.fm-note { margin: 0; padding: 12px 14px; border-radius: 12px; background: var(--amber-soft, #FFF1CC); border: 2px solid #E0A100; }
+.fm-note.fm-error { background: #FBE6E2; border-color: #A12C1B; }
+.fm-fine { margin: 0; font-size: .9rem; opacity: .85; }
+.fm-dev { margin: 0; padding: 10px 12px; border-radius: 12px; background: #EEE; border: 2px dashed #777; }
+.fm-code-block { margin: 0; padding: 12px; background: #16302E; color: #fff; border-radius: 12px; overflow-x: auto; }
+
+/* data cards */
+.fm-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 6px 14px; margin: 0; }
+.fm-facts dt { font-weight: 700; }
+.fm-facts dd { margin: 0; overflow-wrap: anywhere; }
+.fm-bars, .fm-strip { display: flex; align-items: flex-end; gap: 2px; height: 90px; padding: 4px; border-radius: 10px; background: #F6F2E6; }
+.fm-strip { height: 34px; align-items: stretch; }
+.fm-bar { flex: 1 1 0; min-width: 3px; background: var(--monsoon, #2D6A9F); border-radius: 2px 2px 0 0; }
+.fm-strip .fm-bar { border-radius: 2px; }
+.fm-bar.fm-gap { background: repeating-linear-gradient(45deg, #ccc, #ccc 3px, #eee 3px, #eee 6px); height: 100%; }
+.fm-source { margin: 0; font-size: .85rem; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; border-top: 1px solid var(--line, #D9D2C0); padding-top: 8px; }
+.fm-tag { font-size: .75rem; font-weight: 800; padding: 2px 10px; border-radius: 999px; background: var(--line, #D9D2C0); color: var(--ink, #16302E); }
+.fm-tag-warn { background: var(--amber-soft, #FFF1CC); color: #7A4F00; border: 1px solid #E0A100; }
+
+@media (max-width: 480px) {
+  .fm-facts { grid-template-columns: 1fr; }
+  .fm-btn { width: 100%; }
+  .fm-row .fm-btn { flex: 1 1 100%; }
+}
+
+/* month-by-month rain and ET0 bars, lists, legend */
+.fm-months { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; height: 150px; padding: 6px 4px 0; border-radius: 10px; background: #F6F2E6; }
+.fm-month { display: grid; grid-template-rows: 1fr auto; min-width: 0; }
+.fm-mpair { display: flex; align-items: flex-end; gap: 1px; height: 120px; }
+.fm-mbar { flex: 1 1 0; border-radius: 2px 2px 0 0; min-width: 2px; }
+.fm-rain { background: var(--monsoon, #2D6A9F); }
+.fm-et0 { background: #C98A00; }
+.fm-mname { font-size: .65rem; text-align: center; overflow: hidden; }
+.fm-legend { margin: 0; font-size: .85rem; display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.fm-key { display: inline-block; width: 14px; height: 14px; border-radius: 3px; }
+.fm-list { margin: 0; padding-inline-start: 1.2em; display: grid; gap: 4px; }

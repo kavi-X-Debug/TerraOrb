@@ -1,0 +1,353 @@
+{
+  "_note": "Crop facts for pipeline/crops.py. EVERY number has a source and a confidence. 'high' = read directly from the cited page on 25 Oct 2026. 'medium' = taken from a summary of the cited page, or sources disagree: confirm with the Department of Agriculture before farmers rely on it. 'assumption' = our choice, not from a source. Values here are drafts for an Agricultural Instructor to review.",
+
+  "effective_rain": {
+    "formula": "Pe = 0.8 P - 25 when monthly rain P > 75 mm; Pe = 0.6 P - 10 when P <= 75 mm; never below 0. A part-month is scaled to 30 days, converted, and scaled back.",
+    "source": "https://www.fao.org/4/t7202e/t7202e07.htm",
+    "confidence": "high"
+  },
+
+  "rice_extra_water": {
+    "_note": "Paddy needs more water than the plant uses: field saturation before planting, a standing water layer, and seepage. FAO: IN = ETcrop + SAT + PERC + WL - Pe.",
+    "saturation_mm": 200,
+    "saturation_source": "https://www.fao.org/4/t7202e/t7202e07.htm and https://www.fao.org/4/s2022e/s2022e08.htm (both say 200 mm)",
+    "water_layer_mm": 100,
+    "water_layer_source": "https://www.fao.org/4/t7202e/t7202e07.htm (typical 100 mm)",
+    "percolation_mm_per_day": { "heavy_clay": 2, "average": 5, "sandy": 8 },
+    "percolation_source": "https://www.fao.org/4/t7202e/t7202e07.htm (2 / 5 / 8); a second FAO page gives 4 / 6 / 8 (https://www.fao.org/4/s2022e/s2022e08.htm)",
+    "percolation_used": "average",
+    "confidence": "high",
+    "note": "Dry Zone soils vary; 'average' is a middle choice. A heavy clay tank bed loses less."
+  },
+
+  "crops": [
+    {
+      "id": "paddy",
+      "kind": "paddy",
+      "duration_days": 110,
+      "duration_range": [103, 120],
+      "duration_source": "At 362, the most popular variety: 110 days. https://doa.gov.lk/rrdi_rice_at362/ (Department of Agriculture)",
+      "duration_confidence": "high",
+      "kc": { "ini": 1.05, "mid": 1.20, "end": 0.75 },
+      "kc_source": "FAO-56 Table 12, Rice: 1.05 / 1.20 / 0.90-0.60 (end value = middle of the range). https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "high",
+      "stage_fractions": { "ini": 0.2, "dev": 0.2, "mid": 0.4, "late": 0.2 },
+      "stage_source": "FAO-56 Table 11, Rice, tropics: 30 / 30 / 60 / 30 days of 150, scaled to this duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "paddy_short",
+      "kind": "paddy",
+      "duration_days": 93,
+      "duration_range": [90, 106],
+      "duration_source": "Bg 300: 93 days. https://doa.gov.lk/rrdi_rice_bg300/ (Department of Agriculture). Bg 360 is 103-106 days: https://doa.gov.lk/rrdi_rice_bg360/",
+      "duration_confidence": "high",
+      "kc": { "ini": 1.05, "mid": 1.20, "end": 0.75 },
+      "kc_source": "FAO-56 Table 12, Rice (as above)",
+      "kc_confidence": "high",
+      "stage_fractions": { "ini": 0.2, "dev": 0.2, "mid": 0.4, "late": 0.2 },
+      "stage_source": "FAO-56 Table 11, Rice (as above)"
+    },
+    {
+      "id": "mung_bean",
+      "kind": "ofc",
+      "duration_days": 60,
+      "duration_range": [55, 65],
+      "duration_source": "Department of Agriculture Sinhala mung bean page gives 55-60, 60-65 and 50-65 days in different places; 60 is the middle. https://doa.gov.lk/field-crops-mungbean-si/",
+      "duration_confidence": "medium",
+      "kc": { "ini": 0.4, "mid": 1.05, "end": 0.35 },
+      "kc_source": "FAO-56 Table 12, Green gram and cowpeas: 0.4 / 1.05 / 0.60-0.35 (0.35 = harvested dry, FAO footnote 6). https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: the initial value 0.4 was unreadable on the FAO page we fetched and was taken from a copy of the same table at https://irrigationcalculators.com/reference/crop-coefficient-table (a group value FAO gives for crops without their own entry)",
+      "stage_fractions": { "ini": 0.2, "dev": 0.3, "mid": 0.3, "late": 0.2 },
+      "stage_source": "FAO-56 Table 11, Green gram, cowpeas: 20 / 30 / 30 / 20 days (as proportions of those four stages)"
+    },
+    {
+      "id": "cowpea",
+      "kind": "ofc",
+      "duration_days": 75,
+      "duration_range": [60, 90],
+      "duration_source": "Department of Agriculture: 75-90 days after planting (Kilinochchi RARDC crops page https://doa.gov.lk/fcrdi-rardckilinochchi-crops/); 55-70 days for some varieties (https://doa.gov.lk/field-crops-cowpea-si/). 75 is a middle choice.",
+      "duration_confidence": "medium",
+      "kc": { "ini": 0.4, "mid": 1.05, "end": 0.35 },
+      "kc_source": "FAO-56 Table 12, Green gram and cowpeas (as above)",
+      "kc_confidence": "medium: see mung bean",
+      "stage_fractions": { "ini": 0.2, "dev": 0.3, "mid": 0.3, "late": 0.2 },
+      "stage_source": "FAO-56 Table 11, Green gram, cowpeas (as above)"
+    },
+    {
+      "id": "black_gram",
+      "kind": "ofc",
+      "duration_days": 80,
+      "duration_range": [75, 90],
+      "duration_source": "Department of Agriculture Sinhala black gram pages: 75-80 days in general, 85-90 days for MI 01 and MI BG 3. https://doa.gov.lk/field-crops-blackgram-si/",
+      "duration_confidence": "medium",
+      "kc": { "ini": 0.4, "mid": 1.05, "end": 0.35 },
+      "kc_source": "ASSUMPTION: FAO-56 has no black gram entry; it is a close relative (Vigna) of green gram and cowpeas, so their coefficients are used.",
+      "kc_confidence": "assumption",
+      "stage_fractions": { "ini": 0.2, "dev": 0.3, "mid": 0.3, "late": 0.2 },
+      "stage_source": "FAO-56 Table 11, Green gram, cowpeas (as above); same assumption"
+    },
+    {
+      "id": "maize",
+      "kind": "ofc",
+      "duration_days": 105,
+      "duration_range": [
+        100,
+        110
+      ],
+      "duration_source": "Department of Agriculture Sinhala maize page: harvest at 105-110 days (MI Hybrid 03: 100-105). https://doa.gov.lk/field-crops-maize-si/",
+      "duration_confidence": "medium",
+      "kc": {
+        "ini": 0.3,
+        "mid": 1.2,
+        "end": 0.35
+      },
+      "kc_source": "FAO-56 Table 12, Maize (grain); Kc end 0.35 = harvested after field drying. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 20,
+        "dev": 35,
+        "mid": 40,
+        "late": 30
+      },
+      "stage_source": "FAO-56 Table 11 (Maize, June, Nigeria (humid), 125 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "groundnut",
+      "kind": "ofc",
+      "duration_days": 105,
+      "duration_range": [
+        100,
+        120
+      ],
+      "duration_source": "Department of Agriculture research notes: Tikiri 100-110 days, Walawa about 120 days, early lines 90-105 (dl-doa.nsf.gov.lk; https://erepo.lib.uwu.ac.lk/items/5395b9e4-a6cf-4e4d-aae2-daca9ec9fad0). The DoA crop page gives no day count.",
+      "duration_confidence": "medium",
+      "kc": {
+        "ini": 0.4,
+        "mid": 1.15,
+        "end": 0.6
+      },
+      "kc_source": "FAO-56 Table 12, Groundnut (peanut). https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 25,
+        "dev": 35,
+        "mid": 45,
+        "late": 25
+      },
+      "stage_source": "FAO-56 Table 11 (Groundnut, dry season, West Africa, 130 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "sweet_potato",
+      "kind": "ofc",
+      "duration_days": 105,
+      "duration_range": [
+        90,
+        120
+      ],
+      "duration_source": "Department of Agriculture HORDI page: recommended varieties can be harvested at 3 to 4 months. https://doa.gov.lk/hordi-crop-sweet-potato/",
+      "duration_confidence": "medium",
+      "kc": {
+        "ini": 0.5,
+        "mid": 1.15,
+        "end": 0.65
+      },
+      "kc_source": "FAO-56 Table 12, Sweet potato. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 15,
+        "dev": 30,
+        "mid": 50,
+        "late": 30
+      },
+      "stage_source": "FAO-56 Table 11 (Sweet potato, rainy season, tropics, 125 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "big_onion",
+      "kind": "ofc",
+      "duration_days": 85,
+      "duration_range": [
+        75,
+        90
+      ],
+      "duration_source": "Department of Agriculture RARDC Kilinochchi page: big onion can be harvested 75-90 days after planting. https://doa.gov.lk/fcrdi-rardckilinochchi-crops/ (FAO Table 11 gives 150 days for dry onion, so sources disagree)",
+      "duration_confidence": "medium",
+      "kc": {
+        "ini": 0.7,
+        "mid": 1.05,
+        "end": 0.75
+      },
+      "kc_source": "FAO-56 Table 12, Onion, dry. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 15,
+        "dev": 25,
+        "mid": 70,
+        "late": 40
+      },
+      "stage_source": "FAO-56 Table 11 (Onion (dry), Mediterranean, 150 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "usually_irrigated": true,
+      "note": "Usually grown with irrigation. The rating shows only whether rain alone would be enough."
+    },
+    {
+      "id": "brinjal",
+      "kind": "ofc",
+      "duration_days": 130,
+      "duration_range": [
+        130,
+        160
+      ],
+      "duration_source": "Department of Agriculture HORDI page: harvesting starts 10-12 weeks after transplanting and fruit is picked weekly for 10-12 picks. The 130 days is the FAO total because the page gives no season length. https://doa.gov.lk/hordi-crop-brinjal/",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.6,
+        "mid": 1.05,
+        "end": 0.9
+      },
+      "kc_source": "FAO-56 Table 12, Eggplant. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 30,
+        "dev": 40,
+        "mid": 40,
+        "late": 20
+      },
+      "stage_source": "FAO-56 Table 11 (Eggplant, October, arid region, 130 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "usually_irrigated": true,
+      "note": "Usually grown with irrigation. The rating shows only whether rain alone would be enough."
+    },
+    {
+      "id": "chilli",
+      "kind": "ofc",
+      "duration_days": 125,
+      "duration_range": [
+        100,
+        150
+      ],
+      "duration_source": "ASSUMPTION: FAO has no chilli entry; the sweet pepper (bell) total of 125 days is used. The Department of Agriculture RARDC page says pods can be harvested 75-90 days after planting, but that line looks copied from the cowpea entry. https://doa.gov.lk/fcrdi-rardckilinochchi-crops/",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.6,
+        "mid": 1.05,
+        "end": 0.9
+      },
+      "kc_source": "ASSUMPTION: FAO-56 Table 12 has no chilli; Sweet peppers (bell) are used. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "assumption: sweet pepper values used for chilli",
+      "stage_fractions": {
+        "ini": 30,
+        "dev": 35,
+        "mid": 40,
+        "late": 20
+      },
+      "stage_source": "FAO-56 Table 11 (Sweet peppers (bell), 125 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "usually_irrigated": true,
+      "note": "Usually grown with irrigation. Figures borrowed from sweet pepper, so treat the rating as a rough guide."
+    },
+    {
+      "id": "pumpkin",
+      "kind": "ofc",
+      "duration_days": 100,
+      "duration_range": [
+        90,
+        120
+      ],
+      "duration_source": "ASSUMPTION: FAO Table 11 total of 100 days (Mediterranean). The Department of Agriculture HORDI page gives only days after flowering (40 or 60), not days from sowing. https://doa.gov.lk/hordi-crop-pumpkin/",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.5,
+        "mid": 1.0,
+        "end": 0.8
+      },
+      "kc_source": "FAO-56 Table 12, Pumpkin, winter squash. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 20,
+        "dev": 30,
+        "mid": 30,
+        "late": 20
+      },
+      "stage_source": "FAO-56 Table 11 (Pumpkin / winter squash, 100 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "usually_irrigated": true,
+      "note": "Often watered. The rating shows only whether rain alone would be enough."
+    },
+    {
+      "id": "soybean",
+      "kind": "ofc",
+      "duration_days": 85,
+      "duration_range": [
+        85,
+        105
+      ],
+      "duration_source": "ASSUMPTION: FAO Table 11, soybeans in the tropics (December), 85 days. No Sri Lankan day count was found on the Department of Agriculture pages we could read.",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.4,
+        "mid": 1.15,
+        "end": 0.5
+      },
+      "kc_source": "FAO-56 Table 12, Soybeans. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 15,
+        "dev": 15,
+        "mid": 40,
+        "late": 15
+      },
+      "stage_source": "FAO-56 Table 11 (Soybeans, December, tropics, 85 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "finger_millet",
+      "kind": "ofc",
+      "duration_days": 105,
+      "duration_range": [
+        90,
+        140
+      ],
+      "duration_source": "ASSUMPTION: FAO Table 11 'Millet' (Pakistan), 105 days. The Department of Agriculture page gives only a sign (harvest when 80% of ears are brown), no day count.",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.3,
+        "mid": 1.0,
+        "end": 0.3
+      },
+      "kc_source": "FAO-56 Table 12, Millet (finger millet is not listed separately). https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 15,
+        "dev": 25,
+        "mid": 40,
+        "late": 25
+      },
+      "stage_source": "FAO-56 Table 11 (Millet, June, Pakistan, 105 days); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    },
+    {
+      "id": "sesame",
+      "kind": "ofc",
+      "duration_days": 100,
+      "duration_range": [
+        90,
+        110
+      ],
+      "duration_source": "ASSUMPTION: FAO Table 11, sesame (June, China), total printed as 100 days (its stage lengths add to 110). The Department of Agriculture sesame entry has no content.",
+      "duration_confidence": "assumption",
+      "kc": {
+        "ini": 0.35,
+        "mid": 1.1,
+        "end": 0.25
+      },
+      "kc_source": "FAO-56 Table 12, Sesame. https://www.fao.org/4/x0490e/x0490e0b.htm",
+      "kc_confidence": "medium: Kc mid and Kc end are from FAO-56 Table 12; Kc ini is the FAO group value, read from a copy of the same table (https://irrigationcalculators.com/reference/crop-coefficient-table) because the FAO page prints it as an image",
+      "stage_fractions": {
+        "ini": 20,
+        "dev": 30,
+        "mid": 40,
+        "late": 20
+      },
+      "stage_source": "FAO-56 Table 11 (Sesame, June, China); the stage lengths are used only as proportions of this crop's duration. https://www.fao.org/4/x0490e/x0490e0b.htm"
+    }
+  ],
+
+  "sanity_check": {
+    "fao_seasonal_need_mm": { "beans": [300, 500], "groundnut": [500, 700], "maize": [500, 800], "soybean": [450, 700] },
+    "source": "FAO table of approximate seasonal crop water needs: http://www.fao.org/4/u3160e/u3160e04.htm (no rice, cowpea, mung bean or black gram rows). Used only to check that our computed values are the right size, never to compute with."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "what": "How much each benefit counts per terrain zone kind. Each set sums to 1.",
+    "evidence": "assumption",
+    "reviewed": false,
+    "sources": [
+      "Steep zone values come from the product owner's 'Steps' document (worked example)."
+    ],
+    "notes": "Other zones are drafted by the team and need Agricultural Instructor review. The engine blends these with farmer priorities (default 70/30)."
+  },
+  "zones": {
+    "steep": {
+      "erosion": 0.5,
+      "drought": 0.2,
+      "income": 0.2,
+      "organic_matter": 0.1
+    },
+    "very_steep": {
+      "erosion": 0.6,
+      "drought": 0.15,
+      "income": 0.1,
+      "organic_matter": 0.15
+    },
+    "gentle": {
+      "erosion": 0.3,
+      "drought": 0.3,
+      "income": 0.25,
+      "organic_matter": 0.15
+    },
+    "flat": {
+      "erosion": 0.1,
+      "drought": 0.3,
+      "income": 0.4,
+      "organic_matter": 0.2
+    },
+    "wet_low": {
+      "erosion": 0.1,
+      "drought": 0.1,
+      "income": 0.5,
+      "organic_matter": 0.3
+    }
+  },
+  "zone_evidence": {
+    "steep": "V2",
+    "very_steep": "assumption",
+    "gentle": "assumption",
+    "flat": "assumption",
+    "wet_low": "assumption"
+  }
+}

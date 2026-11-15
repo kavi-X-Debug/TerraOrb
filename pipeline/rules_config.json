@@ -1,0 +1,29 @@
+{
+  "_note": "Rule engine thresholds (pipeline/rules.py). Change numbers here, then re-run rules.py. Bump 'version' whenever a threshold changes; it is saved in every result.",
+  "version": "draft-1",
+
+  "_signal_note": "Checked in this order; the first that matches wins. red: T < red_T, or (T < red_T_with_R and R < red_R). amber: T < amber_T, or onset_delay_days > amber_onset_delay_days. green: T >= green_T and R >= green_R. Otherwise amber.",
+  "red_T": 0.6,
+  "red_T_with_R": 0.75,
+  "red_R": 0.75,
+  "amber_T": 0.9,
+  "amber_onset_delay_days": 14,
+  "green_T": 0.9,
+  "green_R": 0.9,
+
+  "_onset_note": "Which season's onset delay the rules use: the latest season in rain.seasons (the last finished Yala or Maha). rain.py does not yet report an onset for the season in progress.",
+  "onset_from": "latest_season",
+
+  "_learn_note": "Learn Mode (web app) replays these real past seasons. 'Before' = the tank in pre_month vs its normal, and the previous season's rain. 'After' = the tank over the season's months vs normal, and the season's actual rain. The same signal rules give what Monsoon Compass would have said, and the choice that would have fitted in hindsight. Seasons without water or rain data are skipped.",
+  "learn": {
+    "seasons": ["Yala 2017", "Yala 2019", "Yala 2023", "Yala 2024"],
+    "pre_month": { "Yala": "03", "Maha": "09" },
+    "season_months": { "Yala": ["04", "05", "06", "07", "08"], "Maha": ["10", "11", "12", "01"] }
+  },
+
+  "scenarios": [
+    { "id": "full_paddy",         "title_key": "scenario.full_paddy.title",         "crops": ["paddy"],                             "for_signal": "green" },
+    { "id": "short_paddy_bethma", "title_key": "scenario.short_paddy_bethma.title", "crops": ["paddy_short"],                       "for_signal": "amber" },
+    { "id": "ofc",                "title_key": "scenario.ofc.title",                "crops": ["mung_bean", "cowpea", "black_gram"], "for_signal": "red" }
+  ]
+}

@@ -1,0 +1,98 @@
+<!doctype html>
+<!--
+  Monsoon Compass: the chooser page. It only links to the "ends", one web address per kind of user:
+    farmer.html    farmers                      learn.html     students and children
+    officer.html   officers and instructors     research.html  judges and researchers
+    plan.html      trip and event planners
+  The ends are generated from tools/ends/template.html by tools/make_ends.py. All text comes from si.json / en.json.
+-->
+<html lang="si">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Monsoon Compass</title>
+  <meta name="description" content="Rain, tank water and climate learning from NASA data: for farmers, students, officers, researchers and trip planners in Sri Lanka.">
+  <meta name="theme-color" content="#2B5430">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&family=Noto+Sans+Sinhala:wght@400;600;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/site.css">
+  <link rel="stylesheet" href="css/earth.css">
+  <link rel="stylesheet" href="css/ends.css">
+  <link rel="stylesheet" href="css/ends-pages.css">
+</head>
+<body class="landing">
+  <a class="skip-link" href="#content" data-i18n="site.skip">Skip to content</a>
+
+  <header class="site-header topbar">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="icon.svg" alt="" width="34" height="34">
+        <span data-i18n="app.name">Monsoon Compass</span>
+      </a>
+      <div class="header-tools">
+        <div class="lang" role="group" data-i18n-attr="aria-label:app.language">
+          <button type="button" data-lang="si" data-i18n="app.language.si">සිංහල</button>
+          <button type="button" data-lang="en" data-i18n="app.language.en">English</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="content" class="container ends-main">
+    <section class="ends-hero">
+      <p class="hero-kicker" data-i18n="app.tagline">Your season's direction, read from space.</p>
+      <h1 data-i18n="ends.heading">Where would you like to go?</h1>
+      <p data-i18n="ends.sub">Choose the part that fits you. Every part uses the same NASA data and weather forecasts.</p>
+    </section>
+
+    <section class="ends-grid" aria-label="Sections">
+      <a class="end-card" href="farmer.html" style="--i:0">
+        <img src="img/hero.jpg" alt="" width="640" height="360" loading="lazy">
+        <h2 data-i18n="ends.farmer.name">I am a farmer</h2>
+        <p data-i18n="ends.farmer.text">Is my tank full? What should I sow? Will it rain today?</p>
+        <span class="end-go" data-i18n="ends.open">Open</span>
+      </a>
+      <a class="end-card" href="learn.html" style="--i:1">
+        <img src="img/learn/hero.jpg" alt="" width="640" height="360" loading="lazy">
+        <h2 data-i18n="ends.learn.name">I want to learn and play</h2>
+        <p data-i18n="ends.learn.text">Lessons, games, badges and a certificate about water, farming and our climate.</p>
+        <span class="end-go" data-i18n="ends.open">Open</span>
+      </a>
+      <a class="end-card" href="officer.html" style="--i:2">
+        <img src="img/how/meeting.jpg" alt="" width="640" height="360" loading="lazy">
+        <h2 data-i18n="ends.officer.name">I am an officer or instructor</h2>
+        <p data-i18n="ends.officer.text">One dashboard for every tank: water, rain, greenness and alerts, with downloads and printed reports.</p>
+        <span class="end-go" data-i18n="ends.open">Open</span>
+      </a>
+      <a class="end-card" href="research.html" style="--i:3">
+        <img src="img/how/laptop.jpg" alt="" width="640" height="360" loading="lazy">
+        <h2 data-i18n="ends.research.name">I want to see the method and data</h2>
+        <p data-i18n="ends.research.text">Data sources, accuracy tests, crop numbers with their sources, and data downloads.</p>
+        <span class="end-go" data-i18n="ends.open">Open</span>
+      </a>
+      <a class="end-card" href="plan.html" style="--i:4">
+        <img src="img/rain.jpg" alt="" width="640" height="360" loading="lazy">
+        <h2 data-i18n="ends.plan.name">I am planning a trip or an event</h2>
+        <p data-i18n="ends.plan.text">Rain chance, heat and the best days at any place in Sri Lanka.</p>
+        <span class="end-go" data-i18n="ends.open">Open</span>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <span data-i18n="footer.copy">© 2026 Monsoon Compass</span>
+        <span data-i18n="disclaimer.short">A decision aid; consult your Agricultural Instructor.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/landing.js"></script>
+</body>
+</html>

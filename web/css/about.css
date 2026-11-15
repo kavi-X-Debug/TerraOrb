@@ -1,0 +1,142 @@
+/* "How it works" page. Animations only run when the phone has not asked for less motion. */
+
+.how-hero { display: grid; gap: 24px; align-items: center; padding: 36px 32px; border-radius: 28px; overflow: hidden; position: relative;
+  background: linear-gradient(135deg, #F6D98C 0%, #FBE9B9 45%, #DDEBD3 100%); box-shadow: var(--shadow-sm); border: 1px solid var(--line); margin-bottom: 8px; }
+.how-hero h1 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: #2B3A24; line-height: 1.15; }
+.how-hero .hint { font-size: 1.1rem; color: #5A5640; max-width: 36em; margin-top: 8px; }
+@media (min-width: 800px) { .how-hero { grid-template-columns: 260px minmax(0, 1fr); } }
+
+/* Earth with a satellite circling it, and rain falling onto it */
+.how-orbit { position: relative; width: 220px; height: 220px; margin-inline: auto; }
+.how-earth { position: absolute; inset: 55px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #7FBF9A 0%, #3E8FA0 45%, #2B6C80 100%); box-shadow: inset -10px -12px 24px rgba(0, 0, 0, .25), 0 6px 20px rgba(43, 108, 128, .35); }
+.how-ring { position: absolute; inset: 0; border-radius: 50%; border: 2px dashed rgba(43, 84, 48, .35); }
+.how-sat { position: absolute; left: 50%; top: -16px; width: 32px; height: 32px; margin-left: -16px; display: grid; place-items: center;
+  background: #fff; color: #2B5430; border-radius: 10px; box-shadow: var(--shadow-sm); }
+.how-sat .how-ic { width: 20px; height: 20px; }
+.how-drop { position: absolute; width: 4px; height: 14px; border-radius: 4px; background: #2F6A8F; opacity: .0; top: 6px; }
+.how-drop.d1 { left: 28%; } .how-drop.d2 { left: 50%; } .how-drop.d3 { left: 72%; }
+
+.how-ic { width: 1.4em; height: 1.4em; flex: none; }
+.how-section { display: grid; gap: 14px; margin-top: 44px; }
+.how-section h2 { font-size: clamp(1.4rem, 2.6vw, 1.9rem); }
+.how-lead { color: var(--muted); font-size: 1.05rem; max-width: 44em; }
+
+/* ---------- Four steps, joined by a line with a travelling dot ---------- */
+.how-steps { list-style: none; margin: 8px 0 0; padding: 0; display: grid; gap: 16px; position: relative; }
+@media (min-width: 900px) {
+  .how-steps { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+  .how-steps::before { content: ""; position: absolute; left: 12%; right: 12%; top: 58px; height: 4px; border-radius: 4px;
+    background: repeating-linear-gradient(90deg, var(--gold) 0 14px, transparent 14px 24px); opacity: .8; }
+  .how-steps::after { content: ""; position: absolute; top: 52px; left: 12%; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--gold); box-shadow: 0 0 0 6px rgba(224, 165, 38, .25); }
+}
+.how-step { position: relative; display: grid; gap: 6px; justify-items: center; text-align: center; padding: 18px 16px 22px;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-sm); z-index: 1; }
+.how-step h3 { font-size: 1.1rem; }
+.how-step p { color: var(--muted); font-size: .98rem; }
+.how-step-num { position: absolute; top: 10px; left: 12px; width: 26px; height: 26px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--gold-soft); color: #8C5A2B; font-weight: 800; font-size: .85rem; }
+.how-step-ic { width: 64px; height: 64px; display: grid; place-items: center; border-radius: 20px; background: var(--water-soft); color: var(--water); }
+.how-step-ic .how-ic { width: 32px; height: 32px; }
+
+/* ---------- Data set cards ---------- */
+.how-cards { display: grid; gap: 16px; }
+@media (min-width: 700px) { .how-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1000px) { .how-cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.how-card { display: grid; gap: 8px; align-content: start; padding: 20px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: 20px; box-shadow: var(--shadow-sm); border-top: 6px solid var(--water); }
+.how-card.not-nasa { border-top-color: #B7AD8F; }
+.how-tag { justify-self: start; padding: 2px 12px; border-radius: 999px; font-size: .78rem; font-weight: 800; letter-spacing: .03em;
+  background: var(--water-soft); color: #245A41; }
+.how-card.not-nasa .how-tag { background: #EFE6CD; color: #6A5A2B; }
+.how-card h3 { font-size: 1.15rem; }
+.how-use { font-size: .95rem; }
+.how-status { font-size: .88rem; font-weight: 700; color: var(--earth); }
+
+/* ---------- Test results: bars that fill and numbers that count up ---------- */
+.how-proof { display: grid; gap: 16px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow-sm); }
+.how-bar { display: grid; gap: 6px; }
+.how-bar-top { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; font-weight: 600; }
+.how-bar-top strong { font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+.how-bar-track { height: 18px; border-radius: 999px; background: #EFE6CD; overflow: hidden; }
+.how-bar-fill { height: 100%; width: var(--w); border-radius: 999px; background: linear-gradient(90deg, #3F7D3A, #7BAE4A); }
+.how-bar.muted .how-bar-fill { background: linear-gradient(90deg, #A89F83, #C9C0A3); }
+.how-callouts { display: grid; gap: 14px; }
+@media (min-width: 900px) { .how-callouts { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.how-callout { padding: 18px 20px; border-radius: 18px; background: var(--gold-soft); border: 1px solid #F0D58A; display: grid; gap: 6px; align-content: start; }
+.how-callout h3 { font-size: 1.05rem; color: #6A4A12; }
+
+/* ---------- Limits ---------- */
+.how-limits { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+@media (min-width: 800px) { .how-limits { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.how-limits li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 12px; align-items: start; padding: 14px 16px;
+  background: var(--surface); border: 1px solid var(--line); border-left: 6px solid var(--amber); border-radius: 14px; }
+.how-limits .how-ic { color: var(--amber); }
+.how-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+.how-cta .action { flex: 1 1 220px; text-decoration: none; }
+
+/* ---------- Motion ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  /* Things rise into place when they scroll into view (JS adds .in). Without JS they just show. */
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .6s ease, transform .6s cubic-bezier(.2, .7, .2, 1); transition-delay: calc(var(--i, 0) * 110ms); }
+  .reveal.in { opacity: 1; transform: none; }
+  .how-bar-fill { width: 0; transition: width 1.3s cubic-bezier(.2, .7, .2, 1) .15s; }
+  .in .how-bar-fill { width: var(--w); }
+
+  .how-ring { animation: how-spin 14s linear infinite; }
+  .how-sat { animation: how-spin 14s linear infinite reverse; }          /* keeps the satellite upright */
+  .how-earth { animation: how-breathe 5s ease-in-out infinite; }
+  .how-drop { animation: how-fall 2.4s ease-in infinite; }
+  .how-drop.d2 { animation-delay: .8s; } .how-drop.d3 { animation-delay: 1.6s; }
+  @keyframes how-spin { to { transform: rotate(360deg); } }
+  @keyframes how-breathe { 50% { transform: scale(1.04); } }
+  @keyframes how-fall { 0% { transform: translateY(0); opacity: 0; } 15% { opacity: .9; } 80% { opacity: .9; } 100% { transform: translateY(78px); opacity: 0; } }
+
+  /* The dot travels along the line from step 1 to step 4 */
+  @media (min-width: 900px) { .how-steps::after { animation: how-travel 5s ease-in-out infinite; } }
+  @keyframes how-travel { 0% { left: 12%; } 50% { left: calc(88% - 16px); } 100% { left: 12%; } }
+
+  .how-step-ic { transition: transform .25s ease, background-color .25s ease; }
+  .how-step:hover .how-step-ic { transform: translateY(-4px) rotate(-6deg) scale(1.08); background: var(--gold-soft); }
+  .how-card, .how-callout, .how-limits li { transition: transform .2s ease, box-shadow .2s ease; }
+  .how-card:hover, .how-callout:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .how-limits li:hover { transform: translateX(4px); }
+}
+
+/* Monsoon rain picture (Canva) behind the page title */
+.how-hero { background: linear-gradient(90deg, rgba(18, 42, 38, .86) 0%, rgba(18, 42, 38, .55) 60%, rgba(18, 42, 38, .25) 100%), url("../img/rain.jpg") center / cover no-repeat, #2B5430; border: 0; }
+.how-hero h1 { color: #fff; }
+.how-hero .hint { color: rgba(255, 255, 255, .9); }
+.how-hero .hero-kicker { color: #F6D98C; }
+.how-ring { border-color: rgba(255, 255, 255, .55); }
+.how-drop { background: #BFE3F2; }
+
+.how-credit-list { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 4px; font-size: .92rem; }
+.how-section { scroll-margin-top: 110px; }
+
+/* ---------- Realistic media (made with Google Flow): hero video, step photos, rain banner ---------- */
+.how-hero.has-video { display: grid; grid-template-columns: 1fr; min-height: 360px; align-content: end; padding: 40px 32px 34px; background: #1B2B22; }
+.how-hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.how-hero-shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(10, 28, 24, .15) 0%, rgba(10, 28, 24, .35) 45%, rgba(10, 28, 24, .82) 100%); }
+.how-hero.has-video .how-hero-text { position: relative; z-index: 2; max-width: 44em; }
+.how-hero.has-video h1 { text-shadow: 0 2px 14px rgba(0, 0, 0, .45); }
+.how-hero.has-video .hint { text-shadow: 0 1px 8px rgba(0, 0, 0, .5); }
+
+.how-step.has-photo { padding: 0 0 20px; overflow: hidden; align-content: start; }
+.how-step.has-photo h3, .how-step.has-photo p { padding-inline: 16px; }
+.how-step-photo { position: relative; width: 100%; margin: 0 0 8px; aspect-ratio: 16 / 10; overflow: hidden; }
+.how-step-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 1.2s ease; }
+.how-step.has-photo:hover .how-step-photo img { transform: scale(1.06); }
+.how-step.has-photo .how-step-num { top: 10px; left: 12px; z-index: 2; background: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+.how-step.has-photo .how-step-ic { position: absolute; right: 12px; bottom: 10px; width: 46px; height: 46px; border-radius: 16px; background: rgba(255, 255, 255, .92); box-shadow: 0 2px 10px rgba(0, 0, 0, .25); }
+.how-step.has-photo .how-step-ic .how-ic { width: 24px; height: 24px; }
+@media (min-width: 900px) { .how-steps:has(.has-photo)::before, .how-steps:has(.has-photo)::after { display: none; } }
+
+.how-banner { position: relative; margin-top: 44px; min-height: 280px; border-radius: 28px; overflow: hidden; display: grid; align-items: end; background: #25402F; box-shadow: var(--shadow-sm); }
+.how-banner-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.how-banner-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14, 34, 30, .78) 0%, rgba(14, 34, 30, .45) 55%, rgba(14, 34, 30, .15) 100%); }
+.how-banner-text { position: relative; padding: 32px; max-width: 34em; color: #fff; }
+.how-banner-text h2 { color: #fff; font-size: clamp(1.4rem, 3vw, 2rem); text-shadow: 0 2px 12px rgba(0, 0, 0, .4); }
+.how-banner-text p { margin-top: 8px; color: rgba(255, 255, 255, .92); font-size: 1.05rem; }
+.how-ai-note { margin-top: 36px; text-align: center; }

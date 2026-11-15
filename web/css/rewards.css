@@ -1,0 +1,97 @@
+/* Rewards: the level strip on the Learn page, the "My rewards" page, and the little celebration after a reward. */
+
+/* the water-drop mark used next to every drops number (drawn with a mask, so it takes the text colour) */
+.rw-dropmark { display: inline-block; width: 1em; height: 1.1em; margin-inline-end: .35em; vertical-align: -0.15em; background-color: #2F8FD0;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22a7 7 0 0 0 7-7c0-4-7-13-7-13S5 11 5 15a7 7 0 0 0 7 7z'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22a7 7 0 0 0 7-7c0-4-7-13-7-13S5 11 5 15a7 7 0 0 0 7 7z'/%3E%3C/svg%3E") center / contain no-repeat; }
+.rw-ico.locked { opacity: .55; filter: grayscale(.6); }
+.rw-emblem { flex: none; filter: drop-shadow(0 4px 6px rgba(31, 94, 133, .25)); }
+
+/* a bar that fills up */
+.rw-bar { display: block; height: 14px; border-radius: 999px; background: #DCEBF3; border: 2px solid #fff; box-shadow: inset 0 1px 3px rgba(31, 94, 133, .2); overflow: hidden; }
+.rw-bar > span { display: block; height: 100%; border-radius: 999px; background: linear-gradient(90deg, #5BB6E6, #2F8FD0); transition: width .6s ease; }
+
+/* ---- the strip on the Learn page ---- */
+.lh-rw { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-radius: 26px; background: linear-gradient(120deg, #FFF8DA, #E9F6FD); border: 3px solid #fff;
+  box-shadow: 0 8px 0 rgba(31, 94, 133, .12), 0 14px 24px rgba(31, 94, 133, .15); text-decoration: none; color: #1F5E85; transition: transform .2s; }
+.lh-rw:hover, .lh-rw:focus-visible { transform: translateY(-3px); }
+.lh-rw-main { display: grid; gap: 4px; flex: 1; min-width: 0; font-weight: 700; }
+.lh-rw-main strong { font-size: 1.3rem; }
+.lh-rw .lh-go { flex: none; }
+@media (max-width: 620px) { .lh-rw { flex-wrap: wrap; } .lh-rw .lh-go { width: 100%; } }
+
+/* ---- the My rewards page ---- */
+.rw-page { display: grid; gap: 22px; }
+.rw-hero { display: flex; align-items: center; gap: 22px; padding: 22px; border-radius: 28px; background: linear-gradient(135deg, #FFF8DA, #E4F4FC); border: 3px solid #fff; box-shadow: var(--shadow-sm); }
+.rw-hero-text { display: grid; gap: 6px; flex: 1; min-width: 0; }
+.rw-hero-text h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); color: #1F5E85; }
+.rw-kicker { margin: 0; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; font-size: .8rem; color: #B7791F; }
+.rw-drops { margin: 0; font-size: 1.3rem; color: #1F5E85; }
+.rw-sub { margin: 0; color: #4A5B66; font-size: .95rem; }
+.rw-streak { margin: 0; display: flex; align-items: center; gap: 8px; font-weight: 800; color: #B5472F; }
+.rw-sec { display: grid; gap: 10px; padding: 20px; border-radius: 24px; background: #fff; border: 3px solid #E1EEF5; }
+.rw-sec h2 { color: #1F5E85; font-size: 1.4rem; }
+.rw-how { background: #F4FAFE; }
+
+.rw-badges { list-style: none; margin: 4px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 14px; }
+.rw-badge { display: grid; justify-items: center; align-content: start; gap: 4px; padding: 14px 10px; border-radius: 20px; background: #F6FBFE; border: 2px dashed #CFE3EE; text-align: center; }
+.rw-badge.on { background: linear-gradient(180deg, #FFFDF2, #FFF2C9); border: 2px solid #F2C94C; }
+.rw-badge strong { color: #1F5E85; font-size: 1.02rem; }
+.rw-badge span { font-size: .88rem; color: #4A5B66; }
+.rw-badge em { font-style: normal; font-size: .8rem; font-weight: 800; color: #8A7A4A; }
+.rw-badge:not(.on) strong, .rw-badge:not(.on) span { opacity: .7; }
+
+/* the lesson cards: tap a collected one to turn it over */
+.rw-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 14px; }
+.rw-card { padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: left; perspective: 900px; cursor: pointer; }
+.rw-card.off { cursor: default; }
+.rw-card-in { position: relative; display: block; aspect-ratio: 16 / 15; transform-style: preserve-3d; transition: transform .55s; }
+.rw-card.flipped .rw-card-in { transform: rotateY(180deg); }
+.rw-face { position: absolute; inset: 0; display: grid; align-content: start; gap: 6px; padding: 8px; border-radius: 18px; background: #fff; border: 3px solid #fff; outline: 3px solid #BFE0EE; box-shadow: 0 5px 0 rgba(31, 94, 133, .15);
+  backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow: hidden; }
+.rw-card.on .rw-face { outline-color: #F2C94C; }
+.rw-front img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 12px; display: block; }
+.rw-front strong { font-size: .95rem; color: #1F5E85; line-height: 1.2; }
+.rw-back { transform: rotateY(180deg); background: linear-gradient(180deg, #FFFDF2, #FFF2C9); align-content: center; text-align: center; }
+.rw-back strong { color: #1F5E85; }
+.rw-back span { font-size: .88rem; line-height: 1.35; }
+.rw-card.off .rw-front img { filter: grayscale(1) blur(3px) brightness(.9); }
+.rw-card.off .rw-front strong { text-align: center; font-size: 1.4rem; color: #9AA8B2; }
+.rw-card:focus-visible { outline: 3px solid var(--water); outline-offset: 3px; border-radius: 20px; }
+
+/* certificate */
+.rw-name { display: grid; gap: 4px; font-weight: 700; max-width: 22em; }
+.rw-name input { min-height: 48px; padding: 0 14px; border: 3px solid #BFE0EE; border-radius: 14px; font: inherit; font-size: 1.1rem; }
+.rw-cert-buttons { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.rw-cert { display: grid; justify-items: center; gap: 8px; padding: 30px 24px; text-align: center; border-radius: 18px; background: #FFFDF2; border: 8px double #E0A526; }
+.rw-cert-top { margin: 0; font-size: 1.4rem; font-weight: 800; color: #B7791F; letter-spacing: .04em; }
+.rw-cert-name { margin: 0; font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 800; color: #1F5E85; border-bottom: 3px solid #E0A526; padding: 0 20px 4px; min-width: 40%; }
+.rw-cert-text { margin: 0; max-width: 32em; font-size: 1.1rem; }
+.rw-cert-meta, .rw-cert-foot { margin: 0; color: #4A5B66; font-size: .95rem; }
+.rw-reset { background: transparent; border-style: dashed; }
+
+/* ---- the celebration card after a reward ---- */
+.rw-toast { position: fixed; top: 96px; right: 20px; z-index: 60; width: min(calc(100vw - 24px), 360px); display: grid; gap: 8px; padding: 16px 18px; border-radius: 24px;
+  background: linear-gradient(180deg, #FFFDF2, #FFF2C9); border: 4px solid #fff; outline: 3px solid #F2C94C; box-shadow: 0 16px 34px rgba(31, 94, 133, .35); cursor: pointer;
+  animation: rw-pop .5s cubic-bezier(.2, 1.4, .4, 1) both; }
+@keyframes rw-pop { from { opacity: 0; transform: translateY(-24px) scale(.92); } }
+@media (max-width: 600px) { .rw-toast { top: 74px; right: 12px; left: 12px; width: auto; } }
+.rw-toast p { margin: 0; }
+.rw-gain { font-size: 1.6rem; font-weight: 800; color: #1F5E85; display: flex; align-items: center; }
+.rw-line { display: flex; align-items: center; gap: 10px; font-weight: 700; color: #2D4B5C; }
+.rw-up { color: #B7791F; }
+.rw-mini { border-radius: 6px; object-fit: cover; }
+.rw-see { justify-self: start; font-weight: 800; color: var(--water); text-decoration: underline; }
+
+@media (max-width: 620px) { .rw-hero { flex-direction: column; text-align: center; } .rw-hero-text { justify-items: center; width: 100%; } }
+@media (min-width: 900px) { .rw-page { max-width: 1100px; width: 100%; margin-inline: auto; } }
+@media (prefers-reduced-motion: reduce) { .rw-toast { animation: none; } .rw-card-in, .rw-bar > span { transition: none; } }
+
+/* Printing the certificate: only the certificate is printed */
+@media print {
+  body.rw-printing > *:not(main) { display: none !important; }
+  body.rw-printing main :not(.rw-cert-sec):not(.rw-cert-sec *):not(:has(.rw-cert-sec)) { display: none !important; }
+  body.rw-printing .rw-cert-sec { border: 0; padding: 0; }
+  body.rw-printing .rw-cert-sec > h2, body.rw-printing .rw-name, body.rw-printing .rw-cert-buttons { display: none !important; }
+  body.rw-printing .rw-cert { border: 10px double #E0A526; min-height: 70vh; align-content: center; page-break-inside: avoid; }
+}

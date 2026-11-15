@@ -1,0 +1,116 @@
+/* Monsoon Compass — website layer
+   Loaded after style.css. It turns the phone-app layout (fixed bars, full-screen panels, 360 px column)
+   into a normal website: header with menu, hero, a wide centred page, and a footer.
+   Still responsive: everything below 900 px stacks into one column. */
+
+:root { --container: 1180px; --topbar: 68px; }
+@media (min-width: 900px) { :root { font-size: 17px; } }
+
+html, body { height: auto; }
+body { background: var(--bg); }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: 20px; }
+.skip-link { position: absolute; left: 8px; top: -60px; z-index: 2000; padding: 10px 16px; background: #fff; color: var(--ink);
+  border-radius: 8px; font-weight: 700; }
+.skip-link:focus { top: 8px; }
+
+/* ---------- Header and menu ---------- */
+.site-header { height: auto; padding: 0; display: block; }
+.header-inner { display: flex; align-items: center; gap: 24px; min-height: var(--topbar); flex-wrap: wrap; padding-block: 8px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; font-size: 1.15rem; }
+.brand img { border-radius: 9px; background: #fff; padding: 2px; }
+.site-nav { display: flex; gap: 4px; margin-right: auto; }
+.site-nav a { color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 999px; font-weight: 600; transition: background-color .15s; }
+.site-nav a:hover { background: rgba(255, 255, 255, .2); }
+.header-tools { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.site-header .mode-bar { position: static; display: flex; gap: 0; padding: 0; background: rgba(255, 255, 255, .12);
+  -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none;
+  border: 2px solid rgba(255, 255, 255, .7); border-radius: 999px; overflow: hidden; }
+.site-header .mode-bar button { min-height: 40px; padding: 4px 14px; border: 0; border-radius: 0; background: transparent; color: #fff; font-size: .9rem; }
+.site-header .mode-bar button[aria-pressed="true"] { background: #fff; color: var(--water); }
+.site-header .mode-bar button:hover:not([aria-pressed="true"]) { background: rgba(255, 255, 255, .22); filter: none; transform: none; }
+@media (max-width: 760px) {
+  .header-inner { gap: 8px 16px; }
+  .site-nav { order: 3; width: 100%; overflow-x: auto; margin: 0; }
+  .header-tools { margin-left: auto; }
+}
+
+/* ---------- Hero (home page) ---------- */
+.hero { position: relative; overflow: hidden; color: #fff; padding: 56px 0 44px;
+  background: linear-gradient(135deg, #0B4A54 0%, #13707C 55%, #1B8A7F 100%); }
+.hero::before, .hero::after { content: ""; position: absolute; border-radius: 50%; background: rgba(255, 255, 255, .07); }
+.hero::before { width: 420px; height: 420px; right: -120px; top: -160px; }
+.hero::after { width: 260px; height: 260px; right: 160px; bottom: -150px; }
+.hero-inner { position: relative; z-index: 1; display: grid; gap: 6px; }
+.hero-kicker { text-transform: uppercase; letter-spacing: .08em; font-weight: 700; font-size: .85rem; opacity: .85; }
+.hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); color: #fff; line-height: 1.15; }
+.hero .hint { color: rgba(255, 255, 255, .88); font-size: 1.15rem; max-width: 40em; }
+.hero .finder { max-width: 680px; margin-top: 18px; }
+.hero .finder-status { color: rgba(255, 255, 255, .9); margin: 6px 0 0; }
+.hero .finder-status.error { color: #FFD9D4; }
+@media (max-width: 600px) { .hero { padding: 36px 0 28px; } }
+
+/* ---------- Page body ---------- */
+.layout { display: block !important; height: auto !important; padding-bottom: 0; min-height: 50vh; }
+.map-view { overflow: visible; padding: 32px 20px 24px; }
+.home-grid { display: grid; gap: 32px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 960px) {
+  .home-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); align-items: start; }
+  .home-map { position: sticky; top: calc(var(--topbar) + 16px); }
+  .map { height: min(68vh, 620px); }
+  .tank-list { max-height: 68vh; overflow-y: auto; padding: 4px 8px 8px 2px; scrollbar-width: thin; }
+}
+.list-title { margin: 0 0 12px; }
+.learn-entry { margin-top: 36px; max-width: none; }
+
+/* A tank's page and Learn Mode */
+.tank-view, .tank-view:not([hidden]) { position: static !important; inset: auto; z-index: auto; overflow: visible !important;
+  border: 0 !important; background: transparent; padding: 28px 20px 8px; animation: none; }
+.tank-head { background: var(--surface); border-radius: 20px; padding: 22px 28px; box-shadow: var(--shadow-sm); margin-bottom: 24px; }
+.tank-head h1 { font-size: clamp(1.7rem, 3.2vw, 2.4rem); }
+.back { margin-bottom: 8px; }
+.panel-body { padding: 0; gap: 28px; }
+.signal { max-width: none; }
+
+@media (min-width: 760px) {
+  .simple-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .crop-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .scenarios { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 900px) {
+  .facts { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .block { padding: 22px 24px; }
+}
+.plan-actions, .card-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.plan-actions .action { flex: 1 1 220px; }
+.cal-strip, .cal-months { max-width: 760px; }
+
+/* ---------- Footer ---------- */
+
+/* Hero: the "near me" button must stand out against the teal */
+.hero .near-me { background: #fff; color: var(--water); }
+.hero .near-me:hover { background: var(--water-soft); color: var(--ink); }
+.hero .near-me svg { stroke: var(--water); }
+.site-nav a { white-space: nowrap; }
+@media (max-width: 760px) { .site-nav a { padding: 6px 12px; } }
+
+/* ---------- Menu: current page, and the sowing-calendar page ---------- */
+.site-nav a[aria-current="page"] { background: rgba(255, 244, 205, .22); }
+.cal-pick { display: grid; gap: 4px; max-width: 420px; margin-top: 12px; font-weight: 700; }
+.cal-pick select { min-height: 48px; padding: 0 12px; border-radius: 12px; border: 2px solid var(--water); background: var(--surface); color: var(--ink); font: inherit; }
+.cal-link { text-decoration: none; display: inline-flex; padding: 0 24px; }
+
+/* ---------- Footer (standard: brand, two link columns, copyright line) ---------- */
+.site-footer { margin-top: 56px; background: #2D3A21; color: #EDE6CE; border-top: 6px solid var(--gold); }
+.footer-grid { display: grid; gap: 28px 40px; padding-top: 36px; padding-bottom: 28px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 760px) { .footer-grid { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr); } }
+.footer-brand { display: grid; gap: 10px; align-content: start; }
+.footer-brand .brand { color: #fff; text-decoration: none; }
+.footer-brand p { color: #CFC8AE; max-width: 26em; }
+.footer-col { display: grid; gap: 8px; align-content: start; }
+.footer-col h2 { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.footer-col a { color: #EDE6CE; text-decoration: none; width: fit-content; }
+.footer-col a:hover, .footer-col a:focus-visible { color: #fff; text-decoration: underline; text-underline-offset: 4px; }
+.footer-bottom { border-top: 1px solid rgba(237, 230, 206, .18); }
+.footer-bottom-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 16px; padding-bottom: 20px; font-size: .88rem; color: #CFC8AE; }
+
+@media (min-width: 700px) { .footer-bottom-inner { padding-right: 210px; } }

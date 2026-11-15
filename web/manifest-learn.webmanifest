@@ -1,0 +1,19 @@
+{
+  "name": "Monsoon Compass: Learn",
+  "short_name": "Learn",
+  "description": "Lessons, games and rewards about water, farming and our climate, for children and students.",
+  "lang": "si",
+  "start_url": "learn.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF6EA",
+  "theme_color": "#2477B0",
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
