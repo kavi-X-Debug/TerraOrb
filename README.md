@@ -1,74 +1,60 @@
-# 🌍 TerraOrb 
+# 🌍 TerraOrb (Monsoon Compass)
+
 > **Your season's direction, read from space.**  
-> *Translating NASA Earth Observation data into timely, transparent agricultural decisions for Sri Lanka's Dry Zone farmer organisations.*
+> Translating NASA Earth Observation data into timely agricultural decisions for Sri Lanka's Dry Zone farmer organisations.
 
-[![NASA Space Apps Challenge 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-blue.svg)](https://www.spaceappschallenge.org/)
-[![Challenge](https://img.shields.io/badge/Challenge-Field%20Shift-orange.svg)](https://www.spaceappschallenge.org/)
+[![NASA Space Apps 2026](https://img.shields.io/badge/NASA%20Space%20Apps-2026-blue.svg)](https://www.spaceappschallenge.org/)
+[![Challenge: Field Shift](https://img.shields.io/badge/Challenge-Field%20Shift-orange.svg)](https://www.spaceappschallenge.org/)
+[![PWA: Offline First](https://img.shields.io/badge/PWA-Offline%20First-emerald.svg)](web/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![PWA Ready](https://img.shields.io/badge/PWA-Offline%20First-emerald.svg)](web/)
-[![Python 3.13](https://img.shields.io/badge/Python-3.13-blue.svg)](pipeline/)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI%20%2B%20SQLite-009688.svg)](backend/)
 
 ---
 
-## 🌾 The Challenge
-In Sri Lanka’s Dry Zone, ancient cascading tank systems (*Ellangawa*) have sustained communities for over two millennia. However, accelerating climate volatility has disrupted generational agricultural rhythms:
-- **Erratic Monsoon Onset:** The start of the vital Yala and Maha rains can shift by weeks, causing farmers to miss critical planting windows.
-- **Water Uncertainty at the Kanna Meeting:** Village farmer committees must decide collectively how much land to cultivate without knowing the true water extent of their reservoirs or seasonal evaporation risks.
-- **Risk of Crop Failure:** Misjudging water capacity leads to devastating paddy crop loss, severe debt, and food insecurity.
+## 🌾 What is TerraOrb?
 
-**TerraOrb** solves this by putting satellite radar, optical surface reflectance, and 46 years of NASA agroclimatology directly into the hands of village farmers, agricultural instructors, and researchers.
+In Sri Lanka's Dry Zone, ancient cascade tanks (*Ellangawa*) supply irrigation to village paddy fields. Climate volatility causes monsoon onset dates to shift drastically, making seasonal planning difficult for village *kanna* meetings.
 
----
-
-## ✨ Key Features & User Ends
-
-TerraOrb is built with dedicated interfaces tailored to different stakeholders in the agrarian ecosystem:
-
-### 1. 🧑‍🌾 Farmer End (`/web/farmer.html`)
-- **103 Village Tanks Mapped:** Pick any tank across Dry Zone cascade networks to inspect current water extent vs. historical 10-year normals.
-- **Monsoon Onset Shift:** Visualizes 30+ year shift trends for Yala (March) and Maha (September) rains calculated with a 3-day 25mm threshold.
-- **Green / Amber / Red Advice:** Clear, transparent seasonal strategy:
-  - 🟢 **Full Paddy:** Safe to prepare 100% of command area for standard 3.5–4 month varieties.
-  - 🟡 **Bethma Sharing:** Moderate water storage; calculates exact percentage of upper command area to share under traditional Bethma tenure using short-duration paddy.
-  - 🔴 **Other Field Crops (OFC):** High water stress; recommends low-water alternative crops (mung bean, cowpea, black gram) to guarantee harvest.
-- **12-Week Sowing Calendar & Weekly Advice:** Dynamic tasks with WhatsApp sharing cards for village councils.
-- **Hyper-Local Nowcasting:** 16-day forecasts, hourly rain rates, and automated flood alert banners.
-
-### 2. 🏛️ Agrarian Officer Dashboard (`/web/officer.html`)
-- Real-time cascade-level oversight across administrative agrarian service divisions.
-- Regional drought, flood alert indices, and automated reports for divisional Kannameetings.
-- Regional active fires from NASA FIRMS and GRACE-FO groundwater anomalies.
-
-### 3. 🔬 Research & Climate Lab (`/web/research.html`)
-- Long-term agroclimatological trend analysis, backtesting validation statistics (79% accuracy vs. 57% baseline), and multi-sensor correlation tools.
-
-### 4. 🎒 Trip & Field Event Planner (`/web/plan.html`)
-- Event and field travel planner with rain probability tendencies, feel-like heat, and UV alerts.
-
-### 5. 🎮 Learn Mode & Little Farmers (`/web/learn.html`)
-- **16 Illustrated Lessons:** Visual stories covering El Niño, cascade cascades, soil moisture, and glaciers.
-- **Mini-Games:** Crop memory, water sorting, and the **Tank Farmer** water economy simulator.
-- **Rewards System:** Earn drops, badges, and printable agrarian certificates.
+TerraOrb maps **103 cascade tanks**, fusing satellite radar with 46 years of NASA agroclimatology to provide:
+1. **Satellite Tank Water:** Current water extent vs. historical normal (30m resolution).
+2. **Monsoon Shift Tracking:** Yala & Maha rainfall onset delays over 30+ years.
+3. **Transparent Advisory:** Green / Amber / Red signals:
+   - 🟢 **Full Paddy:** 100% command area under standard varieties.
+   - 🟡 **Bethma Sharing:** Cultivate shared upper plots using short-duration paddy.
+   - 🔴 **Alternative Crops:** Switch to drought-resilient mung bean, cowpea, or black gram.
+4. **Live Nowcasting & Warnings:** 16-day forecasts, hourly rainfall, and flash flood alerts.
+5. **Offline Support:** Full PWA service worker with Sinhala & English translations.
 
 ---
 
-## 🛰️ NASA Earth Science Datasets Used
+## 📱 App Interfaces
 
-TerraOrb operates on a strict **"Zero Invented Data"** principle. Every metric shown carries its source label and uncertainty confidence:
-
-| Dataset | Sensor / Platform | Usage in TerraOrb |
+| End | URL | Focus |
 |---|---|---|
-| **NASA POWER** | MERRA-2 Agroclimatology | 46 years of daily precipitation, max/min temperatures, and solar radiation (1981–2026) for onset detection & evapotranspiration (FAO Hargreaves-Samani). |
-| **OPERA DSWx-HLS** | Landsat 8/9 & Sentinel-2 Fusion | 30-meter surface water dynamics measuring tank area extent vs. historical normal. |
-| **HLS (HLSL30 / HLSS30)** | Landsat & Sentinel-2 | High-resolution surface reflectance for NDWI `(Green − NIR) / (Green + NIR)` water fallback. |
-| **GPM IMERG** | Multi-satellite precipitation | Satellite precipitation rate mapping and real-time live rain nowcasting. |
-| **MODIS & VIIRS** | Terra, Aqua, Suomi-NPP | True-color surface imagery, MOD13Q1 NDVI vegetation vigor, and land surface temperature. |
-| **SMAP L3 & GLDAS-2.1** | Radiometer / Noah Model | Root-zone and top 5cm soil moisture anomalies to evaluate field saturation. |
-| **NASA FIRMS** | MODIS Active Fire | Near real-time active thermal anomalies and agricultural burning tracking. |
-| **GRACE-FO** | JPL Mascon | Terrestrial water storage and regional groundwater thickness dynamics. |
-| **Open-Meteo** *(Credited)* | ECMWF / GFS | 16-day numerical weather forecast and hourly nowcast (clearly labeled "Not NASA data"). |
+| **Farmer** | [`web/farmer.html`](web/farmer.html) | Village tank finder, crop calendar, advice & WhatsApp share cards |
+| **Officer** | [`web/officer.html`](web/officer.html) | Regional cascade oversight, FIRMS fire alerts & divisional reports |
+| **Research** | [`web/research.html`](web/research.html) | Climate time series, GRACE-FO groundwater & backtest stats |
+| **Plan** | [`web/plan.html`](web/plan.html) | Field travel planner with rain probability & heat indexes |
+| **Learn** | [`web/learn.html`](web/learn.html) | 16 illustrated lessons, crop thirst mini-games & rewards |
 
 ---
 
-## 🏗️ Architecture & Philosophy
+## 🛰️ NASA Data Stack
+
+| Dataset | Provider | Usage in TerraOrb |
+|---|---|---|
+| **NASA POWER** | MERRA-2 | 46 years of daily rainfall & temperature (1981–2026) for onset detection |
+| **OPERA DSWx-HLS** | PO.DAAC | 30m satellite surface water extent vs. 10-year monthly baselines |
+| **HLS (Landsat/Sentinel)** | LP DAAC | NDWI spectral water index fallback |
+| **GPM IMERG** | NASA GIBS | Satellite precipitation rate & real-time nowcasting |
+| **MODIS & VIIRS** | NASA GIBS | NDVI vegetation vigor, land temperature & active fires (FIRMS) |
+| **GRACE-FO** | JPL | Terrestrial groundwater storage thickness anomalies |
+
+---
+
+## 🚀 Quickstart
+
+Run the static web app locally (no Node or npm required):
+
+```powershell
+# From repository root
+python -m http.server 8010
