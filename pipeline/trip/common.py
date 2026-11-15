@@ -27,6 +27,7 @@ SCHEMAS = {
     "config": "trip-config-1",
     "models": "trip-models-1",
     "env": "trip-env-1",
+    "imerg": "trip-imerg-1",
 }
 
 

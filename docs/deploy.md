@@ -1,4 +1,4 @@
-# Deploying Monsoon Compass (free, on GitHub Pages)
+# Deploying TerraOrb (free, on GitHub Pages)
 
 This guide is for a teammate who has never used GitHub Pages. It takes about 20 minutes.
 At the end, the site is online at `https://<org>.github.io/<repo>/`, and its data refreshes
@@ -38,7 +38,7 @@ You need:
 1. Sign in to GitHub. Top right, click **+** → **New repository**.
    (For a team, first create an organisation: **+** → **New organization**, free plan, then
    create the repository inside it.)
-2. **Repository name:** e.g. `monsoon-compass`. This becomes part of the address.
+2. **Repository name:** e.g. `terraorb`. This becomes part of the address.
 3. Choose **Public**. GitHub Pages and Actions minutes are free for public repositories.
    Everything in the repo, including the data, will be visible to anyone.
 4. Leave "Add a README" **unticked** (the project already has one). Click **Create repository**.
@@ -50,7 +50,7 @@ In a terminal in the project folder (`E:\Monsoon Compass`), replace `<org>` with
 GitHub user or organisation name:
 
 ```
-git remote add origin https://github.com/<org>/monsoon-compass.git
+git remote add origin https://github.com/<org>/terraorb.git
 git push -u origin main
 ```
 
@@ -64,7 +64,7 @@ afterwards: you should see `web`, `data`, `pipeline`, `docs` and `.github`.
    (Not "Deploy from a branch". Our workflow publishes only `web/` and `data/`.)
 3. Open the **Actions** tab → **Publish site** (left) → **Run workflow** → **Run workflow**.
 4. Wait for the green ✓ (about a minute). Click the run: the **deploy** box shows the site
-   address, `https://<org>.github.io/monsoon-compass/`. Open it: it forwards you to `/web/`.
+   address, `https://<org>.github.io/terraorb/`. Open it: it forwards you to `/web/`.
 
 From now on, every push that changes `web/` or `data/` republishes the site automatically.
 

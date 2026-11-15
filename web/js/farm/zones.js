@@ -7,6 +7,7 @@
 //
 // This file also exports the small helpers (fpCall, fpEl, fpEnsureCss, fpNote) that plan.js and mockups.js reuse.
 import { t as tGlobal } from "../i18n.js";
+import { addNasaLayers } from "../nasa-layers.js";
 
 // ---------------------------------------------------------------------------
 // Shared helpers
@@ -191,6 +192,7 @@ export async function renderZones(ctx, farmId, view) {
     const lat = Number(farm.lat) || 8.3, lon = Number(farm.lon) || 80.4;
     const map = L.map(el, { scrollWheelZoom: false }).setView([lat, lon], 16);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 19, attribution: t("farmplan.map.credit") }).addTo(map);
+    addNasaLayers(L, map, t);                       // optional NASA pictures (true colour, greenness, heat, rain)
     state.map = map;
     const feats = state.zones.map((z) => ({ type: "Feature", properties: { zone: z }, geometry: z.feature?.geometry })).filter((f) => f.geometry && f.geometry.type);
     if (feats.length) {

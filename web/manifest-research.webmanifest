@@ -1,7 +1,7 @@
 {
-  "name": "Monsoon Compass: Method and data",
+  "name": "TerraOrb: Method and data",
   "short_name": "Method",
-  "description": "How Monsoon Compass works: NASA data sources, accuracy tests, crop numbers with their sources, and data downloads.",
+  "description": "How TerraOrb works: NASA data sources, accuracy tests, crop numbers with their sources, and data downloads.",
   "lang": "si",
   "start_url": "research.html",
   "scope": "./",
@@ -10,10 +10,22 @@
   "theme_color": "#5B3F8C",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

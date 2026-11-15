@@ -18,7 +18,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from . import auth, db
 
-app = FastAPI(title="Monsoon Compass farm planner", version="0.1")
+app = FastAPI(title="TerraOrb farm planner", version="0.1")
 origins = [o.strip() for o in os.environ.get("MC_CORS", "http://localhost:8010,http://127.0.0.1:8010").split(",") if o.strip()]
 app.add_middleware(CORSMiddleware, allow_origins=origins, allow_methods=["*"], allow_headers=["*"])
 

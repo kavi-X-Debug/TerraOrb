@@ -1,16 +1,16 @@
 {
  "trip.nav.label": "සංචාර සැලසුම් මෙනුව",
- "trip.nav.dashboard": "උපකරණ පුවරුව",
- "trip.nav.explore": "ගමනාන්ත ගවේෂණය",
- "trip.nav.rain": "වැසි අනාවැකිය",
- "trip.nav.compare": "කාලගුණ සංසන්දනය",
- "trip.nav.dates": "හොඳම ගමන් දින",
- "trip.nav.suggest": "ස්මාර්ට් යෝජනා",
+ "trip.nav.dashboard": "මුල් පිටුව",
+ "trip.nav.explore": "ස්ථාන ගවේෂණය",
+ "trip.nav.rain": "වහීද?",
+ "trip.nav.compare": "ස්ථාන සසඳන්න",
+ "trip.nav.dates": "හොඳම දින",
+ "trip.nav.suggest": "කොහාටද යන්නේ",
  "trip.nav.trips": "මගේ චාරිකා",
- "trip.nav.copilot": "AI සංචාර සහායක",
- "trip.nav.packing": "මල්ල සකසන සහායක",
+ "trip.nav.copilot": "සහායකයාගෙන් අහන්න",
+ "trip.nav.packing": "මල්ල සකසන ලැයිස්තුව",
  "trip.nav.settings": "සැකසුම්",
- "trip.nav.place": "තනි ස්ථානය",
+ "trip.nav.place": "එක් ස්ථානයක්, ඕනෑම දිනක්",
  "trip.state.loading": "පූරණය වෙමින්...",
  "trip.state.error": "යම් දෝෂයක් සිදුවිය. කරුණාකර නැවත උත්සාහ කරන්න.",
  "trip.state.retry": "නැවත උත්සාහ කරන්න",
@@ -59,5 +59,6 @@
  "trip.kind.forest": "වනය",
  "trip.kind.coast": "වෙරළ තීරය",
  "trip.disclaimer": "සැලසුම් සඳහා කාලගුණ මඟ පෙන්වීමකි, ආරක්ෂාව සහතික කිරීමක් නොවේ. අඩු වැසි අනාවැකියෙන් ස්ථානයක් ආරක්ෂිත බව අදහස් නොවේ: දේශීය තත්ත්වය පරීක්ෂා කරන්න.",
- "trip.score_note": "0 සිට 100 දක්වා සැලසුම් ලකුණකි, විද්‍යාත්මක ආරක්ෂණ දර්ශකයක් නොවේ."
+ "trip.score_note": "0 සිට 100 දක්වා සැලසුම් ලකුණකි, විද්‍යාත්මක ආරක්ෂණ දර්ශකයක් නොවේ.",
+ "trip.nav.more": "තවත්"
 }

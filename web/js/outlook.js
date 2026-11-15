@@ -168,3 +168,95 @@ function drawSeasonal(panel, seasonal, keep) {
     options: options(t("unit.mm")),
   }));
 }
+
+// ---------------------------------------------------------------------------
+// 4. Soil moisture around the tank (NASA GLDAS Noah, monthly, 25 km). Read from data/farm/soil_moisture.json, made by pipeline/soil_moisture.py.
+//    Added after the page is drawn; if the file or the cell is missing nothing is shown (never a guess).
+// ---------------------------------------------------------------------------
+let soilTable;
+async function loadSoil() {
+  if (soilTable === undefined) {
+    try { const r = await fetch("../data/farm/soil_moisture.json"); soilTable = r.ok ? await r.json() : null; } catch { soilTable = null; }
+  }
+  return soilTable;
+}
+
+export async function addSoil(panel, tank) {
+  const table = await loadSoil();
+  if (!table || !Number.isFinite(tank?.lat) || !Number.isFinite(tank?.lon)) return;
+  const snap = (v) => (Math.round((v - 0.125) / 0.25) * 0.25 + 0.125).toFixed(3).replace(/0+$/, "").replace(/\.$/, "");
+  const cell = table.cells[`${snap(tank.lat)}_${snap(tank.lon)}`];
+  const d = cell && cell.latest;
+  if (!d || !Number.isFinite(d.l1) || !panel.isConnected) return;
+  const z = Number.isFinite(d.l1_z) ? d.l1_z : 0;
+  const level = z <= -1.5 ? "much_drier" : z <= -0.5 ? "drier" : z >= 1.5 ? "much_wetter" : z >= 0.5 ? "wetter" : "same";
+  const month = date(`${d.month}-01`, { month: "long", year: "numeric" });
+  panel.insertAdjacentHTML("beforeend", `
+  <section class="block" aria-labelledby="soil-title">
+    <h2 id="soil-title">${escapeHtml(t("soil.title"))}</h2>
+    <p class="figure-line">${escapeHtml(t(`soil.${level}`, { month }))}</p>
+    <p class="note">${escapeHtml(t("soil.values", { l1: d.l1.toFixed(1), l2: Number.isFinite(d.l2) ? d.l2.toFixed(1) : "?", p1: d.l1_pct_of_usual ?? "?" }))}</p>
+    <p class="note">${escapeHtml(t("soil.help"))}</p>
+    ${sourceBadge(table.source)}
+  </section>`);
+}
+
+// ---------------------------------------------------------------------------
+// 5. A second rain record: NASA GPM IMERG (satellite, 10 km), from data/farm/imerg_tanks.json (pipeline/imerg_tanks.py).
+//    Shown next to NASA POWER for the last months, and it covers months POWER cannot (its newest days are skipped, see AGENTS.md).
+// ---------------------------------------------------------------------------
+let imergTable;
+async function loadImerg() {
+  if (imergTable === undefined) {
+    try { const r = await fetch("../data/farm/imerg_tanks.json"); imergTable = r.ok ? await r.json() : null; } catch { imergTable = null; }
+  }
+  return imergTable;
+}
+
+export async function addImerg(panel, tank, doc) {
+  const table = await loadImerg();
+  const rec = table && table.tanks && table.tanks[tank.id];
+  if (!rec || !rec.monthly.length || !panel.isConnected) return;
+  const power = new Map((doc?.rain?.monthly || []).map((m) => [m.month, m.total_mm]));
+  const rows = rec.monthly.slice(-6).map((m) => {
+    const usual = rec.usual_by_month[String(Number(m.month.slice(5)))];
+    const p = power.get(m.month);
+    return `<tr><th scope="row">${escapeHtml(date(`${m.month}-01`, { month: "short", year: "numeric" }))}</th><td>${m.total_mm.toFixed(0)}</td>`
+      + `<td>${usual == null ? "–" : usual.toFixed(0)}</td><td>${p == null ? "–" : p.toFixed(0)}</td></tr>`;
+  }).join("");
+  const last = rec.monthly.at(-1), u = rec.usual_by_month[String(Number(last.month.slice(5)))];
+  const pct = u ? Math.round((100 * last.total_mm) / u) : null;
+  const level = pct == null ? "none" : pct >= 130 ? "wetter" : pct <= 70 ? "drier" : "same";
+  panel.insertAdjacentHTML("beforeend", `
+  <section class="block" aria-labelledby="imerg-title">
+    <h2 id="imerg-title">${escapeHtml(t("imerg.title"))}</h2>
+    <p class="chart-help">${escapeHtml(t("imerg.help"))}</p>
+    ${level === "none" ? "" : `<p class="figure-line">${escapeHtml(t(`imerg.${level}`, { month: date(`${last.month}-01`, { month: "long", year: "numeric" }), mm: last.total_mm.toFixed(0), pct }))}</p>`}
+    <div class="of-scroll"><table class="crop-table"><thead><tr><th scope="col">${escapeHtml(t("imerg.col.month"))}</th><th scope="col">${escapeHtml(t("imerg.col.imerg"))}</th><th scope="col">${escapeHtml(t("imerg.col.usual"))}</th><th scope="col">${escapeHtml(t("imerg.col.power"))}</th></tr></thead><tbody>${rows}</tbody></table></div>
+    <p class="note">${escapeHtml(t("imerg.note"))}</p>
+    ${sourceBadge(table.source)}
+  </section>`);
+}
+
+// ---------------------------------------------------------------------------
+// 6. NASA SMAP satellite soil moisture around the tank (data/farm/smap.json, made by pipeline/smap.py). A real satellite measurement
+//    (9 km, top 5 cm); shown next to the GLDAS model above. Nothing is shown when the tank has too few clear readings.
+// ---------------------------------------------------------------------------
+let smapTable;
+export async function addSmap(panel, tank) {
+  if (smapTable === undefined) {
+    try { const r = await fetch("../data/farm/smap.json"); smapTable = r.ok ? await r.json() : null; } catch { smapTable = null; }
+  }
+  const d = smapTable && smapTable.tanks && smapTable.tanks[tank.id] && smapTable.tanks[tank.id].latest;
+  if (!d || !Number.isFinite(d.mean_m3m3) || !panel.isConnected) return;
+  const z = Number.isFinite(d.z) ? d.z : 0;
+  const level = z <= -1.5 ? "much_drier" : z <= -0.5 ? "drier" : z >= 1.5 ? "much_wetter" : z >= 0.5 ? "wetter" : "same";
+  panel.insertAdjacentHTML("beforeend", `
+  <section class="block" aria-labelledby="smap-title">
+    <h2 id="smap-title">${escapeHtml(t("smap.title"))}</h2>
+    <p class="figure-line">${escapeHtml(t(`smap.${level}`, { to: date(d.to, { day: "numeric", month: "long" }) }))}</p>
+    <p class="note">${escapeHtml(t("smap.values", { v: Math.round(d.mean_m3m3 * 100), p: d.pct_of_usual ?? "?", n: d.n_values }))}</p>
+    <p class="note">${escapeHtml(t("smap.help"))}</p>
+    ${sourceBadge(smapTable.source)}
+  </section>`);
+}

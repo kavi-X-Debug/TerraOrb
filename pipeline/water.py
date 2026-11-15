@@ -1,5 +1,5 @@
 """
-Tank water step of the Monsoon Compass pipeline
+Tank water step of the TerraOrb pipeline
 ===============================================
 
     .venv\\Scripts\\python pipeline\\water.py --search-only   (no login needed: just count scenes)
@@ -539,7 +539,7 @@ def search_only(tanks, today, cfg):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Monsoon Compass tank water step.")
+    parser = argparse.ArgumentParser(description="TerraOrb tank water step.")
     parser.add_argument("--today", type=date.fromisoformat, default=date.today())
     parser.add_argument("--search-only", action="store_true",
                         help="only count scenes (no login, nothing written)")

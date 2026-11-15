@@ -74,9 +74,9 @@ const esc = (s) => String(s).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace
 export function icsFile({ name, day, from, to, summary, description, url }) {
   const stamp = (h) => `${day.replaceAll("-", "")}T${pad(h)}0000`;
   return [
-    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Monsoon Compass//Trip planner//EN", "CALSCALE:GREGORIAN",
+    "BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//TerraOrb//Trip planner//EN", "CALSCALE:GREGORIAN",
     "BEGIN:VEVENT",
-    `UID:${day}-${from}-${to}-${esc(name).replace(/\W/g, "")}@monsoon-compass`,
+    `UID:${day}-${from}-${to}-${esc(name).replace(/\W/g, "")}@terraorb`,
     `DTSTAMP:${new Date().toISOString().replace(/[-:]/g, "").slice(0, 15)}Z`,
     `DTSTART:${stamp(from)}`, `DTEND:${stamp(to)}`,
     `SUMMARY:${esc(summary)}`, `LOCATION:${esc(name)}`, `DESCRIPTION:${esc(description)}`, url ? `URL:${url}` : null,

@@ -87,7 +87,10 @@ def test_profile_has_sources_and_area_note(anuradhapura):
     assert body["onset"]["data"]["Maha"]["summary"]["years_with_onset"] > 10
     assert body["dry_spells"]["data"]["Yala"]["by_year"][0]["longest_dry_spell_days"] is not None
     assert body["thresholds_are_placeholders"] is True
-    assert body["sm_anomaly"]["available"] is False and body["sm_anomaly"]["reason"]
+    sm = body["sm_anomaly"]                              # NASA GLDAS soil moisture when data/farm/soil_moisture.json exists, else an honest gap
+    assert sm["source"] if sm.get("available") else sm["reason"]
+    if sm.get("available"):
+        assert "NASA" in sm["source"] and sm["demo"] is False and sm["data"]["latest"]["l1"] > 0
     assert "area" in body["area_note"].lower()
 
 

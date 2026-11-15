@@ -2,6 +2,7 @@
 import { t } from "./i18n.js";
 import { signalOf } from "./data.js";
 import { signalIcon, signalKey, tankName, escapeHtml, levelWord } from "./ui.js";
+import { addNasaLayers } from "./nasa-layers.js";
 import { icon as weatherIcon, skyFromCode } from "./weather.js";
 
 // NASA GIBS true-colour image of a clear dry-season day over Sri Lanka.
@@ -12,6 +13,7 @@ const GIBS_DATE = "2024-08-15";
 let map = null;
 let markerLayer = null;
 let layerControl = null;
+let nasaControl = null;
 
 export function initMap() {
   map = L.map("map", { zoomControl: true, maxZoom: 16 }).setView([8.3, 80.45], 10);
@@ -33,11 +35,13 @@ function baseLayers() {
 export function renderMap(state, onSelect) {
   // Base layers: rebuilt so their names follow the current language.
   if (layerControl) map.removeControl(layerControl);
+  if (nasaControl) map.removeControl(nasaControl);
   map.eachLayer((layer) => { if (layer instanceof L.TileLayer) map.removeLayer(layer); });
   const { satellite, streets } = baseLayers();
   satellite.addTo(map);
   layerControl = L.control.layers({ [t("map.layer.satellite")]: satellite, [t("map.layer.streets")]: streets })
     .addTo(map);
+  nasaControl = addNasaLayers(L, map, t);              // optional NASA pictures: real colour, rain, greenness, ground heat
 
   markerLayer.clearLayers();
   const points = [];

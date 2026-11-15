@@ -60,6 +60,34 @@ def _load(path, _mtime):
     return json.loads(Path(path).read_text(encoding="utf-8"))
 
 
+def _soil_moisture(lat, lon):
+    """NASA GLDAS soil moisture (data/farm/soil_moisture.json, made by pipeline/soil_moisture.py) for the 0.25 degree cell holding the farm.
+    None when the file is missing or the farm is over a cell with no land value (never filled in)."""
+    table = _table("soil_moisture")
+    if not table:
+        return None
+    key = f"{round(round((lat - 0.125) / 0.25) * 0.25 + 0.125, 3)}_{round(round((lon - 0.125) / 0.25) * 0.25 + 0.125, 3)}"
+    cell = table["cells"].get(key)
+    if not cell:
+        return {"available": False, "reason": "NASA GLDAS has no land value for the 25 km square around this farm.",
+                "source": table["source"], "demo": False}
+    return {"available": True, "source": table["source"], "period": f"usual = {table['normal_period']}; newest month {table['newest_month']}",
+            "resolution": table["resolution"], "demo": False, "unit": table["unit"], "layers": table["layers"],
+            "data": {"cell": key, **cell}}
+
+
+def _cell_block(table_name, key, reason, part=None):
+    """One grid cell's block from a data/farm table made by a NASA pipeline (smap.py, modis_water.py), with its source label.
+    {'available': False, 'reason': ...} when the table or the cell is missing; never a made-up value."""
+    table = _table(table_name)
+    cell = table["cells"].get(key) if table else None
+    cell = cell.get(part) if (cell and part) else cell
+    if not cell:
+        return {"available": False, "reason": reason if table else "The pipeline has not made this table yet."}
+    return {"available": True, "source": table["source"], "period": table.get("usual_years", ""), "resolution": table["resolution"], "demo": False,
+            "note": table.get("note"), "unit": table.get("unit"), "data": cell}
+
+
 def _in_pilot(lat, lon):
     bbox = _config()["farm"]["pilot_bbox"]               # lat_min, lon_min, lat_max, lon_max
     return bbox[0] <= lat <= bbox[2] and bbox[1] <= lon <= bbox[3]
@@ -141,7 +169,10 @@ def farm_profile(farm_id: int, farmer=Depends(auth.current_farmer), db=Depends(g
         out["ndvi"] = {"available": False, "reason": "No NDVI table for this cell."}
         out["bare_calendar"] = None
         out["gaps"].append("ndvi: not available for this cell")
-    out["sm_anomaly"] = index.get("sm_anomaly", {"available": False, "reason": "not fetched"})
+    out["sm_anomaly"] = _soil_moisture(farm["lat"], farm["lon"]) or index.get("sm_anomaly", {"available": False, "reason": "not fetched"})
+    out["smap"] = _cell_block("smap", key, "No SMAP value for this area (the satellite cannot see through dense forest or over water).")
+    out["modis_et"] = _cell_block("modis_et_lst", key, "No MODIS evapotranspiration for this area yet.", part="et")
+    out["modis_lst"] = _cell_block("modis_et_lst", key, "No MODIS land temperature for this area yet.", part="lst")
     out["gaps"] += index.get("gaps", [])
     out["thresholds_are_placeholders"] = True
     out["demo"] = False

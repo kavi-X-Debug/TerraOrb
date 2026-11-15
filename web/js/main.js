@@ -22,10 +22,11 @@ import { renderTank } from "./tank.js";
 import { renderLearn } from "./learn.js";
 import { renderCalendarPage } from "./calendar.js";
 import { renderAbout } from "./about.js";
-import { renderDataSources } from "./datasources.js";
 import { renderOfficer } from "./officer.js";
 import { renderResearch } from "./research.js";
 import { renderTrip } from "./trip/index.js";
+import { mountHome } from "./home.js";
+import { mountGuide } from "./guide.js";
 import { renderFarm } from "./farm/index.js";
 import { initAssistant } from "./assistant.js";
 import { date } from "./ui.js";
@@ -92,12 +93,14 @@ function setUpMode() {
 // ---------------------------------------------------------------------------
 function setFinderStatus(text, isError = false) {
   const el = document.getElementById("finder-status");
+  if (!el) return;                                   // the tank search bar was removed from the home page
   el.textContent = text;
   el.classList.toggle("error", isError);
 }
 
 function setUpFinder() {
   const input = document.getElementById("tank-search");
+  if (!input) return;                                // no search bar on the home page any more
   input.addEventListener("input", () => {
     state.query = input.value;
     renderTankList(state);
@@ -141,8 +144,10 @@ function route() {
   // Two kinds of page: the home page (hero + tank list + map) and a full page for one tank / Learn Mode.
   const showPage = (isPage) => {
     document.body.dataset.page = isPage ? "page" : "home";
-    document.getElementById("hero").hidden = isPage || END !== "farmer";          // the tank finder and map belong to the farmer end
+    const hero = document.getElementById("hero"); if (hero) hero.hidden = isPage || END !== "farmer";          // the tank finder and map belong to the farmer end
     document.getElementById("map-view").hidden = isPage || END !== "farmer";
+    const hs = document.getElementById("home-services"); if (hs) hs.hidden = isPage || END !== "farmer";
+    const hg = document.getElementById("home-guide"); if (hg) hg.hidden = isPage || END !== "farmer";    // the farmer home's "what you can do" section
     window.scrollTo(0, 0);
   };
 
@@ -160,8 +165,7 @@ function route() {
   }
   links.forEach((a) => { if (a === best) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current"); });
 
-  if (location.hash === "#/how-it-works/sources") { location.replace("#/data-sources"); return; }   // old link
-  if (location.hash === "#/how-it-works/credits") { location.replace("#/data-sources/credits"); return; }   // old link
+  if (location.hash === "#/how-it-works/sources" || location.hash === "#/how-it-works/credits") { location.replace("#/how-it-works"); return; }   // old links
 
   // The pages of the other ends (each end shows its own menu, but all addresses work everywhere)
   const ENDPAGES = [["#/officer", renderOfficer], ["#/research", renderResearch], ["#/plan", renderTrip], ["#/farm", renderFarm]];
@@ -176,13 +180,7 @@ function route() {
     }
   }
 
-  if (location.hash.startsWith("#/data-sources")) {
-    showPage(true);
-    view.hidden = false;
-    layout.classList.remove("no-tank");
-    renderDataSources(state, view);
-    return;
-  }
+  if (location.hash.startsWith("#/data-sources")) { location.replace(HOME[END]); return; }      // the page was removed: old bookmarks go home
 
   if (location.hash.startsWith("#/how-it-works")) {
     showPage(true);
@@ -285,6 +283,12 @@ async function start() {
     b.addEventListener("click", () => applyLanguage(b.dataset.lang));
   });
   applyLanguage(getLang());
+  if (END === "farmer") {
+    mountHome(document.getElementById("home-services"), "farmer");
+    const hs = document.getElementById("home-services");                       // the detailed "how to use" guide sits right below
+    if (hs && !document.getElementById("home-guide")) { const g = document.createElement("section"); g.id = "home-guide"; g.hidden = hs.hidden; hs.after(g); }
+    mountGuide(document.getElementById("home-guide"), "farmer");
+  }          // "what you can do here" on the farmer home
 
   if (window.Chart) {
     Chart.defaults.font.family = '"Noto Sans", "Noto Sans Sinhala", system-ui, sans-serif';

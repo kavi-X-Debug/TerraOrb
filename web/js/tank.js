@@ -7,7 +7,7 @@ import { renderWeather } from "./weather.js";
 import { renderCrops } from "./crops.js";
 import { renderWeek } from "./week.js";
 import { startRainAlert } from "./nowcast.js";
-import { outlookBlocks, drawOutlook } from "./outlook.js";
+import { outlookBlocks, drawOutlook, addSoil, addImerg, addSmap } from "./outlook.js";
 import { forecastMarkup, fillForecast } from "./forecast.js";
 import { badges, sourceBadge, num, date, monthName, escapeHtml, tankName, area, seasonName } from "./ui.js";
 
@@ -70,6 +70,9 @@ export function renderTank(tank, tab, container, mode = "simple") {
     // Rain by month, greenness from NASA MODIS, and the rain outlook for the coming months.
     panel.insertAdjacentHTML("beforeend", outlookBlocks(doc));
     drawOutlook(panel, doc, (chart) => charts.push(chart));
+    addSoil(panel, tank);                                  // NASA GLDAS soil moisture (added when the file loads)
+    addImerg(panel, tank, doc);                            // NASA GPM IMERG satellite rain next to POWER
+    addSmap(panel, tank);                                  // NASA SMAP satellite soil moisture
   }
 }
 

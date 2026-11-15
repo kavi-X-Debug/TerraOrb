@@ -196,3 +196,59 @@ def test_route_with_llm_provider_error_does_not_leak_key(client):
     use(make_llm(lambda r: httpx.Response(401, text="invalid key sk-test-key")))
     r = client.post("/api/copilot/rephrase", json=body())
     assert r.status_code == 502 and "sk-test-key" not in r.text
+
+
+# ---- Gemini provider and the chat helper ("site" mode) ----------------------------------------------------------------------------
+
+class SiteProvider(FakeProvider):
+    def rephrase(self, message, lang, facts, mode="trip"):
+        self.calls.append((message, lang, facts, mode))
+        return self.text
+
+
+def test_site_mode_uses_the_site_prompt_and_is_checked(client):
+    p = SiteProvider(text="The signal is green: water is above usual.")
+    use(p)
+    r = client.post("/api/copilot/rephrase", json=body(mode="site", facts=["Green means the tank has more water than usual."]))
+    assert r.status_code == 200 and p.calls[0][3] == "site"
+    assert client.post("/api/copilot/rephrase", json=body(mode="other")).status_code == 422
+    assert "TerraOrb" in grounding.system_prompt("en", "site") and "trip-planning" in grounding.system_prompt("en", "trip")
+
+
+def test_provider_is_chosen_from_the_environment(monkeypatch):
+    from backend.app.copilot.gemini import GeminiProvider
+    monkeypatch.setenv("MC_LLM_API_KEY", "AQ.test-google-key")
+    monkeypatch.delenv("MC_LLM_PROVIDER", raising=False)
+    monkeypatch.delenv("MC_LLM_MODEL", raising=False)
+    p = get_provider()
+    assert isinstance(p, GeminiProvider) and p.model == "gemini-2.5-flash" and p.enabled
+    monkeypatch.setenv("MC_LLM_PROVIDER", "anthropic")
+    assert isinstance(get_provider(), LlmProvider)
+
+
+def make_gemini(handler):
+    from backend.app.copilot.gemini import GeminiProvider
+    return GeminiProvider(api_key="g-test-key", model="gemini-test", client=httpx.Client(transport=httpx.MockTransport(handler)))
+
+
+def test_gemini_request_shape_and_text():
+    seen = {}
+
+    def handler(request):
+        seen["headers"], seen["json"], seen["url"] = request.headers, json.loads(request.content), str(request.url)
+        return httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": "Rain is likely: 12.5 mm."}]}}]})
+
+    out = make_gemini(handler).rephrase("Will it rain?", "en", FACTS, mode="site")
+    assert out == "Rain is likely: 12.5 mm."
+    assert seen["url"].endswith("/models/gemini-test:generateContent") and "g-test-key" not in seen["url"]        # the key is a header, never in the URL
+    assert seen["headers"]["x-goog-api-key"] == "g-test-key"
+    j = seen["json"]
+    assert "TerraOrb" in j["system_instruction"]["parts"][0]["text"] and j["generationConfig"]["maxOutputTokens"] <= 600
+    assert "12.5 mm" in j["contents"][0]["parts"][0]["text"]
+
+
+def test_gemini_errors_are_safe():
+    for resp in (httpx.Response(429, json={"error": "quota"}), httpx.Response(200, json={"candidates": []}), httpx.Response(200, json={"candidates": [{"content": {"parts": [{"text": " "}]}}]})):
+        with pytest.raises(ProviderError) as e:
+            make_gemini(lambda request, r=resp: r).rephrase("q", "en", FACTS)
+        assert "g-test-key" not in str(e.value)

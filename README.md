@@ -1,4 +1,4 @@
-# Monsoon Compass
+# TerraOrb
 
 *Your season's direction, read from space.*
 

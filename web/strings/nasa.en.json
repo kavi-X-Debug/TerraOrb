@@ -1,0 +1,12 @@
+{
+ "nl.truecolor": "NASA: real colour photo",
+ "nl.rain": "NASA: rain from space (IMERG)",
+ "nl.ndvi": "NASA: greenness (NDVI)",
+ "nl.heat": "NASA: ground heat by day",
+ "nl.credit": "Imagery: NASA GIBS (Earthdata)",
+ "nl.flood": "NASA: flood water (last 3 days)",
+ "nl.cloud": "NASA: cloud cover (MODIS)",
+ "nl.night": "NASA: night lights (where people live)",
+ "nl.no2": "NASA: air pollution NO2 (OMI)",
+ "nl.aod": "NASA: haze and dust (aerosols)"
+}

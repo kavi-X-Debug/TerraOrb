@@ -179,7 +179,53 @@ function bareCard(t, b) {
 
 function soilCard(t, s) {
   const gone = s && s.available === false;
+  const d = !gone && s && s.data && s.data.latest;
+  if (d && isNum(d.l1) && isNum(d.l2)) {
+    // plain words first: wetter or drier than usual for this month, from the z-score (draft cut-offs +-0.5 / +-1.5)
+    const z = isNum(d.l1_z) ? d.l1_z : null;
+    const level = z === null ? "same" : z <= -1.5 ? "much_drier" : z <= -0.5 ? "drier" : z >= 1.5 ? "much_wetter" : z >= 0.5 ? "wetter" : "same";
+    const month = d.month ? new Date(`${d.month}-01T00:00:00`).toLocaleDateString(lang(), { year: "numeric", month: "long" }) : "";
+    return card(t, "farm.sec.sm_anomaly", s,
+      h("p", { text: t(`farm.loc.sm_${level}`, { month }) }),
+      h("p", { class: "fm-fine", text: t("farm.loc.sm_values", { l1: round(d.l1, 1), l2: round(d.l2, 1), p1: isNum(d.l1_pct_of_usual) ? d.l1_pct_of_usual : "?", p2: isNum(d.l2_pct_of_usual) ? d.l2_pct_of_usual : "?" }) }),
+      note(t("farm.loc.sm_help")));
+  }
   return card(t, "farm.sec.sm_anomaly", s || {}, h("p", { class: "fm-note", text: gone ? `${t("farm.loc.not_available")}${s.reason ? ` ${s.reason}` : ""}` : t("farm.loc.not_enough") }));
+}
+
+
+// ---- NASA SMAP (satellite soil moisture), MODIS evapotranspiration and MODIS land temperature (made by pipeline/smap.py and modis_water.py) ----
+function gapCard(t, key, b) {
+  return card(t, key, b || {}, h("p", { class: "fm-note", text: `${t("farm.loc.not_available")}${b && b.reason ? ` ${b.reason}` : ""}` }));
+}
+const zLevel = (z) => (z === null || z === undefined ? "same" : z <= -1.5 ? "much_drier" : z <= -0.5 ? "drier" : z >= 1.5 ? "much_wetter" : z >= 0.5 ? "wetter" : "same");
+
+function smapCard(t, s) {
+  const d = s && s.available && s.data && s.data.latest;
+  if (!d || !isNum(d.mean_m3m3)) return gapCard(t, "farm.sec.smap", s && s.available ? { ...s, reason: t("farm.loc.smap_few") } : s);
+  return card(t, "farm.sec.smap", s,
+    h("p", { text: t(`farm.loc.smap_${zLevel(d.z)}`, { to: longDate(d.to) }) }),
+    h("p", { class: "fm-fine", text: t("farm.loc.smap_values", { v: Math.round(d.mean_m3m3 * 100), p: isNum(d.pct_of_usual) ? d.pct_of_usual : "?", n: d.n_values }) }),
+    note(t("farm.loc.smap_help")));
+}
+
+function etCard(t, s) {
+  const d = s && s.available && s.data && s.data.latest;
+  if (!d || !isNum(d.mm_per_8days)) return gapCard(t, "farm.sec.et", s);
+  const stress = isNum(d.et_over_pet) ? (d.et_over_pet < 0.4 ? "low" : d.et_over_pet < 0.7 ? "mid" : "high") : null;
+  return card(t, "farm.sec.et", s,
+    h("p", { text: t("farm.loc.et_text", { mm: round(d.mm_per_8days, 1), date: longDate(d.date), p: isNum(d.pct_of_usual) ? d.pct_of_usual : "?" }) }),
+    stress ? h("p", { text: t(`farm.loc.et_${stress}`, { r: Math.round(d.et_over_pet * 100) }) }) : null,
+    note(t("farm.loc.et_help")));
+}
+
+function lstCard(t, s) {
+  const d = s && s.available && s.data && s.data.latest;
+  if (!d || !isNum(d.day_c)) return gapCard(t, "farm.sec.lst", s);
+  const diff = d.diff_from_usual_c, word = !isNum(diff) ? "nocmp" : Math.abs(diff) < 0.8 ? "same" : diff > 0 ? "hotter" : "cooler";      // no comparison when too few clear readings make the usual value
+  return card(t, "farm.sec.lst", s,
+    h("p", { text: t(`farm.loc.lst_${word}`, { c: round(d.day_c, 1), date: longDate(d.date), d: isNum(diff) ? round(Math.abs(diff), 1) : "" }) }),
+    note(t("farm.loc.lst_help")));
 }
 
 // ---- ground truth: yes / no questions ----
@@ -256,7 +302,7 @@ export async function renderLocation(ctx) {
     } else {
       holder.append(climateCard(t, { ...p.climate_monthly, thresholds_note: p.climate_monthly_note }),
         onsetCard(t, p.onset), drySpellCard(t, p.dry_spells || p.dry_spell_by_year), ndviCard(t, p.ndvi, p.ndvi_note),
-        bareCard(t, p.bare_calendar), soilCard(t, p.sm_anomaly));
+        bareCard(t, p.bare_calendar), soilCard(t, p.sm_anomaly), smapCard(t, p.smap), etCard(t, p.modis_et), lstCard(t, p.modis_lst));
       holder.append(note(t("farm.loc.cloud_note")));
       if (Array.isArray(p.gaps) && p.gaps.length) {
         holder.append(h("section", { class: "fm-card" }, h("h2", { class: "fm-h2", text: t("farm.loc.gaps_title") }),

@@ -1,5 +1,5 @@
 """
-Rainfall step of the Monsoon Compass pipeline
+Rainfall step of the TerraOrb pipeline
 =============================================
 
     .venv\\Scripts\\python pipeline\\rain.py              (run from the repo root)
@@ -594,7 +594,7 @@ def build_rain_for_point(daily, source, today, demo, cfg):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Monsoon Compass rainfall step (NASA POWER).")
+    parser = argparse.ArgumentParser(description="TerraOrb rainfall step (NASA POWER).")
     parser.add_argument("--today", type=date.fromisoformat, default=date.today(),
                         help="treat this date as today (YYYY-MM-DD)")
     args = parser.parse_args()

@@ -3,9 +3,12 @@
 //   - the accuracy tests exactly as the pipeline saved them (data/validation.json), good and bad results alike
 //   - the data files, for download
 // Numbers are read from the saved files; nothing is typed in here.
+import { mountNational } from "./national.js";
 import { t } from "./i18n.js";
 import { escapeHtml, num, date, demoBadge } from "./ui.js";
 import { loadValidation } from "./data.js";
+import { mountHome } from "./home.js";
+import { mountGuide } from "./guide.js";
 
 const FILES = [
   ["tanks.json", "rs.file.tanks"], ["climatology.json", "rs.file.climatology"], ["validation.json", "rs.file.validation"],
@@ -39,8 +42,6 @@ export async function renderResearch(state, parts, view) {
         <h2 id="rs-read">${escapeHtml(t("rs.read"))}</h2>
         <div class="rs-cards">
           <a class="rs-card" href="#/how-it-works"><strong>${escapeHtml(t("nav.about"))}</strong><span>${escapeHtml(t("rs.card.how"))}</span></a>
-          <a class="rs-card" href="#/data-sources"><strong>${escapeHtml(t("site.nav.sources"))}</strong><span>${escapeHtml(t("rs.card.sources"))}</span></a>
-          <a class="rs-card" href="#/data-sources/credits"><strong>${escapeHtml(t("how.credits.title"))}</strong><span>${escapeHtml(t("rs.card.credits"))}</span></a>
         </div>
       </section>
 
@@ -69,4 +70,9 @@ export async function renderResearch(state, parts, view) {
         <ul class="rs-limits">${["power", "water", "demo", "sinhala", "advice"].map((k) => `<li>${escapeHtml(t(`rs.limits.${k}`))}</li>`).join("")}</ul>
       </section>
     </div>`;
+  mountNational(view.querySelector(".rs-page"));          // NASA fires, groundwater and the flood/cloud map
+  const home = document.createElement("div");
+  view.prepend(home);
+  mountHome(home, "research");
+  const guide = document.createElement("div"); view.append(guide); mountGuide(guide, "research");          // detailed how-to guide
 }

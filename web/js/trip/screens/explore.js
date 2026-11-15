@@ -3,6 +3,7 @@
 // weather-based activity recommendations (rules in ../activities.js). This file also exports a few helpers the dashboard and
 // the suggestion screen reuse (dates, prefs, "add to my trip", hourly bars).
 // Forecast = Open-Meteo (not NASA, 16 days at most). Beyond that only a historical tendency (NASA POWER) is shown, never an hourly "forecast".
+import { addNasaLayers } from "../../nasa-layers.js";
 import { loadForecast, hoursOf, dayKind } from "../forecast.js";
 import { loadHistory, tendencyFor } from "../history.js";
 import { summariseDay, classifyHour, INTENSITY } from "../intensity.js";
@@ -152,6 +153,31 @@ export function interestChips(ctx, selected, onChange) {
 // ---------- the screen ----------
 let drawing = 0;
 
+// What the land around the place is (NASA MODIS land cover) and how humid, windy and sunny the month usually is (NASA POWER).
+// Both come from saved files; a place without a value simply shows nothing for it. These are usual conditions, not a forecast.
+function aboutBlock(ctx, dest, dateStr) {
+  const { h, t } = U(ctx);
+  const lc = ctx.data.landCover && ctx.data.landCover.places && ctx.data.landCover.places[dest.id];
+  const sq = ctx.data.climateExtras && ctx.data.climateExtras.squares && ctx.data.climateExtras.squares[dest.cell];
+  const m = sq && sq[String(Number(String(dateStr).slice(5, 7)))];
+  const lines = [];
+  if (lc) {
+    lines.push(h("p", { text: t("tripx.land", { group: t(`tripx.lc.${lc.group}`), pct: lc.share_pct }) }));
+    if (lc.second && lc.second.share_pct >= 20) lines.push(h("p", { class: "tb-sub", text: t("tripx.land2", { group: t(`tripx.lc.${lc.second.group}`), pct: lc.second.share_pct }) }));
+  }
+  if (m && m.relative_humidity_pct != null && m.wind_speed_ms != null && m.sunlight_kwh_m2_day != null) {
+    const month = new Date(`${String(dateStr).slice(0, 7)}-15T00:00:00`).toLocaleDateString(document.documentElement.lang || "en", { month: "long" });
+    const muggy = m.relative_humidity_pct >= 80 ? "high" : m.relative_humidity_pct >= 65 ? "mid" : "low";
+    const windy = m.wind_speed_ms >= 5 ? "high" : m.wind_speed_ms >= 3 ? "mid" : "low";
+    lines.push(h("p", { text: t("tripx.usual", { month, rh: Math.round(m.relative_humidity_pct), wind: m.wind_speed_ms.toFixed(1), sun: m.sunlight_kwh_m2_day.toFixed(1) }) }));
+    lines.push(h("p", { class: "tb-sub", text: `${t(`tripx.humid.${muggy}`)} ${t(`tripx.windy.${windy}`)}` }));
+  }
+  if (!lines.length) return null;
+  const src = [lc && ctx.data.landCover.source, m && ctx.data.climateExtras.source].filter(Boolean);
+  return h("div", { class: "tb-about" }, h("h3", { text: t("tripx.title") }), ...lines,
+    h("p", { class: "tb-fine", text: t("tripx.note") }), ...src.map((x) => h("p", { class: "tb-fine", text: t("tripx.source", { source: x }) })));
+}
+
 export async function renderExplore(ctx, parts, view) {
   ctx.ui.ensureCss("trip-b");
   const { h, t, destName } = U(ctx);
@@ -167,72 +193,135 @@ export async function renderExplore(ctx, parts, view) {
   let date = isDate(parts[1]) ? parts[1] : todayStr();
   let interests = loadPrefs().interests;
 
-  const search = h("input", { type: "search", id: "tb-q", placeholder: t("tripb.explore.search_ph"), autocomplete: "off" });
-  const kindSel = h("select", { id: "tb-kind" }, h("option", { value: "", text: t("tripb.explore.all_kinds") }), kinds.map((k) => h("option", { value: k, text: t(`trip.kind.${k}`) })));
-  const regSel = h("select", { id: "tb-region" }, h("option", { value: "", text: t("tripb.explore.all_regions") }), regions.map((r) => h("option", { value: r, text: r })));
+  // ---- the search box: type a place, pick it from the suggestions, and the map shows it ----
+  const norm = (x) => String(x || "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").trim();
+  const index = dests.map((d) => ({ d, name: norm(`${d.name_en} ${d.name_si || ""}`), hay: norm(`${d.name_en} ${d.name_si || ""} ${d.region || ""} ${(d.kinds || []).map((k) => t(`trip.kind.${k}`)).join(" ")}`) }));
+  const matches = (q) => {
+    const words = norm(q).split(/\s+/).filter(Boolean);
+    if (!words.length) return [];
+    return index.filter((e) => words.every((w) => e.hay.includes(w)))
+      .map((e) => ({ ...e, rank: e.name.startsWith(words[0]) ? 0 : e.name.includes(words[0]) ? 1 : 2 }))
+      .sort((x, y) => x.rank - y.rank || x.d.name_en.localeCompare(y.d.name_en)).slice(0, 8).map((e) => e.d);
+  };
+
+  const search = h("input", { type: "text", id: "tb-q", class: "tx-input", role: "combobox", "aria-expanded": "false", "aria-controls": "tb-sug", "aria-autocomplete": "list",
+    placeholder: t("tripb.ex.ph"), autocomplete: "off", spellcheck: "false", enterkeyhint: "search" });
+  const clearBtn = h("button", { type: "button", class: "tx-clear", hidden: true, "aria-label": t("tripb.ex.clear"), text: "×" });
+  const sug = h("ul", { class: "tx-sug", id: "tb-sug", role: "listbox", "aria-label": t("tripb.ex.suggestions"), hidden: true });
+  const chips = h("div", { class: "tx-chips", role: "group", "aria-label": t("tripb.ex.types") });
   const count = h("p", { class: "tb-count", role: "status", "aria-live": "polite" });
-  const mapEl = h("div", { class: "tb-map", id: "tb-map", role: "region", "aria-label": t("tripb.map.aria") });
+  const mapEl = h("div", { class: "tb-map tx-map", id: "tb-map", role: "region", "aria-label": t("tripb.map.aria") });
   const cards = h("div", { class: "tb-cards" });
   const detail = h("section", { class: "tb-detail tp-card", id: "tb-detail", "aria-live": "polite", hidden: true });
 
   view.replaceChildren(
     h("h1", { text: t("tripb.explore.title") }), h("p", { class: "tb-lead", text: t("tripb.explore.lead") }),
-    h("div", { class: "tb-filters tp-card" },
-      h("label", { class: "tp-field", for: "tb-q" }, h("span", { text: t("tripb.explore.search") }), search),
-      h("label", { class: "tp-field", for: "tb-kind" }, h("span", { text: t("tripb.explore.kind") }), kindSel),
-      h("label", { class: "tp-field", for: "tb-region" }, h("span", { text: t("tripb.explore.region") }), regSel)),
-    count,
-    h("div", { class: "tb-explore" }, h("div", { class: "tb-left" }, mapEl, cards), detail),
+    h("div", { class: "tx-bar tp-card" },
+      h("label", { class: "tx-label", for: "tb-q", text: t("tripb.ex.label") }),
+      h("div", { class: "tx-box" }, search, clearBtn, sug),
+      h("p", { class: "tx-types", text: t("tripb.ex.types") }), chips),
+    h("p", { class: "tb-fine", text: t("tripb.ex.hint") }),
+    h("div", { class: "tb-explore" }, h("div", { class: "tb-left" }, mapEl, count, cards), detail),
     h("p", { class: "tb-fine", text: t("trip.disclaimer") }));
 
-  // Map: one coloured dot per destination (the cards below do the same job for keyboard and screen-reader users)
+  // Map: one dot per place; the chosen place gets a big amber dot, a label and the map flies to it
   let map = null, layer = null; const dots = new Map();
   if (window.L) {
     map = L.map(mapEl, { scrollWheelZoom: false, minZoom: 6, maxZoom: 14 }).setView([7.8, 80.7], 7);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", { maxZoom: 14, attribution: "&copy; OpenStreetMap contributors" }).addTo(map);
+    addNasaLayers(L, map, t);                       // optional NASA pictures (rain, greenness, heat) under the dots
     layer = L.layerGroup().addTo(map);
     setTimeout(() => map.invalidateSize(), 80);
   } else mapEl.hidden = true;
 
-  const dotStyle = (sel) => ({ radius: sel ? 11 : 7, color: "#fff", weight: 2, fillColor: sel ? "#F59E0B" : "#1677C8", fillOpacity: 0.95 });
-  const visible = () => {
-    const q = filters.q.trim().toLowerCase();
-    return dests.filter((d) => (!filters.kind || (d.kinds || []).includes(filters.kind)) && (!filters.region || d.region === filters.region)
-      && (!q || `${d.name_en} ${d.name_si || ""} ${d.region || ""}`.toLowerCase().includes(q)));
-  };
+  const dotStyle = (sel) => ({ radius: sel ? 12 : 6, color: "#fff", weight: sel ? 3 : 2, fillColor: sel ? "#F59E0B" : "#1677C8", fillOpacity: 0.95 });
+  const shown = () => dests.filter((d) => !filters.kind || (d.kinds || []).includes(filters.kind));
 
-  function paintList() {
-    const list = visible();
-    count.textContent = t("tripb.explore.count", { n: list.length, total: dests.length });
-    cards.replaceChildren();
-    if (!list.length) cards.append(h("p", { class: "tp-state", text: t("tripb.explore.none") }));
+  // type buttons (replace the long list of cards)
+  function paintChips() {
+    chips.replaceChildren(h("button", { type: "button", class: "tx-chip", "aria-pressed": String(!filters.kind), text: t("tripb.ex.all"), onclick: () => setKind("") }),
+      ...kinds.map((k) => h("button", { type: "button", class: "tx-chip", "aria-pressed": String(filters.kind === k), text: t(`trip.kind.${k}`), onclick: () => setKind(k) })));
+  }
+  function setKind(k) { filters.kind = k; paintChips(); paintMap(); }
+
+  function paintMap(fit = true) {
+    const list = shown();
+    count.textContent = t("tripb.ex.showing", { n: list.length, total: dests.length });
+    if (!map) {                                                           // no map library: fall back to a plain list of buttons
+      cards.replaceChildren(...list.map((d) => { const b = h("button", { type: "button", class: `tb-dcard${d.id === selectedId ? " on" : ""}`, "data-id": d.id }, h("strong", { text: destName(d) }), h("span", { class: "tb-sub", text: d.region || "" })); b.addEventListener("click", () => select(d.id)); return b; }));
+      return;
+    }
+    layer.clearLayers(); dots.clear();
     for (const d of list) {
-      const btn = h("button", { type: "button", class: `tb-dcard${d.id === selectedId ? " on" : ""}`, "aria-pressed": d.id === selectedId ? "true" : "false", "data-id": d.id },
-        h("strong", { text: destName(d) }), h("span", { class: "tb-sub", text: [d.region, d.elevation_m != null ? t("tripb.elev", { m: d.elevation_m }) : null].filter(Boolean).join(" · ") }),
-        h("span", { class: "tb-kinds" }, (d.kinds || []).map((k) => h("span", { class: "tb-kind", text: t(`trip.kind.${k}`) }))));
-      btn.addEventListener("click", () => select(d.id));
-      cards.append(btn);
+      if (typeof d.lat !== "number" || typeof d.lon !== "number") continue;
+      const m = L.circleMarker([d.lat, d.lon], dotStyle(d.id === selectedId)).bindTooltip(destName(d), { permanent: d.id === selectedId, direction: "top", offset: [0, -10] });
+      m.on("click", () => select(d.id));
+      m.addTo(layer); dots.set(d.id, m);
     }
-    if (layer) {
-      layer.clearLayers(); dots.clear();
-      for (const d of list) {
-        if (typeof d.lat !== "number" || typeof d.lon !== "number") continue;
-        const m = L.circleMarker([d.lat, d.lon], dotStyle(d.id === selectedId)).bindTooltip(destName(d));
-        m.on("click", () => select(d.id));
-        m.addTo(layer); dots.set(d.id, m);
-      }
-      if (list.length && !selectedId) { try { map.fitBounds(L.latLngBounds(list.filter((d) => typeof d.lat === "number").map((d) => [d.lat, d.lon])).pad(0.15), { maxZoom: 9 }); } catch { /* nothing to fit */ } }
+    const sel = ctx.data.byId.get(selectedId);
+    if (sel && !dots.has(selectedId) && typeof sel.lat === "number") {   // the chosen place stays visible even if its type is filtered out
+      const m = L.circleMarker([sel.lat, sel.lon], dotStyle(true)).bindTooltip(destName(sel), { permanent: true, direction: "top", offset: [0, -10] }); m.addTo(layer); dots.set(selectedId, m);
     }
+    if (fit && !selectedId && list.length) { try { map.fitBounds(L.latLngBounds(list.filter((d) => typeof d.lat === "number").map((d) => [d.lat, d.lon])).pad(0.15), { maxZoom: 9 }); } catch { /* nothing to fit */ } }
   }
 
-  function select(id) {
+  // suggestions list under the box
+  let active = -1, current = [];
+  function closeSug() { sug.hidden = true; search.setAttribute("aria-expanded", "false"); search.removeAttribute("aria-activedescendant"); active = -1; }
+  function openSug() {
+    const q = search.value;
+    current = q.trim() ? matches(q) : [];
+    sug.replaceChildren();
+    if (!q.trim()) { closeSug(); return; }
+    if (!current.length) {
+      sug.append(h("li", { class: "tx-none", role: "option", "aria-disabled": "true", text: t("tripb.ex.none", { q: q.trim() }) }));
+    } else {
+      current.forEach((d, i) => {
+        const li = h("li", { class: "tx-opt", role: "option", id: `tb-opt-${i}`, "aria-selected": "false" },
+          h("strong", { text: destName(d) }), h("span", { class: "tb-sub", text: [d.region, (d.kinds || []).slice(0, 2).map((k) => t(`trip.kind.${k}`)).join(", ")].filter(Boolean).join(" · ") }));
+        li.addEventListener("mousedown", (e) => { e.preventDefault(); choose(d.id); });       // mousedown, so it works before the box loses focus
+        sug.append(li);
+      });
+    }
+    sug.hidden = false; search.setAttribute("aria-expanded", "true"); active = -1;
+  }
+  function highlight(i) {
+    active = i;
+    [...sug.querySelectorAll(".tx-opt")].forEach((el, k) => { el.classList.toggle("on", k === i); el.setAttribute("aria-selected", String(k === i)); if (k === i) { search.setAttribute("aria-activedescendant", el.id); el.scrollIntoView({ block: "nearest" }); } });
+  }
+  function choose(id) {
+    const d = ctx.data.byId.get(id);
+    search.value = d ? destName(d) : "";
+    clearBtn.hidden = !search.value;
+    closeSug();
+    select(id, true);
+  }
+  search.addEventListener("input", () => { clearBtn.hidden = !search.value; openSug(); });
+  search.addEventListener("focus", () => { if (search.value.trim()) openSug(); });
+  search.addEventListener("blur", () => setTimeout(closeSug, 120));
+  search.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowDown") { e.preventDefault(); if (sug.hidden) openSug(); if (current.length) highlight((active + 1) % current.length); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); if (current.length) highlight((active - 1 + current.length) % current.length); }
+    else if (e.key === "Enter") { e.preventDefault(); const pick = current[active >= 0 ? active : 0]; if (pick) choose(pick.id); }
+    else if (e.key === "Escape") { closeSug(); }
+  });
+  clearBtn.addEventListener("click", () => { search.value = ""; clearBtn.hidden = true; closeSug(); selectedId = null; detail.hidden = true; paintMap(); try { history.replaceState(null, "", "#/plan/explore"); } catch { /* ignore */ } search.focus(); });
+
+  // choosing a place: the map flies to it, its dot grows, and its details open beside the map
+  function select(id, fromSearch = false) {
     selectedId = id; setLastDest(id);
     try { history.replaceState(null, "", `#/plan/explore/${id}/${date}`); } catch { /* address bar unchanged */ }
-    for (const [did, m] of dots) m.setStyle(dotStyle(did === id));
-    for (const c of cards.querySelectorAll(".tb-dcard")) { const on = c.dataset.id === id; c.classList.toggle("on", on); c.setAttribute("aria-pressed", on ? "true" : "false"); }
     const d = ctx.data.byId.get(id);
-    if (map && d) map.panTo([d.lat, d.lon]);
-    paintDetail();
+    if (!fromSearch && d) search.value = destName(d), clearBtn.hidden = false;
+    paintMap(false);
+    paintDetail();                                                         // opens the details panel, which makes the map narrower
+    if (map && d && typeof d.lat === "number") {
+      setTimeout(() => {                                                   // so tell the map its new size, then fly to the place (it ends up centred)
+        map.invalidateSize();
+        map.flyTo([d.lat, d.lon], Math.max(map.getZoom(), 10), { duration: 0.8 });
+        dots.get(id)?.openTooltip?.();
+      }, 60);
+    }
     detail.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
@@ -243,7 +332,7 @@ export async function renderExplore(ctx, parts, view) {
     detail.hidden = false;
     const head = h("div", { class: "tb-dhead" },
       h("div", {}, h("h2", { text: destName(dest) }), h("p", { class: "tb-sub", text: [dest.region, dest.elevation_m != null ? t("tripb.elev", { m: dest.elevation_m }) : t("tripb.elev_na")].join(" · ") })),
-      h("button", { type: "button", class: "tp-btn", text: t("tripb.close"), "aria-label": t("tripb.close"), onclick: () => { selectedId = null; detail.hidden = true; paintList(); } }));
+      h("button", { type: "button", class: "tp-btn", text: t("tripb.close"), "aria-label": t("tripb.close"), onclick: () => { selectedId = null; detail.hidden = true; paintMap(); } }));
     const kindsRow = h("div", { class: "tb-kinds" }, (dest.kinds || []).map((k) => h("span", { class: "tb-kind", text: t(`trip.kind.${k}`) })));
     const own = (dest.activities || []).filter((a) => ACTIVITIES[a]);
     const possible = own.length ? h("p", { class: "tb-sub", text: t("tripb.d.possible", { list: own.map((a) => t(ACTIVITIES[a].key)).join(", ") }) }) : null;
@@ -254,7 +343,8 @@ export async function renderExplore(ctx, parts, view) {
       h("button", { type: "button", class: "tp-btn primary", text: t("tripb.d.add"), onclick: () => addToTrip(ctx, dest, { date }) }));
     const weather = h("div", { class: "tb-weather", "aria-busy": "true" }, h("p", { class: "tp-state", role: "status", text: t("trip.state.loading") }));
     const acts = h("div", { class: "tb-acts" });
-    detail.replaceChildren(...[head, kindsRow, possible, dateRow, weather, acts].filter(Boolean));
+    const about = aboutBlock(ctx, dest, date);                 // NASA land cover and the usual humidity, wind and sunlight of the month
+    detail.replaceChildren(...[head, kindsRow, possible, about, dateRow, weather, acts].filter(Boolean));
 
     let day;
     try { day = await loadDay(ctx, dest, date); } catch (e) { console.error(e); day = { kind: "forecast", error: "forecast", hours: [], summary: null }; }
@@ -302,9 +392,7 @@ export async function renderExplore(ctx, parts, view) {
     fill();
   }
 
-  search.addEventListener("input", () => { filters.q = search.value; paintList(); });
-  kindSel.addEventListener("change", () => { filters.kind = kindSel.value; paintList(); });
-  regSel.addEventListener("change", () => { filters.region = regSel.value; paintList(); });
-  paintList();
-  if (selectedId) paintDetail();
+  paintChips();
+  paintMap();
+  if (selectedId) { const d0 = ctx.data.byId.get(selectedId); if (d0) { search.value = destName(d0); clearBtn.hidden = false; } select(selectedId, true); }
 }

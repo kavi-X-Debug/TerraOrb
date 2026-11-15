@@ -1,5 +1,5 @@
 """
-Rule engine of Monsoon Compass
+Rule engine of TerraOrb
 ==============================
 
     .venv\\Scripts\\python pipeline\\rules.py          (run from the repo root)

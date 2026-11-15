@@ -72,13 +72,13 @@ function chipEl(c, cfg) {
 // ---------- calendar file (.ics) ----------
 const esc = (s) => String(s).replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
 function icsFor(trip, byId) {
-  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Monsoon Compass//Trip planner//EN", "CALSCALE:GREGORIAN"];
+  const lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//TerraOrb//Trip planner//EN", "CALSCALE:GREGORIAN"];
   const stampNow = new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z";
   for (const it of trip.items || []) {
     const [a, b] = SLOT_TIMES[it.slot] || SLOT_TIMES.morning;
     const dest = byId.get(it.destId);
     const day = it.day.replaceAll("-", "");
-    lines.push("BEGIN:VEVENT", `UID:${it.id}@monsoon-compass`, `DTSTAMP:${stampNow}`,
+    lines.push("BEGIN:VEVENT", `UID:${it.id}@terraorb`, `DTSTAMP:${stampNow}`,
       `DTSTART:${day}T${pad(a)}0000`, `DTEND:${day}T${pad(b)}0000`,
       `SUMMARY:${esc(`${actName(it.activity)}${it.locked ? ` (${t("tripc.locked_short")})` : ""}`)}`,
       `LOCATION:${esc(dest ? ui.destName(dest) : "")}`,

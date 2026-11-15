@@ -27,12 +27,18 @@ const SCREENS = {
 };
 const isPoint = (s) => /^-?\d{1,2}(\.\d+)?,-?\d{1,3}(\.\d+)?$/.test(s || "");
 
+// The menu: five things people do most, then a "More" menu for the rest (so nothing runs off the screen).
+const MAIN = ["", "rain", "dates", "compare", "trips"];
+const MORE = ["explore", "suggest", "packing", "copilot", "settings"];
 function menu(active) {
-  const nav = ui.h("nav", { class: "tp-menu", "aria-label": t("trip.nav.label") });
-  for (const [key, [, , label]] of Object.entries(SCREENS)) {
-    nav.append(ui.h("a", { href: key ? `#/plan/${key}` : "#/plan", class: key === active ? "on" : "", "aria-current": key === active ? "page" : null, text: t(label) }));
-  }
-  nav.append(ui.h("a", { href: "#/plan/place", class: active === "place" ? "on" : "", text: t("trip.nav.place") }));
+  const link = (key) => ui.h("a", { href: key ? `#/plan/${key}` : "#/plan", class: key === active ? "on" : "", "aria-current": key === active ? "page" : null, text: t(SCREENS[key][2]) });
+  const inMore = MORE.includes(active) || active === "place";
+  const more = ui.h("details", { class: `tp-more${inMore ? " on" : ""}` },
+    ui.h("summary", { text: t("trip.nav.more") }),
+    ui.h("div", { class: "tp-more-list" }, MORE.map(link),
+      ui.h("a", { href: "#/plan/place", class: active === "place" ? "on" : "", text: t("trip.nav.place") })));
+  more.addEventListener("click", (e) => { if (e.target.closest("a")) more.open = false; });
+  const nav = ui.h("nav", { class: "tp-menu", "aria-label": t("trip.nav.label") }, MAIN.map(link), more);
   return nav;
 }
 

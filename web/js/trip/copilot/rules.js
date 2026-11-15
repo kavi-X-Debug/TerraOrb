@@ -453,7 +453,6 @@ async function explain(parsed, e, memory) {
     default: a.blocks.push(P("tripd.ex.why", { days: c.forecast_horizon_days }), P("tripd.ex.sources_short"));
   }
   a.uncertain = { key: "tripd.unc.forecast", params: {} };
-  a.links.push(link("#/data-sources", "tripd.link.sources"));
   if (parsed.dests.length) {                                   // "why will it rain in Kandy?" also shows the data the answer would use
     const inner = await willItRain({ ...parsed, dates: parsed.dates }, e, memory);
     if (inner.ok) { a.blocks.push(P("tripd.ex.data_for", { dest: inner.headline.params.dest || "" })); a.blocks.push(...inner.blocks); a.sources.push(...inner.sources); a.links.push(...inner.links); a.meta.range = inner.meta.range; }

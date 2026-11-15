@@ -25,12 +25,20 @@ class Rephrase(BaseModel):
     message: str = Field(min_length=1, max_length=grounding.MAX_MESSAGE_CHARS)
     lang: str = "en"
     facts: list[str] = Field(min_length=1, max_length=grounding.MAX_FACTS)
+    mode: str = "trip"                      # "trip" = the trip planner Copilot, "site" = the chat helper on every end
 
     @field_validator("lang")
     @classmethod
     def _lang(cls, v):
         if v not in grounding.LANGS:
             raise ValueError("lang must be en or si")
+        return v
+
+    @field_validator("mode")
+    @classmethod
+    def _mode(cls, v):
+        if v not in ("trip", "site"):
+            raise ValueError("mode must be trip or site")
         return v
 
     @field_validator("facts")
@@ -56,7 +64,7 @@ def rephrase(body: Rephrase, request: Request, provider: Provider = Depends(get_
     if not limiter.allow(client):
         raise HTTPException(status_code=429, detail="too many questions; wait a minute")
     try:
-        text = provider.rephrase(body.message, body.lang, body.facts)
+        text = provider.rephrase(body.message, body.lang, body.facts) if body.mode == "trip" else provider.rephrase(body.message, body.lang, body.facts, mode="site")
     except ProviderDisabled:
         raise HTTPException(status_code=503, detail="the Copilot language model is not switched on")
     except ProviderError as err:

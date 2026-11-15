@@ -1,4 +1,4 @@
-# Monsoon Compass — 30-second demo video script (DRAFT)
+# TerraOrb — 30-second demo video script (DRAFT)
 
 > **Draft for the team.** Narration is in English; translate it into Sinhala (with English
 > subtitles) when recording. All app numbers come from `data/tank/demo-tank-2.json`, a
@@ -12,8 +12,8 @@
 | **0:00–0:05** | A farmer organisation meeting under a tree by a village tank bund (team footage or a still photo). The leader holds a phone. | "Yala 2027 is coming. How much land should our farmer organisation plant?" | *Kanna meeting · Yala 2027* |
 | **0:05–0:11** | App: tap the tank on the NASA satellite map. The tank screen opens; the wewa gauge fills to **72 %**, then the water history chart slides down to its last point. | "Our tank holds 6.9 hectares: 72 percent of normal for October." | *6.9 ha now, normal 9.6 ha: 72 %* · badge *Demo data* · *NASA OPERA DSWx-HLS / HLS (planned)* |
 | **0:11–0:17** | Onset chart (Maha, then Yala) with the dashed trend line. Highlight two bars: **Maha 2025/26: 27 days late** and **Yala 2026: 17 days late**. | "And the rains came late: 27 days last Maha, 17 days in Yala." | *Rains started 27 and 17 days late* · *NASA POWER* |
-| **0:17–0:25** | Season plan tab: the big **Amber** signal. Recommended card: **short-duration paddy + bethma, 72 % of the command area**. Tap **Why?**: the reasons appear with NASA source badges. | "Monsoon Compass says amber: short-duration paddy, with bethma on 72 percent of the land, and shows the NASA data behind every reason." | *Amber · Bethma on 72 %* |
-| **0:25–0:30** | Zoom out from the tank to the whole Dry Zone on the satellite map. End card: logo, tagline, disclaimer. | "One method, for every village tank. Sri Lanka has around 23,000." | *Monsoon Compass: your season's direction, read from space* · *A decision aid; consult your Agricultural Instructor.* |
+| **0:17–0:25** | Season plan tab: the big **Amber** signal. Recommended card: **short-duration paddy + bethma, 72 % of the command area**. Tap **Why?**: the reasons appear with NASA source badges. | "TerraOrb says amber: short-duration paddy, with bethma on 72 percent of the land, and shows the NASA data behind every reason." | *Amber · Bethma on 72 %* |
+| **0:25–0:30** | Zoom out from the tank to the whole Dry Zone on the satellite map. End card: logo, tagline, disclaimer. | "One method, for every village tank. Sri Lanka has around 23,000." | *TerraOrb: your season's direction, read from space* · *A decision aid; consult your Agricultural Instructor.* |
 
 ## Numbers used, and where they come from
 

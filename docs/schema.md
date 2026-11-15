@@ -1,4 +1,4 @@
-# Monsoon Compass — JSON schema (v1.8)
+# TerraOrb — JSON schema (v1.8)
 
 *1.8 (6 Nov 2026): `ndvi`, `seasonal` and `advisory` sections (§3.10–3.12); `data/ndvi_cache/<id>.json` (§3.13).*
 
@@ -18,7 +18,7 @@ reason values in whole percent, `inputs.onset_season`.*
 *1.1 (25 Oct 2026): `water.series` is monthly (median), with new `series[].scenes` and
 `water.polygon`.*
 
-This file is the **contract** between the three parts of Monsoon Compass:
+This file is the **contract** between the three parts of TerraOrb:
 
 | Part | Folder | Writes | Reads |
 |---|---|---|---|
@@ -381,7 +381,7 @@ listed in `rules_config.json` → `learn.seasons`. Seasons without enough data a
 |---|---|
 | `before` | What was known at the kanna meeting: the tank in `month` (the month before the season) vs the mean for that month in **other** years (`T`), and the previous season's rain (`R`, onset delay) |
 | `after` | What happened: mean tank extent over the season's months vs normal (`T`), the season's rain (`R`) |
-| `signal_before` / `advice_before` | The signal rules applied to `before`: what Monsoon Compass would have said |
+| `signal_before` / `advice_before` | The signal rules applied to `before`: what TerraOrb would have said |
 | `signal_after` / `best_scenario` | The same rules applied to `after`: the plan that fitted in hindsight |
 | `outcomes` | For each plan: `"right"`, `"too_risky"` (needs more water than the season had) or `"too_careful"`. Based on the rules, **not** on recorded harvests; the UI says so |
 

@@ -1,6 +1,8 @@
 // Learn Mode home page (#/learn): a hub of games, each with its own picture (made with Google Flow, see the Data sources page).
 // The games live in their own files: Rain Cloud, Tank Farmer / My Farm, Little Lessons, Little Farmers' Games and the practice challenges.
 import { t } from "./i18n.js";
+import { mountHome } from "./home.js";
+import { mountGuide } from "./guide.js";
 import { escapeHtml } from "./ui.js";
 import { renderChallenges } from "./challenges.js";
 import { renderMiniGame } from "./minigame.js";
@@ -103,9 +105,15 @@ function hubScreen(view) {
           <p class="lh-tagline">${escapeHtml(t("lh.tagline"))}</p>
         </div>
       </section>
+      <div class="hm-slot" id="hm-learn-why"></div>
       ${rewardStrip()}
+      <div class="hm-slot" id="hm-learn-head"></div>
       <section class="lh-grid" aria-label="${escapeHtml(t("lh.title"))}">${CARDS.map(hubCard).join("")}</section>
+      <div id="hm-learn-guide"></div>
     </div>`;
 
   wireLinks(view);
+  mountHome(view.querySelector("#hm-learn-why"), "learn", { hero: false, heading: false, cards: false, why: true });     // "why it helps" chips
+  mountGuide(view.querySelector("#hm-learn-guide"), "learn");                                                           // detailed how-to guide
+  mountHome(view.querySelector("#hm-learn-head"), "learn", { hero: false, heading: true, cards: false, why: false });    // heading above the cards
 }

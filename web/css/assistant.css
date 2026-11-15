@@ -1,4 +1,4 @@
-/* Ask Monsoon Compass: floating chat button and panel. */
+/* Ask TerraOrb: floating chat button and panel. */
 .asst { position: fixed; right: 16px; bottom: 16px; z-index: 1300; display: grid; justify-items: end; gap: 12px; }
 .asst-fab { display: inline-flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 20px; border: 0; border-radius: 999px; cursor: pointer;
   background: linear-gradient(120deg, #2B5430, #3F7D3A); color: #fff; font-weight: 800; box-shadow: 0 10px 28px rgba(43, 84, 48, .45);
@@ -43,3 +43,45 @@
   @keyframes asst-msg { from { transform: translateY(8px); } to { transform: none; } }
 }
 @media print { .asst { display: none !important; } }
+
+/* friendlier chat: avatar, tap-to-change tank, typing dots, big starter buttons, roomy phone layout */
+.asst-head { gap: 12px; }
+.asst-avatar { flex: none; width: 42px; height: 42px; border-radius: 50%; overflow: hidden; background: #fff; display: grid; place-items: center; box-shadow: 0 2px 8px rgba(0, 0, 0, .25); }
+.asst-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.asst-headtext { flex: 1; min-width: 0; display: grid; }
+.asst-ctx { border: 0; background: none; color: inherit; padding: 0; text-align: left; font: inherit; font-size: .85rem; opacity: .92; cursor: default; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.asst-ctx:not(:disabled) { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
+.asst-new { flex: none; width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .18); color: #fff; cursor: pointer; }
+.asst-new svg { width: 18px; height: 18px; }
+.asst-new:hover { background: rgba(255, 255, 255, .32); }
+.asst-bubble { font-size: 1.02rem; line-height: 1.5; }
+.asst-typing { display: flex; gap: 5px; padding: 14px 16px; width: fit-content; }
+.asst-typing i { width: 8px; height: 8px; border-radius: 50%; background: #9aa39a; animation: asst-dot 1s infinite ease-in-out; }
+.asst-typing i:nth-child(2) { animation-delay: .15s; } .asst-typing i:nth-child(3) { animation-delay: .3s; }
+@keyframes asst-dot { 0%, 80%, 100% { transform: translateY(0); opacity: .45; } 40% { transform: translateY(-5px); opacity: 1; } }
+.asst-starter { display: block; width: 100%; padding: 12px 16px; font-size: 1rem; border-radius: 16px; text-align: left; white-space: normal; }
+.asst-chips { flex-wrap: wrap; max-height: 104px; overflow-y: auto; }
+.asst-chips[hidden] { display: none; }
+.asst-input { font-size: 1rem; }
+@media (max-width: 600px) {
+  .asst { right: 8px; left: 8px; bottom: 8px; justify-items: end; }
+  .asst-panel { width: 100%; height: calc(100dvh - 90px); border-radius: 20px; }
+  .asst-input { font-size: 16px; }
+}
+@media (prefers-reduced-motion: reduce) { .asst-typing i { animation: none; } }
+
+/* the chat wears the colour of its end (farmer green, learn blue, officer teal, research purple, plan sky blue) */
+.asst { --ac-a: #2B5430; --ac-b: #3F7D3A; --ac-main: #2F6B35; --ac-soft: #FBF6EA; --ac-glow: rgba(43, 84, 48, .45); }
+body[data-end="learn"] .asst { --ac-a: #174B85; --ac-b: #2F7CC6; --ac-main: #1F64A8; --ac-soft: #F1F7FE; --ac-glow: rgba(23, 75, 133, .45); }
+body[data-end="officer"] .asst { --ac-a: #115E66; --ac-b: #1E9088; --ac-main: #167A75; --ac-soft: #EFFAF8; --ac-glow: rgba(17, 94, 102, .45); }
+body[data-end="research"] .asst { --ac-a: #3B3486; --ac-b: #6256BF; --ac-main: #4F46A8; --ac-soft: #F5F3FF; --ac-glow: rgba(59, 52, 134, .45); }
+body[data-end="plan"] .asst { --ac-a: #0F4F7E; --ac-b: #2A8AC9; --ac-main: #1B6FAA; --ac-soft: #EFF7FD; --ac-glow: rgba(15, 79, 126, .45); }
+.asst-fab, .asst-head { background: linear-gradient(120deg, var(--ac-a), var(--ac-b)); }
+.asst-fab { box-shadow: 0 10px 28px var(--ac-glow); }
+.asst-log { background: var(--ac-soft); }
+.asst-msg.user .asst-bubble, .asst-send { background: var(--ac-main); }
+.asst-link { color: var(--ac-main); }
+.asst-chip { border-color: var(--ac-main); color: var(--ac-main); }
+.asst-chip:hover { background: var(--ac-main); color: #fff; }
+.asst-input:focus { border-color: var(--ac-main); }
+.asst-typing i { background: var(--ac-main); opacity: .6; }

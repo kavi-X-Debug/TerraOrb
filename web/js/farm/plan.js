@@ -158,7 +158,7 @@ export async function renderPlan(ctx, farmId, view) {
         for (const x of list) {
           const zk = t(`farmplan.kind.${x.zone}`);
           ul.append(fpEl("li", {}, x.zone ? fpEl("span", { class: "fp-zone" }, zk === `farmplan.kind.${x.zone}` ? String(x.zone) : zk) : "", " ",
-            x.crop ? fpEl("strong", {}, x.crop) : fpEl("em", {}, t("farmplan.plan.bare")), x.evidence ? fpEl("em", { class: "fp-tag fp-tag-model" }, x.evidence) : ""));
+            x.crop ? fpEl("strong", {}, x.crop) : fpEl("em", {}, t("farmplan.plan.bare")), x.evidence ? fpEl("em", { class: "fp-tag fp-tag-model fp-adv-only" }, x.evidence) : ""));
         }
         c.append(fpEl("h4", {}, seasonLabel(season)), ul);
       }
@@ -192,15 +192,15 @@ export async function renderPlan(ctx, farmId, view) {
   // "show the rules": every decision the engine recorded, so a person or an officer can check it
   function trace(o) {
     const list = asList(o.trace || o.rule_trace);
-    const d = fpEl("details", { class: "fp-details" }, fpEl("summary", {}, t("farmplan.trace.show")));
+    const d = fpEl("details", { class: "fp-details" }, fpEl("summary", {}, t("farmplan.trace.show"), fpEl("span", { class: "fp-adv-only" }, ` · ${t("farmplan.trace.adv")}`)));
     if (!list.length) { d.append(fpEl("p", { class: "fp-small" }, t("farmplan.trace.none"))); return d; }
     d.append(fpEl("p", { class: "fp-small" }, t("farmplan.trace.help")));
     const ol = fpEl("ol", { class: "fp-trace" });
     for (const x of list) {
-      ol.append(fpEl("li", {}, fpEl("code", {}, x.text_key || x.rule || ""), ": ", explainText(t, x, names), " ",
-        x.zone !== null && x.zone !== undefined ? fpEl("em", { class: "fp-tag" }, `${t("farmplan.trace.zone")} ${x.zone}`) : "",
+      ol.append(fpEl("li", {}, fpEl("code", { class: "fp-adv-only" }, x.text_key || x.rule || ""), fpEl("span", { class: "fp-adv-only" }, ": "), explainText(t, x, names), " ",
+        x.zone !== null && x.zone !== undefined ? fpEl("em", { class: "fp-tag" }, `${t("farmplan.trace.zone")} ${(t(`farmplan.kind.${x.zone}`) !== `farmplan.kind.${x.zone}`) ? t(`farmplan.kind.${x.zone}`) : x.zone}`) : "",
         x.season ? fpEl("em", { class: "fp-tag" }, x.season) : "",
-        x.evidence ? fpEl("em", { class: "fp-tag fp-tag-model" }, `${t("farmplan.trace.evidence")} ${x.evidence}`) : ""));
+        x.evidence ? fpEl("em", { class: "fp-tag fp-tag-model fp-adv-only" }, `${t("farmplan.trace.evidence")} ${x.evidence}`) : ""));
     }
     d.append(ol);
     return d;

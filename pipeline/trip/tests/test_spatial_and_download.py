@@ -118,14 +118,63 @@ def test_modis_median_needs_enough_land_pixels(cfg):
     assert modis.median_land_ndvi([-3000] * 30 + [500] * 30, nd) is None   # fill value and water-like pixels are ignored
 
 
-def test_imerg_stub_refuses_without_token(monkeypatch):
+def test_imerg_refuses_without_token(monkeypatch, tmp_path):
     for k in ("EARTHDATA_TOKEN", "EARTHDATA_USERNAME", "EARTHDATA_PASSWORD"):
         monkeypatch.delenv(k, raising=False)
+    monkeypatch.setattr(gpm_imerg, "CACHE", tmp_path / "imerg")                 # an empty cache
     assert gpm_imerg.status() == {"used": False, "reason": "no Earthdata token"}
     with pytest.raises(gpm_imerg.ImergNotAvailable):
-        gpm_imerg.fetch_daily()
-    monkeypatch.setenv("EARTHDATA_TOKEN", "x")
-    assert gpm_imerg.status()["used"] is False                              # never "used" while the download is not implemented
-    with pytest.raises(NotImplementedError):
-        gpm_imerg.fetch_daily()
-    assert "EARTHDATA_TOKEN" in os.environ
+        gpm_imerg.download(__import__("datetime").date(2026, 9, 1), __import__("datetime").date(2026, 9, 2))
+
+
+def test_imerg_grid_and_url():
+    lons, lats = gpm_imerg.grid()
+    assert (len(lons), len(lats)) == (28, 43)
+    assert abs(lons[0] - 79.35) < 1e-6 and abs(lats[-1] - 9.95) < 1e-6          # the box around Sri Lanka
+    url = gpm_imerg._subset_url("GPM_3IMERGDL.07:3B-DAY-L.MS.MRG.3IMERG.20260929-S000000-E235959.V07C.nc4")
+    assert "%3A" in url and "dap4.ce=/precipitation[0][2593:2620][957:999];/lon[" in url
+
+
+def test_imerg_load_series_uses_nearest_cell_and_skips_nan(monkeypatch, tmp_path):
+    import numpy as np                                                          # TEST FIXTURE arrays, not real rain
+    monkeypatch.setattr(gpm_imerg, "CACHE", tmp_path)
+    a = np.zeros((28, 43), dtype="float32"); a[5, 7] = 12.5
+    b = np.zeros((28, 43), dtype="float32"); b[5, 7] = np.nan
+    np.save(tmp_path / "20200101.npy", a); np.save(tmp_path / "20200102.npy", b)
+    lons, lats = gpm_imerg.grid()
+    s = gpm_imerg.load_series(lons[5] + 0.01, lats[7] - 0.01)
+    assert list(s.values()) == [12.5] and len(s) == 1                           # the NaN day is skipped, never filled
+
+
+def test_imerg_fetch_day_errors_are_honest(monkeypatch):
+    class R:
+        def __init__(self, code): self.status_code, self.content = code, b"<html>"
+    class S:
+        def __init__(self, code): self.code = code
+        def get(self, *a, **k): return R(self.code)
+    monkeypatch.setattr(gpm_imerg.time, "sleep", lambda s: None)
+    with pytest.raises(gpm_imerg.ImergNotAvailable):
+        gpm_imerg.fetch_day("t", "tok", S(401))                                  # refused token: a clear error
+    with pytest.raises(RuntimeError):
+        gpm_imerg.fetch_day("t", "tok", S(500), retries=2)                       # server error: raised, no made-up number
+
+
+# ---- NASADEM (NASA elevation) ----
+def test_nasadem_tile_name_and_reading(tmp_path, monkeypatch):
+    import io, zipfile
+    import numpy as np
+    from pipeline.trip.download import nasadem as nd
+    assert nd.tile_name(7.29, 80.63) == "NASADEM_HGT_n07e080"
+    assert nd.tile_name(-0.5, -1.2) == "NASADEM_HGT_s01w002"
+    grid = np.full((nd.SIDE, nd.SIDE), 100, dtype=">i2")
+    grid[nd.SIDE // 2, nd.SIDE // 2] = 500                       # point at 7.5 N 80.5 E
+    grid[0, 0] = -32768                                          # void sample at the north-west corner
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        z.writestr("n07e080.hgt", grid.tobytes())
+    monkeypatch.setattr(nd, "CACHE", tmp_path)
+    (tmp_path / "NASADEM_HGT_n07e080.zip").write_bytes(buf.getvalue())      # stored uncompressed (about 26 MB), so ensure_tile treats it as cached
+    nd._tiles.clear()
+    assert nd.elevation(7.5, 80.5) == 500
+    assert nd.elevation(7.2, 80.2) == 100
+    assert nd.elevation(7.9999999, 80.0) is None                 # void is never turned into a number

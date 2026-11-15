@@ -1,0 +1,56 @@
+/* Hover and focus effects for every page of every end. Each end glows in its own colour (--hv); lifts use `translate`, so they never fight the
+   `transform` used by reveal animations. Only for devices that can hover; switched off for people who prefer reduced motion. */
+:root { --hv: #3F7D3A; --hv-glow: rgba(63, 125, 58, .38); --hv-tint: rgba(63, 125, 58, .09); }
+body[data-end="learn"] { --hv: #2F7CC6; --hv-glow: rgba(47, 124, 198, .38); --hv-tint: rgba(47, 124, 198, .09); }
+body[data-end="officer"] { --hv: #1E9088; --hv-glow: rgba(30, 144, 136, .38); --hv-tint: rgba(30, 144, 136, .09); }
+body[data-end="research"] { --hv: #6256BF; --hv-glow: rgba(98, 86, 191, .38); --hv-tint: rgba(98, 86, 191, .09); }
+body[data-end="plan"] { --hv: #2A8AC9; --hv-glow: rgba(42, 138, 201, .38); --hv-tint: rgba(42, 138, 201, .09); }
+
+/* keyboard focus is as visible as hover, everywhere */
+a:focus-visible, button:focus-visible, select:focus-visible, summary:focus-visible, [tabindex]:focus-visible { outline: 3px solid var(--hv); outline-offset: 2px; border-radius: 8px; }
+input:focus-visible, textarea:focus-visible { outline: none; border-color: var(--hv) !important; box-shadow: 0 0 0 4px var(--hv-glow); }
+
+.simple-card, .fact, .scenario, .crop-card, .tp-card, .th-tile, .th-day, .tb-mini, .th-card, .rs-card, .chal-card, .lh-card, .hm-card, .block, .of-report, .fm-card, .tb-about, .nat-wrap .block {
+  transition: border-color .25s ease, box-shadow .25s ease, translate .25s ease, background-color .25s ease;
+}
+
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  /* small cards: lift a little and glow */
+  .simple-card:hover, .fact:hover, .scenario:hover, .crop-card:hover, .tp-card:hover, .th-tile:hover, .th-day:hover, .tb-mini:hover, .th-card:hover, .rs-card:hover, .chal-card:hover, .fm-card:hover {
+    translate: 0 -4px; border-color: var(--hv); box-shadow: 0 0 0 1px var(--hv), 0 12px 26px -10px var(--hv-glow), 0 0 18px -4px var(--hv-glow);
+  }
+  /* cards that already move on hover (home and learn hub) only get the glow */
+  .hm-card:hover, .lh-card:hover { border-color: var(--hv); box-shadow: 0 0 0 1px var(--hv), 0 18px 36px -14px var(--hv-glow), 0 0 22px -4px var(--hv-glow); }
+  /* big page sections: a soft glowing edge, no movement */
+  .block:hover, .of-report:hover { border-color: var(--hv); box-shadow: 0 0 0 1px var(--hv-glow), 0 8px 24px -14px var(--hv-glow); }
+
+  /* buttons and chips */
+  .tp-btn, .mg-small, .asst-chip, .lh-go, .tx-chip, .tb-kind, .th-go, .tb-link, button.primary, .btn, .mg-big {
+    transition: translate .2s ease, box-shadow .2s ease, background-color .2s ease, border-color .2s ease, filter .2s ease;
+  }
+  .tp-btn:hover, .mg-small:hover, .asst-chip:hover, .lh-go:hover, .tx-chip:hover, .th-go:hover, button.primary:hover, .btn:hover, .mg-big:hover {
+    translate: 0 -2px; box-shadow: 0 6px 18px -6px var(--hv-glow), 0 0 0 2px var(--hv-glow); filter: brightness(1.06);
+  }
+  .tp-btn:active, .mg-small:active, .asst-chip:active, .tx-chip:active, .btn:active { translate: 0 0; box-shadow: none; }
+
+  /* table rows light up so the eye can follow a row */
+  .of-table tbody tr, .crop-table tbody tr, .tb-table tbody tr { transition: background-color .2s ease, box-shadow .2s ease; }
+  .of-table tbody tr:hover, .crop-table tbody tr:hover, .tb-table tbody tr:hover { background-color: var(--hv-tint); box-shadow: inset 4px 0 0 var(--hv); }
+
+  /* search suggestions, menus and lists */
+  [role="option"]:hover, .sug li:hover, .tx-sug li:hover, .tb-list li:hover { background-color: var(--hv-tint); }
+  .tb-reasons li, .rs-files li { transition: translate .2s ease; }
+  .rs-files li:hover, .tb-reasons li:hover { translate: 4px 0; }
+
+  /* links inside the page text: an underline that grows */
+  .panel-body a:not([class]), .tb-link, .asst-link { background: linear-gradient(var(--hv), var(--hv)) 0 100% / 0 2px no-repeat; transition: background-size .25s ease; text-decoration: none; }
+  .panel-body a:not([class]):hover, .tb-link:hover, .asst-link:hover { background-size: 100% 2px; }
+
+  /* map pins and the tank markers grow a little */
+  .tank-marker, .leaflet-marker-icon { transition: scale .18s ease; }
+  .tank-marker:hover, .leaflet-marker-icon:hover { scale: 1.18; }
+
+  /* pictures inside cards zoom slowly */
+  .crop-card img, .tb-mini img, .rs-card img { transition: scale .6s cubic-bezier(.2, .7, .2, 1); }
+  .crop-card:hover img, .tb-mini:hover img, .rs-card:hover img { scale: 1.06; }
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Monsoon Compass: Learn",
+  "name": "TerraOrb: Learn",
   "short_name": "Learn",
   "description": "Lessons, games and rewards about water, farming and our climate, for children and students.",
   "lang": "si",
@@ -10,10 +10,22 @@
   "theme_color": "#2477B0",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

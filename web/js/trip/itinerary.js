@@ -61,7 +61,11 @@ export function proposeReschedule({ itinerary, forecasts, cfg, destinations, dis
   const now = today || todayColombo();
   const out = { proposals: [], unaffected: [] };
   const days = items.map((i) => i.day).filter(Boolean).sort();
-  const first = days[0], last = days[days.length - 1];
+  // Moves stay inside the trip's own dates when the trip has them (startDate/endDate, or start/end); otherwise inside the days used.
+  const tStart = itinerary?.startDate || itinerary?.start, tEnd = itinerary?.endDate || itinerary?.end;
+  const okDate = (d) => typeof d === "string" && /^\d{4}-\d{2}-\d{2}$/.test(d);
+  const first = okDate(tStart) && okDate(tEnd) && tStart <= tEnd ? tStart : days[0];
+  const last = okDate(tStart) && okDate(tEnd) && tStart <= tEnd ? tEnd : days[days.length - 1];
   const itinDays = first ? Array.from({ length: Math.max(0, daysBetween(first, last)) + 1 }, (_, k) => addDays(first, k)) : [];
   const taken = new Map(items.map((i) => [`${i.day}|${i.slot}`, i.id]));
 

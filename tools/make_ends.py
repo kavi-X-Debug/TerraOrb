@@ -1,5 +1,5 @@
 """
-Makes the entry pages ("ends") of Monsoon Compass, one web address per kind of user:
+Makes the entry pages ("ends") of TerraOrb, one web address per kind of user:
 
     web/farmer.html    farmers          tank advice, rain alerts, weekly advice, sowing calendar
     web/learn.html     students         Learn Mode: lessons, games, rewards
@@ -25,39 +25,38 @@ link = lambda href, key, text: f'        <a href="{href}" data-i18n="{key}">{tex
 
 ENDS = {
     "farmer": {
-        "title": "Monsoon Compass: for farmers",
+        "title": "TerraOrb: for farmers",
         "desc": "Tank water, rain and crop advice for Sri Lanka's Dry Zone farmers, from NASA data.",
-        "manifest": ("Monsoon Compass: Farmers", "Farmers", "farmer.html", "#2B5430"),
+        "manifest": ("TerraOrb: Farmers", "Farmers", "farmer.html", "#2B5430"),
         "nav": [("#/", "site.nav.tanks", "Tanks"), ("#/calendar", "site.nav.calendar", "Sowing calendar"),
-                ("#/farm", "farm.nav", "My farm plan"), ("#/how-it-works", "nav.about", "How it works"), ("#/data-sources", "site.nav.sources", "Data sources")],
+                ("#/farm", "farm.nav", "My farm plan"), ("#/how-it-works", "nav.about", "How it works")],
     },
     "learn": {
-        "title": "Monsoon Compass: learn and play",
+        "title": "TerraOrb: learn and play",
         "desc": "Lessons, games and rewards about water, farming and our climate, for children and students.",
-        "manifest": ("Monsoon Compass: Learn", "Learn", "learn.html", "#2477B0"),
+        "manifest": ("TerraOrb: Learn", "Learn", "learn.html", "#2477B0"),
         "nav": [("#/learn", "end.learn.nav.home", "Learn home"), ("#/learn/lessons", "lh.card.lessons.title", "Little Lessons"),
                 ("#/learn/kids", "mg.entry_title", "Games"), ("#/learn/challenges", "challenge.entry_title", "Challenges"),
                 ("#/learn/rewards", "rw.title", "My rewards")],
     },
     "officer": {
-        "title": "Monsoon Compass: for officers",
+        "title": "TerraOrb: for officers",
         "desc": "A dashboard of every tank for agricultural officers and instructors, with downloads and printable reports.",
-        "manifest": ("Monsoon Compass: Officers", "Officers", "officer.html", "#1F5E85"),
+        "manifest": ("TerraOrb: Officers", "Officers", "officer.html", "#1F5E85"),
         "nav": [("#/officer", "end.officer.nav", "Dashboard"), ("#/calendar", "site.nav.calendar", "Sowing calendar"),
-                ("#/how-it-works", "nav.about", "How it works"), ("#/data-sources", "site.nav.sources", "Data sources")],
+                ("#/how-it-works", "nav.about", "How it works")],
     },
     "research": {
-        "title": "Monsoon Compass: method and data",
-        "desc": "How Monsoon Compass works: NASA data sources, accuracy tests, crop numbers with their sources, and data downloads.",
-        "manifest": ("Monsoon Compass: Method and data", "Method", "research.html", "#5B3F8C"),
-        "nav": [("#/research", "end.research.nav", "Method and data"), ("#/how-it-works", "nav.about", "How it works"),
-                ("#/data-sources", "site.nav.sources", "Data sources"), ("#/data-sources/credits", "how.credits.title", "Image credits")],
+        "title": "TerraOrb: method and data",
+        "desc": "How TerraOrb works: NASA data sources, accuracy tests, crop numbers with their sources, and data downloads.",
+        "manifest": ("TerraOrb: Method and data", "Method", "research.html", "#5B3F8C"),
+        "nav": [("#/research", "end.research.nav", "Method and data"), ("#/how-it-works", "nav.about", "How it works")],
     },
     "plan": {
-        "title": "Monsoon Compass: plan a trip or event",
+        "title": "TerraOrb: plan a trip or event",
         "desc": "Will it rain? Rain, heat and the best days for a trip or an event at any place in Sri Lanka.",
-        "manifest": ("Monsoon Compass: Trips and events", "Plan", "plan.html", "#B7791F"),
-        "nav": [("#/plan", "end.plan.nav", "Plan a trip or event"), ("#/data-sources", "site.nav.sources", "Data sources")],
+        "manifest": ("TerraOrb: Trips and events", "Plan", "plan.html", "#B7791F"),
+        "nav": [("#/plan", "end.plan.nav", "Plan a trip or event")],
     },
 }
 
@@ -73,7 +72,9 @@ for end, cfg in ENDS.items():
         "name": name, "short_name": short, "description": cfg["desc"], "lang": "si",
         "start_url": start, "scope": "./", "display": "standalone",
         "background_color": "#FBF6EA", "theme_color": colour,
-        "icons": [{"src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}],
+        "icons": [{"src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any"},
+                  {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable"}],
     }
     (WEB / f"manifest-{end}.webmanifest").write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
     print("wrote", f"web/{end}.html", f"web/manifest-{end}.webmanifest")

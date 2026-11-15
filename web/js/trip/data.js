@@ -15,10 +15,11 @@ export function loadTripData(force = false) {
   if (cached && !force) return cached;
   cached = (async () => {
     const files = { destinations: "destinations.json", history: "rainfall_history.json", config: "trip_config.json", snapshot: "forecast_snapshot.json",
-      modelMeta: "model_metadata.json", env: "environmental_data.json", mlEstimates: "ml_estimates.json" };
+      modelMeta: "model_metadata.json", env: "environmental_data.json", mlEstimates: "ml_estimates.json",
+      climateExtras: "climate_extras.json", landCover: "land_cover.json" };
     const out = { errors: [] };
     await Promise.all(Object.entries(files).map(async ([key, name]) => {
-      try { out[key] = await getJson(name); } catch (e) { out[key] = null; if (key !== "mlEstimates") out.errors.push(name); }
+      try { out[key] = await getJson(name); } catch (e) { out[key] = null; if (!["mlEstimates", "climateExtras", "landCover"].includes(key)) out.errors.push(name); }
     }));
     setFileConfig(out.config);
     out.destinations = out.destinations?.destinations || [];

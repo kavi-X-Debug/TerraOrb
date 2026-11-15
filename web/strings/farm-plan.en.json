@@ -120,9 +120,9 @@
  "farmplan.conf.how": "How is confidence worked out?",
  "farmplan.conf.formula": "Draft formula: 40% data quality, 30% strength of evidence, 30% local checking. High is 0.70 or more, medium 0.40 or more. These weights are drafts.",
  "farmplan.conf.score": "Score for this option: {score}",
- "farmplan.trace.show": "Show the rules used",
- "farmplan.trace.none": "No rule list was returned for this option.",
- "farmplan.trace.help": "Each line is one decision the program made, so an officer can check it.",
+ "farmplan.trace.show": "How this plan was worked out",
+ "farmplan.trace.none": "No explanation was returned for this option.",
+ "farmplan.trace.help": "Each line says in plain words why a crop was chosen or left out for your land. Your Agriculture Instructor can check these too.",
  "farmplan.trace.evidence": "evidence",
  "farmplan.mock.title": "Notes and monitoring",
  "farmplan.mock.lead": "Keep records of your soil and your own knowledge. These screens are prototypes: your entries are saved, but nothing is calculated from them yet.",
@@ -242,5 +242,6 @@
  "farmplan.x.gap.test_not_checked": "{crop}: the {test} test could not be checked because the data is missing.",
  "farmplan.x.confidence.computed": "Confidence {score} ({class}). Draft weights 0.4 data, 0.3 evidence, 0.3 local checking. Evidence levels: {evidence_levels}.",
  "farmplan.x.evidence.level_used": "Evidence level used: {level}",
- "farmplan.x.reason.no_cold_season": "No cold season for corm development in the Dry Zone."
+ "farmplan.x.reason.no_cold_season": "No cold season for corm development in the Dry Zone.",
+ "farmplan.trace.adv": "the rules the program used"
 }

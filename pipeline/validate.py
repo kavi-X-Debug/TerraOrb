@@ -1,5 +1,5 @@
 """
-Validation of Monsoon Compass outlooks (backtesting)
+Validation of TerraOrb outlooks (backtesting)
 ====================================================
 
     .venv\\Scripts\\python pipeline\\validate.py        (run from the repo root, after rain.py / water.py)
@@ -239,7 +239,7 @@ def summarise(results):
 def markdown_report(report):
     s = report["summary"]
     lines = [
-        "# Monsoon Compass — validation report",
+        "# TerraOrb — validation report",
         "",
         f"Generated {report['generated']} by `pipeline/validate.py`. All numbers: `data/validation.json`.",
         "",

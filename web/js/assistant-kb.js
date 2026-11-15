@@ -1,4 +1,4 @@
-// The knowledge side of "Ask Monsoon Compass": a list of topics for each end, and a fuzzy keyword matcher.
+// The knowledge side of "Ask TerraOrb": a list of topics for each end, and a fuzzy keyword matcher.
 //
 // It is still NOT an AI. Each topic has a list of keywords and phrases (Sinhala and English, in web/strings/assistant.*.json,
 // key "ak.<topic>.kw") and one fixed answer ("ak.<topic>.a"), so every answer was written and can be checked by a person.
@@ -11,19 +11,18 @@ export const TOPICS = {
   farmer: ["signal_meaning", "bethma", "maha_yala", "onset", "bad_water_data", "forecast_trust", "live_rain", "weekly_advice", "share_card", "advanced_view", "el_nino", "farm_planner", "data_sources", "nasa_or_not", "offline", "privacy", "languages", "not_ai"],
   learn: ["lessons", "games", "rewards_how", "levels", "certificate", "my_farm_game", "kids_games", "challenges", "real_or_game", "parents", "data_sources", "offline", "privacy", "not_ai"],
   officer: ["officer_count", "officer_list_red", "dashboard_use", "filters", "csv_download", "print_report", "officer_signin", "red_means", "live6", "greenness", "demo_tanks", "data_age", "thresholds_draft", "data_sources", "not_ai"],
-  research: ["method", "tests_summary", "el_nino_result", "tank_model_result", "crop_accuracy", "known_issues", "thresholds_draft", "reproduce", "credits", "data_sources", "nasa_or_not", "not_ai"],
+  research: ["method", "tests_summary", "el_nino_result", "tank_model_result", "crop_accuracy", "known_issues", "thresholds_draft", "reproduce", "data_sources", "nasa_or_not", "not_ai"],
   plan: ["how_verdict", "best_time", "trip_kinds", "wind_uv_heat", "usual_month", "compare_places", "calendar_file", "forecast_uncertainty", "plan_sources", "share_plan", "privacy", "not_ai"],
 };
 
 // Pages to open for a topic (hash addresses). Topics not listed here have no link.
 export const LINKS = {
   signal_meaning: "#/how-it-works", bethma: "#/learn/lessons/bethma", maha_yala: "#/learn/lessons/seasons", onset: "#/how-it-works",
-  bad_water_data: "#/data-sources", forecast_trust: "#/how-it-works", farm_planner: "#/farm", data_sources: "#/data-sources", nasa_or_not: "#/data-sources",
-  el_nino: "#/learn/lessons/elnino", lessons: "#/learn/lessons", games: "#/learn/kids", rewards_how: "#/learn/rewards", levels: "#/learn/rewards",
+  forecast_trust: "#/how-it-works", farm_planner: "#/farm", el_nino: "#/learn/lessons/elnino", lessons: "#/learn/lessons", games: "#/learn/kids", rewards_how: "#/learn/rewards", levels: "#/learn/rewards",
   certificate: "#/learn/rewards", my_farm_game: "#/learn/play/farm", kids_games: "#/learn/kids", challenges: "#/learn/challenges",
   dashboard_use: "#/officer", officer_list_red: "#/officer", officer_count: "#/officer", method: "#/how-it-works", tests_summary: "#/research",
-  credits: "#/data-sources/credits", known_issues: "#/data-sources", how_verdict: "#/plan", best_time: "#/plan", trip_kinds: "#/plan",
-  compare_places: "#/plan", plan_sources: "#/data-sources", crop_accuracy: "#/research", el_nino_result: "#/research", tank_model_result: "#/research",
+  how_verdict: "#/plan", best_time: "#/plan", trip_kinds: "#/plan",
+  compare_places: "#/plan", crop_accuracy: "#/research", el_nino_result: "#/research", tank_model_result: "#/research",
 };
 
 // ---- text helpers ---------------------------------------------------------------

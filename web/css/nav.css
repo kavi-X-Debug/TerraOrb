@@ -1,0 +1,101 @@
+/* The navigation bar of every app (farmer, learn, officer, research, plan). Loaded LAST so it replaces the older header rules in
+   style.css / site.css / earth.css / ends.css / desktop.css.
+
+   Design: a sticky frosted-glass bar; brand on the left, links in the middle with a highlight that SLIDES to the current page,
+   tools on the right (all apps, view mode, language) as tidy segmented controls. Below 1000 px it becomes a compact bar with a menu
+   button that opens a full-width panel with large touch targets. Each app has its own accent colour.
+   js/nav.js positions the sliding highlight and opens/closes the panel. Respects prefers-reduced-motion. */
+
+:root { --topbar: 64px; --nav-rgb: 24, 52, 32; --nav-accent: #E9C46A; --nav-ink: #1B2A10; }
+body[data-end="farmer"]   { --nav-rgb: 22, 48, 28;  --nav-accent: #E9C46A; --nav-ink: #2B2208; }
+body[data-end="learn"]    { --nav-rgb: 16, 50, 84;  --nav-accent: #FFD166; --nav-ink: #3A2B00; }
+body[data-end="officer"]  { --nav-rgb: 18, 46, 64;  --nav-accent: #7FD8C8; --nav-ink: #04251F; }
+body[data-end="research"] { --nav-rgb: 34, 32, 70;  --nav-accent: #C2B4FF; --nav-ink: #1D1650; }
+body[data-end="plan"]     { --nav-rgb: 16, 28, 44;  --nav-accent: #56B4E9; --nav-ink: #04223A; }
+
+/* the bar */
+.site-header.topbar {
+  position: sticky; top: 0; z-index: 1100; display: block; height: var(--topbar); padding: 0; color: #fff;
+  background: linear-gradient(180deg, rgba(var(--nav-rgb), .94), rgba(var(--nav-rgb), .84));
+  -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6);
+  border-bottom: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+  transition: box-shadow .3s, background .3s;
+}
+.site-header.topbar.scrolled { box-shadow: 0 14px 34px -18px rgba(0, 0, 0, .6); background: rgba(var(--nav-rgb), .96); }
+.site-header .header-inner { display: flex; align-items: center; flex-wrap: nowrap; gap: 18px; height: 100%; min-height: 0; padding-block: 0; }
+
+/* brand */
+.site-header .brand { display: inline-flex; align-items: center; gap: 11px; flex: none; color: #fff; text-decoration: none; font-weight: 800; font-size: 1.2rem; letter-spacing: -.015em; order: 0; }
+.site-header .brand .logo-mark { width: 38px; height: 38px; border-radius: 11px; padding: 0; background: none; box-shadow: 0 0 0 1.5px rgba(255, 255, 255, .28), 0 6px 16px -6px rgba(0, 0, 0, .6); transition: transform .35s cubic-bezier(.3, .8, .2, 1), box-shadow .3s; }
+.site-header .brand:hover .logo-mark { transform: rotate(-8deg) scale(1.06); box-shadow: 0 0 0 1.5px var(--nav-accent), 0 8px 20px -6px rgba(0, 0, 0, .7); }
+
+/* panel = links + tools (a row on desktop, a drop-down on small screens) */
+.nav-panel { display: flex; align-items: center; flex: 1; gap: 16px; min-width: 0; order: 1; }
+
+/* links with the sliding highlight */
+.site-header .site-nav { position: relative; display: flex; align-items: center; gap: 2px; flex-wrap: nowrap; margin: 0 auto; padding: 4px; border-radius: 999px; background: rgba(255, 255, 255, .07); border: 1px solid rgba(255, 255, 255, .1); width: auto; max-width: 100%; order: 0; }
+.site-header .site-nav a { position: relative; z-index: 1; display: inline-flex; align-items: center; min-height: 40px; padding: 0 18px; border-radius: 999px; color: rgba(255, 255, 255, .8); font-weight: 650; font-size: .96rem; text-decoration: none; white-space: nowrap; transition: color .25s, background .25s; }
+.site-header .site-nav a:hover { color: #fff; background: rgba(255, 255, 255, .1); }
+.site-header .site-nav a[aria-current="page"] { color: var(--nav-ink); background: transparent; font-weight: 800; }
+.site-header .site-nav .nav-ind { position: absolute; z-index: 0; top: 4px; bottom: 4px; left: 0; width: var(--w, 0); transform: translateX(var(--x, 0)); border-radius: 999px; background: var(--nav-accent); box-shadow: 0 6px 18px -6px var(--nav-accent); opacity: 0; transition: transform .4s cubic-bezier(.3, .8, .2, 1), width .4s cubic-bezier(.3, .8, .2, 1), opacity .2s; pointer-events: none; }
+.site-header .site-nav .nav-ind.on { opacity: 1; }
+/* before the highlight is positioned (or if scripts fail), the current link still shows clearly */
+.site-header .site-nav:not(.has-ind) a[aria-current="page"] { background: var(--nav-accent); }
+
+/* tools */
+.site-header .header-tools { display: flex; align-items: center; flex-wrap: nowrap; gap: 10px; margin: 0; order: 1; }
+.site-header .ends-link { display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px 0 12px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .08); color: #fff; font-weight: 700; font-size: .9rem; text-decoration: none; white-space: nowrap; transition: background .2s, border-color .2s, transform .2s; }
+.site-header .ends-link::before { content: ""; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--i-grid) center / contain no-repeat; mask: var(--i-grid) center / contain no-repeat;
+  --i-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linejoin='round'%3E%3Crect x='3' y='3' width='7.5' height='7.5' rx='2'/%3E%3Crect x='13.5' y='3' width='7.5' height='7.5' rx='2'/%3E%3Crect x='3' y='13.5' width='7.5' height='7.5' rx='2'/%3E%3Crect x='13.5' y='13.5' width='7.5' height='7.5' rx='2'/%3E%3C/svg%3E"); }
+.site-header .ends-link:hover, .site-header .ends-link:focus-visible { background: rgba(255, 255, 255, .18); border-color: rgba(255, 255, 255, .4); transform: translateY(-1px); }
+
+/* segmented switches: view mode and language */
+.site-header .mode-bar, .site-header .lang { position: static; display: inline-flex; align-items: center; gap: 2px; padding: 3px; margin: 0; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .18); background: rgba(255, 255, 255, .08); box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; overflow: visible; }
+.site-header .mode-bar button { display: inline-flex; align-items: center; gap: 6px; }
+.site-header .mode-bar button::before { margin: 0; flex: none; }
+.site-header .mode-bar button, .site-header .lang button { min-height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; color: rgba(255, 255, 255, .8); font: inherit; font-size: .88rem; font-weight: 700; cursor: pointer; transition: background .25s, color .25s, box-shadow .25s; filter: none; transform: none; }
+.site-header .mode-bar button:hover:not([aria-pressed="true"]), .site-header .lang button:hover:not([aria-pressed="true"]) { background: rgba(255, 255, 255, .14); color: #fff; filter: none; transform: none; }
+.site-header .mode-bar button[aria-pressed="true"], .site-header .lang button[aria-pressed="true"] { background: var(--nav-accent); color: var(--nav-ink); box-shadow: 0 4px 12px -4px var(--nav-accent); }
+.site-header a:focus-visible, .site-header button:focus-visible { outline: 3px solid #fff; outline-offset: 2px; }
+
+/* the menu button (small screens only) */
+.nav-burger { display: none; position: relative; flex: none; width: 46px; height: 46px; margin-left: auto; border-radius: 14px; border: 1px solid rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .08); cursor: pointer; order: 2; }
+.nav-burger i { position: absolute; left: 13px; right: 13px; height: 2.4px; border-radius: 2px; background: #fff; transition: transform .3s cubic-bezier(.3, .8, .2, 1), opacity .2s, top .3s; }
+.nav-burger i:nth-of-type(1) { top: 15px; } .nav-burger i:nth-of-type(2) { top: 21px; } .nav-burger i:nth-of-type(3) { top: 27px; }
+.site-header.nav-open .nav-burger i:nth-of-type(1) { top: 21px; transform: rotate(45deg); }
+.site-header.nav-open .nav-burger i:nth-of-type(2) { opacity: 0; }
+.site-header.nav-open .nav-burger i:nth-of-type(3) { top: 21px; transform: rotate(-45deg); }
+
+/* medium screens: icon-only "all apps" button keeps everything on one row */
+@media (max-width: 1380px) and (min-width: 1200px) {
+  .site-header .ends-link { padding: 0; width: 40px; justify-content: center; font-size: 0; gap: 0; }
+  .site-header .site-nav a { padding: 0 14px; font-size: .92rem; }
+  .site-header .header-inner { gap: 14px; }
+  .site-header .brand { font-size: 1.1rem; }
+}
+
+/* small screens: compact bar + drop-down panel */
+@media (max-width: 1199px) {
+  .nav-burger { display: block; }
+  .nav-panel { position: absolute; top: 100%; left: 0; right: 0; z-index: -1; display: flex; flex-direction: column; align-items: stretch; gap: 16px; padding: 14px 16px 22px; max-height: calc(100dvh - var(--topbar)); overflow-y: auto;
+    background: rgb(var(--nav-rgb)); border-bottom: 1px solid rgba(255, 255, 255, .15); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .7);
+    opacity: 0; visibility: hidden; transform: translateY(-10px); transition: opacity .25s, transform .3s cubic-bezier(.3, .8, .2, 1), visibility 0s .3s; }
+  .site-header.nav-open .nav-panel { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+  .site-header.nav-open::after { content: ""; position: absolute; left: 0; right: 0; top: 100%; height: 100dvh; z-index: -2; background: rgba(0, 0, 0, .5); }
+  .site-header .site-nav { flex-direction: column; align-items: stretch; gap: 4px; margin: 0; padding: 6px; border-radius: 20px; }
+  .site-header .site-nav a { min-height: 52px; padding: 0 18px; font-size: 1.05rem; border-radius: 14px; justify-content: flex-start; }
+  .site-header .site-nav a[aria-current="page"] { background: var(--nav-accent); }
+  .site-header .site-nav .nav-ind { display: none; }
+  .site-header .header-tools { flex-wrap: wrap; gap: 10px; }
+  .site-header .ends-link { width: 100%; justify-content: center; min-height: 48px; font-size: 1rem; gap: 8px; padding: 0 16px; }
+  .site-header .mode-bar, .site-header .lang { flex: 1 1 100%; min-width: 0; }
+  .site-header .mode-bar button, .site-header .lang button { flex: 1; min-height: 42px; }
+  .site-header .brand { font-size: 1.1rem; }
+}
+@media (max-width: 380px) { .site-header .brand span { display: none; } }
+body.nav-lock { overflow: hidden; }
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header *, .site-header::after { transition-duration: .01ms !important; }
+}
+@media print { .site-header { display: none !important; } }

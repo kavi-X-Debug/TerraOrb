@@ -66,7 +66,7 @@ def _split_text(ml, a, b):
     return f"{ml[a][:4]}-{ml[b][:4]}"
 
 
-def evaluate_occurrence(model_id, algo, proba, thr, base_p, d_test, ml, features, notes):
+def evaluate_occurrence(model_id, algo, proba, thr, base_p, d_test, ml, features, notes, pers_p=None):
     """The model_metadata record of one Task A model, from test-year probabilities."""
     y = d_test["y_wet"].to_numpy()
     years = pd.DatetimeIndex(d_test["target_date"]).year.to_numpy()
@@ -76,6 +76,13 @@ def evaluate_occurrence(model_id, algo, proba, thr, base_p, d_test, ml, features
     share = ev.share_of_years_better(years, loss_m, loss_b)
     m, b = ev.occurrence_metrics(y, proba, thr), ev.occurrence_metrics(y, base_p, thr)
     beats = bool(m["brier"] < b["brier"] and (m["roc_auc"] or 0) > (b["roc_auc"] or 0) and share > ml["min_test_years_better"])
+    pers = None
+    if pers_p is not None:                                  # the tougher baseline: "tomorrow is like today" (learned on the training years)
+        pm = ev.occurrence_metrics(y, pers_p, thr)
+        share_p = ev.share_of_years_better(years, loss_m, (pers_p - y) ** 2)
+        beats_p = bool(m["brier"] < pm["brier"] and (m["roc_auc"] or 0) > (pm["roc_auc"] or 0) and share_p > ml["min_test_years_better"])
+        pers = {"name": "persistence", "brier": pm["brier"], "roc_auc": pm["roc_auc"], "share_of_test_years_better": round(share_p, 3), "model_beats_it": beats_p}
+        beats = bool(beats and beats_p)                    # a model must beat BOTH baselines to count
     pair = lambda mask: {"model_brier": ev._r(loss_m[mask].mean()), "baseline_brier": ev._r(loss_b[mask].mean()),   # noqa: E731
                          "model_auc": ev._r(ev.safe_auc(y[mask], proba[mask])), "baseline_auc": ev._r(ev.safe_auc(y[mask], base_p[mask])),
                          "n": int(mask.sum())}
@@ -86,6 +93,7 @@ def evaluate_occurrence(model_id, algo, proba, thr, base_p, d_test, ml, features
         "metrics": {k: m[k] for k in ("precision", "recall", "f1", "roc_auc", "brier", "threshold", "n")},
         "baseline": {"name": "climatology", "brier": b["brier"], "roc_auc": b["roc_auc"], "precision": b["precision"],
                      "recall": b["recall"], "f1": b["f1"]},
+        "baseline_persistence": pers,
         "share_of_test_years_better": round(share, 3),
         "beats_baseline": beats,
         "by_cell": ev.grouped(cells, pair), "by_season": ev.grouped(seasons, pair),
@@ -94,7 +102,7 @@ def evaluate_occurrence(model_id, algo, proba, thr, base_p, d_test, ml, features
     }
 
 
-def evaluate_amount(model_id, algo, pred, base_mm, d_test, ml, features, notes):
+def evaluate_amount(model_id, algo, pred, base_mm, d_test, ml, features, notes, pers_mm=None):
     y = d_test["y_mm"].to_numpy()
     years = pd.DatetimeIndex(d_test["target_date"]).year.to_numpy()
     seasons = fe.season_of(d_test["target_date"])
@@ -103,6 +111,13 @@ def evaluate_amount(model_id, algo, pred, base_mm, d_test, ml, features, notes):
     share = ev.share_of_years_better(years, loss_m, loss_b)
     m, b = ev.amount_metrics(y, pred), ev.amount_metrics(y, base_mm)
     beats = bool(m["rmse"] < b["rmse"] and share > ml["min_test_years_better"])
+    pers = None
+    if pers_mm is not None:
+        pm = ev.amount_metrics(y, pers_mm)
+        share_p = ev.share_of_years_better(years, loss_m, (pers_mm - y) ** 2)
+        beats_p = bool(m["rmse"] < pm["rmse"] and share_p > ml["min_test_years_better"])
+        pers = {"name": "persistence", "rmse": pm["rmse"], "mae": pm["mae"], "share_of_test_years_better": round(share_p, 3), "model_beats_it": beats_p}
+        beats = bool(beats and beats_p)
     pair = lambda mask: {"model_rmse": ev.amount_metrics(y[mask], pred[mask])["rmse"],       # noqa: E731
                          "baseline_rmse": ev.amount_metrics(y[mask], base_mm[mask])["rmse"], "n": int(mask.sum())}
     return {
@@ -111,6 +126,7 @@ def evaluate_amount(model_id, algo, pred, base_mm, d_test, ml, features, notes):
         "test": _split_text(ml, "test_first", "test_last"),
         "metrics": m,
         "baseline": {"name": "climatology", "mae": b["mae"], "rmse": b["rmse"], "bias": b["bias"]},
+        "baseline_persistence": pers,
         "share_of_test_years_better": round(share, 3),
         "beats_baseline": beats,
         "by_cell": ev.grouped(cells, pair), "by_season": ev.grouped(seasons, pair),
@@ -131,6 +147,16 @@ def run(cells, centres, elevations, cfg, log=print):
     base_p, base_mm = climatology_baseline(cells, data, cfg)
     base_p_te, base_mm_te = base_p[te], base_mm[te]
 
+    wet_mm = ml["occurrence_mm"]
+    wet_today_tr = (d_tr["rain_lag0"] >= wet_mm).to_numpy()
+    wet_today_te = (d_te["rain_lag0"] >= wet_mm).to_numpy()
+    p_after_wet = float(d_tr["y_wet"][wet_today_tr].mean())          # P(rain tomorrow | rain today), learned on the training years only
+    p_after_dry = float(d_tr["y_wet"][~wet_today_tr].mean())
+    mm_after_wet = float(d_tr["y_mm"][wet_today_tr].mean())
+    mm_after_dry = float(d_tr["y_mm"][~wet_today_tr].mean())
+    pers_p_te = np.where(wet_today_te, p_after_wet, p_after_dry)
+    pers_mm_te = np.where(wet_today_te, mm_after_wet, mm_after_dry)
+
     Xtr, Xva, Xte = d_tr[features], d_va[features], d_te[features]
     models, trained = [], {"features": features, "cells": sorted(cells)}
 
@@ -142,11 +168,11 @@ def run(cells, centres, elevations, cfg, log=print):
         model = fit()
         thr = ev.best_threshold(d_va["y_wet"], clf.predict_proba(model, Xva))
         extra = f" {clf.rf_note()}" if mid == "rf_occurrence" and clf.rf_note() else ""
-        rec = evaluate_occurrence(mid, algo, clf.predict_proba(model, Xte), thr, base_p_te, d_te, ml, features, note_a + extra)
+        rec = evaluate_occurrence(mid, algo, clf.predict_proba(model, Xte), thr, base_p_te, d_te, ml, features, note_a + extra, pers_p=pers_p_te)
         models.append(rec)
         trained[mid] = {"model": model, "threshold": thr}
         log(f"  {mid}: Brier {rec['metrics']['brier']} vs climatology {rec['baseline']['brier']}; "
-            f"AUC {rec['metrics']['roc_auc']} vs {rec['baseline']['roc_auc']}; beats baseline: {rec['beats_baseline']}")
+            f"AUC {rec['metrics']['roc_auc']} vs {rec['baseline']['roc_auc']}; vs persistence Brier {rec['baseline_persistence']['brier']}; beats both baselines: {rec['beats_baseline']}")
 
     # Task B: amount
     note_b = "Rain amounts are very skewed (many dry days), so a model that predicts the average is hard to beat; RMSE decides."
@@ -154,7 +180,7 @@ def run(cells, centres, elevations, cfg, log=print):
                            ("rf_amount", reg.rf_name(), lambda: reg.fit_rf(Xtr, d_tr["y_mm"], ml))):
         model = fit()
         extra = f" {reg.rf_note()}" if mid == "rf_amount" and reg.rf_note() else ""
-        rec = evaluate_amount(mid, algo, reg.predict_mm(model, Xte), base_mm_te, d_te, ml, features, note_b + extra)
+        rec = evaluate_amount(mid, algo, reg.predict_mm(model, Xte), base_mm_te, d_te, ml, features, note_b + extra, pers_mm=pers_mm_te)
         models.append(rec)
         trained[mid] = {"model": model}
         log(f"  {mid}: RMSE {rec['metrics']['rmse']} vs climatology {rec['baseline']['rmse']}; beats baseline: {rec['beats_baseline']}")

@@ -1,4 +1,4 @@
-# Monsoon Compass — pipeline settings.
+# TerraOrb — pipeline settings.
 # Change numbers here, not in the code. After changing anything, re-run:
 #   .venv\Scripts\python pipeline\rain.py
 # Dates are written "MM-DD".
@@ -227,6 +227,8 @@ crops_sow_days = [1, 15]            # sowing dates tested: the 1st and 15th of e
 analog_seasons = ["Yala 1983", "Yala 1998", "Yala 2016"]
 
 [farm]
+# This phase of the extra NASA data (SMAP, IMERG per tank) covers only these five tanks: Nuwara Wewa plus the tank nearest to each of the other four farm grid cells.
+phase_tanks = ["osm-way-30378745", "osm-way-733519293", "osm-way-496733471", "osm-way-1416809417", "osm-way-177782668"]
 # pipeline/farm_profile.py: pre-computed tables for the farm planner (data/farm/).
 # EVERY number in this section is a DRAFT PLACEHOLDER taken from the product owner's "Steps" document.
 # None of them has been reviewed by an Agricultural Instructor. The output files say so ("thresholds_are_placeholders").

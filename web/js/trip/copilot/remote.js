@@ -46,8 +46,8 @@ export function numbersGrounded(text, message, facts) {
 }
 
 // Reword `facts` (plain sentences already made by the rules provider). Returns the text, or throws (the caller then keeps the rules answer).
-export async function rephrase({ message, lang, facts, fetchImpl }) {
-  const body = { message: String(message).slice(0, 500), lang: lang === "si" ? "si" : "en", facts: facts.map((f) => String(f).slice(0, 600)).slice(0, 40) };
+export async function rephrase({ message, lang, facts, fetchImpl, mode }) {
+  const body = { message: String(message).slice(0, 500), lang: lang === "si" ? "si" : "en", facts: facts.map((f) => String(f).slice(0, 600)).slice(0, 40), ...(mode === "site" ? { mode } : {}) };
   const d = await call("/rephrase", { method: "POST", body, timeout: 20000, fetchImpl });
   const text = typeof d?.text === "string" ? d.text.trim() : "";
   if (!text) throw new Error("empty answer");

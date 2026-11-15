@@ -1,4 +1,4 @@
-// "Ask Monsoon Compass": a question-and-answer helper for farmers, on every page.
+// "Ask TerraOrb": a question-and-answer helper for farmers, on every page.
 //
 // It is NOT an AI that guesses. It works like this:
 //   1. it looks for keywords in the question (Sinhala or English; the word lists are in si.json / en.json,
@@ -10,7 +10,8 @@
 // Every end (farmer, learn, officer, research, plan) has its own list of topics with written answers (assistant-kb.js and
 // web/strings/assistant.*.json). The words are matched with a spelling-tolerant ranking; when it is not sure, it offers the
 // closest questions ("Did you mean...?"). Some answers fill in live numbers from the data files (tank counts, test results).
-import { t, tBoth } from "./i18n.js";
+import { t, tBoth, getLang } from "./i18n.js";
+import { status as llmStatus, rephrase as llmRephrase } from "./trip/copilot/remote.js";
 import { escapeHtml, tankName, levelWord, date, num, capNames } from "./ui.js";
 import { bestWindow, addDays } from "./calendar.js";
 import { adviceSentence } from "./plan.js";
@@ -182,7 +183,9 @@ export function initAssistant(state) {
     </button>
     <section class="asst-panel" role="dialog" aria-modal="false" hidden>
       <header class="asst-head">
-        <div><strong class="asst-title"></strong><span class="asst-ctx"></span></div>
+        <span class="asst-avatar" aria-hidden="true"><img src="icon-64.png" alt="" width="40" height="40"></span>
+        <div class="asst-headtext"><strong class="asst-title"></strong><button type="button" class="asst-ctx"></button></div>
+        <button type="button" class="asst-new" aria-label=""><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></svg></button>
         <button type="button" class="asst-close" aria-label=""><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
       </header>
       <div class="asst-log" aria-live="polite"></div>
@@ -196,6 +199,8 @@ export function initAssistant(state) {
   const $ = (s) => el.querySelector(s);
   const fab = $(".asst-fab"), panel = $(".asst-panel"), log = $(".asst-log"), input = $(".asst-input");
 
+  const llm = { on: false };  // does the server have a language model? (asked when the chat opens; the rules answer everything they can first)
+  const refreshLlm = () => llmStatus().then((s) => { llm.on = Boolean(s && s.enabled); }).catch(() => { llm.on = false; });
   let ctx = null;            // the tank we are talking about
   let pending = null;        // a question waiting for the tank to be chosen
   let greeted = false;
@@ -206,7 +211,15 @@ export function initAssistant(state) {
     return m ? state.tanks.find((x) => x.id === decodeURIComponent(m[1])) : null;
   };
 
+  // the questions offered at the start (big buttons in the welcome) and as quick questions afterwards
+  const starterTexts = () => [...(END === "farmer" ? CHIPS.map((k) => t(`assistant.chip.${k}`)) : []), ...TOPICS[END].slice(0, END === "farmer" ? 2 : 6).map((id) => t(`ak.${id}.q`))];
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const sleep = (ms) => new Promise((r) => setTimeout(r, reduced ? 0 : ms));
+  let queue = Promise.resolve();                  // messages appear in order, a bot reply after a short "typing" pause
+
   function labels() {
+    $(".asst-new").setAttribute("aria-label", t("assistant.new"));
+    $(".asst-new").title = t("assistant.new");
     $(".asst-fab-label").textContent = t("assistant.open");
     $(".asst-title").textContent = t("assistant.title");
     $(".asst-close").setAttribute("aria-label", t("assistant.close"));
@@ -215,8 +228,7 @@ export function initAssistant(state) {
     const chips = $(".asst-chips");
     chips.innerHTML = "";
     // the farmer end keeps its tank questions; every end also offers its own topics
-    const chipTexts = [...(END === "farmer" ? CHIPS.map((k) => t(`assistant.chip.${k}`)) : []), ...TOPICS[END].slice(0, END === "farmer" ? 2 : 6).map((id) => t(`ak.${id}.q`))];
-    chipTexts.forEach((text) => {
+    starterTexts().forEach((text) => {
       const b = document.createElement("button");
       b.type = "button"; b.className = "asst-chip"; b.textContent = text;
       b.onclick = () => ask(text);
@@ -227,10 +239,25 @@ export function initAssistant(state) {
 
   function showCtx() {
     const c = $(".asst-ctx");
-    c.textContent = !TANK_FLOW ? "" : ctx ? t("assistant.tank_ctx", { name: tankName(ctx) }) : t("assistant.no_ctx");
+    c.textContent = !TANK_FLOW ? t("assistant.sub") : ctx ? `${t("assistant.tank_ctx", { name: tankName(ctx) })} · ${t("assistant.change_tank")}` : t("assistant.no_ctx");
+    c.disabled = !TANK_FLOW;
   }
 
   function add(who, msg) {
+    queue = queue.then(async () => {
+      if (who === "bot") {
+        const dots = document.createElement("div");
+        dots.className = "asst-msg bot";
+        dots.innerHTML = '<div class="asst-bubble asst-typing" aria-label="..."><i></i><i></i><i></i></div>';
+        log.appendChild(dots); log.scrollTop = log.scrollHeight;
+        await sleep(420);
+        dots.remove();
+      }
+      addNow(who, msg);
+    });
+  }
+
+  function addNow(who, msg) {
     const row = document.createElement("div");
     row.className = `asst-msg ${who}`;
     const bubble = document.createElement("div");
@@ -239,11 +266,12 @@ export function initAssistant(state) {
     p.textContent = typeof msg === "string" ? msg : msg.text;      // textContent: nothing typed by the user is ever run as HTML
     bubble.appendChild(p);
     if (typeof msg !== "string") {
+      if (msg.note) { const n = document.createElement("p"); n.className = "asst-src"; n.textContent = msg.note; bubble.appendChild(n); }
       if (msg.src) { const s = document.createElement("p"); s.className = "asst-src"; s.textContent = t("assistant.source", { list: msg.src }); bubble.appendChild(s); }
       if (msg.link) { const a = document.createElement("a"); a.className = "asst-link"; a.href = msg.link.href; a.textContent = msg.link.label; a.onclick = () => { panel.hidden = true; fab.setAttribute("aria-expanded", "false"); }; bubble.appendChild(a); }
       (msg.options || []).forEach((o) => {                          // tank or crop choices
         const b = document.createElement("button");
-        b.type = "button"; b.className = "asst-chip asst-option"; b.textContent = o.label; b.onclick = o.run;
+        b.type = "button"; b.className = msg.starters ? "asst-chip asst-option asst-starter" : "asst-chip asst-option"; b.textContent = o.label; b.onclick = o.run;
         bubble.appendChild(b);
       });
     }
@@ -259,9 +287,12 @@ export function initAssistant(state) {
   }
 
   // The main entry: one question in, one answer out.
+  let lastQuestion = "";
   async function ask(text) {
     const q = text.trim().toLowerCase();
     if (!q) return;
+    lastQuestion = text.trim();
+    $(".asst-chips").hidden = false;
     add("user", text.trim());
     const intent = intentOf(q);
     if (intent === "thanks") return add("bot", t("assistant.a.thanks"));
@@ -304,7 +335,40 @@ export function initAssistant(state) {
   }
 
   // Not sure: offer the closest questions (or the first few of this end) instead of guessing
-  function suggest(ranked) {
+  // The rules could not match the question. If the server has a language model (Gemini), it answers from the site's WRITTEN answers only
+  // (the closest topics first); if it is off, fails or is not sure, the closest questions are offered as before.
+  async function askAi(ranked) {
+    const first = ranked.list.slice(0, 4).map((x) => x.id);
+    const ids = [...first, ...TOPICS[END].filter((id) => !first.includes(id))].slice(0, 12);
+    const facts = [];
+    let size = 0;
+    for (const id of ids) {
+      const m = await topicAnswer(id, state);
+      const fact = `${t(`ak.${id}.q`)} ${m.text}`.slice(0, 600);
+      if (size + fact.length > 7500) break;
+      facts.push(fact); size += fact.length;
+    }
+    return llmRephrase({ message: lastQuestion, lang: getLang(), facts, mode: "site" });
+  }
+
+  async function suggest(ranked) {
+    if (!llm.on) return suggestClosest(ranked);
+    const q = lastQuestion;
+    const dots = document.createElement("div");                              // "typing" dots while the model thinks
+    dots.className = "asst-msg bot";
+    dots.innerHTML = '<div class="asst-bubble asst-typing" aria-label="..."><i></i><i></i><i></i></div>';
+    queue = queue.then(() => { log.appendChild(dots); log.scrollTop = log.scrollHeight; });
+    try {
+      const text = await askAi(ranked);
+      dots.remove();
+      if (q !== lastQuestion) return;                                        // the user has already asked something else
+      return add("bot", { text, note: t("assistant.ai_src") });
+    } catch { /* model off, slow, not grounded: use the rules */ }
+    dots.remove();
+    suggestClosest(ranked);
+  }
+
+  function suggestClosest(ranked) {
     const ids = ranked.list.length ? ranked.list.slice(0, 3).map((x) => x.id) : TOPICS[END].slice(0, 4);
     add("bot", {
       text: ranked.list.length ? t("ak.did_you_mean") : t("ak.fallback"),
@@ -320,22 +384,43 @@ export function initAssistant(state) {
     add("bot", res);
   }
 
+  // Friendly welcome: who this is, what it can answer, and big buttons to start with
+  function welcome() {
+    greeted = true;
+    add("bot", { text: `${t(`ak.hello.${END}`)} ${t("assistant.about")}`, link: { href: "#/how-it-works", label: t("assistant.link.how") } });
+    if (TANK_FLOW && END === "farmer" && !ctx) add("bot", t("assistant.pick_tank"));
+    add("bot", { text: t("assistant.starters"), starters: true, options: starterTexts().map((text) => ({ label: text, run: () => ask(text) })) });
+  }
+
+  function newChat() {
+    log.innerHTML = ""; queue = Promise.resolve(); pending = null;
+    $(".asst-chips").hidden = true;
+    welcome();
+    input.focus();
+  }
+
+  // Tap the tank name under the title to pick another tank
+  function chooseTank() {
+    const list = state.tanks.filter((x) => !x.demo && !x.doc?.demo).sort((a, b) => tankName(a).localeCompare(tankName(b))).slice(0, 6);
+    add("bot", { text: t("assistant.pick_tank"), options: list.map((tk) => ({ label: tankName(tk), run: () => { setTank(tk, !pending); if (pending) { const p = pending; pending = null; ask2(p); } } })) });   // a waiting question is answered right away
+  }
+
   function open() {
+    refreshLlm();
     panel.hidden = false;
     fab.setAttribute("aria-expanded", "true");
     const rt = routeTank();
     if (rt && rt.id !== lastRouteTank) { lastRouteTank = rt.id; ctx = rt; showCtx(); }
-    if (!greeted) {
-      greeted = true;
-      add("bot", { text: `${t(`ak.hello.${END}`)} ${t("assistant.about")}`, link: { href: "#/how-it-works", label: t("assistant.link.how") } });
-      if (TANK_FLOW && END === "farmer" && !ctx) add("bot", t("assistant.pick_tank"));
-    }
+    if (!greeted) welcome();
     input.focus();
   }
 
   fab.onclick = () => (panel.hidden ? open() : ((panel.hidden = true), fab.setAttribute("aria-expanded", "false")));
   $(".asst-close").onclick = () => { panel.hidden = true; fab.setAttribute("aria-expanded", "false"); fab.focus(); };
   el.addEventListener("keydown", (e) => { if (e.key === "Escape" && !panel.hidden) $(".asst-close").click(); });
+  $(".asst-new").onclick = newChat;
+  $(".asst-ctx").onclick = () => { if (TANK_FLOW) chooseTank(); };
+  $(".asst-chips").hidden = true;
   $(".asst-form").onsubmit = (e) => { e.preventDefault(); const v = input.value; input.value = ""; ask(v); };
   window.addEventListener("hashchange", () => { const rt = routeTank(); if (rt && rt.id !== lastRouteTank) { lastRouteTank = rt.id; ctx = rt; showCtx(); } });
   document.addEventListener("mc-lang", labels);       // main.js fires this when the language changes

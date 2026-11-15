@@ -273,7 +273,7 @@ function numbersIn(s) { return (s.match(/\d+(?:\.\d+)?/g) || []); }
 { // explain
   const e = makeEnv();
   const a = text(await ask("what does heavy rain mean, mm per hour", e)); ok(/heavy from 10 mm/.test(a) && /not as one of these words/.test(a), "intensity thresholds come from the config: " + a);
-  const s = text(await ask("where does the data come from", e)); ok(/Open-Meteo/.test(s) && /NASA POWER/.test(s) && /IMERG satellite rain is not used yet/.test(s), "sources");
+  const s = text(await ask("where does the data come from", e)); ok(/Open-Meteo/.test(s) && /NASA POWER/.test(s) && /IMERG satellite rain is never shown as a forecast/.test(s), "sources");
   const m = text(await ask("explain the machine learning model", e)); ok(/No machine-learning estimate is used/.test(m), "ml honest");
   const w = text(await ask("Explain the rain forecast for Kandy tomorrow", e)); ok(/The data behind this for Kandy/.test(w) && /10\.0 mm/.test(w), "explain with data");
 }

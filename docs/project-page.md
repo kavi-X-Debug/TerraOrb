@@ -1,4 +1,4 @@
-# Monsoon Compass — Space Apps 2026 project page (DRAFT)
+# TerraOrb — Space Apps 2026 project page (DRAFT)
 
 > **Draft for the team to edit.** Every number below comes from `data/` or `docs/` in this
 > repo (sources listed at the end). The demo tanks are **placeholders**: their locations,
@@ -9,7 +9,7 @@
 
 ## Summary
 
-Monsoon Compass helps a farmer organisation in Sri Lanka's Dry Zone decide what to grow
+TerraOrb helps a farmer organisation in Sri Lanka's Dry Zone decide what to grow
 next season. Pick your village tank (wewa) on a map and one screen shows three things,
 each with the NASA dataset behind it: how much water the tank holds compared with
 normal, how the start of the Yala and Maha rains has moved over the years, and a

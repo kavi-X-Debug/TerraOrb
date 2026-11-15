@@ -1,5 +1,5 @@
 {
-  "name": "Monsoon Compass: Farmers",
+  "name": "TerraOrb: Farmers",
   "short_name": "Farmers",
   "description": "Tank water, rain and crop advice for Sri Lanka's Dry Zone farmers, from NASA data.",
   "lang": "si",
@@ -10,10 +10,22 @@
   "theme_color": "#2B5430",
   "icons": [
     {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }

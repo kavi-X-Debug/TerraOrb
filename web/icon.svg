@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-  <!-- Monsoon Compass icon: a village tank (wewa) seen in cross-section, half full -->
+  <!-- TerraOrb icon: a village tank (wewa) seen in cross-section, half full -->
   <rect width="512" height="512" fill="#2B5430"/>
   <polygon points="72,170 440,170 366,372 146,372" fill="#E6EDEB"/>
   <clipPath id="b"><polygon points="72,170 440,170 366,372 146,372"/></clipPath>

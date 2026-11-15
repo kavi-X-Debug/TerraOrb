@@ -129,7 +129,7 @@ async function shareCard(tank, panel) {
   }
 
   const stamp = new Date().toISOString().slice(0, 10);
-  const file = new File([blob], `monsoon-compass-${tank.id}-${stamp}.png`, { type: "image/png" });
+  const file = new File([blob], `terraorb-${tank.id}-${stamp}.png`, { type: "image/png" });
 
   // Phone share sheet (WhatsApp etc.) when the browser can share files.
   if (navigator.canShare && navigator.canShare({ files: [file] })) {

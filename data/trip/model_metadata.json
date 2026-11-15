@@ -1,0 +1,2475 @@
+{
+ "schema": "trip-models-1",
+ "generated": "2026-11-15T17:09:42+05:30",
+ "source": "XGBoost and scikit-learn Random Forest trained on NASA POWER daily rain; climatology baseline",
+ "demo": false,
+ "ml_available": false,
+ "imerg": {
+  "used": true,
+  "days_cached": 9448,
+  "role": "an independent rain record used to train and test a second set of models (data_pipeline, not shown as a forecast)",
+  "comparison_file": "imerg_comparison.json",
+  "verdict": "Across 21 squares the median daily correlation is 0.62 and IMERG's total rain is 105% of POWER's. They agree on the timing of rain. Totals are similar.",
+  "models": [
+   {
+    "id": "xgb_occurrence",
+    "task": "occurrence",
+    "algo": "XGBClassifier",
+    "target": "rain >= 1 mm on day t+1",
+    "features": [
+     "rain_lag0",
+     "rain_lag1",
+     "rain_lag2",
+     "rain_sum_3",
+     "rain_sum_7",
+     "rain_sum_14",
+     "rain_sum_30",
+     "wet_days_7",
+     "wet_days_30",
+     "days_since_wet",
+     "doy_sin",
+     "doy_cos",
+     "lat",
+     "lon",
+     "elevation_m"
+    ],
+    "train": "1981-2012",
+    "valid": "2013-2018",
+    "test": "2019-2025",
+    "metrics": {
+     "precision": 0.6887,
+     "recall": 0.8021,
+     "f1": 0.7411,
+     "roc_auc": 0.8351,
+     "brier": 0.1639,
+     "threshold": 0.36,
+     "n": 53697
+    },
+    "baseline": {
+     "name": "climatology",
+     "brier": 0.2193,
+     "roc_auc": 0.6987,
+     "precision": 0.5715,
+     "recall": 0.7131,
+     "f1": 0.6345
+    },
+    "baseline_persistence": {
+     "name": "persistence",
+     "brier": 0.1846,
+     "roc_auc": 0.7512,
+     "share_of_test_years_better": 1.0,
+     "model_beats_it": true
+    },
+    "share_of_test_years_better": 1.0,
+    "beats_baseline": true,
+    "by_cell": {
+     "10.0_80.0": {
+      "model_brier": 0.1543,
+      "baseline_brier": 0.2112,
+      "model_auc": 0.8526,
+      "baseline_auc": 0.7142,
+      "n": 2557
+     },
+     "6.0_80.0": {
+      "model_brier": 0.1899,
+      "baseline_brier": 0.2433,
+      "model_auc": 0.7864,
+      "baseline_auc": 0.6148,
+      "n": 2557
+     },
+     "6.0_80.625": {
+      "model_brier": 0.1795,
+      "baseline_brier": 0.2384,
+      "model_auc": 0.8077,
+      "baseline_auc": 0.6353,
+      "n": 2557
+     },
+     "6.0_81.25": {
+      "model_brier": 0.1709,
+      "baseline_brier": 0.2338,
+      "model_auc": 0.809,
+      "baseline_auc": 0.5882,
+      "n": 2557
+     },
+     "6.5_80.0": {
+      "model_brier": 0.1606,
+      "baseline_brier": 0.2256,
+      "model_auc": 0.8346,
+      "baseline_auc": 0.6534,
+      "n": 2557
+     },
+     "6.5_80.625": {
+      "model_brier": 0.1674,
+      "baseline_brier": 0.2247,
+      "model_auc": 0.8183,
+      "baseline_auc": 0.6517,
+      "n": 2557
+     },
+     "6.5_81.25": {
+      "model_brier": 0.176,
+      "baseline_brier": 0.2363,
+      "model_auc": 0.814,
+      "baseline_auc": 0.6405,
+      "n": 2557
+     },
+     "6.5_81.875": {
+      "model_brier": 0.1518,
+      "baseline_brier": 0.2086,
+      "model_auc": 0.835,
+      "baseline_auc": 0.6666,
+      "n": 2557
+     },
+     "7.0_80.0": {
+      "model_brier": 0.1655,
+      "baseline_brier": 0.2275,
+      "model_auc": 0.8282,
+      "baseline_auc": 0.6597,
+      "n": 2557
+     },
+     "7.0_80.625": {
+      "model_brier": 0.1554,
+      "baseline_brier": 0.2151,
+      "model_auc": 0.8312,
+      "baseline_auc": 0.6244,
+      "n": 2557
+     },
+     "7.0_81.875": {
+      "model_brier": 0.169,
+      "baseline_brier": 0.2204,
+      "model_auc": 0.8045,
+      "baseline_auc": 0.6491,
+      "n": 2557
+     },
+     "7.5_80.625": {
+      "model_brier": 0.1757,
+      "baseline_brier": 0.2383,
+      "model_auc": 0.8164,
+      "baseline_auc": 0.6437,
+      "n": 2557
+     },
+     "7.5_81.875": {
+      "model_brier": 0.1661,
+      "baseline_brier": 0.2156,
+      "model_auc": 0.8072,
+      "baseline_auc": 0.6521,
+      "n": 2557
+     },
+     "8.0_80.0": {
+      "model_brier": 0.1591,
+      "baseline_brier": 0.2164,
+      "model_auc": 0.8358,
+      "baseline_auc": 0.6724,
+      "n": 2557
+     },
+     "8.0_80.625": {
+      "model_brier": 0.1696,
+      "baseline_brier": 0.2247,
+      "model_auc": 0.8208,
+      "baseline_auc": 0.6719,
+      "n": 2557
+     },
+     "8.0_81.25": {
+      "model_brier": 0.1683,
+      "baseline_brier": 0.2211,
+      "model_auc": 0.8198,
+      "baseline_auc": 0.6684,
+      "n": 2557
+     },
+     "8.5_80.0": {
+      "model_brier": 0.1519,
+      "baseline_brier": 0.2054,
+      "model_auc": 0.8352,
+      "baseline_auc": 0.6866,
+      "n": 2557
+     },
+     "8.5_80.625": {
+      "model_brier": 0.1613,
+      "baseline_brier": 0.2077,
+      "model_auc": 0.8248,
+      "baseline_auc": 0.6899,
+      "n": 2557
+     },
+     "8.5_81.25": {
+      "model_brier": 0.1504,
+      "baseline_brier": 0.204,
+      "model_auc": 0.8418,
+      "baseline_auc": 0.6895,
+      "n": 2557
+     },
+     "9.0_80.0": {
+      "model_brier": 0.152,
+      "baseline_brier": 0.2002,
+      "model_auc": 0.834,
+      "baseline_auc": 0.6984,
+      "n": 2557
+     },
+     "9.0_81.25": {
+      "model_brier": 0.147,
+      "baseline_brier": 0.1873,
+      "model_auc": 0.8353,
+      "baseline_auc": 0.7103,
+      "n": 2557
+     }
+    },
+    "by_season": {
+     "inter_1": {
+      "model_brier": 0.1641,
+      "baseline_brier": 0.2104,
+      "model_auc": 0.826,
+      "baseline_auc": 0.7085,
+      "n": 8967
+     },
+     "inter_2": {
+      "model_brier": 0.149,
+      "baseline_brier": 0.2156,
+      "model_auc": 0.8284,
+      "baseline_auc": 0.591,
+      "n": 8967
+     },
+     "ne_monsoon": {
+      "model_brier": 0.1582,
+      "baseline_brier": 0.2101,
+      "model_auc": 0.8379,
+      "baseline_auc": 0.6966,
+      "n": 13272
+     },
+     "sw_monsoon": {
+      "model_brier": 0.1731,
+      "baseline_brier": 0.2298,
+      "model_auc": 0.8072,
+      "baseline_auc": 0.6513,
+      "n": 22491
+     }
+    },
+    "calibration": [
+     {
+      "bin": [
+       0.0,
+       0.1
+      ],
+      "mean_pred": 0.062,
+      "observed": 0.0785,
+      "n": 9616
+     },
+     {
+      "bin": [
+       0.1,
+       0.2
+      ],
+      "mean_pred": 0.1458,
+      "observed": 0.178,
+      "n": 8684
+     },
+     {
+      "bin": [
+       0.2,
+       0.3
+      ],
+      "mean_pred": 0.2459,
+      "observed": 0.2774,
+      "n": 5285
+     },
+     {
+      "bin": [
+       0.3,
+       0.4
+      ],
+      "mean_pred": 0.3478,
+      "observed": 0.3752,
+      "n": 4038
+     },
+     {
+      "bin": [
+       0.4,
+       0.5
+      ],
+      "mean_pred": 0.4496,
+      "observed": 0.4702,
+      "n": 3675
+     },
+     {
+      "bin": [
+       0.5,
+       0.6
+      ],
+      "mean_pred": 0.5511,
+      "observed": 0.5592,
+      "n": 3675
+     },
+     {
+      "bin": [
+       0.6,
+       0.7
+      ],
+      "mean_pred": 0.6518,
+      "observed": 0.6448,
+      "n": 4417
+     },
+     {
+      "bin": [
+       0.7,
+       0.8
+      ],
+      "mean_pred": 0.7511,
+      "observed": 0.7239,
+      "n": 5280
+     },
+     {
+      "bin": [
+       0.8,
+       0.9
+      ],
+      "mean_pred": 0.8521,
+      "observed": 0.85,
+      "n": 6015
+     },
+     {
+      "bin": [
+       0.9,
+       1.0
+      ],
+      "mean_pred": 0.9254,
+      "observed": 0.9356,
+      "n": 3012
+     }
+    ],
+    "calibration_baseline": [
+     {
+      "bin": [
+       0.0,
+       0.1
+      ],
+      "mean_pred": 0.0703,
+      "observed": 0.1663,
+      "n": 2237
+     },
+     {
+      "bin": [
+       0.1,
+       0.2
+      ],
+      "mean_pred": 0.1525,
+      "observed": 0.2485,
+      "n": 6878
+     },
+     {
+      "bin": [
+       0.2,
+       0.3
+      ],
+      "mean_pred": 0.2507,
+      "observed": 0.2941,
+      "n": 10066
+     },
+     {
+      "bin": [
+       0.3,
+       0.4
+      ],
+      "mean_pred": 0.3497,
+      "observed": 0.3626,
+      "n": 7653
+     },
+     {
+      "bin": [
+       0.4,
+       0.5
+      ],
+      "mean_pred": 0.4467,
+      "observed": 0.4607,
+      "n": 7142
+     },
+     {
+      "bin": [
+       0.5,
+       0.6
+      ],
+      "mean_pred": 0.544,
+      "observed": 0.5552,
+      "n": 7541
+     },
+     {
+      "bin": [
+       0.6,
+       0.7
+      ],
+      "mean_pred": 0.6473,
+      "observed": 0.6446,
+      "n": 6055
+     },
+     {
+      "bin": [
+       0.7,
+       0.8
+      ],
+      "mean_pred": 0.7478,
+      "observed": 0.7085,
+      "n": 4459
+     },
+     {
+      "bin": [
+       0.8,
+       0.9
+      ],
+      "mean_pred": 0.8382,
+      "observed": 0.786,
+      "n": 1561
+     },
+     {
+      "bin": [
+       0.9,
+       1.0
+      ],
+      "mean_pred": 0.9159,
+      "observed": 0.8,
+      "n": 105
+     }
+    ],
+    "notes": "Trained on all squares together. Probability threshold for precision/recall/F1 chosen on the validation years (same rule for the baseline). Test years were not used for any choice."
+   },
+   {
+    "id": "rf_occurrence",
+    "task": "occurrence",
+    "algo": "RandomForestClassifier",
+    "target": "rain >= 1 mm on day t+1",
+    "features": [
+     "rain_lag0",
+     "rain_lag1",
+     "rain_lag2",
+     "rain_sum_3",
+     "rain_sum_7",
+     "rain_sum_14",
+     "rain_sum_30",
+     "wet_days_7",
+     "wet_days_30",
+     "days_since_wet",
+     "doy_sin",
+     "doy_cos",
+     "lat",
+     "lon",
+     "elevation_m"
+    ],
+    "train": "1981-2012",
+    "valid": "2013-2018",
+    "test": "2019-2025",
+    "metrics": {
+     "precision": 0.6893,
+     "recall": 0.7984,
+     "f1": 0.7398,
+     "roc_auc": 0.8338,
+     "brier": 0.1643,
+     "threshold": 0.36,
+     "n": 53697
+    },
+    "baseline": {
+     "name": "climatology",
+     "brier": 0.2193,
+     "roc_auc": 0.6987,
+     "precision": 0.5715,
+     "recall": 0.7131,
+     "f1": 0.6345
+    },
+    "baseline_persistence": {
+     "name": "persistence",
+     "brier": 0.1846,
+     "roc_auc": 0.7512,
+     "share_of_test_years_better": 1.0,
+     "model_beats_it": true
+    },
+    "share_of_test_years_better": 1.0,
+    "beats_baseline": true,
+    "by_cell": {
+     "10.0_80.0": {
+      "model_brier": 0.1546,
+      "baseline_brier": 0.2112,
+      "model_auc": 0.8526,
+      "baseline_auc": 0.7142,
+      "n": 2557
+     },
+     "6.0_80.0": {
+      "model_brier": 0.1901,
+      "baseline_brier": 0.2433,
+      "model_auc": 0.7846,
+      "baseline_auc": 0.6148,
+      "n": 2557
+     },
+     "6.0_80.625": {
+      "model_brier": 0.1812,
+      "baseline_brier": 0.2384,
+      "model_auc": 0.8045,
+      "baseline_auc": 0.6353,
+      "n": 2557
+     },
+     "6.0_81.25": {
+      "model_brier": 0.171,
+      "baseline_brier": 0.2338,
+      "model_auc": 0.8077,
+      "baseline_auc": 0.5882,
+      "n": 2557
+     },
+     "6.5_80.0": {
+      "model_brier": 0.1615,
+      "baseline_brier": 0.2256,
+      "model_auc": 0.8332,
+      "baseline_auc": 0.6534,
+      "n": 2557
+     },
+     "6.5_80.625": {
+      "model_brier": 0.1682,
+      "baseline_brier": 0.2247,
+      "model_auc": 0.818,
+      "baseline_auc": 0.6517,
+      "n": 2557
+     },
+     "6.5_81.25": {
+      "model_brier": 0.1759,
+      "baseline_brier": 0.2363,
+      "model_auc": 0.8142,
+      "baseline_auc": 0.6405,
+      "n": 2557
+     },
+     "6.5_81.875": {
+      "model_brier": 0.1519,
+      "baseline_brier": 0.2086,
+      "model_auc": 0.8344,
+      "baseline_auc": 0.6666,
+      "n": 2557
+     },
+     "7.0_80.0": {
+      "model_brier": 0.1658,
+      "baseline_brier": 0.2275,
+      "model_auc": 0.8295,
+      "baseline_auc": 0.6597,
+      "n": 2557
+     },
+     "7.0_80.625": {
+      "model_brier": 0.1566,
+      "baseline_brier": 0.2151,
+      "model_auc": 0.8296,
+      "baseline_auc": 0.6244,
+      "n": 2557
+     },
+     "7.0_81.875": {
+      "model_brier": 0.1696,
+      "baseline_brier": 0.2204,
+      "model_auc": 0.8027,
+      "baseline_auc": 0.6491,
+      "n": 2557
+     },
+     "7.5_80.625": {
+      "model_brier": 0.1763,
+      "baseline_brier": 0.2383,
+      "model_auc": 0.8151,
+      "baseline_auc": 0.6437,
+      "n": 2557
+     },
+     "7.5_81.875": {
+      "model_brier": 0.166,
+      "baseline_brier": 0.2156,
+      "model_auc": 0.8056,
+      "baseline_auc": 0.6521,
+      "n": 2557
+     },
+     "8.0_80.0": {
+      "model_brier": 0.1591,
+      "baseline_brier": 0.2164,
+      "model_auc": 0.8351,
+      "baseline_auc": 0.6724,
+      "n": 2557
+     },
+     "8.0_80.625": {
+      "model_brier": 0.17,
+      "baseline_brier": 0.2247,
+      "model_auc": 0.8187,
+      "baseline_auc": 0.6719,
+      "n": 2557
+     },
+     "8.0_81.25": {
+      "model_brier": 0.1681,
+      "baseline_brier": 0.2211,
+      "model_auc": 0.819,
+      "baseline_auc": 0.6684,
+      "n": 2557
+     },
+     "8.5_80.0": {
+      "model_brier": 0.1521,
+      "baseline_brier": 0.2054,
+      "model_auc": 0.8341,
+      "baseline_auc": 0.6866,
+      "n": 2557
+     },
+     "8.5_80.625": {
+      "model_brier": 0.1621,
+      "baseline_brier": 0.2077,
+      "model_auc": 0.8215,
+      "baseline_auc": 0.6899,
+      "n": 2557
+     },
+     "8.5_81.25": {
+      "model_brier": 0.1508,
+      "baseline_brier": 0.204,
+      "model_auc": 0.841,
+      "baseline_auc": 0.6895,
+      "n": 2557
+     },
+     "9.0_80.0": {
+      "model_brier": 0.1521,
+      "baseline_brier": 0.2002,
+      "model_auc": 0.8334,
+      "baseline_auc": 0.6984,
+      "n": 2557
+     },
+     "9.0_81.25": {
+      "model_brier": 0.1471,
+      "baseline_brier": 0.1873,
+      "model_auc": 0.8341,
+      "baseline_auc": 0.7103,
+      "n": 2557
+     }
+    },
+    "by_season": {
+     "inter_1": {
+      "model_brier": 0.1649,
+      "baseline_brier": 0.2104,
+      "model_auc": 0.8242,
+      "baseline_auc": 0.7085,
+      "n": 8967
+     },
+     "inter_2": {
+      "model_brier": 0.1506,
+      "baseline_brier": 0.2156,
+      "model_auc": 0.8262,
+      "baseline_auc": 0.591,
+      "n": 8967
+     },
+     "ne_monsoon": {
+      "model_brier": 0.1591,
+      "baseline_brier": 0.2101,
+      "model_auc": 0.836,
+      "baseline_auc": 0.6966,
+      "n": 13272
+     },
+     "sw_monsoon": {
+      "model_brier": 0.1726,
+      "baseline_brier": 0.2298,
+      "model_auc": 0.8067,
+      "baseline_auc": 0.6513,
+      "n": 22491
+     }
+    },
+    "calibration": [
+     {
+      "bin": [
+       0.0,
+       0.1
+      ],
+      "mean_pred": 0.0658,
+      "observed": 0.0743,
+      "n": 8101
+     },
+     {
+      "bin": [
+       0.1,
+       0.2
+      ],
+      "mean_pred": 0.1468,
+      "observed": 0.165,
+      "n": 9404
+     },
+     {
+      "bin": [
+       0.2,
+       0.3
+      ],
+      "mean_pred": 0.2458,
+      "observed": 0.2682,
+      "n": 6082
+     },
+     {
+      "bin": [
+       0.3,
+       0.4
+      ],
+      "mean_pred": 0.3475,
+      "observed": 0.384,
+      "n": 4250
+     },
+     {
+      "bin": [
+       0.4,
+       0.5
+      ],
+      "mean_pred": 0.4499,
+      "observed": 0.4729,
+      "n": 3595
+     },
+     {
+      "bin": [
+       0.5,
+       0.6
+      ],
+      "mean_pred": 0.5517,
+      "observed": 0.554,
+      "n": 3599
+     },
+     {
+      "bin": [
+       0.6,
+       0.7
+      ],
+      "mean_pred": 0.6531,
+      "observed": 0.6501,
+      "n": 4493
+     },
+     {
+      "bin": [
+       0.7,
+       0.8
+      ],
+      "mean_pred": 0.7499,
+      "observed": 0.7268,
+      "n": 5527
+     },
+     {
+      "bin": [
+       0.8,
+       0.9
+      ],
+      "mean_pred": 0.852,
+      "observed": 0.8571,
+      "n": 6041
+     },
+     {
+      "bin": [
+       0.9,
+       1.0
+      ],
+      "mean_pred": 0.922,
+      "observed": 0.9363,
+      "n": 2605
+     }
+    ],
+    "calibration_baseline": [
+     {
+      "bin": [
+       0.0,
+       0.1
+      ],
+      "mean_pred": 0.0703,
+      "observed": 0.1663,
+      "n": 2237
+     },
+     {
+      "bin": [
+       0.1,
+       0.2
+      ],
+      "mean_pred": 0.1525,
+      "observed": 0.2485,
+      "n": 6878
+     },
+     {
+      "bin": [
+       0.2,
+       0.3
+      ],
+      "mean_pred": 0.2507,
+      "observed": 0.2941,
+      "n": 10066
+     },
+     {
+      "bin": [
+       0.3,
+       0.4
+      ],
+      "mean_pred": 0.3497,
+      "observed": 0.3626,
+      "n": 7653
+     },
+     {
+      "bin": [
+       0.4,
+       0.5
+      ],
+      "mean_pred": 0.4467,
+      "observed": 0.4607,
+      "n": 7142
+     },
+     {
+      "bin": [
+       0.5,
+       0.6
+      ],
+      "mean_pred": 0.544,
+      "observed": 0.5552,
+      "n": 7541
+     },
+     {
+      "bin": [
+       0.6,
+       0.7
+      ],
+      "mean_pred": 0.6473,
+      "observed": 0.6446,
+      "n": 6055
+     },
+     {
+      "bin": [
+       0.7,
+       0.8
+      ],
+      "mean_pred": 0.7478,
+      "observed": 0.7085,
+      "n": 4459
+     },
+     {
+      "bin": [
+       0.8,
+       0.9
+      ],
+      "mean_pred": 0.8382,
+      "observed": 0.786,
+      "n": 1561
+     },
+     {
+      "bin": [
+       0.9,
+       1.0
+      ],
+      "mean_pred": 0.9159,
+      "observed": 0.8,
+      "n": 105
+     }
+    ],
+    "notes": "Trained on all squares together. Probability threshold for precision/recall/F1 chosen on the validation years (same rule for the baseline). Test years were not used for any choice."
+   },
+   {
+    "id": "xgb_amount",
+    "task": "amount",
+    "algo": "XGBRegressor",
+    "target": "rain amount (mm) on day t+1, all days",
+    "features": [
+     "rain_lag0",
+     "rain_lag1",
+     "rain_lag2",
+     "rain_sum_3",
+     "rain_sum_7",
+     "rain_sum_14",
+     "rain_sum_30",
+     "wet_days_7",
+     "wet_days_30",
+     "days_since_wet",
+     "doy_sin",
+     "doy_cos",
+     "lat",
+     "lon",
+     "elevation_m"
+    ],
+    "train": "1981-2012",
+    "valid": "2013-2018",
+    "test": "2019-2025",
+    "metrics": {
+     "mae": 4.9588,
+     "rmse": 10.2244,
+     "bias": -0.2158,
+     "n": 53697
+    },
+    "baseline": {
+     "name": "climatology",
+     "mae": 5.8805,
+     "rmse": 11.5235,
+     "bias": -0.4733
+    },
+    "baseline_persistence": {
+     "name": "persistence",
+     "rmse": 11.1258,
+     "mae": 5.5198,
+     "share_of_test_years_better": 1.0,
+     "model_beats_it": true
+    },
+    "share_of_test_years_better": 1.0,
+    "beats_baseline": true,
+    "by_cell": {
+     "10.0_80.0": {
+      "model_rmse": 10.6668,
+      "baseline_rmse": 11.9239,
+      "n": 2557
+     },
+     "6.0_80.0": {
+      "model_rmse": 11.0743,
+      "baseline_rmse": 11.8842,
+      "n": 2557
+     },
+     "6.0_80.625": {
+      "model_rmse": 11.2908,
+      "baseline_rmse": 12.4542,
+      "n": 2557
+     },
+     "6.0_81.25": {
+      "model_rmse": 10.716,
+      "baseline_rmse": 11.9552,
+      "n": 2557
+     },
+     "6.5_80.0": {
+      "model_rmse": 11.2568,
+      "baseline_rmse": 12.3417,
+      "n": 2557
+     },
+     "6.5_80.625": {
+      "model_rmse": 10.0268,
+      "baseline_rmse": 10.9827,
+      "n": 2557
+     },
+     "6.5_81.25": {
+      "model_rmse": 9.6336,
+      "baseline_rmse": 10.8478,
+      "n": 2557
+     },
+     "6.5_81.875": {
+      "model_rmse": 10.7248,
+      "baseline_rmse": 12.0151,
+      "n": 2557
+     },
+     "7.0_80.0": {
+      "model_rmse": 10.147,
+      "baseline_rmse": 11.3545,
+      "n": 2557
+     },
+     "7.0_80.625": {
+      "model_rmse": 9.5432,
+      "baseline_rmse": 10.6857,
+      "n": 2557
+     },
+     "7.0_81.875": {
+      "model_rmse": 10.1792,
+      "baseline_rmse": 11.5138,
+      "n": 2557
+     },
+     "7.5_80.625": {
+      "model_rmse": 10.1616,
+      "baseline_rmse": 11.5118,
+      "n": 2557
+     },
+     "7.5_81.875": {
+      "model_rmse": 10.6673,
+      "baseline_rmse": 12.2032,
+      "n": 2557
+     },
+     "8.0_80.0": {
+      "model_rmse": 9.5985,
+      "baseline_rmse": 11.0809,
+      "n": 2557
+     },
+     "8.0_80.625": {
+      "model_rmse": 9.9179,
+      "baseline_rmse": 11.3373,
+      "n": 2557
+     },
+     "8.0_81.25": {
+      "model_rmse": 10.8879,
+      "baseline_rmse": 12.554,
+      "n": 2557
+     },
+     "8.5_80.0": {
+      "model_rmse": 8.5894,
+      "baseline_rmse": 9.8822,
+      "n": 2557
+     },
+     "8.5_80.625": {
+      "model_rmse": 9.4001,
+      "baseline_rmse": 10.8314,
+      "n": 2557
+     },
+     "8.5_81.25": {
+      "model_rmse": 10.2045,
+      "baseline_rmse": 11.8823,
+      "n": 2557
+     },
+     "9.0_80.0": {
+      "model_rmse": 8.6801,
+      "baseline_rmse": 10.0167,
+      "n": 2557
+     },
+     "9.0_81.25": {
+      "model_rmse": 10.7761,
+      "baseline_rmse": 12.2333,
+      "n": 2557
+     }
+    },
+    "by_season": {
+     "inter_1": {
+      "model_rmse": 6.7862,
+      "baseline_rmse": 7.535,
+      "n": 8967
+     },
+     "inter_2": {
+      "model_rmse": 15.5179,
+      "baseline_rmse": 17.7088,
+      "n": 8967
+     },
+     "ne_monsoon": {
+      "model_rmse": 11.6246,
+      "baseline_rmse": 13.0733,
+      "n": 13272
+     },
+     "sw_monsoon": {
+      "model_rmse": 7.4481,
+      "baseline_rmse": 8.2774,
+      "n": 22491
+     }
+    },
+    "calibration": null,
+    "notes": "Rain amounts are very skewed (many dry days), so a model that predicts the average is hard to beat; RMSE decides."
+   },
+   {
+    "id": "rf_amount",
+    "task": "amount",
+    "algo": "RandomForestRegressor",
+    "target": "rain amount (mm) on day t+1, all days",
+    "features": [
+     "rain_lag0",
+     "rain_lag1",
+     "rain_lag2",
+     "rain_sum_3",
+     "rain_sum_7",
+     "rain_sum_14",
+     "rain_sum_30",
+     "wet_days_7",
+     "wet_days_30",
+     "days_since_wet",
+     "doy_sin",
+     "doy_cos",
+     "lat",
+     "lon",
+     "elevation_m"
+    ],
+    "train": "1981-2012",
+    "valid": "2013-2018",
+    "test": "2019-2025",
+    "metrics": {
+     "mae": 4.8995,
+     "rmse": 10.2278,
+     "bias": -0.2276,
+     "n": 53697
+    },
+    "baseline": {
+     "name": "climatology",
+     "mae": 5.8805,
+     "rmse": 11.5235,
+     "bias": -0.4733
+    },
+    "baseline_persistence": {
+     "name": "persistence",
+     "rmse": 11.1258,
+     "mae": 5.5198,
+     "share_of_test_years_better": 1.0,
+     "model_beats_it": true
+    },
+    "share_of_test_years_better": 1.0,
+    "beats_baseline": true,
+    "by_cell": {
+     "10.0_80.0": {
+      "model_rmse": 10.7366,
+      "baseline_rmse": 11.9239,
+      "n": 2557
+     },
+     "6.0_80.0": {
+      "model_rmse": 11.0604,
+      "baseline_rmse": 11.8842,
+      "n": 2557
+     },
+     "6.0_80.625": {
+      "model_rmse": 11.2996,
+      "baseline_rmse": 12.4542,
+      "n": 2557
+     },
+     "6.0_81.25": {
+      "model_rmse": 10.7717,
+      "baseline_rmse": 11.9552,
+      "n": 2557
+     },
+     "6.5_80.0": {
+      "model_rmse": 11.2161,
+      "baseline_rmse": 12.3417,
+      "n": 2557
+     },
+     "6.5_80.625": {
+      "model_rmse": 10.0155,
+      "baseline_rmse": 10.9827,
+      "n": 2557
+     },
+     "6.5_81.25": {
+      "model_rmse": 9.5882,
+      "baseline_rmse": 10.8478,
+      "n": 2557
+     },
+     "6.5_81.875": {
+      "model_rmse": 10.683,
+      "baseline_rmse": 12.0151,
+      "n": 2557
+     },
+     "7.0_80.0": {
+      "model_rmse": 10.0909,
+      "baseline_rmse": 11.3545,
+      "n": 2557
+     },
+     "7.0_80.625": {
+      "model_rmse": 9.5236,
+      "baseline_rmse": 10.6857,
+      "n": 2557
+     },
+     "7.0_81.875": {
+      "model_rmse": 10.1197,
+      "baseline_rmse": 11.5138,
+      "n": 2557
+     },
+     "7.5_80.625": {
+      "model_rmse": 10.1878,
+      "baseline_rmse": 11.5118,
+      "n": 2557
+     },
+     "7.5_81.875": {
+      "model_rmse": 10.6297,
+      "baseline_rmse": 12.2032,
+      "n": 2557
+     },
+     "8.0_80.0": {
+      "model_rmse": 9.5483,
+      "baseline_rmse": 11.0809,
+      "n": 2557
+     },
+     "8.0_80.625": {
+      "model_rmse": 9.9633,
+      "baseline_rmse": 11.3373,
+      "n": 2557
+     },
+     "8.0_81.25": {
+      "model_rmse": 10.8807,
+      "baseline_rmse": 12.554,
+      "n": 2557
+     },
+     "8.5_80.0": {
+      "model_rmse": 8.6184,
+      "baseline_rmse": 9.8822,
+      "n": 2557
+     },
+     "8.5_80.625": {
+      "model_rmse": 9.5409,
+      "baseline_rmse": 10.8314,
+      "n": 2557
+     },
+     "8.5_81.25": {
+      "model_rmse": 10.2199,
+      "baseline_rmse": 11.8823,
+      "n": 2557
+     },
+     "9.0_80.0": {
+      "model_rmse": 8.8177,
+      "baseline_rmse": 10.0167,
+      "n": 2557
+     },
+     "9.0_81.25": {
+      "model_rmse": 10.7343,
+      "baseline_rmse": 12.2333,
+      "n": 2557
+     }
+    },
+    "by_season": {
+     "inter_1": {
+      "model_rmse": 6.8015,
+      "baseline_rmse": 7.535,
+      "n": 8967
+     },
+     "inter_2": {
+      "model_rmse": 15.5048,
+      "baseline_rmse": 17.7088,
+      "n": 8967
+     },
+     "ne_monsoon": {
+      "model_rmse": 11.6631,
+      "baseline_rmse": 13.0733,
+      "n": 13272
+     },
+     "sw_monsoon": {
+      "model_rmse": 7.429,
+      "baseline_rmse": 8.2774,
+      "n": 22491
+     }
+    },
+    "calibration": null,
+    "notes": "Rain amounts are very skewed (many dry days), so a model that predicts the average is hard to beat; RMSE decides."
+   }
+  ],
+  "rows": {
+   "train": 91413,
+   "valid": 46011,
+   "test": 53697
+  },
+  "squares_used": [
+   "10.0_80.0",
+   "6.0_80.0",
+   "6.0_80.625",
+   "6.0_81.25",
+   "6.5_80.0",
+   "6.5_80.625",
+   "6.5_81.25",
+   "6.5_81.875",
+   "7.0_80.0",
+   "7.0_80.625",
+   "7.0_81.875",
+   "7.5_80.625",
+   "7.5_81.875",
+   "8.0_80.0",
+   "8.0_80.625",
+   "8.0_81.25",
+   "8.5_80.0",
+   "8.5_80.625",
+   "8.5_81.25",
+   "9.0_80.0",
+   "9.0_81.25"
+  ],
+  "ml_estimates": {
+   "written": false,
+   "reason": "the newest rain value is from 2026-11-13, so the estimate would be for 2026-11-14, which is already in the past; an estimate is only written for today or a later day"
+  },
+  "any_model_beats_both_baselines": true,
+  "period": "2001-01-01 to 2026-11-13"
+ },
+ "models": [
+  {
+   "id": "xgb_occurrence",
+   "task": "occurrence",
+   "algo": "XGBClassifier",
+   "target": "rain >= 1 mm on day t+1",
+   "features": [
+    "rain_lag0",
+    "rain_lag1",
+    "rain_lag2",
+    "rain_sum_3",
+    "rain_sum_7",
+    "rain_sum_14",
+    "rain_sum_30",
+    "wet_days_7",
+    "wet_days_30",
+    "days_since_wet",
+    "doy_sin",
+    "doy_cos",
+    "lat",
+    "lon",
+    "elevation_m"
+   ],
+   "train": "1981-2012",
+   "valid": "2013-2018",
+   "test": "2019-2025",
+   "metrics": {
+    "precision": 0.8409,
+    "recall": 0.9139,
+    "f1": 0.8759,
+    "roc_auc": 0.9039,
+    "brier": 0.1183,
+    "threshold": 0.38,
+    "n": 53697
+   },
+   "baseline": {
+    "name": "climatology",
+    "brier": 0.2124,
+    "roc_auc": 0.7467,
+    "precision": 0.754,
+    "recall": 0.8104,
+    "f1": 0.7812
+   },
+   "baseline_persistence": {
+    "name": "persistence",
+    "brier": 0.142,
+    "roc_auc": 0.8149,
+    "share_of_test_years_better": 1.0,
+    "model_beats_it": true
+   },
+   "share_of_test_years_better": 1.0,
+   "beats_baseline": true,
+   "by_cell": {
+    "10.0_80.0": {
+     "model_brier": 0.129,
+     "baseline_brier": 0.2093,
+     "model_auc": 0.8964,
+     "baseline_auc": 0.7546,
+     "n": 2557
+    },
+    "6.0_80.0": {
+     "model_brier": 0.0921,
+     "baseline_brier": 0.1582,
+     "model_auc": 0.8927,
+     "baseline_auc": 0.7155,
+     "n": 2557
+    },
+    "6.0_80.625": {
+     "model_brier": 0.098,
+     "baseline_brier": 0.2251,
+     "model_auc": 0.9017,
+     "baseline_auc": 0.7144,
+     "n": 2557
+    },
+    "6.0_81.25": {
+     "model_brier": 0.0961,
+     "baseline_brier": 0.1813,
+     "model_auc": 0.9083,
+     "baseline_auc": 0.7102,
+     "n": 2557
+    },
+    "6.5_80.0": {
+     "model_brier": 0.0939,
+     "baseline_brier": 0.1693,
+     "model_auc": 0.8991,
+     "baseline_auc": 0.7183,
+     "n": 2557
+    },
+    "6.5_80.625": {
+     "model_brier": 0.1141,
+     "baseline_brier": 0.2303,
+     "model_auc": 0.891,
+     "baseline_auc": 0.6967,
+     "n": 2557
+    },
+    "6.5_81.25": {
+     "model_brier": 0.0994,
+     "baseline_brier": 0.2019,
+     "model_auc": 0.913,
+     "baseline_auc": 0.705,
+     "n": 2557
+    },
+    "6.5_81.875": {
+     "model_brier": 0.1115,
+     "baseline_brier": 0.2096,
+     "model_auc": 0.8862,
+     "baseline_auc": 0.6906,
+     "n": 2557
+    },
+    "7.0_80.0": {
+     "model_brier": 0.1019,
+     "baseline_brier": 0.1787,
+     "model_auc": 0.9103,
+     "baseline_auc": 0.7247,
+     "n": 2557
+    },
+    "7.0_80.625": {
+     "model_brier": 0.122,
+     "baseline_brier": 0.2236,
+     "model_auc": 0.8902,
+     "baseline_auc": 0.6799,
+     "n": 2557
+    },
+    "7.0_81.875": {
+     "model_brier": 0.1176,
+     "baseline_brier": 0.2303,
+     "model_auc": 0.8833,
+     "baseline_auc": 0.6862,
+     "n": 2557
+    },
+    "7.5_80.625": {
+     "model_brier": 0.1418,
+     "baseline_brier": 0.2311,
+     "model_auc": 0.8714,
+     "baseline_auc": 0.6702,
+     "n": 2557
+    },
+    "7.5_81.875": {
+     "model_brier": 0.1374,
+     "baseline_brier": 0.2455,
+     "model_auc": 0.8669,
+     "baseline_auc": 0.6802,
+     "n": 2557
+    },
+    "8.0_80.0": {
+     "model_brier": 0.1397,
+     "baseline_brier": 0.2167,
+     "model_auc": 0.8815,
+     "baseline_auc": 0.7129,
+     "n": 2557
+    },
+    "8.0_80.625": {
+     "model_brier": 0.1445,
+     "baseline_brier": 0.2294,
+     "model_auc": 0.8741,
+     "baseline_auc": 0.7055,
+     "n": 2557
+    },
+    "8.0_81.25": {
+     "model_brier": 0.1305,
+     "baseline_brier": 0.2302,
+     "model_auc": 0.8949,
+     "baseline_auc": 0.7222,
+     "n": 2557
+    },
+    "8.5_80.0": {
+     "model_brier": 0.1242,
+     "baseline_brier": 0.2079,
+     "model_auc": 0.9028,
+     "baseline_auc": 0.7392,
+     "n": 2557
+    },
+    "8.5_80.625": {
+     "model_brier": 0.1251,
+     "baseline_brier": 0.2211,
+     "model_auc": 0.9062,
+     "baseline_auc": 0.7436,
+     "n": 2557
+    },
+    "8.5_81.25": {
+     "model_brier": 0.1239,
+     "baseline_brier": 0.2372,
+     "model_auc": 0.9062,
+     "baseline_auc": 0.725,
+     "n": 2557
+    },
+    "9.0_80.0": {
+     "model_brier": 0.1172,
+     "baseline_brier": 0.2055,
+     "model_auc": 0.9108,
+     "baseline_auc": 0.7562,
+     "n": 2557
+    },
+    "9.0_81.25": {
+     "model_brier": 0.1252,
+     "baseline_brier": 0.2178,
+     "model_auc": 0.903,
+     "baseline_auc": 0.717,
+     "n": 2557
+    }
+   },
+   "by_season": {
+    "inter_1": {
+     "model_brier": 0.1389,
+     "baseline_brier": 0.221,
+     "model_auc": 0.8802,
+     "baseline_auc": 0.7224,
+     "n": 8967
+    },
+    "inter_2": {
+     "model_brier": 0.0737,
+     "baseline_brier": 0.132,
+     "model_auc": 0.8837,
+     "baseline_auc": 0.5762,
+     "n": 8967
+    },
+    "ne_monsoon": {
+     "model_brier": 0.1279,
+     "baseline_brier": 0.2407,
+     "model_auc": 0.8973,
+     "baseline_auc": 0.7153,
+     "n": 13272
+    },
+    "sw_monsoon": {
+     "model_brier": 0.1222,
+     "baseline_brier": 0.2243,
+     "model_auc": 0.9012,
+     "baseline_auc": 0.7195,
+     "n": 22491
+    }
+   },
+   "calibration": [
+    {
+     "bin": [
+      0.0,
+      0.1
+     ],
+     "mean_pred": 0.0588,
+     "observed": 0.0463,
+     "n": 5309
+    },
+    {
+     "bin": [
+      0.1,
+      0.2
+     ],
+     "mean_pred": 0.1481,
+     "observed": 0.1446,
+     "n": 4667
+    },
+    {
+     "bin": [
+      0.2,
+      0.3
+     ],
+     "mean_pred": 0.2467,
+     "observed": 0.2699,
+     "n": 3853
+    },
+    {
+     "bin": [
+      0.3,
+      0.4
+     ],
+     "mean_pred": 0.3495,
+     "observed": 0.397,
+     "n": 3184
+    },
+    {
+     "bin": [
+      0.4,
+      0.5
+     ],
+     "mean_pred": 0.4478,
+     "observed": 0.5192,
+     "n": 2812
+    },
+    {
+     "bin": [
+      0.5,
+      0.6
+     ],
+     "mean_pred": 0.5517,
+     "observed": 0.6276,
+     "n": 2648
+    },
+    {
+     "bin": [
+      0.6,
+      0.7
+     ],
+     "mean_pred": 0.652,
+     "observed": 0.7074,
+     "n": 3496
+    },
+    {
+     "bin": [
+      0.7,
+      0.8
+     ],
+     "mean_pred": 0.7526,
+     "observed": 0.8084,
+     "n": 4535
+    },
+    {
+     "bin": [
+      0.8,
+      0.9
+     ],
+     "mean_pred": 0.8543,
+     "observed": 0.8796,
+     "n": 6951
+    },
+    {
+     "bin": [
+      0.9,
+      1.0
+     ],
+     "mean_pred": 0.9578,
+     "observed": 0.9679,
+     "n": 16242
+    }
+   ],
+   "calibration_baseline": [
+    {
+     "bin": [
+      0.0,
+      0.1
+     ],
+     "mean_pred": 0.0818,
+     "observed": 0.112,
+     "n": 259
+    },
+    {
+     "bin": [
+      0.1,
+      0.2
+     ],
+     "mean_pred": 0.1587,
+     "observed": 0.2741,
+     "n": 3046
+    },
+    {
+     "bin": [
+      0.2,
+      0.3
+     ],
+     "mean_pred": 0.2517,
+     "observed": 0.376,
+     "n": 7179
+    },
+    {
+     "bin": [
+      0.3,
+      0.4
+     ],
+     "mean_pred": 0.3492,
+     "observed": 0.4772,
+     "n": 7572
+    },
+    {
+     "bin": [
+      0.4,
+      0.5
+     ],
+     "mean_pred": 0.4495,
+     "observed": 0.6154,
+     "n": 9048
+    },
+    {
+     "bin": [
+      0.5,
+      0.6
+     ],
+     "mean_pred": 0.5502,
+     "observed": 0.7258,
+     "n": 8967
+    },
+    {
+     "bin": [
+      0.6,
+      0.7
+     ],
+     "mean_pred": 0.6468,
+     "observed": 0.8212,
+     "n": 8022
+    },
+    {
+     "bin": [
+      0.7,
+      0.8
+     ],
+     "mean_pred": 0.749,
+     "observed": 0.8718,
+     "n": 6195
+    },
+    {
+     "bin": [
+      0.8,
+      0.9
+     ],
+     "mean_pred": 0.8384,
+     "observed": 0.9022,
+     "n": 3241
+    },
+    {
+     "bin": [
+      0.9,
+      1.0
+     ],
+     "mean_pred": 0.907,
+     "observed": 0.9226,
+     "n": 168
+    }
+   ],
+   "notes": "Trained on all squares together. Probability threshold for precision/recall/F1 chosen on the validation years (same rule for the baseline). Test years were not used for any choice."
+  },
+  {
+   "id": "rf_occurrence",
+   "task": "occurrence",
+   "algo": "RandomForestClassifier",
+   "target": "rain >= 1 mm on day t+1",
+   "features": [
+    "rain_lag0",
+    "rain_lag1",
+    "rain_lag2",
+    "rain_sum_3",
+    "rain_sum_7",
+    "rain_sum_14",
+    "rain_sum_30",
+    "wet_days_7",
+    "wet_days_30",
+    "days_since_wet",
+    "doy_sin",
+    "doy_cos",
+    "lat",
+    "lon",
+    "elevation_m"
+   ],
+   "train": "1981-2012",
+   "valid": "2013-2018",
+   "test": "2019-2025",
+   "metrics": {
+    "precision": 0.8495,
+    "recall": 0.9019,
+    "f1": 0.8749,
+    "roc_auc": 0.9028,
+    "brier": 0.1188,
+    "threshold": 0.4,
+    "n": 53697
+   },
+   "baseline": {
+    "name": "climatology",
+    "brier": 0.2124,
+    "roc_auc": 0.7467,
+    "precision": 0.7616,
+    "recall": 0.7909,
+    "f1": 0.776
+   },
+   "baseline_persistence": {
+    "name": "persistence",
+    "brier": 0.142,
+    "roc_auc": 0.8149,
+    "share_of_test_years_better": 1.0,
+    "model_beats_it": true
+   },
+   "share_of_test_years_better": 1.0,
+   "beats_baseline": true,
+   "by_cell": {
+    "10.0_80.0": {
+     "model_brier": 0.1295,
+     "baseline_brier": 0.2093,
+     "model_auc": 0.8956,
+     "baseline_auc": 0.7546,
+     "n": 2557
+    },
+    "6.0_80.0": {
+     "model_brier": 0.093,
+     "baseline_brier": 0.1582,
+     "model_auc": 0.8929,
+     "baseline_auc": 0.7155,
+     "n": 2557
+    },
+    "6.0_80.625": {
+     "model_brier": 0.0984,
+     "baseline_brier": 0.2251,
+     "model_auc": 0.8998,
+     "baseline_auc": 0.7144,
+     "n": 2557
+    },
+    "6.0_81.25": {
+     "model_brier": 0.0965,
+     "baseline_brier": 0.1813,
+     "model_auc": 0.9068,
+     "baseline_auc": 0.7102,
+     "n": 2557
+    },
+    "6.5_80.0": {
+     "model_brier": 0.0941,
+     "baseline_brier": 0.1693,
+     "model_auc": 0.9002,
+     "baseline_auc": 0.7183,
+     "n": 2557
+    },
+    "6.5_80.625": {
+     "model_brier": 0.1143,
+     "baseline_brier": 0.2303,
+     "model_auc": 0.8894,
+     "baseline_auc": 0.6967,
+     "n": 2557
+    },
+    "6.5_81.25": {
+     "model_brier": 0.0996,
+     "baseline_brier": 0.2019,
+     "model_auc": 0.9121,
+     "baseline_auc": 0.705,
+     "n": 2557
+    },
+    "6.5_81.875": {
+     "model_brier": 0.112,
+     "baseline_brier": 0.2096,
+     "model_auc": 0.8845,
+     "baseline_auc": 0.6906,
+     "n": 2557
+    },
+    "7.0_80.0": {
+     "model_brier": 0.103,
+     "baseline_brier": 0.1787,
+     "model_auc": 0.909,
+     "baseline_auc": 0.7247,
+     "n": 2557
+    },
+    "7.0_80.625": {
+     "model_brier": 0.1226,
+     "baseline_brier": 0.2236,
+     "model_auc": 0.8874,
+     "baseline_auc": 0.6799,
+     "n": 2557
+    },
+    "7.0_81.875": {
+     "model_brier": 0.1188,
+     "baseline_brier": 0.2303,
+     "model_auc": 0.8809,
+     "baseline_auc": 0.6862,
+     "n": 2557
+    },
+    "7.5_80.625": {
+     "model_brier": 0.1425,
+     "baseline_brier": 0.2311,
+     "model_auc": 0.8688,
+     "baseline_auc": 0.6702,
+     "n": 2557
+    },
+    "7.5_81.875": {
+     "model_brier": 0.1374,
+     "baseline_brier": 0.2455,
+     "model_auc": 0.8657,
+     "baseline_auc": 0.6802,
+     "n": 2557
+    },
+    "8.0_80.0": {
+     "model_brier": 0.1408,
+     "baseline_brier": 0.2167,
+     "model_auc": 0.8803,
+     "baseline_auc": 0.7129,
+     "n": 2557
+    },
+    "8.0_80.625": {
+     "model_brier": 0.1438,
+     "baseline_brier": 0.2294,
+     "model_auc": 0.8742,
+     "baseline_auc": 0.7055,
+     "n": 2557
+    },
+    "8.0_81.25": {
+     "model_brier": 0.1297,
+     "baseline_brier": 0.2302,
+     "model_auc": 0.896,
+     "baseline_auc": 0.7222,
+     "n": 2557
+    },
+    "8.5_80.0": {
+     "model_brier": 0.1251,
+     "baseline_brier": 0.2079,
+     "model_auc": 0.9014,
+     "baseline_auc": 0.7392,
+     "n": 2557
+    },
+    "8.5_80.625": {
+     "model_brier": 0.1249,
+     "baseline_brier": 0.2211,
+     "model_auc": 0.9045,
+     "baseline_auc": 0.7436,
+     "n": 2557
+    },
+    "8.5_81.25": {
+     "model_brier": 0.1243,
+     "baseline_brier": 0.2372,
+     "model_auc": 0.9043,
+     "baseline_auc": 0.725,
+     "n": 2557
+    },
+    "9.0_80.0": {
+     "model_brier": 0.1191,
+     "baseline_brier": 0.2055,
+     "model_auc": 0.9081,
+     "baseline_auc": 0.7562,
+     "n": 2557
+    },
+    "9.0_81.25": {
+     "model_brier": 0.1253,
+     "baseline_brier": 0.2178,
+     "model_auc": 0.9026,
+     "baseline_auc": 0.717,
+     "n": 2557
+    }
+   },
+   "by_season": {
+    "inter_1": {
+     "model_brier": 0.1397,
+     "baseline_brier": 0.221,
+     "model_auc": 0.8796,
+     "baseline_auc": 0.7224,
+     "n": 8967
+    },
+    "inter_2": {
+     "model_brier": 0.0746,
+     "baseline_brier": 0.132,
+     "model_auc": 0.8762,
+     "baseline_auc": 0.5762,
+     "n": 8967
+    },
+    "ne_monsoon": {
+     "model_brier": 0.1288,
+     "baseline_brier": 0.2407,
+     "model_auc": 0.8947,
+     "baseline_auc": 0.7153,
+     "n": 13272
+    },
+    "sw_monsoon": {
+     "model_brier": 0.1222,
+     "baseline_brier": 0.2243,
+     "model_auc": 0.9011,
+     "baseline_auc": 0.7195,
+     "n": 22491
+    }
+   },
+   "calibration": [
+    {
+     "bin": [
+      0.0,
+      0.1
+     ],
+     "mean_pred": 0.0651,
+     "observed": 0.0476,
+     "n": 4620
+    },
+    {
+     "bin": [
+      0.1,
+      0.2
+     ],
+     "mean_pred": 0.1475,
+     "observed": 0.1245,
+     "n": 5196
+    },
+    {
+     "bin": [
+      0.2,
+      0.3
+     ],
+     "mean_pred": 0.2475,
+     "observed": 0.2666,
+     "n": 3965
+    },
+    {
+     "bin": [
+      0.3,
+      0.4
+     ],
+     "mean_pred": 0.3497,
+     "observed": 0.4147,
+     "n": 3477
+    },
+    {
+     "bin": [
+      0.4,
+      0.5
+     ],
+     "mean_pred": 0.4443,
+     "observed": 0.5317,
+     "n": 2338
+    },
+    {
+     "bin": [
+      0.5,
+      0.6
+     ],
+     "mean_pred": 0.5553,
+     "observed": 0.5991,
+     "n": 2240
+    },
+    {
+     "bin": [
+      0.6,
+      0.7
+     ],
+     "mean_pred": 0.6528,
+     "observed": 0.6842,
+     "n": 3699
+    },
+    {
+     "bin": [
+      0.7,
+      0.8
+     ],
+     "mean_pred": 0.7521,
+     "observed": 0.8084,
+     "n": 4829
+    },
+    {
+     "bin": [
+      0.8,
+      0.9
+     ],
+     "mean_pred": 0.8559,
+     "observed": 0.8864,
+     "n": 8010
+    },
+    {
+     "bin": [
+      0.9,
+      1.0
+     ],
+     "mean_pred": 0.9471,
+     "observed": 0.9681,
+     "n": 15323
+    }
+   ],
+   "calibration_baseline": [
+    {
+     "bin": [
+      0.0,
+      0.1
+     ],
+     "mean_pred": 0.0818,
+     "observed": 0.112,
+     "n": 259
+    },
+    {
+     "bin": [
+      0.1,
+      0.2
+     ],
+     "mean_pred": 0.1587,
+     "observed": 0.2741,
+     "n": 3046
+    },
+    {
+     "bin": [
+      0.2,
+      0.3
+     ],
+     "mean_pred": 0.2517,
+     "observed": 0.376,
+     "n": 7179
+    },
+    {
+     "bin": [
+      0.3,
+      0.4
+     ],
+     "mean_pred": 0.3492,
+     "observed": 0.4772,
+     "n": 7572
+    },
+    {
+     "bin": [
+      0.4,
+      0.5
+     ],
+     "mean_pred": 0.4495,
+     "observed": 0.6154,
+     "n": 9048
+    },
+    {
+     "bin": [
+      0.5,
+      0.6
+     ],
+     "mean_pred": 0.5502,
+     "observed": 0.7258,
+     "n": 8967
+    },
+    {
+     "bin": [
+      0.6,
+      0.7
+     ],
+     "mean_pred": 0.6468,
+     "observed": 0.8212,
+     "n": 8022
+    },
+    {
+     "bin": [
+      0.7,
+      0.8
+     ],
+     "mean_pred": 0.749,
+     "observed": 0.8718,
+     "n": 6195
+    },
+    {
+     "bin": [
+      0.8,
+      0.9
+     ],
+     "mean_pred": 0.8384,
+     "observed": 0.9022,
+     "n": 3241
+    },
+    {
+     "bin": [
+      0.9,
+      1.0
+     ],
+     "mean_pred": 0.907,
+     "observed": 0.9226,
+     "n": 168
+    }
+   ],
+   "notes": "Trained on all squares together. Probability threshold for precision/recall/F1 chosen on the validation years (same rule for the baseline). Test years were not used for any choice."
+  },
+  {
+   "id": "xgb_amount",
+   "task": "amount",
+   "algo": "XGBRegressor",
+   "target": "rain amount (mm) on day t+1, all days",
+   "features": [
+    "rain_lag0",
+    "rain_lag1",
+    "rain_lag2",
+    "rain_sum_3",
+    "rain_sum_7",
+    "rain_sum_14",
+    "rain_sum_30",
+    "wet_days_7",
+    "wet_days_30",
+    "days_since_wet",
+    "doy_sin",
+    "doy_cos",
+    "lat",
+    "lon",
+    "elevation_m"
+   ],
+   "train": "1981-2012",
+   "valid": "2013-2018",
+   "test": "2019-2025",
+   "metrics": {
+    "mae": 3.8224,
+    "rmse": 8.3629,
+    "bias": -0.5207,
+    "n": 53697
+   },
+   "baseline": {
+    "name": "climatology",
+    "mae": 4.6134,
+    "rmse": 9.7437,
+    "bias": -1.9478
+   },
+   "baseline_persistence": {
+    "name": "persistence",
+    "rmse": 9.5299,
+    "mae": 4.4754,
+    "share_of_test_years_better": 1.0,
+    "model_beats_it": true
+   },
+   "share_of_test_years_better": 1.0,
+   "beats_baseline": true,
+   "by_cell": {
+    "10.0_80.0": {
+     "model_rmse": 6.187,
+     "baseline_rmse": 7.556,
+     "n": 2557
+    },
+    "6.0_80.0": {
+     "model_rmse": 8.6946,
+     "baseline_rmse": 9.8955,
+     "n": 2557
+    },
+    "6.0_80.625": {
+     "model_rmse": 8.0198,
+     "baseline_rmse": 9.7963,
+     "n": 2557
+    },
+    "6.0_81.25": {
+     "model_rmse": 9.8288,
+     "baseline_rmse": 11.3017,
+     "n": 2557
+    },
+    "6.5_80.0": {
+     "model_rmse": 9.3319,
+     "baseline_rmse": 10.6242,
+     "n": 2557
+    },
+    "6.5_80.625": {
+     "model_rmse": 7.2229,
+     "baseline_rmse": 8.8115,
+     "n": 2557
+    },
+    "6.5_81.25": {
+     "model_rmse": 8.764,
+     "baseline_rmse": 10.3624,
+     "n": 2557
+    },
+    "6.5_81.875": {
+     "model_rmse": 8.9444,
+     "baseline_rmse": 9.9491,
+     "n": 2557
+    },
+    "7.0_80.0": {
+     "model_rmse": 7.8792,
+     "baseline_rmse": 9.2729,
+     "n": 2557
+    },
+    "7.0_80.625": {
+     "model_rmse": 7.2787,
+     "baseline_rmse": 8.7997,
+     "n": 2557
+    },
+    "7.0_81.875": {
+     "model_rmse": 8.0126,
+     "baseline_rmse": 9.0616,
+     "n": 2557
+    },
+    "7.5_80.625": {
+     "model_rmse": 7.8719,
+     "baseline_rmse": 9.3177,
+     "n": 2557
+    },
+    "7.5_81.875": {
+     "model_rmse": 9.3909,
+     "baseline_rmse": 10.5197,
+     "n": 2557
+    },
+    "8.0_80.0": {
+     "model_rmse": 6.6831,
+     "baseline_rmse": 7.8167,
+     "n": 2557
+    },
+    "8.0_80.625": {
+     "model_rmse": 8.2084,
+     "baseline_rmse": 9.6244,
+     "n": 2557
+    },
+    "8.0_81.25": {
+     "model_rmse": 12.1381,
+     "baseline_rmse": 13.7689,
+     "n": 2557
+    },
+    "8.5_80.0": {
+     "model_rmse": 6.325,
+     "baseline_rmse": 7.5117,
+     "n": 2557
+    },
+    "8.5_80.625": {
+     "model_rmse": 7.6741,
+     "baseline_rmse": 9.0846,
+     "n": 2557
+    },
+    "8.5_81.25": {
+     "model_rmse": 9.7012,
+     "baseline_rmse": 11.2982,
+     "n": 2557
+    },
+    "9.0_80.0": {
+     "model_rmse": 6.7482,
+     "baseline_rmse": 8.1642,
+     "n": 2557
+    },
+    "9.0_81.25": {
+     "model_rmse": 8.3967,
+     "baseline_rmse": 9.9266,
+     "n": 2557
+    }
+   },
+   "by_season": {
+    "inter_1": {
+     "model_rmse": 6.1126,
+     "baseline_rmse": 6.9466,
+     "n": 8967
+    },
+    "inter_2": {
+     "model_rmse": 14.5215,
+     "baseline_rmse": 16.8963,
+     "n": 8967
+    },
+    "ne_monsoon": {
+     "model_rmse": 8.6863,
+     "baseline_rmse": 10.0597,
+     "n": 13272
+    },
+    "sw_monsoon": {
+     "model_rmse": 4.8459,
+     "baseline_rmse": 5.8215,
+     "n": 22491
+    }
+   },
+   "calibration": null,
+   "notes": "Rain amounts are very skewed (many dry days), so a model that predicts the average is hard to beat; RMSE decides."
+  },
+  {
+   "id": "rf_amount",
+   "task": "amount",
+   "algo": "RandomForestRegressor",
+   "target": "rain amount (mm) on day t+1, all days",
+   "features": [
+    "rain_lag0",
+    "rain_lag1",
+    "rain_lag2",
+    "rain_sum_3",
+    "rain_sum_7",
+    "rain_sum_14",
+    "rain_sum_30",
+    "wet_days_7",
+    "wet_days_30",
+    "days_since_wet",
+    "doy_sin",
+    "doy_cos",
+    "lat",
+    "lon",
+    "elevation_m"
+   ],
+   "train": "1981-2012",
+   "valid": "2013-2018",
+   "test": "2019-2025",
+   "metrics": {
+    "mae": 3.8312,
+    "rmse": 8.3524,
+    "bias": -0.4496,
+    "n": 53697
+   },
+   "baseline": {
+    "name": "climatology",
+    "mae": 4.6134,
+    "rmse": 9.7437,
+    "bias": -1.9478
+   },
+   "baseline_persistence": {
+    "name": "persistence",
+    "rmse": 9.5299,
+    "mae": 4.4754,
+    "share_of_test_years_better": 1.0,
+    "model_beats_it": true
+   },
+   "share_of_test_years_better": 1.0,
+   "beats_baseline": true,
+   "by_cell": {
+    "10.0_80.0": {
+     "model_rmse": 6.1963,
+     "baseline_rmse": 7.556,
+     "n": 2557
+    },
+    "6.0_80.0": {
+     "model_rmse": 8.838,
+     "baseline_rmse": 9.8955,
+     "n": 2557
+    },
+    "6.0_80.625": {
+     "model_rmse": 8.0497,
+     "baseline_rmse": 9.7963,
+     "n": 2557
+    },
+    "6.0_81.25": {
+     "model_rmse": 9.7684,
+     "baseline_rmse": 11.3017,
+     "n": 2557
+    },
+    "6.5_80.0": {
+     "model_rmse": 9.3963,
+     "baseline_rmse": 10.6242,
+     "n": 2557
+    },
+    "6.5_80.625": {
+     "model_rmse": 7.2237,
+     "baseline_rmse": 8.8115,
+     "n": 2557
+    },
+    "6.5_81.25": {
+     "model_rmse": 8.8796,
+     "baseline_rmse": 10.3624,
+     "n": 2557
+    },
+    "6.5_81.875": {
+     "model_rmse": 9.0424,
+     "baseline_rmse": 9.9491,
+     "n": 2557
+    },
+    "7.0_80.0": {
+     "model_rmse": 7.8483,
+     "baseline_rmse": 9.2729,
+     "n": 2557
+    },
+    "7.0_80.625": {
+     "model_rmse": 7.1787,
+     "baseline_rmse": 8.7997,
+     "n": 2557
+    },
+    "7.0_81.875": {
+     "model_rmse": 8.1456,
+     "baseline_rmse": 9.0616,
+     "n": 2557
+    },
+    "7.5_80.625": {
+     "model_rmse": 7.7057,
+     "baseline_rmse": 9.3177,
+     "n": 2557
+    },
+    "7.5_81.875": {
+     "model_rmse": 9.5001,
+     "baseline_rmse": 10.5197,
+     "n": 2557
+    },
+    "8.0_80.0": {
+     "model_rmse": 6.6006,
+     "baseline_rmse": 7.8167,
+     "n": 2557
+    },
+    "8.0_80.625": {
+     "model_rmse": 8.1451,
+     "baseline_rmse": 9.6244,
+     "n": 2557
+    },
+    "8.0_81.25": {
+     "model_rmse": 12.0215,
+     "baseline_rmse": 13.7689,
+     "n": 2557
+    },
+    "8.5_80.0": {
+     "model_rmse": 6.2106,
+     "baseline_rmse": 7.5117,
+     "n": 2557
+    },
+    "8.5_80.625": {
+     "model_rmse": 7.5846,
+     "baseline_rmse": 9.0846,
+     "n": 2557
+    },
+    "8.5_81.25": {
+     "model_rmse": 9.6425,
+     "baseline_rmse": 11.2982,
+     "n": 2557
+    },
+    "9.0_80.0": {
+     "model_rmse": 6.7657,
+     "baseline_rmse": 8.1642,
+     "n": 2557
+    },
+    "9.0_81.25": {
+     "model_rmse": 8.2957,
+     "baseline_rmse": 9.9266,
+     "n": 2557
+    }
+   },
+   "by_season": {
+    "inter_1": {
+     "model_rmse": 6.2033,
+     "baseline_rmse": 6.9466,
+     "n": 8967
+    },
+    "inter_2": {
+     "model_rmse": 14.3579,
+     "baseline_rmse": 16.8963,
+     "n": 8967
+    },
+    "ne_monsoon": {
+     "model_rmse": 8.7618,
+     "baseline_rmse": 10.0597,
+     "n": 13272
+    },
+    "sw_monsoon": {
+     "model_rmse": 4.8706,
+     "baseline_rmse": 5.8215,
+     "n": 22491
+    }
+   },
+   "calibration": null,
+   "notes": "Rain amounts are very skewed (many dry days), so a model that predicts the average is hard to beat; RMSE decides."
+  }
+ ],
+ "limits": [
+  "Rain history is NASA POWER (MERRA-2 based, 0.5 x 0.625 degree squares of about 50 km): places in one square share the same history.",
+  "POWER rain before about 1997 looks too low at some places and the near-real-time days after 30 Sep 2026 are skipped; trends are not computed.",
+  "Models only see daily rain, season and position; they have no weather-model input, so for tomorrow the Open-Meteo forecast is expected to be better.",
+  "GPM IMERG is not used (no Earthdata token).",
+  "Hourly rain is never produced by these models: it comes only from the Open-Meteo hourly forecast (16 days)."
+ ],
+ "ml_estimates": {
+  "written": false,
+  "reason": "the newest rain value is from 2026-11-13, so the estimate would be for 2026-11-14, which is already in the past; an estimate is only written for today or a later day"
+ },
+ "squares_used": [
+  "10.0_80.0",
+  "6.0_80.0",
+  "6.0_80.625",
+  "6.0_81.25",
+  "6.5_80.0",
+  "6.5_80.625",
+  "6.5_81.25",
+  "6.5_81.875",
+  "7.0_80.0",
+  "7.0_80.625",
+  "7.0_81.875",
+  "7.5_80.625",
+  "7.5_81.875",
+  "8.0_80.0",
+  "8.0_80.625",
+  "8.0_81.25",
+  "8.5_80.0",
+  "8.5_80.625",
+  "8.5_81.25",
+  "9.0_80.0",
+  "9.0_81.25"
+ ],
+ "squares_missing": [
+  "7.0_81.25",
+  "7.5_81.25",
+  "9.5_80.0"
+ ],
+ "rows": {
+  "train": 244818,
+  "valid": 46011,
+  "test": 53697
+ },
+ "data_period": "1981-2025",
+ "any_model_beats_baseline": true,
+ "models_beat_baselines": true
+}

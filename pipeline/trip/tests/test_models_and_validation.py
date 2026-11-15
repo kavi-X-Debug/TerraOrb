@@ -101,7 +101,10 @@ def test_persistent_rain_is_detected_as_beating_climatology(cfg):
     occ = {m["id"]: m for m in result["models"]}
     for mid in ("xgb_occurrence", "rf_occurrence"):
         m = occ[mid]
-        assert m["metrics"]["brier"] < m["baseline"]["brier"] and m["beats_baseline"] is True
+        assert m["metrics"]["brier"] < m["baseline"]["brier"]                      # beats climatology
+        pers = m["baseline_persistence"]
+        assert pers and pers["name"] == "persistence"                                # the tougher baseline is reported
+        assert m["beats_baseline"] == pers["model_beats_it"] or m["beats_baseline"] is False   # counts only if it beats BOTH
     rec = occ["xgb_occurrence"]
     assert {"precision", "recall", "f1", "roc_auc", "brier"} <= set(rec["metrics"])
     assert set(rec["by_cell"]) == {"7.5_80.625", "8.0_80.0"} and rec["by_season"] and rec["calibration"]

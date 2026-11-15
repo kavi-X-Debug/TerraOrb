@@ -21,11 +21,11 @@ class LlmProvider(Provider):
         self.url = url
         self._client = client or httpx.Client(timeout=timeout)
 
-    def rephrase(self, message, lang, facts):
+    def rephrase(self, message, lang, facts, mode="trip"):
         body = {
             "model": self.model,
             "max_tokens": 500,
-            "system": grounding.system_prompt(lang),
+            "system": grounding.system_prompt(lang, mode),
             "messages": [{"role": "user", "content": grounding.user_content(message, facts)}],
         }
         headers = {"x-api-key": self._key, "anthropic-version": VERSION, "content-type": "application/json"}

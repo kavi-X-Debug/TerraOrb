@@ -1,4 +1,4 @@
-# Monsoon Compass — validation report
+# TerraOrb — validation report
 
 Generated 2026-10-26T02:01:36+05:30 by `pipeline/validate.py`. All numbers: `data/validation.json`.
 

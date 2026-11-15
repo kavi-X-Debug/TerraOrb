@@ -14,7 +14,7 @@
   "_onset_note": "Which season's onset delay the rules use: the latest season in rain.seasons (the last finished Yala or Maha). rain.py does not yet report an onset for the season in progress.",
   "onset_from": "latest_season",
 
-  "_learn_note": "Learn Mode (web app) replays these real past seasons. 'Before' = the tank in pre_month vs its normal, and the previous season's rain. 'After' = the tank over the season's months vs normal, and the season's actual rain. The same signal rules give what Monsoon Compass would have said, and the choice that would have fitted in hindsight. Seasons without water or rain data are skipped.",
+  "_learn_note": "Learn Mode (web app) replays these real past seasons. 'Before' = the tank in pre_month vs its normal, and the previous season's rain. 'After' = the tank over the season's months vs normal, and the season's actual rain. The same signal rules give what TerraOrb would have said, and the choice that would have fitted in hindsight. Seasons without water or rain data are skipped.",
   "learn": {
     "seasons": ["Yala 2017", "Yala 2019", "Yala 2023", "Yala 2024"],
     "pre_month": { "Yala": "03", "Maha": "09" },

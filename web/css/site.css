@@ -1,4 +1,4 @@
-/* Monsoon Compass — website layer
+/* TerraOrb — website layer
    Loaded after style.css. It turns the phone-app layout (fixed bars, full-screen panels, 360 px column)
    into a normal website: header with menu, hero, a wide centred page, and a footer.
    Still responsive: everything below 900 px stacks into one column. */
@@ -114,3 +114,8 @@ body { background: var(--bg); }
 .footer-bottom-inner { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 24px; padding-top: 16px; padding-bottom: 20px; font-size: .88rem; color: #CFC8AE; }
 
 @media (min-width: 700px) { .footer-bottom-inner { padding-right: 210px; } }
+
+/* country-level NASA cards (officer dashboard, research page) */
+.nat-wrap { margin-top: 28px; display: grid; gap: 16px; }
+.nat-h { font-size: 1.5rem; }
+.nat-map { height: 380px; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0, 0, 0, .15); }

@@ -192,7 +192,7 @@
  "tripd.ex.head.why": "How the rain information works",
  "tripd.ex.intensity": "Rain per hour: light rain from {light} mm, moderate from {moderate} mm, heavy from {heavy} mm, very heavy above {vheavy} mm. A whole day is shown as a total in mm, not as one of these words.",
  "tripd.ex.sources": "Rain forecasts come from Open-Meteo for the next {days} days (not NASA data). Past-year tendencies come from NASA POWER, 1981 to 2025. Seasonal outlooks, where shown, are from Open-Meteo (not NASA).",
- "tripd.ex.imerg": "GPM IMERG satellite rain is not used yet.",
+ "tripd.ex.imerg": "GPM IMERG satellite rain is never shown as a forecast. Whether it is used to check or train the rain models is listed under Settings, with the comparison against NASA POWER.",
  "tripd.ex.tendency": "A forecast is only possible for the next {days} days. Beyond that I only show a historical tendency: how often it rained (at least {wet} mm) around that calendar date in past years. It says what is usual, not what will happen.",
  "tripd.ex.score": "The planning score (0 to 100) mixes weather {w}%, activity fit {a}%, your preferences {p}% and environment {e}%. The weights can be changed in Settings.",
  "tripd.ex.ml_unknown": "I cannot read the model information right now, so no machine-learning estimate is shown.",

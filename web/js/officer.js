@@ -6,8 +6,11 @@
 //   - a CSV download of the rows on screen and a printable report
 // Every number comes from the saved tank files (the pipeline's work) except the "next 6 hours" column, which is a live weather
 // forecast from Open-Meteo (NOT NASA data). A missing number is shown as a dash, never guessed. Tap a tank for its full advice.
+import { mountNational } from "./national.js";
 import { t, getLang } from "./i18n.js";
 import { api, ApiError } from "./farm/api.js";
+import { mountHome } from "./home.js";
+import { mountGuide } from "./guide.js";
 import { renderLogin } from "./farm/auth.js";
 import { escapeHtml, signalIcon, signalKey, tankName, num, date, localToday } from "./ui.js";
 
@@ -121,6 +124,7 @@ async function renderDashboard(state, parts, view) {
       </div>
       <section class="of-report" id="of-report" aria-live="polite"></section>
     </div>`;
+  mountNational(view.querySelector(".panel-body, .of-wrap") || view);      // NASA fires, groundwater and the flood/cloud map
 
   const draw = () => {
     const rows = tanks.map((x) => rowOf(x));
@@ -156,7 +160,7 @@ async function renderDashboard(state, parts, view) {
       const blob = new Blob([toCsv(shown)], { type: "text/csv;charset=utf-8" });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(blob);
-      a.download = `monsoon-compass-tanks-${localToday()}.csv`;
+      a.download = `terraorb-tanks-${localToday()}.csv`;
       a.click();
       setTimeout(() => URL.revokeObjectURL(a.href), 4000);
     };
@@ -194,9 +198,18 @@ export async function renderOfficer(state, parts, view) {
     p.textContent = t(key);
     view.prepend(p);
   };
+  // signed out (or not an officer): the home page = what the dashboard offers, then the sign-in form
+  const withHome = () => {
+    const top = document.createElement("div"), bottom = document.createElement("div");
+    view.prepend(top); view.append(bottom);
+    mountHome(top, "officer", { hero: true, heading: false, cards: false, why: false });
+    mountHome(bottom, "officer", { hero: false, heading: true, cards: true, why: true });
+    const guide = document.createElement("div"); view.append(guide); mountGuide(guide, "officer");      // detailed how-to guide
+  };
   if (!api.isLoggedIn()) {
     renderLogin(ctx, again);
     note("of.signin.lead", false);
+    withHome();
     return;
   }
   try {
@@ -207,7 +220,7 @@ export async function renderOfficer(state, parts, view) {
       note("of.signin.not_officer", true);
       return;
     }
-    if (err instanceof ApiError && err.status === 401) { renderLogin(ctx, again); note("of.signin.lead", false); return; }
+    if (err instanceof ApiError && err.status === 401) { renderLogin(ctx, again); note("of.signin.lead", false); withHome(); return; }
     view.innerHTML = "";
     note("of.signin.offline", true);                                // the sign-in service cannot be reached: stay closed
     return;

@@ -21,13 +21,14 @@ Re-run `--only power` (and then `history,ml`) to fill in squares that did not an
 """
 
 import argparse
+import json
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from pipeline.trip import common  # noqa: E402
 
-STEPS = ["config", "destinations", "power", "history", "forecast", "env", "ml", "validate"]
+STEPS = ["config", "destinations", "power", "history", "forecast", "env", "ml", "imerg", "validate"]
 LIMITS = [
     "Rain history is NASA POWER (MERRA-2 based, 0.5 x 0.625 degree squares of about 50 km): places in one square share the same history.",
     "POWER rain before about 1997 looks too low at some places and the near-real-time days after 30 Sep 2026 are skipped; trends are not computed.",
@@ -217,6 +218,82 @@ def step_ml(cfg, args):
     print(f"  wrote model_metadata.json; ml_estimates.json written: {estimates is not None} ({reason})")
 
 
+def step_imerg(cfg, args):
+    """GPM IMERG: compare with NASA POWER, then (only with the days already downloaded by
+    `python -m pipeline.trip.download.gpm_imerg`) train IMERG-based models and write the honest result into model_metadata.json."""
+    from pipeline.trip.download import gpm_imerg, nasa_power
+    from pipeline.trip.models import predict, train
+    from pipeline.trip.processing import spatial_processing as sp
+    from pipeline.trip.validation import imerg_compare as ic
+    import requests
+    import pandas as pd
+    meta_path = common.DATA_TRIP / "model_metadata.json"
+    if not meta_path.exists():
+        print("  model_metadata.json is missing: run the 'ml' step first")
+        return
+    doc = json.loads(meta_path.read_text(encoding="utf-8"))
+    days = len(list(gpm_imerg.CACHE.glob("2*.npy"))) if gpm_imerg.CACHE.exists() else 0
+    if days < ic.MIN_DAYS:
+        doc["imerg"] = gpm_imerg.status()
+        common.write_json("model_metadata.json", doc, indent=1)
+        print(f"  only {days} IMERG days cached: nothing to compare (download with: python -m pipeline.trip.download.gpm_imerg)")
+        return
+    ml = cfg["trip"]["ml"]
+    dests = read_destinations()
+    keys = sorted({d["cell"] for d in dests})
+    have, _missing = load_squares(cfg, keys)
+    have = {k: df for k, df in have.items() if df["PRECTOTCORR"].notna().mean() >= 0.9}
+    centres = {k: nasa_power.split_key(k) for k in have}
+    frames, per_square = {}, {}
+    for k in sorted(have):
+        ser = ic.square_series(*centres[k])
+        if len(ser) < ic.MIN_DAYS:
+            continue
+        frames[k] = pd.DataFrame({"PRECTOTCORR": ser.asfreq("D")})            # a missing day stays missing (NaN), never filled
+        per_square[k] = ic.compare(have[k]["PRECTOTCORR"], ser, cfg["trip"]["wet_day_mm"])
+    text, usable = ic.verdict(per_square)
+    print("  " + text)
+    comparison = {"per_square": per_square, "verdict": text, "usable_as_independent_rain_source": usable,
+                  "thresholds_are_drafts": True, "days_cached": days, "squares": sorted(per_square)}
+    doc_cmp = common.header("imerg", "NASA GPM IMERG V07 daily (Late run) versus NASA POWER daily rain, averaged over each POWER square")
+    doc_cmp.update(comparison)
+    common.write_json("imerg_comparison.json", doc_cmp, indent=1)
+    imerg_block = {"used": False, "days_cached": days, "role": None, "comparison_file": "imerg_comparison.json", "verdict": text}
+    if not usable or len(frames) < ml["min_cells"]:
+        imerg_block["reason"] = "IMERG does not agree well enough with NASA POWER (or too few squares), so it is not used"
+        doc["imerg"] = imerg_block
+        common.write_json("model_metadata.json", doc, indent=1)
+        return
+    session = requests.Session()
+    elevations = {k: sp.elevation_and_slope(centres[k][0], centres[k][1], cfg, session)[0] for k in frames}
+    result, trained = train.run(frames, {k: centres[k] for k in frames}, elevations, cfg)
+    if result is None:
+        imerg_block["reason"] = "too few squares to train"
+        doc["imerg"] = imerg_block
+        common.write_json("model_metadata.json", doc, indent=1)
+        return
+    estimates, reason = predict.build_estimates(trained, result, frames, {k: centres[k] for k in frames}, elevations, dests, cfg)
+    est_path = common.DATA_TRIP / "ml_estimates.json"
+    if estimates:
+        body = common.header("models", "ML estimate trained and fed with NASA GPM IMERG rain; beats BOTH the climatology and the persistence baselines on held-out years")
+        body.update(estimates)
+        body["input_source"] = "NASA GPM IMERG V07 (daily, Late run)"
+        common.write_json("ml_estimates.json", body)
+    elif est_path.exists():
+        est_path.unlink()
+    imerg_block.update({"used": True, "role": "an independent rain record used to train and test a second set of models (data_pipeline, not shown as a forecast)",
+                        "models": result["models"], "rows": result["rows"], "squares_used": result["squares"],
+                        "ml_estimates": {"written": estimates is not None, "reason": reason},
+                        "any_model_beats_both_baselines": any(m["beats_baseline"] for m in result["models"]),
+                        "period": f"{min(f.index.min() for f in frames.values()).date()} to {max(f.index.max() for f in frames.values()).date()}"})
+    doc["imerg"] = imerg_block
+    doc["ml_available"] = estimates is not None                   # true only while a current estimate exists
+    doc["models_beat_baselines"] = imerg_block["any_model_beats_both_baselines"]
+    doc["ml_estimates"] = imerg_block["ml_estimates"]                        # the latest reason (written or not) is what the web app shows
+    common.write_json("model_metadata.json", doc, indent=1)
+    print(f"  IMERG models: beat both baselines: {imerg_block['any_model_beats_both_baselines']}; ml_estimates.json written: {estimates is not None} ({reason})")
+
+
 def step_validate(cfg, args):
     from pipeline.trip.validation import validate_data
     problems = validate_data.validate_all()
@@ -225,7 +302,7 @@ def step_validate(cfg, args):
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description="Monsoon Compass trip planner data pipeline.")
+    parser = argparse.ArgumentParser(description="TerraOrb trip planner data pipeline.")
     parser.add_argument("--only", help="comma-separated steps: " + ", ".join(STEPS))
     parser.add_argument("--skip-download", action="store_true", help="use caches and existing files only; no internet")
     args = parser.parse_args(argv)

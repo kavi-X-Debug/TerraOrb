@@ -235,7 +235,7 @@ export async function renderPlanner(state, parts, view) {
         description: `${v ? t(`pl.v.${v.cls}`) : ""} ${t("pl.share.foot")}`, url: location.href });
       const a = document.createElement("a");
       a.href = URL.createObjectURL(new Blob([text], { type: "text/calendar" }));
-      a.download = `monsoon-compass-${cur.day}.ics`;
+      a.download = `terraorb-${cur.day}.ics`;
       a.click(); URL.revokeObjectURL(a.href);
     });
     results.querySelector("#pl-print")?.addEventListener("click", () => window.print());

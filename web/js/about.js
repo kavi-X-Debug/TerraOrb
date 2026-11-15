@@ -69,7 +69,6 @@ function datasetsBlock(measuredCount) {
     <h2 class="reveal" id="how-data-title">${escapeHtml(t("how.data.title"))}</h2>
     <p class="how-lead reveal">${escapeHtml(t("how.data.lead"))}</p>
     <div class="how-cards">${cards}</div>
-    <p class="how-lead reveal"><a class="action" href="#/data-sources">${escapeHtml(t("dsp.title"))}</a></p>
   </section>`;
 }
 

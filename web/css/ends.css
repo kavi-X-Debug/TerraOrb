@@ -26,3 +26,6 @@ body.landing .site-footer { margin-top: 0; }
 body:not([data-end="farmer"]) .hero, body:not([data-end="farmer"]) .map-view { display: none !important; }
 /* Simple / Advanced only matters where there are tank pages */
 body[data-end="learn"] .mode-bar, body[data-end="research"] .mode-bar, body[data-end="plan"] .mode-bar { display: none; }
+
+/* the TerraOrb logo tile in every header */
+.brand .logo-mark { border-radius: 8px; }

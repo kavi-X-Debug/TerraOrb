@@ -112,7 +112,13 @@ function modelsCard(ctx) {
   const card = h("section", { class: "tp-card tb-card-plain", "aria-labelledby": "tb-h-models" }, h("h2", { id: "tb-h-models", text: t("tripb.model.title") }));
   if (!m) { card.append(h("p", { class: "tb-sub", text: t("tripb.model.missing") }), h("p", { text: t("tripb.model.imerg_unknown") })); return card; }
   const list = h("dl", { class: "tb-facts" });
-  list.append(h("div", {}, h("dt", { text: t("tripb.model.ml") }), h("dd", { text: t(m.ml_available ? "tripb.model.ml_yes" : "tripb.model.ml_no") })),
+  // Why no ML estimate: either no model beat both baselines, or one did but no estimate could be made (e.g. the newest rain data is too old).
+  const beat = m.models_beat_baselines ?? m.any_model_beats_baseline;
+  const why = m.ml_estimates && m.ml_estimates.reason;
+  const mlText = m.ml_available ? t("tripb.model.ml_yes")
+    : !beat ? t("tripb.model.ml_no_beat")
+      : why ? t("tripb.model.ml_no_other", { reason: why }) : t("tripb.model.ml_no_other_unknown");
+  list.append(h("div", {}, h("dt", { text: t("tripb.model.ml") }), h("dd", { text: mlText })),
     h("div", {}, h("dt", { text: t("tripb.model.imerg") }), h("dd", { text: m.imerg && m.imerg.used ? t("tripb.model.imerg_used") : t("tripb.model.imerg_not", { reason: m.imerg?.reason || t("tripb.na") }) })));
   card.append(list);
   const rows = (m.models || []).map((x) => h("tr", {}, h("th", { scope: "row", text: x.id }), h("td", { text: x.task || "–" }), h("td", { text: x.algo || "–" }),

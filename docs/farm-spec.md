@@ -1,6 +1,6 @@
 # Farm planner: shared contract (read this before touching `backend/` or `web/js/farm/`)
 
-This is the agreed design for the **farm-planning end** of Monsoon Compass, built from the product owner's two documents
+This is the agreed design for the **farm-planning end** of TerraOrb, built from the product owner's two documents
 ("NASA functionalities", functions F1 to F30, and "Steps", phases 0 to 9). Every agent builds against this contract so the pieces fit.
 
 ## 0. Decisions already made
@@ -104,7 +104,7 @@ The reply is the stored farm with `id`, `plot_source` (`"drawn"` or `"circle"`),
 Static JSON, keyed by NASA POWER grid cell (same cells as `pipeline/rain.py`: 0.5 deg tall, 0.625 deg wide, key `"<lat>_<lon>"` of the cell centre):
 `climate_monthly` (rain, ET0 by FAO-56 Penman-Monteith from POWER variables with Hargreaves as fallback, water balance = rain minus ET0: mean and standard deviation over 10 or more years),
 `onset_by_year` (rain onset day per year, plus earliest / median / latest), `dry_spell_by_year` (longest run of days under 1 mm per season),
-`ndvi_series` and `bare_calendar` (share of years each month stayed under the bare threshold), `sm_anomaly` only if SMAP data can be fetched (otherwise the file says `"available": false` with the reason).
+`ndvi_series` and `bare_calendar` (share of years each month stayed under the bare threshold), `sm_anomaly` from NASA GLDAS-2.1 Noah monthly soil moisture (`data/farm/soil_moisture.json`, a NASA model product, not SMAP; otherwise `"available": false` with the reason).
 Every table has `source`, `period`, `resolution` (`"area-level, about 50 km"` and so on) and `demo` (false when real). The pipeline never invents values.
 The onset rule and thresholds in "Steps" (40 mm in a trailing 7 days, bare NDVI 0.2 to 0.3, dry z below minus 1 and minus 2) are **placeholders**: put them in `pipeline/config.toml` section `[farm]` and say so in the output.
 

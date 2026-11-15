@@ -13,3 +13,6 @@ pyproj>=3.6
 matplotlib>=3.8
 pytest>=8
 coverage>=7            # branch coverage: python -m coverage run --branch -m pytest pipeline/tests
+xgboost
+pillow
+scikit-learn

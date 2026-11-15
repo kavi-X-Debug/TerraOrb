@@ -80,4 +80,7 @@ def build_estimates(trained, metadata, cells_latest, centres, elevations, destin
         entry["based_on_rain_until"] = last.isoformat()
         dests[d["id"]] = entry
     for_date = (pd.Timestamp(newest) + pd.Timedelta(1, "D")).date().isoformat()
+    if for_date < today.isoformat():                       # the day after the newest rain has already passed: not a forecast any more
+        return None, (f"the newest rain value is from {newest}, so the estimate would be for {for_date}, which is already in the past; "
+                      "an estimate is only written for today or a later day")
     return {"ml_estimate": True, "for_date": for_date, "models": win, "destinations": dests}, "ok"

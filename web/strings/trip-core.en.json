@@ -1,16 +1,16 @@
 {
  "trip.nav.label": "Trip planner menu",
- "trip.nav.dashboard": "Dashboard",
- "trip.nav.explore": "Explore destinations",
- "trip.nav.rain": "Rainfall prediction",
- "trip.nav.compare": "Weather comparison",
- "trip.nav.dates": "Best travel dates",
- "trip.nav.suggest": "Smart suggestions",
+ "trip.nav.dashboard": "Home",
+ "trip.nav.explore": "Explore places",
+ "trip.nav.rain": "Will it rain?",
+ "trip.nav.compare": "Compare places",
+ "trip.nav.dates": "Best dates",
+ "trip.nav.suggest": "Where to go",
  "trip.nav.trips": "My trips",
- "trip.nav.copilot": "AI travel copilot",
- "trip.nav.packing": "Packing assistant",
+ "trip.nav.copilot": "Ask the copilot",
+ "trip.nav.packing": "Packing list",
  "trip.nav.settings": "Settings",
- "trip.nav.place": "Single place",
+ "trip.nav.place": "One place, any day",
  "trip.state.loading": "Loading...",
  "trip.state.error": "Something went wrong. Please try again.",
  "trip.state.retry": "Try again",
@@ -59,5 +59,6 @@
  "trip.kind.forest": "Forest",
  "trip.kind.coast": "Coast",
  "trip.disclaimer": "Weather guidance for planning, not a safety guarantee. Low forecast rain does not mean a place is safe: check local conditions.",
- "trip.score_note": "A planning score from 0 to 100, not a scientific safety index."
+ "trip.score_note": "A planning score from 0 to 100, not a scientific safety index.",
+ "trip.nav.more": "More"
 }
