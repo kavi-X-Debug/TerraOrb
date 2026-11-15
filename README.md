@@ -1,4 +1,4 @@
-# 🌍 TerraOrb (Monsoon Compass)
+# 🌍 TerraOrb 
 > **Your season's direction, read from space.**  
 > *Translating NASA Earth Observation data into timely, transparent agricultural decisions for Sri Lanka's Dry Zone farmer organisations.*
 
