@@ -8,7 +8,8 @@ const DEFAULT_BASE = "http://localhost:8000";
 const STATUS_MINUTES = 5;
 
 const ls = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
-export const apiBase = () => String((typeof window !== "undefined" && window.MC_API) || ls(API_KEY) || DEFAULT_BASE).replace(/\/+$/, "");
+// The chat helper can have its own address (window.MC_COPILOT_API, set in config.js when the site is hosted); otherwise the farm planner's.
+export const apiBase = () => String((typeof window !== "undefined" && (window.MC_COPILOT_API || window.MC_API)) || ls(API_KEY) || DEFAULT_BASE).replace(/\/+$/, "");
 
 let cached = null;           // { at, value }
 export function resetStatus() { cached = null; }

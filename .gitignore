@@ -26,3 +26,4 @@ _netrc
 .DS_Store
 Thumbs.db
 _site/
+_deploy/
