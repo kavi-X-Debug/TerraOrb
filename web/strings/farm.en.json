@@ -10,7 +10,7 @@
  "farm.state.locating": "Finding where you are...",
  "farm.err.title": "Something went wrong",
  "farm.err.offline_title": "The farm service is not reachable",
- "farm.err.offline": "We could not reach the farm service. Check your internet, or ask whoever runs it to start it.",
+ "farm.err.offline": "We could not reach the farm service. The farm planner and officer sign-in are not switched on in the online demo yet. If you run TerraOrb yourself, start the backend (backend\run.ps1) and check your internet.",
  "farm.err.start_hint": "On the computer that runs it, open the project folder and start it with this command:",
  "farm.err.address": "This page is looking for the service at: {url}",
  "farm.err.change_address": "Use a different address",

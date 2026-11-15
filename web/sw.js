@@ -8,7 +8,7 @@
 //   A response from the cache carries the header "x-mc-offline: 1" so the app can say so.
 // Map tiles are not cached (too many); offline, the map shows markers without imagery.
 
-const SHELL_CACHE = "mc-shell-v182";     // bump after a big UI change so it shows on the next visit
+const SHELL_CACHE = "mc-shell-v183";     // bump after a big UI change so it shows on the next visit
 const DATA_CACHE = "mc-data-v1";
 
 const SHELL_FILES = [

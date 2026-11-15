@@ -38,28 +38,36 @@ def main(cors):
     copy(ROOT / "data" / "farm", space / "data" / "farm")
     (space / "pipeline").mkdir(parents=True)
     shutil.copy(ROOT / "pipeline" / "config.toml", space / "pipeline" / "config.toml")
+    # A "Gradio" Space is used (the "Docker" choice can be locked on a new account): it runs app.py, and app.py starts the FastAPI backend
+    # on port 7860 itself, so no Gradio screen is shown. Environment settings come from this file's variables.
     (space / "README.md").write_text(f"""---
 title: TerraOrb API
-emoji: \U0001F327
+emoji: 🌧
 colorFrom: green
 colorTo: blue
-sdk: docker
-app_port: 7860
+sdk: gradio
+sdk_version: 5.49.1
+python_version: 3.12
+app_file: app.py
 pinned: false
 ---
 
 Farm planner backend of TerraOrb (FastAPI + SQLite). Not a public product: it serves the TerraOrb website at {cors}.
 Farm and officer sign-in needs an SMS service that is not built yet, so sign-in is switched off here (no MC_DEV).
 """, encoding="utf-8")
-    (space / "Dockerfile").write_text(f"""FROM python:3.12-slim
-RUN useradd -m -u 1000 user
-USER user
-ENV PATH=/home/user/.local/bin:$PATH MC_DB=/tmp/terraorb.db MC_CORS={cors} PYTHONUNBUFFERED=1
-WORKDIR /home/user/app
-RUN pip install --no-cache-dir fastapi uvicorn pydantic httpx numpy
-COPY --chown=user . .
-EXPOSE 7860
-CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "7860"]
+    (space / "requirements.txt").write_text("\n".join(["fastapi", "uvicorn", "pydantic", "httpx", "numpy"]) + "\n", encoding="utf-8")
+    (space / "app.py").write_text(f"""# Starts the TerraOrb farm planner backend (FastAPI) on the port Hugging Face expects.
+import os
+
+os.environ.setdefault("MC_DB", "/tmp/terraorb.db")           # the free disk is reset on restart; sign-in is off anyway
+os.environ.setdefault("MC_CORS", "{cors}")
+
+import uvicorn
+
+from backend.app.main import app
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", "7860")))
 """, encoding="utf-8")
     zpath = OUT / "hf-space.zip"
     with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
