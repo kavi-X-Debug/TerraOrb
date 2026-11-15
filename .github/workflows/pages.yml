@@ -10,10 +10,10 @@
 
 name: Publish site
 
+# NOTE (15 Nov 2026): TerraOrb is hosted on Cloudflare Pages (docs/deploy.md, deploy/make_deploy.py), and GitHub Pages is not
+# available for a private repository on a free account, so this workflow no longer runs on every push (it failed with "Pages site not
+# found") and its job only runs when the repository variable USE_GITHUB_PAGES is set to true (Settings > Secrets and variables > Actions > Variables).
 on:
-  push:
-    branches: [main]
-    paths: ["web/**", "data/**", "index.html", ".github/workflows/pages.yml"]
   workflow_dispatch:
   workflow_call:          # used by refresh.yml
 
@@ -28,6 +28,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ vars.USE_GITHUB_PAGES == 'true' }}
     runs-on: ubuntu-latest
     environment:
       name: github-pages
